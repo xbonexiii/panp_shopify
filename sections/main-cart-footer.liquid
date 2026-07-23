@@ -28,9 +28,6 @@
     margin-inline: auto;
   }
 
-  #delivery-datetime--isRender .delivery-title.title-border {
-    display: none;
-  }
 {%- endstyle -%}
 
 <div
@@ -135,6 +132,56 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const deliveryRootSelector = '#delivery-datetime--isRender';
+
+    function replaceDeliveryAppCopy() {
+      const deliveryRoot = document.querySelector(deliveryRootSelector);
+      if (!deliveryRoot) return;
+
+      const heading = deliveryRoot.querySelector('.delivery-title.title-border');
+      if (heading && heading.textContent.trim() !== 'お届け先の') {
+        heading.textContent = 'お届け先の';
+      }
+
+      const postcodeInput = deliveryRoot.querySelector('input[type="tel"]');
+      if (
+        postcodeInput &&
+        postcodeInput.getAttribute('placeholder') !== '例: 1234567（「-」は除く、数字7桁）'
+      ) {
+        postcodeInput.setAttribute('placeholder', '例: 1234567（「-」は除く、数字7桁）');
+      }
+
+      const errorMessages = deliveryRoot.querySelectorAll('.icon-text');
+      errorMessages.forEach(function (message) {
+        if (message.textContent.trim() !== '郵便番号は7桁で入力してください') return;
+
+        const textNode = Array.from(message.childNodes).find(function (node) {
+          return node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '';
+        });
+
+        if (textNode) {
+          textNode.textContent = '「-」は除いて、数字7桁でご入力ください。';
+        } else {
+          message.appendChild(document.createTextNode('「-」は除いて、数字7桁でご入力ください。'));
+        }
+      });
+    }
+
+    replaceDeliveryAppCopy();
+
+    const deliveryAppObserver = new MutationObserver(replaceDeliveryAppCopy);
+    const cartBlocks = document.querySelector('.cart__blocks');
+    if (!cartBlocks) return;
+
+    deliveryAppObserver.observe(cartBlocks, {
+      childList: true,
+      subtree: true,
+    });
+  });
+</script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
