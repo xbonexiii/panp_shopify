@@ -15,6 +15,22 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .bestrate-text,
+  .bestrate-image {
+    text-align: center;
+  }
+
+  .bestrate-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  #delivery-datetime--isRender .delivery-title.title-border {
+    display: none;
+  }
 {%- endstyle -%}
 
 <div
@@ -101,7 +117,7 @@
                 <small>翌日出荷／1年保証<br>どんな理由でも返品OK</small>
               </div>
               <div class="bestrate-image">
-                <img src="{{ 'bestrate_white.jpg' | file_img_url: 'master' }}" alt="bestrate" width="300" height="76"style="box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.08);">
+                <img src="{{ 'bestrate_white_02.jpg' | file_img_url: 'master' }}" alt="bestrate" width="300" height="76"style="box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.08);">
               </div>
 
               {%- comment -%}
