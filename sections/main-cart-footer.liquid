@@ -28,6 +28,10 @@
     margin-inline: auto;
   }
 
+  #delivery-datetime--isRender .delivery-title.title-border {
+    display: none;
+  }
+
 {%- endstyle -%}
 
 <div
@@ -141,9 +145,11 @@
       const deliveryRoot = document.querySelector(deliveryRootSelector);
       if (!deliveryRoot) return;
 
-      const heading = deliveryRoot.querySelector('.delivery-title.title-border');
-      if (heading && heading.textContent.trim() !== 'お届け先の') {
-        heading.textContent = 'お届け先の';
+      const postcodeLabel = Array.from(deliveryRoot.querySelectorAll('.delivery-title')).find(function (label) {
+        return label.textContent.includes('郵便番号');
+      });
+      if (postcodeLabel && postcodeLabel.textContent.trim() !== 'お届け先の郵便番号') {
+        postcodeLabel.textContent = 'お届け先の郵便番号';
       }
 
       const postcodeInput = deliveryRoot.querySelector('input[type="tel"]');
