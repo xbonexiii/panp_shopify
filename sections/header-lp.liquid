@@ -1,0 +1,109 @@
+<!-- sections/header-lp.liquid -->
+<section class="lp-header-section" data-section-id="{{ section.id }}" data-section-type="header-lp">
+  
+  <header class="lp-header">
+    <div class="lp-header__wrapper">
+      <!-- ロゴ部分 -->
+      <div class="lp-header__logo">
+        <a href="{{ routes.root_url }}">
+          {% if section.settings.lp_logo %}
+            <img src="{{ section.settings.lp_logo | image_url: width: 200 }}" alt="{{ shop.name }}" class="lp-header__logo-image" loading="lazy" />
+          {% elsif settings.logo != blank %}
+            {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+            {%- assign logo_width = settings.logo_width | default: 200 -%}
+            {% if settings.logo.aspect_ratio %}
+              {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+            {% else %}
+              {%- assign logo_height = 40 -%}
+            {% endif %}
+            {% capture sizes %}(max-width: {{ logo_width | times: 2 }}px) 50vw, {{ logo_width }}px{% endcapture %}
+            {% capture widths %}{{ logo_width }}, {{ logo_width | times: 1.5 | round }}, {{ logo_width | times: 2 }}{% endcapture %}
+            {{ settings.logo | image_url: width: 600 | image_tag: class: 'lp-header__logo-image', widths: widths, height: logo_height, width: logo_width, alt: logo_alt, sizes: sizes, preload: true }}
+          {% else %}
+            <span>{{ shop.name }}</span>
+          {% endif %}
+        </a>
+      </div>
+
+<!-- 購入ボタン -->
+<div class="lp-header__purchase">
+  {% if section.settings.purchase_product != blank %}
+    {% assign product_handle = section.settings.purchase_product %}
+    {% assign product_obj = all_products[product_handle] %}
+    {% if product_obj and product_obj.selected_or_first_available_variant %}
+      {% assign variant_id = product_obj.selected_or_first_available_variant.id %}
+      <a href="#" class="btn btn--primary" id="lp-add-to-cart" data-variant-id="{{ variant_id }}">
+        {{ section.settings.purchase_text }}
+      </a>
+    {% else %}
+      <a href="/products/{{ product_handle }}" class="btn btn--primary">
+        {{ section.settings.purchase_text }}
+      </a>
+    {% endif %}
+  {% else %}
+    <a href="/cart" class="btn btn--primary">
+      {{ section.settings.purchase_text }}
+    </a>
+  {% endif %}
+</div>
+
+    </div>
+    
+  </header>
+
+  
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const addToCartBtn = document.getElementById('lp-add-to-cart');
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const variantId = this.dataset.variantId;
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: variantId, quantity: 1 })
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = '/cart';
+          } else {
+            alert('カートへの追加に失敗しました');
+          }
+        });
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "LP Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "lp_logo",
+      "label": "ロゴ画像 (未設定の場合はテーマ設定のロゴを使用)"
+    },
+    {
+      "type": "product",
+      "id": "purchase_product",
+      "label": "購入対象の商品"
+    },
+    {
+      "type": "text",
+      "id": "purchase_text",
+      "label": "購入ボタンのテキスト",
+      "default": "購入する"
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Header",
+      "category": "section"
+    }
+  ]
+}
+{% endschema %}

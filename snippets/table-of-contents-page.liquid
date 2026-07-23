@@ -1,0 +1,286 @@
+<style>
+  /* レイアウト */
+  .page-width {
+    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+  }
+  .two-columns-layout {
+    display: flex;
+    gap: 0px;
+  }
+  .rte {
+    flex: 1;
+  }
+
+  /* 目次ラッパー */
+  .table-of-contents-wrapper {
+    position: sticky;
+    top: 110px;
+    width: 300px;
+    padding-top: 20px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    background: #fff;
+    transition: left 0.3s ease;
+  }
+  .table-of-contents-wrapper.open {
+    left: 0;
+  }
+
+  /* 目次本体 */
+  .table-of-contents {
+    padding: 10px;
+  }
+  .table-of-contents__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .table-of-contents__item {
+    margin-bottom: 0.5em;
+  }
+  .table-of-contents__link {
+    display: block;
+    padding: 0.5em;
+    border-left: 4px solid transparent;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+  }
+  .table-of-contents__link:hover {
+    border-left: 4px solid #0171e3;
+    opacity: 0.8;
+  }
+  .table-of-contents__link.is-active {
+    border-left: 4px solid #0171e3;
+    font-weight: bold;
+  }
+
+  /* ハンバーガーボタン */
+  .toc-toggle {
+    display: none;
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: top 0.1s ease;
+  }
+  .toc-toggle .toc-toggle-icon {
+    margin-right: 8px;
+    padding: 6px;
+    text-align: left;
+    vertical-align: middle;
+    padding-bottom: 9px;
+  }
+  .toc-toggle #activeTocLabel {
+    font-size: 15px;
+    text-align: left;
+    vertical-align: middle;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 989px) {
+    .page-width {
+      padding: 0 10px;
+    }
+    .table-of-contents-wrapper {
+      width: 250px;
+      padding: 0;
+    }
+  }
+  /* スマホ用 */
+  @media screen and (max-width: 768px) {
+    .two-columns-product-desc {
+      flex-direction: column;
+    }
+
+    /* TOCラッパーを右外に隠す */
+    .table-of-contents-wrapper {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      height: 100vh;
+      width: 250px;
+      max-height: none;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding-top: 70px;
+    }
+    .toc-toggle {
+      display: flex;
+      align-items: center;
+    }
+  }
+</style>
+
+<!-- 目次ラッパー -->
+<div class="table-of-contents-wrapper" id="tocWrapper">
+  <div class="table-of-contents" id="tableOfContents">
+    <nav class="table-of-contents__nav">
+      <ul class="table-of-contents__list">
+        <!-- JavaScriptで動的生成 -->
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<!-- （前略：CSS・HTMLはそのまま） -->
+
+<script>
+  class TableOfContents {
+    constructor() {
+      this.tocWrapper = document.getElementById('tocWrapper');
+      this.sections = Array.from(document.querySelectorAll('[data-index]'));
+      this.THROTTLE_MS = 100;
+      this.lastScroll = window.pageYOffset;
+      this.init();
+    }
+
+    init() {
+      // data-index がなければ目次もボタンも表示しない
+      if (this.sections.length === 0) {
+        this.tocWrapper.style.display = 'none';
+        return;
+      }
+
+      // ヘッダー高さ取得
+      this.updateHeaderHeight();
+      window.addEventListener(
+        'resize',
+        this.throttle(() => this.updateHeaderHeight(), this.THROTTLE_MS)
+      );
+
+      this.insertToggleButton();
+      this.assignIds();
+      this.createTocItems();
+      this.onScrollSpy();
+
+      window.addEventListener(
+        'scroll',
+        this.throttle(() => {
+          this.onScrollSpy();
+        }, this.THROTTLE_MS)
+      );
+
+      document.addEventListener('click', (e) => {
+        if (!this.tocWrapper.classList.contains('open')) return;
+        if (this.tocWrapper.contains(e.target) || this.toggleBtn.contains(e.target)) return;
+        this.tocWrapper.classList.remove('open');
+      });
+    }
+
+    updateHeaderHeight() {
+      const headerEl = document.querySelector('.lp-header');
+      this.HEADER_H = headerEl ? headerEl.getBoundingClientRect().height : 0;
+      if (this.toggleBtn) {
+        this.toggleBtn.style.top = `${this.HEADER_H}px`;
+      }
+    }
+
+    insertToggleButton() {
+      const btn = document.createElement('button');
+      btn.id = 'tocToggle';
+      btn.className = 'toc-toggle';
+      btn.setAttribute('aria-label', '目次を開く');
+      btn.innerHTML = '<span class="toc-toggle-icon">☰</span><span id="activeTocLabel"></span>';
+
+      const secs = document.querySelectorAll('.shopify-section');
+      (secs.length ? secs[secs.length - 1] : document.body).appendChild(btn);
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.tocWrapper.classList.toggle('open');
+      });
+
+      // 初期 top はヘッダー高さに合わせておく
+      btn.style.top = '70px';
+      this.toggleBtn = btn;
+    }
+
+    assignIds() {
+      this.sections.forEach((sec) => {
+        if (!sec.id) sec.id = `section-${Math.random().toString(36).substr(2, 9)}`;
+      });
+    }
+
+    createTocItems() {
+      const list = this.tocWrapper.querySelector('.table-of-contents__list');
+      this.sections.forEach((section, index) => {
+        const text = section.getAttribute('data-index'),
+          id = section.id;
+        const li = document.createElement('li');
+        li.className = 'table-of-contents__item';
+
+        const a = document.createElement('a');
+        a.href = `#${id}`;
+        a.className = 'table-of-contents__link';
+        a.textContent = text;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          // GTM経由でGA4に送信（最も確実な方法）
+          if (typeof dataLayer !== 'undefined') {
+            dataLayer.push({
+              event: 'toc_click',
+              toc_section_name: text,
+              toc_section_id: id,
+              toc_section_index: index + 1,
+              page_url: window.location.href,
+              page_title: document.title,
+            });
+          }
+
+          this.scrollToSection(section);
+        });
+
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    }
+
+    onScrollSpy() {
+      let closest = null,
+        minDist = Infinity;
+      this.sections.forEach((sec) => {
+        const dist = Math.abs(sec.getBoundingClientRect().top - this.HEADER_H);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = sec;
+        }
+      });
+      if (!closest) return;
+
+      document.getElementById('activeTocLabel').textContent = closest.getAttribute('data-index');
+      this.tocWrapper.querySelectorAll('.is-active').forEach((el) => el.classList.remove('is-active'));
+      const link = this.tocWrapper.querySelector(`a[href="#${closest.id}"]`);
+      if (link) link.classList.add('is-active');
+    }
+
+    scrollToSection(section) {
+      const top = section.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: top - this.HEADER_H, behavior: 'smooth' });
+    }
+
+    throttle(fn, wait) {
+      let lastTime = 0;
+      return (...args) => {
+        const now = Date.now();
+        if (now - lastTime >= wait) {
+          lastTime = now;
+          fn.apply(this, args);
+        }
+      };
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => new TableOfContents());
+</script>

@@ -1,0 +1,847 @@
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      color: #1d1d1f; font-size: 17px; line-height: 1.8;
+      overflow-x: hidden; background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    section { width: 100%; overflow: hidden; }
+
+    :root {
+      --green: #416923;
+      --green-light: #538a2d;
+      --dark: #1d1d1f;
+      --black: #000;
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+      --gray-bg: #f5f5f7;
+      --white: #fff;
+      --border: #d2d2d7;
+      --text-sub: #6e6e73;
+    }
+
+    /* Layout */
+    .container { max-width: 980px; margin: 0 auto; padding: 0 40px; }
+    .article-body { max-width: 720px; margin: 0 auto; padding: 0 40px; }
+    .sec-white { background: var(--white); padding: 100px 0; }
+    .sec-gray  { background: var(--gray-bg); padding: 100px 0; }
+    .sec-dark  { background: var(--dark); color: #fff; padding: 80px 0; text-align: center; }
+
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: flex-start;
+    }
+    .two-col--rev .col-img { order: -1; }
+    .col-img img { width: 100%; border-radius: 20px; aspect-ratio: 4/3; object-fit: cover; object-position: top; }
+
+    /* Typography */
+    .label {
+      display: block; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 16px;
+    }
+    h2.title {
+      font-size: clamp(26px, 3.5vw, 40px); font-weight: 700;
+      line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 24px;
+    }
+    .body-text { font-size: 17px; line-height: 1.9; color: var(--text-sub); }
+    .body-text p { margin-bottom: 1.4em; }
+    .body-text p:last-child { margin-bottom: 0; }
+    .body-text strong { color: var(--dark); font-weight: 700; }
+
+    /* Animations */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+    .slide-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .slide-up.visible { opacity: 1; transform: none; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 17px; font-weight: 700; padding: 18px 40px;
+      border-radius: 100px; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s; white-space: nowrap; text-decoration: none;
+    }
+    .btn-black { background: var(--blue); color: #fff; }
+    .btn-black:hover { background: var(--blue-hover); }
+    .btn-black:hover { background: #333; transform: scale(1.02); }
+    .btn-white { background: var(--blue); color: #fff; }
+    .btn-white:hover { background: var(--blue-hover); transform: scale(1.02); }
+
+    /* ── Hero ── */
+    #sec-hero {
+      position: relative; padding: 0; min-height: 100svh;
+      display: flex; align-items: flex-end;
+    }
+    .hero-bg { position: absolute; inset: 0; background: #000; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.75; }
+    .hero-content {
+      position: relative; z-index: 1; width: 100%;
+      padding: 80px 40px 100px;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 55%, transparent 100%);
+    }
+    .hero-inner { max-width: 700px; }
+    .hero-eyebrow {
+      display: inline-block; margin-bottom: 20px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      border-radius: 20px; padding: 6px 14px; font-size: 13px; color: rgba(255,255,255,.75);
+    }
+    .hero-h1 {
+      font-size: clamp(28px, 5vw, 56px); font-weight: 700; color: #fff;
+      line-height: 1.4; letter-spacing: 0.04em; margin-bottom: 20px;
+      font-feature-settings: "palt" 1;
+      hanging-punctuation: first last;
+    }
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 18px); color: rgba(255,255,255,0.85);
+      margin-bottom: 40px; line-height: 1.7; max-width: 480px;
+    }
+    .hero-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .hero-note { font-size: 13px; color: rgba(255,255,255,0.6); }
+    .scroll-hint {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 0.15em;
+      text-transform: uppercase; animation: bounce 2.2s infinite; z-index: 2;
+    }
+    .scroll-hint svg { width: 20px; height: 20px; }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); opacity:.5; }
+      50%      { transform: translateX(-50%) translateY(8px); opacity:.9; }
+    }
+
+    /* ── Story ── */
+    #sec-story { background: #fafaf8; padding: 100px 0; }
+    .story-inner { max-width: 660px; margin: 0 auto; padding: 0 24px; }
+    .story-opener {
+      font-size: clamp(26px, 4.5vw, 40px); font-weight: 700; line-height: 1.5;
+      letter-spacing: -0.01em; text-align: center; margin-bottom: 52px;
+    }
+    .art-p { font-size: 17px; line-height: 2; color: var(--dark); margin-bottom: 1.6em; }
+    .art-p:last-child { margin-bottom: 0; }
+    .art-accent { font-weight: 700; font-size: 19px; color: var(--green); }
+    .story-scene {
+      background: #fff; border-radius: 16px; padding: 32px 36px;
+      margin: 44px 0; box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      font-size: 18px; line-height: 2.1; color: #222; text-align: center;
+    }
+    .story-scene-note { font-size: 13px; color: #aaa; margin-top: 12px; display: block; }
+    .story-divider {
+      display: flex; align-items: center; gap: 16px; margin: 48px 0;
+    }
+    .story-divider::before, .story-divider::after {
+      content: ''; flex: 1; border-top: 1px solid var(--border);
+    }
+    .story-divider-dot { color: var(--green); font-size: 14px; letter-spacing: 6px; }
+    .quote-block {
+      border-left: 3px solid var(--green); padding: 8px 0 8px 24px;
+      margin: 36px 0; font-size: 17px; line-height: 2; color: #555;
+    }
+    .story-reveal {
+      text-align: center; margin: 44px 0 36px;
+      font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; line-height: 1.6;
+    }
+    .story-reveal-accent { color: var(--green); display: block; }
+    .story-promise {
+      text-align: center; font-size: 18px; font-weight: 700;
+      line-height: 1.8; color: var(--dark);
+      border-top: 1px solid var(--border); padding-top: 36px; margin-top: 44px;
+    }
+    @media (max-width: 768px) {
+      .story-scene { padding: 24px 24px; }
+    }
+
+    /* ── Bar Chart ── */
+    .bar-wrap { margin: 36px 0; }
+    .bar-row { margin-bottom: 20px; }
+    .bar-label {
+      font-size: 14px; font-weight: 600; color: var(--text-sub);
+      margin-bottom: 6px; display: flex; justify-content: space-between;
+    }
+    .bar-time { font-weight: 700; color: var(--dark); }
+    .bar-time.hl { color: var(--green); font-size: 16px; }
+    .bar-track { background: #e0e0e5; border-radius: 6px; height: 14px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 6px; background: #b5b5be; }
+    .bar-fill.hl { background: var(--green); }
+    .bar-callout {
+      margin-top: 24px; background: #eef5e8; border: 2px solid var(--green);
+      border-radius: 16px; padding: 24px; text-align: center;
+    }
+    .big-num { font-size: 56px; font-weight: 800; color: var(--green); line-height: 1; }
+    .big-unit { font-size: 28px; }
+    .big-note { font-size: 14px; color: var(--text-sub); margin-top: 4px; }
+    .cmp-img { margin-top: 48px; border-radius: 20px; overflow: hidden; max-width: 560px; }
+    .cmp-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+
+    /* ── Feature Cards ── */
+    .f-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 28px; }
+    .f-card { background: #fff; border-radius: 20px; padding: 28px 22px; box-shadow: 0 2px 16px rgba(0,0,0,.06); }
+    .f-icon {
+      width: 48px; height: 48px; background: #eef5e8; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+    }
+    .f-icon svg { width: 24px; height: 24px; stroke: var(--green); }
+    .f-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .f-card p { font-size: 13px; color: var(--text-sub); line-height: 1.7; margin: 0; }
+
+    /* ── Mid CTA ── */
+    .mid-cta { background: var(--dark); color: #fff; padding: 80px 0; text-align: center; }
+    .mid-inner { max-width: 540px; margin: 0 auto; padding: 0 24px; }
+    .mid-title { font-size: 26px; font-weight: 700; line-height: 1.5; margin-bottom: 10px; }
+    .mid-sub { font-size: 15px; opacity: .7; margin-bottom: 36px; }
+    .mid-note { font-size: 13px; opacity: .5; margin-top: 12px; }
+
+    /* ── Compare Table ── */
+    .tbl-wrap { overflow-x: auto; margin-top: 32px; border-radius: 16px; border: 1px solid var(--border); }
+    .tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .tbl th, .tbl td { padding: 14px 16px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; line-height: 1.5; }
+    .tbl thead th { background: var(--gray-bg); font-weight: 700; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--text-sub); }
+    .tbl thead th.hl { background: var(--dark); color: #fff; }
+    .tbl tbody td.hl { background: #f0f7eb; font-weight: 600; color: #305018; }
+    .tbl tbody tr:last-child td { border-bottom: none; }
+    .ok { color: var(--green); font-weight: 700; }
+    .ng { color: #aaa; }
+
+    /* ── Guarantee Cards ── */
+    .g-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
+    .g-card { background: #fff; border-radius: 24px; padding: 40px 32px; text-align: center; box-shadow: 0 4px 24px rgba(0,0,0,.07); border: 1px solid rgba(0,0,0,.05); }
+    .g-ico {
+      width: 56px; height: 56px; background: #eef5e8; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+    }
+    .g-ico svg { width: 28px; height: 28px; stroke: var(--green); }
+    .g-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .g-card p { font-size: 14px; color: var(--text-sub); line-height: 1.7; margin: 0; }
+
+    /* ── Product Reveal ── */
+    #sec-product-reveal {
+      position: relative; width: 100%; height: 80vh; min-height: 520px;
+      overflow: hidden; background: #000;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #sec-product-reveal video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .reveal-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.58);
+    }
+    .reveal-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 24px;
+    }
+    .reveal-headline {
+      font-size: clamp(32px, 6vw, 72px); font-weight: 700;
+      color: #fff; line-height: 1.3; letter-spacing: -0.01em;
+    }
+    @media (max-width: 768px) {
+      #sec-product-reveal { height: 65vh; min-height: 400px; }
+    }
+
+    /* ── Howto ── */
+    .howto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .howto-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.07); text-align: center; }
+    .howto-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: top; display: block; }
+    .howto-card-body { padding: 28px 24px 32px; }
+    .howto-num { width: 48px; height: 48px; border-radius: 50%; background: var(--black); color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .howto-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
+    .howto-body { font-size: 15px; color: var(--text-sub); line-height: 1.7; }
+    .deflate-card {
+      margin-top: 48px; background: #1d1d1f; border-radius: 20px;
+      overflow: hidden; display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .deflate-video-wrap { position: relative; aspect-ratio: 9/16; overflow: hidden; }
+    .deflate-video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .deflate-body-wrap {
+      padding: 40px 36px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .deflate-label {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 100px;
+      padding: 3px 12px; margin-bottom: 20px; align-self: flex-start;
+    }
+    .deflate-title { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.5; }
+    .deflate-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.9; }
+    @media (max-width: 768px) {
+      .deflate-card { grid-template-columns: 1fr; }
+      .deflate-video-wrap { aspect-ratio: 4/3; }
+      .deflate-body-wrap { padding: 28px 24px; }
+    }
+    @media (max-width: 768px) {
+      .howto-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 36px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 0; cursor: pointer; font-weight: 700; font-size: 16px;
+      gap: 16px; user-select: none;
+    }
+    .faq-qt { flex: 1; }
+    .faq-ic { width: 22px; height: 22px; flex-shrink: 0; transition: transform .3s; stroke: var(--green); }
+    .faq-item.open .faq-ic { transform: rotate(45deg); }
+    .faq-ans { overflow: hidden; max-height: 0; transition: max-height .35s ease; }
+    .faq-ans-in { padding-bottom: 22px; font-size: 15px; line-height: 1.8; color: var(--text-sub); }
+    .faq-item.open .faq-ans { max-height: 500px; }
+
+    /* ── Final CTA ── */
+    #sec-cta { position: relative; background: #0a0a0f; color: #fff; padding: 100px 0; text-align: center; overflow: hidden; }
+    #sec-cta .cta-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+    #sec-cta::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 1; }
+    .cta-wrap { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; padding: 0 24px; }
+    .cta-voice { margin-bottom: 44px; }
+    .cta-voice blockquote {
+      font-size: 16px; line-height: 1.8; color: rgba(255,255,255,.85);
+      font-style: italic; border-left: 3px solid var(--green);
+      padding-left: 16px; text-align: left; margin: 0 0 8px;
+    }
+    .cta-voice cite { font-size: 12px; color: rgba(255,255,255,.4); display: block; text-align: right; }
+    #sec-cta h2 { font-size: clamp(24px,4vw,36px); font-weight: 700; line-height: 1.4; margin-bottom: 16px; color: #fff; }
+    #sec-cta .cta-body { font-size: 16px; color: rgba(255,255,255,.75); margin-bottom: 40px; line-height: 1.8; }
+    .cta-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px; }
+    .cta-badge { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 20px; padding: 6px 14px; font-size: 13px; color: rgba(255,255,255,.75); }
+    .cta-sub-link { display: inline-block; margin-top: 20px; font-size: 14px; color: rgba(255,255,255,.5); border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 2px; }
+
+    /* ── Footer ── */
+    footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 48px 0 32px; text-align: center; font-size: 13px; }
+    footer img { height: 32px; width: auto; display: block; margin: 0 auto 24px; opacity: .8; }
+    .ft-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+    .ft-links a { color: rgba(255,255,255,.45); }
+    .ft-links a:hover { color: rgba(255,255,255,.75); }
+
+    /* ── Sticky CTA ── */
+    #sticky-cta {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 8000;
+      padding: 12px 20px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,.93) 80%, transparent);
+    }
+    #sticky-cta a {
+      display: block; width: 100%; text-align: center;
+      background: var(--blue); color: #fff;
+      font-size: 16px; font-weight: 700; padding: 16px; border-radius: 12px;
+    }
+    #sticky-cta .sn { text-align: center; font-size: 11px; color: rgba(255,255,255,.55); margin-top: 6px; }
+    @media (min-width: 769px) { #sticky-cta { display: none !important; } }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      body { font-size: 16px; }
+      .container, .article-body { padding: 0 20px; }
+      .sec-white, .sec-gray { padding: 72px 0; }
+      #sec-story { padding: 64px 0; }
+      .mid-cta { padding: 64px 0; }
+      #sec-cta { padding: 72px 0; }
+      .two-col { grid-template-columns: 1fr; gap: 36px; }
+      .two-col--rev .col-img { order: 0; }
+      .f-cards { grid-template-columns: 1fr; }
+      .g-cards { grid-template-columns: 1fr; }
+      .hero-content { padding: 60px 20px 80px; }
+      .hero-cta { align-items: stretch; }
+      .btn { font-size: 16px; padding: 16px 28px; }
+      .big-num { font-size: 44px; }
+      .mid-title { font-size: 22px; }
+    }
+
+/* ---- eyebrow（見出し上の小ラベル）を一時非表示（2026-07-14 市山さん指示） ----
+   削除はせず表示だけ止める。復活させるときはこのブロックを消す */
+[class*="eyebrow"] { display: none !important; }
+</style>
+
+<!-- ① Hero -->
+<section id="sec-hero" data-section-type="hero" data-section-name="ヒーローセクション" data-section-order="1">
+  <div class="hero-bg">
+    <img data-slot="hero-image" data-asset-id="AIR_reveal"
+      src="https://drive.google.com/thumbnail?id=1s_t3UirYKRZhC3pTlT94b5CxjMJqyXZ-&sz=w1600"
+      alt="PANP AIR" />
+  </div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <p data-slot="hero-eyebrow" class="hero-eyebrow fade-in">PANP AIR — コードレス電動エアポンプ</p>
+      <h1 data-slot="headline" class="hero-h1 fade-in" style="transition-delay:.1s">
+        「早く早く」って、<br>汗だくで浮き輪を膨らましていた。
+      </h1>
+      <p data-slot="subheadline" class="hero-sub fade-in" style="transition-delay:.2s">
+        浮き輪を膨らます作業、今年から変えませんか。
+      </p>
+      <div class="hero-cta fade-in" style="transition-delay:.3s">
+        <a data-slot="cta-button" href="https://panp.jp/products/kukiire02" class="btn btn-white">
+          PANP AIRを見てみる（30日返品OK）
+        </a>
+        <p class="hero-note">送料無料・1年保証・30日返品OK</p>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <span>scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ② Story -->
+<section id="sec-story" data-section-type="empathy" data-section-name="冒頭リード・共感ストーリー" data-section-order="2">
+  <div class="story-inner">
+
+    <p class="story-opener slide-up">毎年、夏になると<br>思うことがあります。</p>
+
+    <p class="art-p slide-up">プールに行く前とか、海に行く前とか。<br>浮き輪とかビーチボールを膨らませるあれ、なんとかならないかなって。</p>
+
+    <div class="story-scene slide-up">
+      子どもに「早く早く！」って言われながら<br>
+      汗だくになっている自分。
+      <span class="story-scene-note">別につらくはない。でも、ちょっとだけ申し訳なくなる。</span>
+    </div>
+
+    <div class="story-divider slide-up">
+      <span class="story-divider-dot">◆ ◆ ◆</span>
+    </div>
+
+    <p class="art-p slide-up">夏のレジャーって、楽しみなんだけど、準備が地味に大変ですよね。特に「膨らます作業」。</p>
+
+    <div data-slot="story-text" class="quote-block slide-up">
+      浮き輪、ビーチボール、エアマット——<br>全部口で膨らましてたら、それだけで疲れます。<br>ポンプを使っても、足踏みポンプって地味に体力いるし。
+    </div>
+
+    <p class="art-p slide-up">「まあ毎年こんなもんだよね」と思いながらやってたんですが、<br>電動のポンプを使ってから、その考えが変わりました。</p>
+
+    <div class="story-reveal slide-up">
+      ノズルを刺してスイッチを入れるだけ。
+      <span class="story-reveal-accent">50秒後には、終わってる。</span>
+    </div>
+
+    <p class="story-promise slide-up">えっ、もっと早く知りたかった——<br>という気持ちになりました。</p>
+
+  </div>
+</section>
+
+<!-- ③ 製品ビジュアル区切り -->
+<section id="sec-product-reveal" data-section-type="brand" data-section-name="製品ビジュアル区切り" data-section-order="3">
+  <video data-slot="reveal-video" autoplay muted loop playsinline>
+    <source src="https://cdn.shopify.com/videos/c/o/v/d552ce568f4e4d53a4d3dfcc862bd2a3.mp4" type="video/mp4">
+  </video>
+  <div class="reveal-overlay"></div>
+  <div class="reveal-content">
+    <p class="reveal-headline fade-in">今年の夏は汗だくにならない</p>
+  </div>
+</section>
+
+<!-- ④ 電動ポンプ紹介（2カラム） -->
+<section id="sec-intro" class="sec-gray" data-section-type="solution" data-section-name="電動ポンプの紹介" data-section-order="4">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-text slide-up">
+        <span class="label">電動ポンプって？</span>
+        <h2 data-slot="intro-headline" class="title">「電動ポンプって、<br>コンセントがいるやつでしょ？」</h2>
+        <div class="body-text">
+          <p>そう思ってた人、実はけっこう多いんです。</p>
+          <p>今の電動ポンプ（電動ブロワー）は、<strong>USB充電式</strong>。<br>コンセントいりません。充電して、持ち出すだけ。</p>
+          <p>しかも小さい。<br><strong>手のひらサイズで、重さは104g</strong>（ペットボトルのキャップより軽い）。</p>
+          <p>海に持っていっても邪魔にならない。キャンプでも使える。プールサイドでサッと取り出してすぐ使える。</p>
+          <p style="font-weight:700;color:var(--green);">「電動ポンプ＝家でしか使えない」はもう古い話です。</p>
+        </div>
+      </div>
+      <div class="col-img slide-up" style="transition-delay:.1s">
+        <img data-slot="intro-image" data-asset-id="AIR_woman_pool"
+          src="https://drive.google.com/thumbnail?id=1hJL6k-ncXjfVBvw88qfj-qWQpO-dxA5x&sz=w1600"
+          alt="プールサイドで浮き輪にアダプターを取り付ける女性" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ 比較・棒グラフ -->
+<section id="sec-comparison" class="sec-white" data-section-type="comparison" data-section-name="Before→After比較・棒グラフ" data-section-order="5">
+  <div class="article-body">
+    <span class="label slide-up">実際どのくらい違う？</span>
+    <h2 data-slot="comparison-headline" class="title slide-up">実際にどのくらい違うか、<br>比べてみます。</h2>
+    <div class="bar-wrap slide-up">
+      <div class="bar-row">
+        <div class="bar-label"><span>口での膨らまし</span><span class="bar-time">約10〜15分</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>足踏みポンプ</span><span class="bar-time">約3〜5分</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>PANP AIR（電動）</span><span class="bar-time hl">約50秒 ◀</span></div>
+        <div class="bar-track"><div class="bar-fill hl" style="width:6%"></div></div>
+      </div>
+      <div class="bar-callout slide-up">
+        <div class="big-num">50<span class="big-unit">秒</span></div>
+        <div class="big-note">標準サイズの浮き輪（90cm）1個あたり</div>
+      </div>
+    </div>
+    <p class="art-p slide-up">この差が大きいのは、時間だけじゃありません。</p>
+    <p class="art-p slide-up">体力を使わないので、膨らました後も疲れない。<br>子どもを待たせる時間が短いから、「早く早く！」を聞かなくていい。<br>その場の空気感が変わります。</p>
+    <p class="art-p slide-up">「膨らます時間が地味にストレスだった」という人、多いと思います。</p>
+    <p class="art-p slide-up">それが50秒で終わるなら、試してみる価値はあると思います。</p>
+    <div class="cmp-img slide-up">
+      <img data-slot="comparison-image" data-asset-id="AIR_wilted"
+        src="https://drive.google.com/thumbnail?id=1Dh0GYB4bDdkgRyfeDAysXbyx0xcuzI1U&sz=w1600"
+        alt="萎んだ浮き輪" />
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ コードレス（2カラム逆） -->
+<section id="sec-cordless" class="sec-gray" data-section-type="features" data-section-name="コードレスの重要性・特徴カード" data-section-order="6">
+  <div class="container">
+    <div class="two-col two-col--rev">
+      <div class="col-text">
+        <span class="label slide-up">コードレスが大事な理由</span>
+        <h2 data-slot="cordless-headline" class="title slide-up">「電動ポンプを買ったけど、<br>コンセントが近くになくて使えなかった」</h2>
+        <div class="body-text slide-up">
+          <p>こういう失敗談、あるあるです。</p>
+          <p>コードあり（ACアダプター式）の電動ポンプは、室内専用になりがち。<br>プールサイドや海辺、キャンプ場では使えません。</p>
+        </div>
+        <div class="f-cards">
+          <div class="f-card slide-up">
+            <div class="f-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h3>充電式（USB-C）</h3>
+            <p>モバイルバッテリーでも充電可。電源のない場所でも使えます。</p>
+          </div>
+          <div class="f-card slide-up" style="transition-delay:.1s">
+            <div class="f-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+              </svg>
+            </div>
+            <h3>浮き輪10個分</h3>
+            <p>1回の充電で標準サイズの浮き輪を約10個膨らませられます。</p>
+          </div>
+          <div class="f-card slide-up" style="transition-delay:.2s">
+            <div class="f-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+            </div>
+            <h3>104g・手のひらサイズ</h3>
+            <p>海にもプールにもキャンプにも。荷物にならない軽さ。</p>
+          </div>
+        </div>
+        <p class="slide-up" style="margin-top:24px;font-size:16px;">「電源のない場所で役立つ」のが、コードレスの一番のポイントです。</p>
+      </div>
+      <div class="col-img slide-up" style="transition-delay:.15s">
+        <img data-slot="cordless-image" data-asset-id="AIR_portable"
+          src="https://drive.google.com/thumbnail?id=1YcuHZZ5ypCRFOHQjzRNj0oPUMVay6Fqd&sz=w1600"
+          alt="収納袋に入ったPANP AIRを携帯するシーン" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥ 中間CTA① -->
+<section id="sec-cta-mid-1" class="mid-cta" data-section-type="cta" data-section-name="中間CTA①" data-section-order="7">
+  <div class="mid-inner">
+    <p data-slot="mid-cta-1-title" class="mid-title fade-in">今年の夏から、変えてみませんか。</p>
+    <p data-slot="mid-cta-1-sub" class="mid-sub fade-in">まず30日間、試してみてください。</p>
+    <a data-slot="mid-cta-1-button" href="https://panp.jp/products/kukiire02" class="btn btn-white fade-in">
+      PANP AIRを見てみる（30日返品OK）
+    </a>
+    <p data-slot="mid-cta-1-note" class="mid-note">送料無料・1年保証・30日返品OK</p>
+  </div>
+</section>
+
+<!-- ⑦ なぜPANP AIR（2カラム） -->
+<section id="sec-why-panp" class="sec-white" data-section-type="comparison" data-section-name="PANP AIRを選ぶ理由・比較表" data-section-order="8">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-text slide-up">
+        <span class="label">なぜPANP AIRなのか？</span>
+        <h2 data-slot="why-headline" class="title">電動ポンプ、<br>どれも同じじゃないの？</h2>
+        <div class="body-text">
+          <p>電動ポンプを調べると、安い商品がたくさん出てきます。<br>「どれも同じじゃないの？」と思うかもしれない。</p>
+          <p>正直に書くと、違います。</p>
+        </div>
+        <div class="tbl-wrap slide-up">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>安価品（参考）</th>
+                <th class="hl">PANP AIR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>スペック公開</strong></td><td class="ng">非公開（曖昧表記のみ）</td><td class="hl ok">✓ 公開（180L/min・4.0kPa）</td></tr>
+              <tr><td><strong>ノズル</strong></td><td class="ng">付属なし〜少数</td><td class="hl ok">✓ 6種類付属</td></tr>
+              <tr><td><strong>保証</strong></td><td class="ng">なし〜半年</td><td class="hl ok">✓ 1年保証（最大2年）</td></tr>
+              <tr><td><strong>サポート</strong></td><td class="ng">なし</td><td class="hl ok">✓ LINEサポートあり</td></tr>
+              <tr><td><strong>返品</strong></td><td class="ng">不可</td><td class="hl ok">✓ 30日返品OK</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="body-text slide-up" style="margin-top:20px;">
+          <p>安価品との一番の違いは「何かあったときに助けてもらえるか」です。</p>
+          <p style="font-size:13px;">※タイヤ（自転車・車・バイク）への空気入れには対応していません。タイヤ用はPANP Rideシリーズをどうぞ。</p>
+        </div>
+      </div>
+      <div class="col-img slide-up" style="transition-delay:.15s">
+        <img data-slot="why-image" data-asset-id="AIR_fan"
+          src="https://drive.google.com/thumbnail?id=1FqUha3EbxB93W0-ej1nNxKEqduJIB3rD&sz=w1600"
+          alt="PANP AIRのファン構造クローズアップ" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧ 操作方法 -->
+<section id="sec-howto" class="sec-gray" data-section-type="howto" data-section-name="操作方法・使い方" data-section-order="9">
+  <div class="container">
+    <p class="label slide-up" style="text-align:center;">操作方法</p>
+    <h2 class="title slide-up" style="text-align:center; margin-bottom:56px;">使い方も簡単</h2>
+    <div class="howto-grid">
+      <div class="howto-card slide-up">
+        <img class="howto-img" data-slot="howto-step1-image" data-asset-id="AIR_030"
+             src="https://drive.google.com/thumbnail?id=1hJL6k-ncXjfVBvw88qfj-qWQpO-dxA5x&sz=w1600"
+             alt="アタッチメントをつける">
+        <div class="howto-card-body">
+          <div class="howto-num">1</div>
+          <h3 class="howto-title">アタッチメントをつける</h3>
+          <p class="howto-body">使いたいアイテムに合わせて6種類から1つを選ぶ。</p>
+        </div>
+      </div>
+      <div class="howto-card slide-up">
+        <img class="howto-img" data-slot="howto-step2-image" data-asset-id="AIR_031"
+             src="https://drive.google.com/thumbnail?id=1SZNBbBffhSdIHRecupdullglmPgJ9O8m&sz=w1600"
+             alt="空気入れ口に接続する">
+        <div class="howto-card-body">
+          <div class="howto-num">2</div>
+          <h3 class="howto-title">接続する</h3>
+          <p class="howto-body">浮き輪やプールの空気入れ口にしっかり差し込む。</p>
+        </div>
+      </div>
+      <div class="howto-card slide-up">
+        <img class="howto-img" data-slot="howto-step3-image" data-asset-id="AIR_032"
+             src="https://drive.google.com/thumbnail?id=18nLq0u6SIShfu4FIwmKCUuk_eYEhwMS6&sz=w1600"
+             alt="ボタンを押して空気入れ開始">
+        <div class="howto-card-body">
+          <div class="howto-num">3</div>
+          <h3 class="howto-title">ボタンを押す</h3>
+          <p class="howto-body">ボタンを2回押すだけ。あとは自動で空気が入る。</p>
+        </div>
+      </div>
+    </div>
+    <div class="deflate-card slide-up">
+      <div class="deflate-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="https://cdn.shopify.com/videos/c/o/v/b6ecf7b4a7704ce49ab06b15603f8034.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="deflate-body-wrap">
+        <span class="deflate-label">空気抜きモード対応</span>
+        <p class="deflate-title">膨らませるのも、<br>しぼませるのも、<br>これ1台。</p>
+        <p class="deflate-desc">片付け時はボタンひとつで空気抜きモードに切り替え。自動で排気するので、力もコンセントも不要です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑨ 安心保証（2カラム逆） -->
+<section id="sec-guarantee" class="sec-white" data-section-type="brand" data-section-name="購入への後押し・安心保証" data-section-order="10">
+  <div class="container">
+    <div class="two-col two-col--rev">
+      <div class="col-text">
+        <span class="label slide-up">安心して試せる理由</span>
+        <h2 data-slot="guarantee-headline" class="title slide-up">「本当に50秒で終わるの？」<br>「うちの浮き輪に使えるの？」</h2>
+        <div class="body-text slide-up">
+          <p>疑問があるのは当然だと思います。</p>
+          <p>だから、<strong>30日間の返品保証</strong>をつけています。<br>実際に使ってみて、「思ってたのと違う」と思ったら返品できます。（返送時の送料のみご負担ください）</p>
+        </div>
+        <div class="body-text slide-up" style="margin-top:24px;">
+          <p>まず試してみて、よかったら使い続けてください。</p>
+          <p>あと、今の時期（夏前）は在庫が薄くなりやすい。<br>今年の夏に使いたい場合は、早めに手配しておくことをおすすめします。</p>
+          <p style="font-weight:700;color:var(--dark);">一度使えば、毎年の夏が変わります。</p>
+        </div>
+      </div>
+      <div class="col-img slide-up" style="transition-delay:.15s">
+        <img data-slot="guarantee-image" data-asset-id="AIR_set"
+          src="https://drive.google.com/thumbnail?id=12goNry-zf75hdfo364gMjbVv_JywBen9&sz=w1600"
+          alt="PANP AIR本体と同梱品一式" />
+      </div>
+    </div>
+    <div class="g-cards">
+      <div class="g-card slide-up">
+        <div class="g-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>30日返品OK</h3>
+        <p>理由不問・開封済みOK。試して合わなければ返品できます。</p>
+      </div>
+      <div class="g-card slide-up" style="transition-delay:.1s">
+        <div class="g-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>1年保証（最大2年）</h3>
+        <p>故障した場合は新品交換対応。安心して長く使えます。</p>
+      </div>
+      <div class="g-card slide-up" style="transition-delay:.2s">
+        <div class="g-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <h3>LINEサポートあり</h3>
+        <p>日本語でいつでも質問できます。使い方の不安も解消。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑨ 中間CTA② -->
+<section id="sec-cta-mid-2" class="mid-cta" data-section-type="cta" data-section-name="中間CTA②" data-section-order="11">
+  <div class="mid-inner">
+    <p data-slot="mid-cta-2-title" class="mid-title fade-in">まず試してみてください。リスクなしで。</p>
+    <p data-slot="mid-cta-2-sub" class="mid-sub fade-in">30日間、どんな理由でも返品OK。</p>
+    <a data-slot="mid-cta-2-button" href="https://panp.jp/products/kukiire02" class="btn btn-white fade-in">
+      PANP AIRを見てみる（30日返品OK）
+    </a>
+  </div>
+</section>
+
+<!-- ⑩ FAQ -->
+<section id="sec-faq" class="sec-white" data-section-type="faq" data-section-name="よくある質問" data-section-order="12">
+  <div class="article-body">
+    <span class="label slide-up">よくある質問</span>
+    <h2 data-slot="faq-headline" class="title slide-up">よくある質問</h2>
+    <div class="faq-list">
+      <div class="faq-item open" data-slot="faq-1">
+        <div class="faq-q"><span class="faq-qt">うちの浮き輪に使えますか？</span>
+          <svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-ans"><div class="faq-ans-in">PANP AIRには6種類のノズルが付属しています。市販の浮き輪・ビーチボール・エアマット・ボートの多くに対応しています。対応ノズルの一覧は商品ページでご確認いただけます。<br>なお、<strong>タイヤ（自転車・車・バイク）への空気入れには対応していません</strong>。タイヤ用はPANP Rideシリーズをご利用ください。</div></div>
+      </div>
+      <div class="faq-item" data-slot="faq-2">
+        <div class="faq-q"><span class="faq-qt">コンセントは必要ですか？</span>
+          <svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-ans"><div class="faq-ans-in">不要です。USB-C充電式のコードレス設計です。モバイルバッテリーでも充電できます。海辺やキャンプ場など、電源のない場所でも使えます。</div></div>
+      </div>
+      <div class="faq-item" data-slot="faq-3">
+        <div class="faq-q"><span class="faq-qt">バッテリーはどのくらい持ちますか？</span>
+          <svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-ans"><div class="faq-ans-in">1回の充電で、標準サイズの浮き輪（90cm）を約10個分膨らませられます。1日のレジャーなら、充電1回で十分です。</div></div>
+      </div>
+      <div class="faq-item" data-slot="faq-4">
+        <div class="faq-q"><span class="faq-qt">過充填で浮き輪が破裂しませんか？</span>
+          <svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-ans"><div class="faq-ans-in">オートストップ機能があります。設定した空気圧に達すると自動で停止するので、過充填の心配はありません。</div></div>
+      </div>
+      <div class="faq-item" data-slot="faq-5">
+        <div class="faq-q"><span class="faq-qt">空気を抜くことはできますか？</span>
+          <svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-ans"><div class="faq-ans-in">できます。専用のノズルを使うと、空気抜きにも対応しています。「入れるのも、抜くのも、これ1台で」使えます。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑪ Final CTA -->
+<section id="sec-cta" data-section-type="cta" data-section-name="最終CTA" data-section-order="13">
+  <img class="cta-bg" data-slot="cta-bg-image" data-asset-id="AIR_033"
+       src="https://drive.google.com/thumbnail?id=15tyyA5d_j6GksZI3tRt1bh1gOdXshj0-&sz=w1600"
+       alt="PANP AIR 浮き輪に空気を入れる">
+  <div class="cta-wrap">
+    <div class="cta-voice fade-in">
+      <blockquote data-slot="customer-voice">「思ってたより全然速かった。50秒は本当でした。子どもが喜んでました」</blockquote>
+      <cite>— 30代・子育て中　⚠️ レビュー収集後に実際の声に置き換え</cite>
+    </div>
+    <h2 data-slot="final-headline" class="fade-in">毎年同じ苦労をしなくていい夏が、あります。</h2>
+    <p data-slot="final-body" class="cta-body fade-in">子どもに「早く！」と言われながら汗だくになる時間が、<br>今年で最後になるかもしれない。</p>
+    <a data-slot="final-cta-button" href="https://panp.jp/products/kukiire02" class="btn btn-white fade-in">
+      PANP AIRを見てみる（30日返品OK）
+    </a>
+    <div class="cta-badges fade-in">
+      <span class="cta-badge">送料無料</span>
+      <span class="cta-badge">30日返品OK</span>
+      <span class="cta-badge">1年保証（最大2年）</span>
+      <span class="cta-badge">1〜2日以内発送</span>
+    </div>
+    <a data-slot="final-sub-link" href="https://panp.jp/products/kukiire02" class="cta-sub-link">まず30日間、試してみる →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <img data-slot="footer-logo" data-asset-id="PANP_LOGO_WHITE"
+    src="https://drive.google.com/thumbnail?id=1mp5JwzqAc7nO6ESyHM0fpd7EENf8lC0b&sz=w1600" alt="PANP" />
+  <div class="ft-links">
+    <a href="#">特定商取引法に基づく表記</a>
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">お問い合わせ</a>
+  </div>
+  <small>&copy; 2026 PANP. All rights reserved.</small>
+</footer>
+
+<div id="sticky-cta">
+  <a href="https://panp.jp/products/kukiire02">PANP AIRを見てみる（30日返品OK）</a>
+  <p class="sn">送料無料・30日返品OK・1〜2日以内発送</p>
+</div>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('.slide-up, .fade-in');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('visible');}); return; }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(function(e){ obs.observe(e); });
+})();
+</script>
+
+<script>
+(function () {
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if (!open) item.classList.add('open');
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var el = document.getElementById('sticky-cta'); if (!el) return;
+  var trigger = document.getElementById('sec-cta-mid-1');
+  var fin = document.getElementById('sec-cta');
+  if (!trigger || !('IntersectionObserver' in window)) return;
+
+  function update() {
+    var triggerBottom = trigger.getBoundingClientRect().bottom;
+    var finVisible = fin ? fin.getBoundingClientRect().top < window.innerHeight * 0.9 : false;
+    el.style.display = (triggerBottom < 0 && !finVisible) ? 'block' : 'none';
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+
+{% schema %}
+{"name": "air-summer-pool", "settings": []}
+{% endschema %}

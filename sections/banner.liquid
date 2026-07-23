@@ -1,0 +1,138 @@
+<div class="image-container">
+  {% for block in section.blocks %}
+    <a href="{{ block.settings.link }}" class="image-box {% if block.settings.rounded_corners %}rounded{% endif %} heading-{{ block.settings.heading_position }}">
+      <img src="{{ block.settings.image_box | image_url }}" alt="{{ block.settings.image_box.alt }}" width="100%" height="auto">
+      <div class="image-text-overlay">
+        <h2>{{ block.settings.heading }}</h2>
+        <p>{{ block.settings.text }}</p>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+{%- style -%}
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.image-box {
+  position: relative;
+  flex-basis: calc(50% - 10px);
+  margin-bottom: 10px;
+  display: block;
+  overflow: hidden;
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+}
+
+.image-box.rounded img {
+  border-radius: 16px;
+}
+
+.image-text-overlay {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  width: 90%;
+  background-color: transparent;
+  padding: 20px;
+}
+
+/* 中央配置のスタイル */
+.image-box.heading-center .image-text-overlay {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 下部配置のスタイル */
+.image-box.heading-bottom .image-text-overlay {
+  bottom: 0;
+}
+
+.image-box h2 {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    margin: 10px;
+  }
+  .image-box {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+  }
+  .image-text-overlay {
+    width: 80%;
+  }
+}
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "バナーボックス",
+  "blocks": [
+    {
+      "type": "image",
+      "name": "バナーブロック",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_box",
+          "label": "画像を選ぶ"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "URL"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "見出し",
+          "default": "テキスト"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "説明文",
+          "default": "テキスト"
+        },
+        {
+          "type": "checkbox",
+          "id": "rounded_corners",
+          "label": "画像の角を丸くする",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "heading_position",
+          "label": "見出しの位置",
+          "options": [
+            {"value": "center", "label": "中央"},
+            {"value": "bottom", "label": "下部"}
+          ],
+          "default": "center"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "バナーボックス",
+      "blocks": [
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

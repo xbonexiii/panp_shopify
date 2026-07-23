@@ -1,0 +1,242 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header_lp_r3hGEb": {
+      "type": "header-lp",
+      "name": "LP Header",
+      "settings": {
+        "purchase_product": "smart-kukiire",
+        "purchase_text": "購入する ¥7,880"
+      }
+    },
+    "custom_countdown_timer_DTgB6e": {
+      "type": "custom-countdown-timer",
+      "disabled": true,
+      "name": "Countdown Timer",
+      "settings": {
+        "title": "カウントダウン",
+        "end_date": "2025-05-31T23:59:59",
+        "font_size": 32,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background_color": "#121212",
+        "title_text_color": "#fafafc",
+        "countdown_text_color": "#ffffff",
+        "title_text_size": "medium",
+        "max_width": 1000
+      }
+    },
+    "video_autoplay_qcU3Wk": {
+      "type": "video-autoplay",
+      "disabled": true,
+      "settings": {
+        "video": "shopify://files/videos/膨らむ_e6fd63c3-2e4b-42ae-a0b0-e006ba3121c2.mp4"
+      }
+    },
+    "custom_liquid_W3EnEV": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% if template == 'page.ride-lp' %}\n    <style>\n        .main-page-title {\n            display: none !important;\n        }\n        body {\n            background-color: #000000 !important;\n        \n  padding-top: 110px; /* デスクトップでのヘッダーの高さ分 */\n}\n\n@media screen and (max-width: 749px) {\n  body{\n    padding-top: 70px; /* モバイル用のヘッダーの高さ分 */\n  }\n}\n\n        /* 画像の上下の隙間を詰める & スマホでフルワイズにする */\n        img {\n            margin-bottom: 0 !important;\n            margin-top: 0 !important;\n            width: 100% !important;\n            height: auto !important;\n            display: block;\n            max-width: 100%; /* デスクトップでは適切な幅に */\n        }\n\n        /* GIF画像のフルワイズ対応 */\n        .gif-img {\n            width: 100%;\n        }\n\n        /* スマホ用のフルワイズ調整 */\n        @media screen and (max-width: 768px) {\n            img {\n                width: 100% !important;\n                height: auto !important;\n            }\n\n            /* スマホでは .page-width の padding を 0 に（ヘッダー・フッターは影響なし） */\n            .page-width.page-width--narrow.section-template--16930819833907__main-padding {\n                padding: 0px !important;\n            }\n        }\n\n        /* スクロール時にフェードインする画像アニメーション（メインセクション） */\n        .shopify-section-template--16930819833907__main img.scroll-fade-in {\n            opacity: 0;\n            transform: translateY(30px);\n            transition: opacity 0.8s ease-out, transform 0.8s ease-out;\n        }\n\n        /* スクロールで表示されたとき（メインセクション） */\n        .shopify-section-template--16930819833907__main img.fade-in-visible {\n            opacity: 1;\n            transform: translateY(0);\n        }\n\n        /* スクロール時にフェードインする画像アニメーション（rteセクション専用） */\n        .rte.scroll-trigger.animate--slide-in img.scroll-fade-in {\n            opacity: 0;\n            transform: translateY(30px);\n            transition: opacity 0.8s ease-out, transform 0.8s ease-out;\n        }\n\n        /* スクロールで表示されたとき（rteセクション専用） */\n        .rte.scroll-trigger.animate--slide-in img.fade-in-visible {\n            opacity: 1;\n            transform: translateY(0);\n        }\n    </style>\n\n    <script>\n        document.addEventListener(\"DOMContentLoaded\", function() {\n            // メインセクションのフェードイン処理\n            const mainSection = document.querySelector(\".shopify-section-template--16930819833907__main\");\n\n            if (mainSection) {\n                const images = mainSection.querySelectorAll(\"img\");\n\n                const observer = new IntersectionObserver((entries, observer) => {\n                    entries.forEach(entry => {\n                        if (entry.isIntersecting) {\n                            entry.target.classList.add(\"fade-in-visible\");\n                            observer.unobserve(entry.target);\n                        }\n                    });\n                }, {\n                    rootMargin: \"50px 0px\", // 50pxの余白を設定して早めに表示\n                    threshold: 0.05  // 画像が5%表示されたらフェードイン\n                });\n\n                images.forEach(image => {\n                    image.classList.add(\"scroll-fade-in\");\n                    observer.observe(image);\n                });\n            }\n\n            // `.rte.scroll-trigger.animate--slide-in` 内の画像に適用\n            const rteSection = document.querySelector(\".rte.scroll-trigger.animate--slide-in\");\n\n            if (rteSection) {\n                const rteImages = rteSection.querySelectorAll(\"img\");\n\n                const rteObserver = new IntersectionObserver((entries, observer) => {\n                    entries.forEach(entry => {\n                        if (entry.isIntersecting) {\n                            entry.target.classList.add(\"fade-in-visible\");\n                            observer.unobserve(entry.target);\n                        }\n                    });\n                }, {\n                    rootMargin: \"50px 0px\", // 50pxの余白を設定して早めに表示\n                    threshold: 0.05  // 画像が5%表示されたらフェードイン\n                });\n\n                rteImages.forEach(image => {\n                    image.classList.add(\"scroll-fade-in\");\n                    rteObserver.observe(image);\n                });\n            }\n        });\n    </script>\n{% endif %}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "h1 {text-align: center;}"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "featured_blog_Tbi7th": {
+      "type": "featured-blog",
+      "disabled": true,
+      "settings": {
+        "heading": "メディア紹介",
+        "heading_size": "h1",
+        "blog": "media",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_MkCegf": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_7EGG3F": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANPシリーズのラインナップはこちら",
+            "heading_size": "h2"
+          }
+        },
+        "text_WPceFQ": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "buttons_Q4wgWi": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "商品一覧",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7EGG3F",
+        "text_WPceFQ",
+        "buttons_Q4wgWi"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/DSC09847_128.jpg",
+        "image_2": "shopify://shop_images/DSC09843_129.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "featured_collection_ranking_yx6ctF": {
+      "type": "featured-collection-ranking",
+      "disabled": true,
+      "settings": {
+        "title": "Ranking",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "ranking",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_7xhke9": {
+      "type": "featured-product",
+      "blocks": {
+        "text_tkUYFw": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_AEcwQJ": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2"
+          }
+        },
+        "price_YPcYEn": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_JxjdDn": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_NRy9Ni": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_iHNzyB": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "share_8jbP3j": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_tkUYFw",
+        "title_AEcwQJ",
+        "price_YPcYEn",
+        "variant_picker_JxjdDn",
+        "quantity_selector_NRy9Ni",
+        "buy_buttons_iHNzyB",
+        "share_8jbP3j"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "smart-kukiire",
+        "color_scheme": "scheme-4",
+        "secondary_background": true,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "right",
+        "image_zoom": "none",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "header_lp_r3hGEb",
+    "custom_countdown_timer_DTgB6e",
+    "video_autoplay_qcU3Wk",
+    "custom_liquid_W3EnEV",
+    "main",
+    "featured_blog_Tbi7th",
+    "image_banner_MkCegf",
+    "featured_collection_ranking_yx6ctF",
+    "featured_product_7xhke9"
+  ]
+}

@@ -1,0 +1,393 @@
+{% comment %}
+============================================================
+ セクション名: 会話バブルセクション (配置ズレ修正版)
+ ファイル名: section-bubble-chat.liquid
+ 説明:
+ 見出しを左寄せ・右寄せした際の説明文との表示ズレを修正。
+============================================================
+{% endcomment %}
+
+{%- style -%}
+  /*
+   * 会話バブルセクションのスタイル
+   */
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .bubble-chat__wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+  .bubble-chat__header {
+    margin-bottom: 40px;
+  }
+  /* 親要素に text-align を適用 */
+  .bubble-chat__header--align-left { text-align: left; }
+  .bubble-chat__header--align-center { text-align: center; }
+  .bubble-chat__header--align-right { text-align: right; }
+
+  .bubble-chat__header h2 {
+    margin-bottom: 1rem;
+  }
+  /* 説明文の基本スタイル */
+  .bubble-chat__header .rte {
+    max-width: 72rem;
+  }
+  /* 中央揃えの時だけ margin:auto を適用してブロック自体を中央化 */
+  .bubble-chat__header--align-center .rte {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bubble-chat__header .rte p {
+    font-size: 1.6rem;
+    margin-top: 0;
+  }
+  .bubble-chat__container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .bubble-chat__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    max-width: 70%;
+  }
+  .bubble-chat__item--left {
+    align-self: flex-start;
+  }
+  .bubble-chat__item--right {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+  }
+  .bubble-chat__avatar {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f0f0f0;
+  }
+  .bubble-chat__avatar img,
+  .bubble-chat__avatar svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .bubble-chat__avatar svg {
+    padding: 8px;
+    color: #999;
+  }
+  .bubble-chat__content {
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    padding: 15px 20px;
+    position: relative;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    text-align: left;
+  }
+  .bubble-chat__content p,
+  .bubble-chat__content div {
+    margin: 0;
+    line-height: 1.7;
+    font-size: 1.6rem;
+    word-break: break-word;
+  }
+  .bubble-chat__speaker-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  .bubble-chat__text > p:last-child {
+    margin-bottom: 0;
+  }
+  .bubble-chat__content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+  .bubble-chat__item--left .bubble-chat__content::before {
+    left: -10px;
+    border-right: 10px solid #f0f0f0;
+  }
+  .bubble-chat__item--right .bubble-chat__content::before {
+    right: -10px;
+    border-left: 10px solid #f0f0f0;
+  }
+  @media screen and (max-width: 768px) {
+    .bubble-chat__item {
+      max-width: 90%;
+    }
+    .bubble-chat__item--right {
+      align-self: flex-start;
+      flex-direction: row;
+    }
+    .bubble-chat__item--right .bubble-chat__content::before {
+    display: block; /* 非表示を解除 */
+    right: auto; /* 右寄せを解除 */
+    border-left: none; /* 右向きの三角形を削除 */
+  
+  /* 左向きの三角形のスタイルを適用 */
+    left: -10px;
+    border-right: 10px solid #f0f0f0;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="bubble-chat__wrapper section-{{ section.id }}-padding {% if section.settings.full_width == false %}page-width{% endif %}">
+
+    {%- if section.settings.section_title != blank -%}
+      <div class="bubble-chat__header bubble-chat__header--align-{{ section.settings.heading_alignment }}">
+        <h2 class="{{ section.settings.heading_size }}">{{ section.settings.section_title }}</h2>
+        {%- if section.settings.section_description != blank -%}
+          <div class="rte">{{ section.settings.section_description }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="bubble-chat__container">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign alignment = ''
+          if block.type == 'customer_bubble'
+            assign alignment = 'left'
+          elsif block.type == 'staff_bubble'
+            assign alignment = 'right'
+          else
+            assign alignment_setting = block.settings.bubble_alignment
+            if alignment_setting == 'auto'
+              assign remainder = forloop.index0 | modulo: 2
+              if remainder == 0
+                assign alignment = 'left'
+              else
+                assign alignment = 'right'
+              endif
+            else
+              assign alignment = alignment_setting
+            endif
+          endif
+
+          assign bubble_class = 'bubble-chat__item--' | append: alignment
+        -%}
+
+        <div class="bubble-chat__item {{ bubble_class }}">
+          <div class="bubble-chat__avatar">
+            {%- if block.settings.avatar_image != blank -%}
+              {{ block.settings.avatar_image | image_url: width: 120 | image_tag: alt: block.settings.avatar_alt_text, widths: '60, 120' }}
+            {%- else -%}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+            {%- endif -%}
+          </div>
+          <div class="bubble-chat__content">
+            {%- if block.settings.speaker_name != blank -%}
+              <p class="bubble-chat__speaker-name">{{ block.settings.speaker_name }}</p>
+            {%- endif -%}
+            <div class="bubble-chat__text rte">{{ block.settings.content_text }}</div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "会話バブル",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "見出し",
+      "default": "よくあるご質問"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "見出しサイズ",
+      "options": [
+        {
+          "value": "h2",
+          "label": "小"
+        },
+        {
+          "value": "h1",
+          "label": "中"
+        },
+        {
+          "value": "h0",
+          "label": "大"
+        }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "richtext",
+      "id": "section_description",
+      "label": "説明文",
+      "info": "見出しの下に表示される説明文です。"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "見出しの配置",
+      "options": [
+        { "value": "left", "label": "左" },
+        { "value": "center", "label": "中央" },
+        { "value": "right", "label": "右" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "セクションを全幅にする",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "上部の余白",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "下部の余白",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bubble",
+      "name": "会話バブル",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "avatar_image",
+          "label": "アバター画像"
+        },
+        {
+          "type": "text",
+          "id": "avatar_alt_text",
+          "label": "アバター画像の代替テキスト",
+          "info": "アクセシビリティ向上のため、画像の内容を説明します。"
+        },
+        {
+          "type": "text",
+          "id": "speaker_name",
+          "label": "発言者名"
+        },
+        {
+          "type": "richtext",
+          "id": "content_text",
+          "label": "内容",
+          "default": "<p>会話の内容をここに入力します。</p>"
+        },
+        {
+          "type": "select",
+          "id": "bubble_alignment",
+          "label": "吹き出しの配置",
+          "options": [
+            { "value": "auto", "label": "自動（交互配置）" },
+            { "value": "left", "label": "左寄せ" },
+            { "value": "right", "label": "右寄せ" }
+          ],
+          "default": "auto",
+          "info": "「自動」を選択すると、会話が左右に交互に表示されます。"
+        }
+      ]
+    },
+    {
+      "type": "customer_bubble",
+      "name": "お客様の吹き出し",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "avatar_image",
+          "label": "アバター画像"
+        },
+        {
+          "type": "text",
+          "id": "avatar_alt_text",
+          "label": "アバター画像の代替テキスト"
+        },
+        {
+          "type": "text",
+          "id": "speaker_name",
+          "label": "発言者名",
+          "default": "お客様"
+        },
+        {
+          "type": "richtext",
+          "id": "content_text",
+          "label": "内容",
+          "default": "<p>お客様の発言をここに入力します。</p>"
+        }
+      ]
+    },
+    {
+      "type": "staff_bubble",
+      "name": "スタッフの吹き出し",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "avatar_image",
+          "label": "アバター画像"
+        },
+        {
+          "type": "text",
+          "id": "avatar_alt_text",
+          "label": "アバター画像の代替テキスト"
+        },
+        {
+          "type": "text",
+          "id": "speaker_name",
+          "label": "発言者名",
+          "default": "スタッフ"
+        },
+        {
+          "type": "richtext",
+          "id": "content_text",
+          "label": "内容",
+          "default": "<p>スタッフの返答をここに入力します。</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "会話バブル",
+      "blocks": [
+        {
+          "type": "customer_bubble"
+        },
+        {
+          "type": "staff_bubble"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

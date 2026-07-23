@@ -1,0 +1,787 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "video_autoplay_EcHETA": {
+      "type": "video-autoplay",
+      "settings": {
+        "video": "shopify://files/videos/top-movie_cf874cc8-56ea-436e-83b2-605d379db442.mp4"
+      }
+    },
+    "multicolumn_AYwF6M": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_4cCWg8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ride_sum.png",
+            "title": "RIDE",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://products/smart-kukiire"
+          }
+        },
+        "column_myYRya": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ridepro_sum.png",
+            "title": "RIDE PRO",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://products/panp-ridepro01"
+          }
+        },
+        "column_kqiNyj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/cycle_sum.png",
+            "title": "RIDE CYCLE",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://products/panp-ridecycle01"
+          }
+        },
+        "column_tqqk4y": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/mini_sum.png",
+            "title": "RIDE MINI",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://products/panp-ridemini01"
+          }
+        },
+        "column_8ixGn7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/air_sum_64bc2575-bf4e-43f1-b2f4-67523293398e.png",
+            "title": "AIR",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://products/kukiire02"
+          }
+        },
+        "column_MU6rgx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/airpro_sum.png",
+            "title": "AIR PRO",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://products/panp-airpro01"
+          }
+        }
+      },
+      "block_order": [
+        "column_4cCWg8",
+        "column_myYRya",
+        "column_kqiNyj",
+        "column_tqqk4y",
+        "column_8ixGn7",
+        "column_MU6rgx"
+      ],
+      "custom_css": [
+        "h3 {font-heading-weight: 300; font-size: 14px;}",
+        ".multicolumn-card__info {margin: auto;}",
+        ".content-container:hover {opacity: 0.5; transition: 0.2s;}",
+        ".multicolumn {max-width: 940px; margin: auto;}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 5,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "shopify://collections/all",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_AiMTef": {
+      "type": "rich-text",
+      "blocks": {
+        "text_XFrTtR": {
+          "type": "text",
+          "settings": {
+            "text": "<p><a href=\"/blogs/news/2024-04-30\" title=\"【大切なお知らせ】 ブランド名を新たに一新することをお知らせいたします。\">【大切なお知らせ】ブランド名を新たに一新することをお知らせいたします。</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_XFrTtR"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".rte a {color: #fff; text-decoration: none;}",
+        ".rich-text__wrapper {background-color: #000; padding: 4px;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
+    "image_with_text_wGgNqq": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_WddkRK": {
+          "type": "heading",
+          "settings": {
+            "heading": "空気入れを楽に</br>手軽にするPANP",
+            "heading_size": "h1"
+          }
+        },
+        "text_jqpWwR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>空気入れはもっと楽に、もっと手軽に。</p><p>PANP（パンプ）は、<br/>「空気入れにかける無駄をなくす」のコンセプトのもと、スマート空気入れを企画開発する空気入れ専門のメーカーです。<br/>PANPは手間のかかる空気入れを全自動に変える空気入れとなっております。</p><p>空気入れにもう手間も労力も時間もいらない。<br/>やることは、ボタンを押すだけ。</p>",
+            "text_style": "body"
+          }
+        },
+        "button_ia8ipA": {
+          "type": "button",
+          "settings": {
+            "button_label": "PANP商品を見る",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WddkRK",
+        "text_jqpWwR",
+        "button_ia8ipA"
+      ],
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/39_DSC00675-2.jpg",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-1",
+        "image_behavior": "zoom-in",
+        "mobile_content_alignment": "left",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_BbKhKW": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_iAnxrG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/57_DSC00788-2.jpg",
+            "title": "使えば、きっと驚く!",
+            "text": "<p>お客様からのレビューをご紹介しておりますので、ご興味がある方はご覧ください。</p><p>空気入れが手軽になって、「もっと早く買えば良かった」と感じて頂けているようです！</p><p>あなたも、家族も、友達も、面倒な空気入れを手軽に楽に</p>",
+            "link_label": "もっと見る",
+            "link": "shopify://pages/surprised"
+          }
+        },
+        "column_qhjXQm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/94_DSC00962-2.jpg",
+            "title": "今、もっとも売れている空気入れ",
+            "text": "<p>PANP®は2022年の発売から累計5万個を販売し、1900件（2024年3月23日集計）のレビューを頂いております。</p><p>レビュー数が多く、1件ずつ確認するのは大変ですので、トピックごとに分類しました。</p><p>気になるトピックをご確認頂き、不安や疑問の解消にお役立て下さい。</p>",
+            "link_label": "レビューのまとめ",
+            "link": "shopify://pages/review-top"
+          }
+        }
+      },
+      "block_order": [
+        "column_iAnxrG",
+        "column_qhjXQm"
+      ],
+      "custom_css": [
+        "h2 {margin: auto;}",
+        "h3 {font-size: calc(var(--font-heading-scale) * 3rem);}",
+        "a {background-color: #0071e3; border-radius: 50px; color: #fff; display: inline-flex; justify-content: center; align-items: center; padding: 1rem 3rem; font: inherit; font-size: 1.5rem; text-decoration: none; letter-spacing: 0.1rem; line-height: calc(1 + 0.2 / var(--font-body-scale));}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured_blog_Ga4ckJ": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "NEWS",
+        "heading_size": "h1",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_fBz63w": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7ErRD3": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANPが選ばれる4つの理由",
+            "heading_size": "h1"
+          }
+        },
+        "text_rxeRLg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANPは、ボタンを押すだけで様々な物に自動で空気を入れることができる電動の空気入れです。<br/>ボタンを押すだけなので手間や労力をかける必要がなく、お出かけの前に手軽に楽に空気入れ作業を完了することができます</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7ErRD3",
+        "text_rxeRLg"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_TCMcir": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_8aC8bY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/71_DSC00936-2.jpg",
+            "title": "理由1:</br>空気入れが手軽に楽になる",
+            "text": "<p>ボタンを押すだけだから、手間、労力、時間を節約できます。</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QqeM9x": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/panp1.jpg",
+            "title": "理由2:</br>1台でいろんな物に使える",
+            "text": "<p><strong>RIDEシリーズ</strong>は自転車全般、車、バイク、ボール<br/><strong>AIRシリーズ</strong>は浮き輪、プール、SUPなど様々な物に使用できます。</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rXAt8T": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC01659.jpg",
+            "title": "理由3:</br>誰でも簡単に使える",
+            "text": "<p>お子様からお年を召したお客様まで使えます。</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_iMbitd": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/panp2.jpg",
+            "title": "理由4:</br>空気入れ専門の日本ブランド",
+            "text": "<p>空気入れ専門の日本メーカー<br/>日本品質は空気入れNO.1</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_8aC8bY",
+        "column_QqeM9x",
+        "column_rXAt8T",
+        "column_iMbitd"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_a33wtN": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_wgeHdg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC09847_128.jpg",
+            "title": "PANP RIDEシリーズ",
+            "text": "<p>タイヤの空気入れ。</p><p>ママチャリ、ロードバイク、電動アシスト、マウンテンバイク、軽自動車、四駆、普通車、原付バイク、アメリカンバイクなど全てのタイヤに使用できます。</p><p>タイヤの他に、ボールや小さな浮き輪にもご使用いただけます。</p>",
+            "link_label": "RIDEシリーズを見る",
+            "link": "shopify://pages/ride"
+          }
+        },
+        "column_83kyFy": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC09843_129.jpg",
+            "title": "PANP AIRシリーズ",
+            "text": "<p>プール、浮き輪、エアーマットの空気入れ。</p><p>浮き輪、ビニールプール、車中泊マット、エアベット、インフレーターマット、SUP、エアーテント、ゴムボート、トーイングチューブ、バナナボートなどに使用できます。</p>",
+            "link_label": "AIRシリーズを見る",
+            "link": "shopify://pages/air"
+          }
+        }
+      },
+      "block_order": [
+        "column_wgeHdg",
+        "column_83kyFy"
+      ],
+      "custom_css": [
+        ".multicolumn-card__info .icon-wrap {display: none;}",
+        "h2 {margin: auto;}",
+        "h3 {font-size: calc(var(--font-heading-scale) * 3rem);}",
+        "a {background-color: #0071e3; border-radius: 50px; color: #fff; display: inline-flex; justify-content: center; align-items: center; padding: 1rem 3rem; font: inherit; font-size: 1.5rem; text-decoration: none; letter-spacing: 0.1rem; line-height: calc(1 + 0.2 / var(--font-body-scale));}"
+      ],
+      "settings": {
+        "title": "PANPには代表的な商品が2つあります。",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_AewhTk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6NFpeY": {
+          "type": "heading",
+          "settings": {
+            "heading": "RIDEシリーズとAIRシリーズの違い",
+            "heading_size": "h1"
+          }
+        },
+        "text_7zpJ7q": {
+          "type": "text",
+          "settings": {
+            "text": "<p>空気を入れられるモノが違います。</p><p><strong>RIDEシリーズ</strong>は「タイヤの空気入れ」</p><p><strong>AIRシリーズ</strong>は「レジャー用品の空気入れ」としてご使用いただけます。</p><p>それぞれの用途に最適化された設計が特徴です。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6NFpeY",
+        "text_7zpJ7q"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-d772ff1b-9c8d-4765-93aa-7721e6eaa020",
+        "full_width": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_UNEfKc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_EHVqyx": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANPシリーズのラインナップはこちら",
+            "heading_size": "h1"
+          }
+        },
+        "button_xg8BKt": {
+          "type": "button",
+          "settings": {
+            "button_label": "商品一覧を見る",
+            "button_link": "shopify://collections/panp-all",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_EHVqyx",
+        "button_xg8BKt"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_banner_QxBCh8": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/42_DSC00740-2.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_TECyYt": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MmEMVr": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANP®︎の選び方",
+            "heading_size": "h1"
+          }
+        },
+        "text_WV9fqn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANP®にはたくさんの空気入れがあるので</p><p>「どのPANPを選んでいいかわからない」お客様もいらっしゃると思います。</p><p>こちらで選び方をまとめていますので、ご覧いただけると迷いが消えると思います。</p>"
+          }
+        },
+        "button_iDbDJd": {
+          "type": "button",
+          "settings": {
+            "button_label": "選び方を見る",
+            "button_link": "shopify://pages/choose",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_MmEMVr",
+        "text_WV9fqn",
+        "button_iDbDJd"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured_collection_ranking_PkYQej": {
+      "type": "featured-collection-ranking",
+      "settings": {
+        "title": "ランキング",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "ranking",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_hV9Lmr": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_4AKTCD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/7_DSC00306.jpg",
+            "title": "PANPの使い方",
+            "text": "<p>PANPはお子様からお年を召したお客様まで簡単に使うことができるように、使いやすさにこだわって開発しました。</p><p>とても簡単に使用することができますが、よりわかりやすい商品を届けたいという想いから、空気を入れる対象ごとに動画で使い方を説明しております。<br/></p>",
+            "link_label": "さらに詳しく",
+            "link": "shopify://pages/how-to"
+          }
+        },
+        "column_qzhwAW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC09931_1.jpg",
+            "title": "開発ストーリー",
+            "text": "<p>「面倒な空気入れ作業を楽にしたい。」PANPの開発ストーリーとコンセプト。</p>",
+            "link_label": "さらに詳しく",
+            "link": "shopify://pages/concept"
+          }
+        },
+        "column_JVj8WJ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC00074_1.jpg",
+            "title": "必要かどうか検討しているお客様へ",
+            "text": "<p>「空気入れを持っているから私には必要ないかも。」<br/>そんなお客様にこそ使っていただきたい。<br/>PANPはどんな理由でも30日間返品できます。<br/>一度、使用してみてご満足できなければご返品いただけます。</p>",
+            "link_label": "ブログ",
+            "link": "shopify://blogs/infomation"
+          }
+        }
+      },
+      "block_order": [
+        "column_4AKTCD",
+        "column_qzhwAW",
+        "column_JVj8WJ"
+      ],
+      "custom_css": [
+        "h3 {font-size: calc(var(--font-heading-scale) * 2.5rem);}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_banner_Q6CqLj": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_cgci3B": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>開発ストーリー</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_3ptjUA": {
+          "type": "text",
+          "settings": {
+            "text": "concept＆story「面倒な空気入れ作業を楽にしたい。」PANP®︎の開発ストーリーとコンセプト。",
+            "text_style": "body"
+          }
+        },
+        "buttons_HQGMeK": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "詳細を見る",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cgci3B",
+        "text_3ptjUA",
+        "buttons_HQGMeK"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/DSC00072_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_Dynbne": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_8JkydK": {
+          "type": "heading",
+          "settings": {
+            "heading": "公式LINE登録",
+            "heading_size": "h1"
+          }
+        },
+        "text_gUBcQq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>会員限定の優待特典や新商品の発売をお知らせしております。</p>"
+          }
+        },
+        "button_aVhQVi": {
+          "type": "button",
+          "settings": {
+            "button_label": "LINE登録する",
+            "button_link": "https://page.line.me/116ektac?oat_content=url&openQrModal=true",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_8JkydK",
+        "text_gUBcQq",
+        "button_aVhQVi"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5837008b-ab06-4516-8237-5909ca63347f",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "banner_XjyQ33": {
+      "type": "banner",
+      "blocks": {
+        "image_r8fGDk": {
+          "type": "image",
+          "settings": {
+            "image_box": "shopify://shop_images/banner_shop.jpg",
+            "link": "shopify://pages/store",
+            "heading": "販売店",
+            "text": "店頭での購入はこちら",
+            "rounded_corners": true,
+            "heading_position": "center"
+          }
+        },
+        "image_GaTJkk": {
+          "type": "image",
+          "settings": {
+            "image_box": "shopify://shop_images/banner_support.jpg",
+            "link": "https://kukiire.com/a/faq",
+            "heading": "サポート",
+            "text": "よくある質問",
+            "rounded_corners": true,
+            "heading_position": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_r8fGDk",
+        "image_GaTJkk"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "video_autoplay_EcHETA",
+    "multicolumn_AYwF6M",
+    "rich_text_AiMTef",
+    "image_with_text_wGgNqq",
+    "multicolumn_BbKhKW",
+    "featured_blog_Ga4ckJ",
+    "rich_text_fBz63w",
+    "multicolumn_TCMcir",
+    "multicolumn_a33wtN",
+    "rich_text_AewhTk",
+    "featured_collection",
+    "rich_text_UNEfKc",
+    "image_banner_QxBCh8",
+    "rich_text_TECyYt",
+    "featured_collection_ranking_PkYQej",
+    "multicolumn_hV9Lmr",
+    "image_banner_Q6CqLj",
+    "rich_text_Dynbne",
+    "banner_XjyQ33"
+  ]
+}

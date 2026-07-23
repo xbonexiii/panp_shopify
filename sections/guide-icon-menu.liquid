@@ -1,0 +1,279 @@
+{% comment %}
+  /**
+   * ガイドアイコンメニューセクション（動的）
+   *
+   * 概要: ガイドページのアイコンメニューを表示するセクション
+   * 主な仕様:
+   * - 編集可能なアイコンメニューの表示（画像、リンク）
+   * - レスポンシブデザイン対応
+   *   - PC: 自動調整（最大6列）
+   *   - タブレット: 自動調整（最大5列）
+   *   - スマホ: アイテム数により自動調整（CSS :has()で実装）
+   *     - 4個: 2列2段（横幅いっぱい）
+   *     - 5個: 3列（1行目3個、2行目2個中央揃え）
+   *     - 6個以上: 3列（複数段）
+   *
+   * 技術仕様:
+   * - CSS Grid Layout使用
+   * - :has()擬似クラスでアイテム数を判定（JavaScript不要）
+   * - モダンブラウザ対応（:has()はChrome 105+, Safari 15.4+等）
+   *
+   * 制限事項:
+   * - アイコンメニューは最大8個まで
+   */
+{% endcomment %}
+
+<div class="guide-icon-menu-{{ section.id }} page-width">
+  <!-- ガイドメニューセクション -->
+  <div class="guide-menu-section">
+    <div class="container">
+      <!-- アイコンメニュー -->
+      <div class="icon-menu-row">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'guide_icon' %}
+              <div class="icon-item" {{ block.shopify_attributes }}>
+                {% if block.settings.link_url != blank %}
+                  <a href="{{ block.settings.link_url }}" class="icon-link">
+                {% else %}
+                  <div class="icon-link">
+                {% endif %}
+
+                {% if block.settings.icon_image != blank %}
+                  <div class="icon-container">
+                    <img
+                      src="{{ block.settings.icon_image | image_url: width: 240, height: 240 }}"
+                      alt="{{ block.settings.icon_image.alt | escape }}"
+                      class="icon-image"
+                      width="120"
+                      height="120"
+                      loading="lazy"
+                    >
+                  </div>
+                {% endif %}
+
+                {% if block.settings.link_url != blank %}
+                  </a>
+                {% else %}
+                  </div>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .guide-icon-menu-{{ section.id }} {
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
+  .guide-menu-section {
+  }
+
+  .guide-menu-section .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .guide-icon-menu-{{ section.id }} .icon-menu-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  .icon-item {
+    text-align: center;
+    width: 120px;
+    max-width: 120px;
+  }
+
+  .icon-link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .icon-link:hover {
+    transform: scale(1.05);
+  }
+
+  .icon-container {
+    width: 100%;
+    max-width: 120px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  .icon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .icon-container:hover {
+    transform: scale(0.95);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* レスポンシブデザイン */
+  @media (max-width: 1200px) {
+    .guide-icon-menu-{{ section.id }} .icon-menu-row {
+      gap: 15px;
+      max-width: 1000px;
+    }
+
+    .guide-icon-menu-{{ section.id }} .icon-item {
+      width: 100px;
+      max-width: 100px;
+    }
+
+    .guide-icon-menu-{{ section.id }} .icon-container {
+      max-width: 100px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .guide-icon-menu-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top_sp }}px;
+      margin-bottom: {{ section.settings.margin_bottom_sp }}px;
+    }
+
+    .guide-icon-menu-{{ section.id }} .icon-menu-row {
+      gap: 12px;
+      max-width: 600px;
+    }
+
+    .guide-icon-menu-{{ section.id }} .icon-item {
+      width: 80px;
+      max-width: 80px;
+    }
+
+    .guide-icon-menu-{{ section.id }} .icon-container {
+      max-width: 80px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .guide-icon-menu-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top_sp }}px;
+      margin-bottom: {{ section.settings.margin_bottom_sp }}px;
+    }
+
+    /* Flexboxで完璧な中央揃えを実現 */
+    .guide-icon-menu-{{ section.id }} .icon-menu-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 400px;
+    }
+
+    /* デフォルト: 3列レイアウト */
+    .guide-icon-menu-{{ section.id }} .icon-item {
+      width: calc(33.333% - 8px);
+      max-width: 100%;
+    }
+
+    /* 4個の時は2列2段（横幅いっぱい） */
+    .guide-icon-menu-{{ section.id }} .icon-menu-row:has(.icon-item:nth-child(4):last-child) {
+      max-width: 300px;
+    }
+
+    .guide-icon-menu-{{ section.id }} .icon-menu-row:has(.icon-item:nth-child(4):last-child) .icon-item {
+      width: calc(50% - 6px);
+    }
+
+    .guide-icon-menu-{{ section.id }} .icon-container {
+      max-width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "ガイドアイコンメニュー",
+  "tag": "section",
+  "class": "section-guide-icon-menu",
+  "settings": [
+    {
+      "type": "header",
+      "content": "余白設定"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_pc",
+      "label": "PC上部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_pc",
+      "label": "PC下部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_top_sp",
+      "label": "SP上部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_sp",
+      "label": "SP下部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "guide_icon",
+      "name": "ガイドアイコン",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "アイコン画像"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "リンク先URL",
+          "info": "クリック時の移動先を指定してください（例: #touchpanel）"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "ガイドアイコンメニュー",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

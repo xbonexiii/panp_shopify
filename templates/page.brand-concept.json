@@ -1,0 +1,431 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_pc9V7z": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_37VH3p": {
+          "type": "heading",
+          "settings": {
+            "heading": "BRAND CONCEPT",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_37VH3p"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/brand-concept.jpg",
+        "image_overlay_opacity": 50,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "h1 {text-align: center;}"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "rich_text_Fiqpxm": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_yf3fDM": {
+          "type": "caption",
+          "settings": {
+            "caption": "PURPOSE｜私たちの使命",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "heading_xWwJAD": {
+          "type": "heading",
+          "settings": {
+            "heading": "空気入れを手軽にラクに。",
+            "heading_size": "h1"
+          }
+        },
+        "text_dykXcM": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>「空気入れ＝PANP」</h2><p>私たちが目指すのは、こう呼ばれる存在になること。</p><p>重くて大きなポンプも、汗だくの作業も、もう必要ありません。<br/>ボタンひとつで空気圧を整え、誰もが安心して使える。そんな、<strong>新しい日常の道具</strong>を届けます。</p>"
+          }
+        },
+        "button_3KGEty": {
+          "type": "button",
+          "settings": {
+            "button_label": "開発ストーリー",
+            "button_link": "shopify://blogs/safety-security/panp-quality",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_yf3fDM",
+        "heading_xWwJAD",
+        "text_dykXcM",
+        "button_3KGEty"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "scheme-2",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_FKUhxh": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_tARLJR": {
+          "type": "caption",
+          "settings": {
+            "caption": "VISION｜私たちが目指す未来",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "heading_NzzBpy": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANPが大切にする４つの想い。",
+            "heading_size": "h1"
+          }
+        },
+        "text_6EEcgf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>空気を整えることで、心も整う。<br/>PANPは「空気を入れる」その先にある価値を見つめています。<br/>信頼できるパートナーとして、暮らしに自然と溶け込み、<strong>毎日を支える存在</strong>であり続けること。<br/>調子のいい毎日を、あたりまえに。<br/>それが、私たちの描く未来です。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_tARLJR",
+        "heading_NzzBpy",
+        "text_6EEcgf"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "scheme-2",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multirow_nQBdmy": {
+      "type": "multirow",
+      "blocks": {
+        "row_PLzYwA": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/safely.jpg",
+            "caption": "Protect what matters most",
+            "heading": "大切なものを守る。",
+            "text": "<p><em>\"Built to protect what matters most.\"</em></p><p><em>確かな設計で事故リスク・故障リスクを軽減させ、家族、パートナー、あなたの愛車。そのすべてに安心を届ける。</em></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_EQi74g": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/paformance.jpg",
+            "caption": "Precision performance",
+            "heading": "パフォーマンスを最大限にサポート。",
+            "text": "<p><em>\"Maximize every ride with precision performance.\"</em></p><p><em>ただの性能向上ではなく、</em>走りの質を高め、行動範囲を広げる<em>。走りの質を一段上へ上げ最高のパフォーマンスを。</em></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_8acmQa": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/repack.jpg",
+            "caption": "Less waste, smarter use",
+            "heading": "ムダを減らし、“もったいない”を活かす取り組み。",
+            "text": "<p><em>\"Smarter use of resources, less waste.\"</em></p><p>資源を無駄にせず、賢く活かし<em>「もったいない」をなくす精神が、結果として環境にも優しい未来をつくる。</em></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_cjyiMr": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/variation.jpg",
+            "caption": "Make everyday easier",
+            "heading": "毎日をもっとラクにしたい。",
+            "text": "<p><em>\"Smarter use of resources, less waste.\"</em></p><p><em>面倒な作業は、もっと簡単に。</em>押すだけで、毎日をもっと軽やかにし、<em>ストレスのない毎日をシンプルに実現します。</em></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_PLzYwA",
+        "row_EQi74g",
+        "row_8acmQa",
+        "row_cjyiMr"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "medium",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "primary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "align-right",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_dFhhwM": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_kDDmUL": {
+          "type": "caption",
+          "settings": {
+            "caption": "VALUE｜私たちが提供できる価値",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "heading_MHaYTh": {
+          "type": "heading",
+          "settings": {
+            "heading": "品質｜快適さ｜使いやすさ｜信頼",
+            "heading_size": "h1"
+          }
+        },
+        "heading_emGiC9": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "大切なものを守る｜最高のパフォーマンス｜“もったいない”を活かす｜作業を簡単にラクに",
+            "heading_size": "h2"
+          }
+        },
+        "text_GqFQPJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANPというブランドを支えるのは、次の4つの価値観です。<br/>この4つを守り抜くことが、唯一無二の信頼を生み出すと私たちは信じています。</p><h2>★毎日にうれしい3つの価値</h2><ol><li><strong>手間ゼロの快適さ</strong>通勤前も押すだけで完了。</li><li><strong>長く続く高品質</strong>耐久テスト済みで長持ち。</li><li><strong>誰でも使える安心設計</strong>ミスなくピタリ、デジタル操作。</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_kDDmUL",
+        "heading_MHaYTh",
+        "heading_emGiC9",
+        "text_GqFQPJ"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "scheme-2",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "section_horizontal_scroll_6mGgdE": {
+      "type": "section-horizontal-scroll",
+      "blocks": {
+        "card_hGr79R": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/quality.png",
+            "caption": "大切な人と、愛車を守るために。",
+            "caption_font_size": 16,
+            "heading": "長く使い続けれる、高品質。",
+            "title_font_size": 22,
+            "text": "",
+            "text_font_size": 16,
+            "button_label": "+",
+            "button_link": "shopify://blogs/safety-security/panp-quality",
+            "background_color": "#e7e7e7",
+            "text_color": "#ffffff"
+          }
+        },
+        "card_abxnmp": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Comfort.png",
+            "caption": "一度使ったらもう手放せない。",
+            "caption_font_size": 16,
+            "heading": "適正空気圧の快適さ。",
+            "title_font_size": 22,
+            "text": "",
+            "text_font_size": 16,
+            "button_label": "+",
+            "button_link": "shopify://pages/タイヤの空気圧と事故リスク",
+            "background_color": "#000000",
+            "text_color": "#1d1d1f"
+          }
+        },
+        "card_9nPCmg": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/05eefbc2f639f1bcca72e45b7aeaaa1f.png",
+            "caption": "購入前も購入後も。",
+            "caption_font_size": 16,
+            "heading": "サポートも充実の<br>使いやすさ。",
+            "title_font_size": 22,
+            "text": "",
+            "text_font_size": 16,
+            "button_label": "+",
+            "button_link": "",
+            "background_color": "#d5f16c",
+            "text_color": "#1d1d1f"
+          }
+        },
+        "card_jpnbCA": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/re-pack.png",
+            "caption": "リパック製品は再利用。",
+            "caption_font_size": 16,
+            "heading": "不良率も低い。信頼される、ブランド。",
+            "title_font_size": 22,
+            "text": "",
+            "text_font_size": 16,
+            "button_label": "+",
+            "button_link": "",
+            "background_color": "#000000",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "card_hGr79R",
+        "card_abxnmp",
+        "card_9nPCmg",
+        "card_jpnbCA"
+      ],
+      "name": "Apple風カード横スクロール",
+      "settings": {
+        "section_title": "PANPの魅力。",
+        "heading_size": "h1",
+        "full_width": false,
+        "card_width": 300,
+        "card_height": 520,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_z3jycG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ztcEm4": {
+          "type": "heading",
+          "settings": {
+            "heading": "想いを広げる仲間を募集しています",
+            "heading_size": "h1"
+          }
+        },
+        "text_8xqA7r": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANPのある暮らしを広めてくれるエバンジェリストを募集しています。<br/>体験を語り、文化を一緒に育てませんか？</p>"
+          }
+        },
+        "button_rV7Ghj": {
+          "type": "button",
+          "settings": {
+            "button_label": "エバンジェリスト制度",
+            "button_link": "https://panp.goaffpro.com/",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ztcEm4",
+        "text_8xqA7r",
+        "button_rV7Ghj"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4e42da2f-b9da-4bee-b41c-3682494b7ec6",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_gkeNKW": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XYQzEr": {
+          "type": "heading",
+          "settings": {
+            "heading": "暮らしに寄り添う存在として",
+            "heading_size": "h1"
+          }
+        },
+        "text_xqWGxa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANPは「空気を入れる」その先にある価値を見つめています。<br/>これからも、信頼と心地よさの象徴であり続けます。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XYQzEr",
+        "text_xqWGxa"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "image_banner_pc9V7z",
+    "main",
+    "rich_text_Fiqpxm",
+    "rich_text_FKUhxh",
+    "multirow_nQBdmy",
+    "rich_text_dFhhwM",
+    "section_horizontal_scroll_6mGgdE",
+    "rich_text_z3jycG",
+    "rich_text_gkeNKW"
+  ]
+}

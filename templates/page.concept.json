@@ -1,0 +1,192 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_rXEDYK": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_8VnFRJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "開発ストーリー",
+            "heading_size": "h1"
+          }
+        },
+        "text_MAzYJg": {
+          "type": "text",
+          "settings": {
+            "text": "面倒を楽にする、スマート空気入れ。本当に納得のいくモノを製品化しました。",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_8VnFRJ",
+        "text_MAzYJg"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 1080px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 32px; } .rich-text__blocks > * + * {margin-top: 0.5em; } p, h3, h6 {text-align: left; }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/DSC09931_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "zoom-in",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_Ufc8eH": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3XHTRt": {
+          "type": "heading",
+          "settings": {
+            "heading": "空気入れをスマートに手軽に",
+            "heading_size": "h1"
+          }
+        },
+        "text_CWHFqi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>こんにちは。代表の秋吉です。</p><p>自転車を乗るために欠かせない「空気入れ。」</p><p>空気が入っているタイヤの自転車は走りが軽くなり、乗り心地が良く気分も良いものです。<br/><br/></p><p>しかし、現実は忙しい朝に限って自転車のタイヤの空気が減っていることに気づくも、空気入れを取りに戻る時間もなくペダルは重いまま。</p><p>私にとって空気入れは「面倒くさい」ことでした。<br/><br/></p><p>日本に広く普及しているポンプ式の空気入れは、100年近くカタチが変わっていないそうです。</p><p>面倒だとわかっていても、このカタチがあまりにも当たり前のことで、誰も不満に思っていませんでした。</p><p>スマートフォンや自動運転、お掃除ロボットに食洗機と便利化・自動化が進んでいる21世紀の現在で、いまだに空気入れだけは手押しで行っている。<br/><br/></p><p>私はとても違和感を覚えました。<br/><br/></p><p>そして「面倒を楽にする空気入れ」の製品開発を始めました。</p><p>コンプレッサーを製造できる工場を10社以上ピックアップして、サンプルを取り寄せては友人たちにも使用してもらい問題点を見つけては改良する日々。</p><p>そんな中、</p><p>「どのくらい空気を入れていいかわからない。」</p><p>という一人の言葉で製品が良くても使えないと意味がないことに気づかされました。<br/><br/></p><p>そこで「誰でも、楽に、簡単に、使いやすい」電動空気入れを目指しました。</p><p>説明書だけ入れても意味がない、動画で乗り物毎の入れ方を伝えよう！</p><p>自分の乗り物が英式なのか分からない人もいる、空気入れに関する豆知識のコンテンツを作ろう！</p><p>わざわざスマホで空気圧を調べなくても素早くチェックできるように空気圧目安表をつけよう！</p><p>その結果、ようやく目指した電動空気入れに近づいたと実感しました。</p><p>「panp®︎ 」という名前は、“誰でも楽に、簡単に、使いやすいもの”に一新できるようにと名付けさせていただきました。</p><p>まだ改善の余地はあるかと思いますが、1人でも多くの方に「楽になった」と感じていただける、そんな製品だと信じています。</p><p>“面倒が楽になった”と思っていただけた際はレビューしていただけると嬉しいですし、とても励みになります！</p><p>不明な点などがございましたら、是非お気軽にご連絡ください。</p><p>長くなりましたが、ここまで読んでいただきありがとうございます。</p><p>panp®︎がお客様の生活のほんの一部でも快適になることを願っています。</p><p>代表　秋吉</p>"
+          }
+        },
+        "button_NxzwWt": {
+          "type": "button",
+          "settings": {
+            "button_label": "トップページへ",
+            "button_link": "https://panp.jp",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_3XHTRt",
+        "text_CWHFqi",
+        "button_NxzwWt"
+      ],
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_PDHEzi": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_qt8UpL": {
+          "type": "caption",
+          "settings": {
+            "caption": "polycy",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_VR9HgD": {
+          "type": "heading",
+          "settings": {
+            "heading": "製品開発・販売についてのルール",
+            "heading_size": "h1"
+          }
+        },
+        "text_jq6hXM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>自分がお客様として、本当に欲しいと思えるモノしか販売しない</p><p>お客様が安心してお使いいただけるようにサポートを徹底する</p><p>製品のデメリットもすべて伝え、納得の上で購入してもらう</p><p>不正レビュー（ステマ）や誇大表現で売るような販売はしない</p><p>自社の利益よりもお客様の満足度を常に優先し、信頼関係を築く努力をする</p><p></p><p>目指すのは、<br/>安いけど壊れやすい商品ではなくて</p><p></p><h2>「価格よりも、圧倒的価値を提供すること」</h2>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_qt8UpL",
+        "heading_VR9HgD",
+        "text_jq6hXM"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-26c48073-c7e1-4daf-8269-57438c64b35c",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_HEbHUD": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_R9RFcx": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANP®︎商品一覧",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_VX9cR4": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "商品一覧",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_R9RFcx",
+        "buttons_VX9cR4"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/DSC00072_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "image_banner_rXEDYK",
+    "main",
+    "rich_text_Ufc8eH",
+    "rich_text_PDHEzi",
+    "image_banner_HEbHUD"
+  ]
+}

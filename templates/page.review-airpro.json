@@ -1,0 +1,266 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_aLNNRa": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_yHdDLk": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}",
+            "heading_size": "h1"
+          }
+        },
+        "text_XLdBjM": {
+          "type": "text",
+          "settings": {
+            "text": "この度はPANP AIR PROをご購入いただきありがとうございます。今後の商品開発や、購入前のお客様のためにレビューをご記入いただけますと幸いです。ぜひ、使用のご感想をご記入ください。",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yHdDLk",
+        "text_XLdBjM"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/itemimage_airpro.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "h1 {text-align: center;}",
+        "@media screen and (max-width: 749px) {h1 {font-size: 2rem; }}"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_dEjXmg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3gmWk3": {
+          "type": "heading",
+          "settings": {
+            "heading": "保証期間を2年間に延長する",
+            "heading_size": "h2"
+          }
+        },
+        "text_AMKHGC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>空気入れご使用後にレビューを投稿していただいたお客様には、お礼として2年間保証とさせていただきます。ご使用いただいた際の感想を投稿して、ぜひ保証延長されてください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3gmWk3",
+        "text_AMKHGC"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "slideshow_4DcN7w": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_nfh4wH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/2_71cf2185-f232-4707-9ff1-b6c39554e835.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_nfh4wH"
+      ],
+      "settings": {
+        "layout": "grid",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": ""
+      }
+    },
+    "rich_text_XUDDAV": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_deeCXY": {
+          "type": "heading",
+          "settings": {
+            "heading": "レビュー投稿について",
+            "heading_size": "h2"
+          }
+        },
+        "text_CwbEFx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>レビュー投稿後、自動で保証延長になります。その他のお手続き不要です。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_deeCXY",
+        "text_CwbEFx"
+      ],
+      "custom_css": [],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_3DrBEx": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_EmH3YT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/amazon.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "レビューを記入する",
+            "link": "https://www.amazon.co.jp/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0D7MQ1S2Y"
+          }
+        },
+        "column_DCqe6w": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/rakuten.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "レビューを記入する",
+            "link": "https://order.my.rakuten.co.jp/?fidomy=1&fidomy=1&openExternalBrowser=1"
+          }
+        },
+        "column_Qtj4yi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/yahoo.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "レビューを記入する",
+            "link": "https://shopping.yahoo.co.jp/review/contribution/list"
+          }
+        },
+        "column_4DCemm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/kousiki.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "レビューを記入する",
+            "link": "https://panp.jp/products/kukiire02#looxReviews"
+          }
+        }
+      },
+      "block_order": [
+        "column_EmH3YT",
+        "column_DCqe6w",
+        "column_Qtj4yi",
+        "column_4DCemm"
+      ],
+      "custom_css": [
+        "h2 {margin: auto;}",
+        "a {background-color: #0071e3; border-radius: 50px; color: #fff; display: inline-flex; justify-content: center; align-items: center; padding: 1rem 3rem; font: inherit; font-size: 1.4rem; text-decoration: none; letter-spacing: 0.1rem; line-height: calc(1 + 0.2 / var(--font-body-scale)); width: 100%;}",
+        ".multicolumn-card__info .link {margin-top: initial;}",
+        ".multicolumn-card__info .icon-wrap {display: none;}"
+      ],
+      "settings": {
+        "title": "購入されたサイトをお選びください。",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_NgwXxe": {
+      "type": "rich-text",
+      "blocks": {
+        "text_AWdqBb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>※Amazonでご購入されたお客様は、Amazonの規約によりレビューでの商品保証延長を行うことができません。そのためAmazonでご購入のお客様は、LINEのお友達追加で自動延長保証とさせていただきます。<a href=\"https://lin.ee/uHp1f1E\" target=\"_blank\"><span style=\"text-decoration:underline\">こちらからご登録</span></a>ください。<br/>※量販店・量販店オンラインで買った方お客様は当社公式サイトへのレビュー投稿で2年保証に延長いたします。レシート提示で保証対応となりますので大切に保管をお願いします。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_AWdqBb"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text {margin: 0.5em; background-color: #fff; padding: 20px; border-radius: 8px; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 32px; } p {text-align: left; } .rich-text {margin: 0em; background-color: #fff; padding: 20px 10px; border-radius: 8px; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 20,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "image_banner_aLNNRa",
+    "main",
+    "rich_text_dEjXmg",
+    "slideshow_4DcN7w",
+    "rich_text_XUDDAV",
+    "multicolumn_3DrBEx",
+    "rich_text_NgwXxe"
+  ]
+}

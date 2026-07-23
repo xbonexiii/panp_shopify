@@ -1,0 +1,37 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_QrPUWy": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{% if template == 'page.us-ridepro-lp' %}\n    <style>\n        .main-page-title {\n            display: none !important;\n        }\n        body {\n            background-color: #000000 !important;\n\n@media screen and (max-width: 749px) {\n  body{\n    padding-top: 70px; /* モバイル用のヘッダーの高さ分 */\n  }\n}\n\n        /* 画像の上下の隙間を詰める & スマホでフルワイズにする */\n        img {\n            margin-bottom: 0 !important;\n            margin-top: 0 !important;\n            width: 100% !important;\n            height: auto !important;\n            display: block;\n            max-width: 100%; /* デスクトップでは適切な幅に */\n        }\n\n        /* GIF画像のフルワイズ対応 */\n        .gif-img {\n            width: 100%;\n        }\n\n        /* スマホ用のフルワイズ調整 */\n        @media screen and (max-width: 768px) {\n            img {\n                width: 100% !important;\n                height: auto !important;\n            }\n\n            /* スマホでは .page-width の padding を 0 に（ヘッダー・フッターは影響なし） */\n            .page-width.page-width--narrow.section-template--16930819833907__main-padding {\n                padding: 0px !important;\n            }\n        }\n\n        /* スクロール時にフェードインする画像アニメーション（メインセクション） */\n        .shopify-section-template--16930819833907__main img.scroll-fade-in {\n            opacity: 0;\n            transform: translateY(30px);\n            transition: opacity 0.8s ease-out, transform 0.8s ease-out;\n        }\n\n        /* スクロールで表示されたとき（メインセクション） */\n        .shopify-section-template--16930819833907__main img.fade-in-visible {\n            opacity: 1;\n            transform: translateY(0);\n        }\n\n        /* スクロール時にフェードインする画像アニメーション（rteセクション専用） */\n        .rte.scroll-trigger.animate--slide-in img.scroll-fade-in {\n            opacity: 0;\n            transform: translateY(30px);\n            transition: opacity 0.8s ease-out, transform 0.8s ease-out;\n        }\n\n        /* スクロールで表示されたとき（rteセクション専用） */\n        .rte.scroll-trigger.animate--slide-in img.fade-in-visible {\n            opacity: 1;\n            transform: translateY(0);\n        }\n    </style>\n\n    <script>\n        document.addEventListener(\"DOMContentLoaded\", function() {\n            // メインセクションのフェードイン処理\n            const mainSection = document.querySelector(\".shopify-section-template--16930819833907__main\");\n\n            if (mainSection) {\n                const images = mainSection.querySelectorAll(\"img\");\n\n                const observer = new IntersectionObserver((entries, observer) => {\n                    entries.forEach(entry => {\n                        if (entry.isIntersecting) {\n                            entry.target.classList.add(\"fade-in-visible\");\n                            observer.unobserve(entry.target);\n                        }\n                    });\n                }, {\n                    rootMargin: \"50px 0px\", // 50pxの余白を設定して早めに表示\n                    threshold: 0.05  // 画像が5%表示されたらフェードイン\n                });\n\n                images.forEach(image => {\n                    image.classList.add(\"scroll-fade-in\");\n                    observer.observe(image);\n                });\n            }\n\n            // `.rte.scroll-trigger.animate--slide-in` 内の画像に適用\n            const rteSection = document.querySelector(\".rte.scroll-trigger.animate--slide-in\");\n\n            if (rteSection) {\n                const rteImages = rteSection.querySelectorAll(\"img\");\n\n                const rteObserver = new IntersectionObserver((entries, observer) => {\n                    entries.forEach(entry => {\n                        if (entry.isIntersecting) {\n                            entry.target.classList.add(\"fade-in-visible\");\n                            observer.unobserve(entry.target);\n                        }\n                    });\n                }, {\n                    rootMargin: \"50px 0px\", // 50pxの余白を設定して早めに表示\n                    threshold: 0.05  // 画像が5%表示されたらフェードイン\n                });\n\n                rteImages.forEach(image => {\n                    image.classList.add(\"scroll-fade-in\");\n                    rteObserver.observe(image);\n                });\n            }\n        });\n    </script>\n{% endif %}",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "h1 {text-align: center;}"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_QrPUWy",
+    "main"
+  ]
+}

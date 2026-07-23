@@ -1,0 +1,107 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "medium"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": false
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "title",
+        "content",
+        "share"
+      ],
+      "custom_css": [
+        ".article-template {margin: 0px 0px 100px;}",
+        "h2 {margin: 50px 0 0 0; border-left: 5px solid #000000; /*線の設定*/ padding: 2px 8px; /*余白の設定*/}",
+        "iframe.youtube-16-9 {width: 100%; height: auto; aspect-ratio: 16 / 9;}",
+        "li ul {border: none !important;}",
+        ".rte ul,.rte ol {border-radius: 8px; list-style: none; padding: 2rem; background: #fff; border: 3px solid #333;}",
+        "li a {color: #333; text-decoration: none;}",
+        "video {margin: auto;}"
+      ],
+      "settings": {}
+    },
+    "featured_collection_ranking_ApYtjJ": {
+      "type": "featured-collection-ranking",
+      "settings": {
+        "title": "Ranking",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "ranking",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_NRUib4": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "NEWS",
+        "heading_size": "h1",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured_collection_ranking_ApYtjJ",
+    "featured_blog_NRUib4"
+  ]
+}

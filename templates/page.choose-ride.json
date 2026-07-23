@@ -1,0 +1,241 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_9HxQPg": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_YgV3eA": {
+          "type": "heading",
+          "settings": {
+            "heading": "RIDEシリーズの選び方",
+            "heading_size": "h1"
+          }
+        },
+        "text_VQb8Cc": {
+          "type": "text",
+          "settings": {
+            "text": "タイヤを中心に一般用途にはRIDEシリーズ",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YgV3eA",
+        "text_VQb8Cc"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ride-series01.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_eeczT7": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_deDR9w": {
+          "type": "heading",
+          "settings": {
+            "heading": "RIDEシリーズの選び方",
+            "heading_size": "h0"
+          }
+        },
+        "text_zLLPCd": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>自転車やボールなどには<br/><strong>「RIDE」</strong></h3><h3>車やバイクなど素早い空気入れは<br/><strong>「RIDE PRO」</strong></h3><h3>コンパクトに持ち運びやすさを求めるなら<br/><strong>「RIDE CYCLE」</strong></h3>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_deDR9w",
+        "text_zLLPCd"
+      ],
+      "custom_css": [
+        "h3 {font-size: 2.5em; color: #a07828;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_DFYfxx": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_8TwmWz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-PRIDE.png",
+            "title": "RIDE",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_kCEiyc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-RIDE-PRO.png",
+            "title": "RIDE PRO",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_q7r7EF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-RIDE-CYCLE.jpg",
+            "title": "RIDE CYCLE",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_8TwmWz",
+        "column_kCEiyc",
+        "column_q7r7EF"
+      ],
+      "custom_css": [
+        "h2 {margin: auto;}"
+      ],
+      "settings": {
+        "title": "お客様の使い道に合わせて3つのモデルをご用意しております。",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_FntGRG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TpHRJg": {
+          "type": "heading",
+          "settings": {
+            "heading": "何が違う？",
+            "heading_size": "h0"
+          }
+        },
+        "text_HAqeB6": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>パワーが違います。</h3><p>どのRIDEもタイヤ全般、ボール、浮き輪に空気を入れることができますが、パワーが違うので空気を入れるスピード、本体サイズ、空気を入れられる本数などの違いがあります。</p><p>車に向いている、自転車に向いている、ツーリングに向いているなどお客様の好みに合わせてお選びください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TpHRJg",
+        "text_HAqeB6"
+      ],
+      "custom_css": [],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_3NnnCU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_z437Tz": {
+          "type": "heading",
+          "settings": {
+            "heading": "どれを買えばいい？",
+            "heading_size": "h0"
+          }
+        },
+        "text_ycWQaJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>RIDE</strong>：<br/>よく自転車、バイクに空気を入れる方はコレ。</p><p></p><p><strong>RIDE PRO</strong>：<br/>よく車に空気を入れる人はコレ。最新モデルで一番使い勝手がいいので迷った方におすすめしております。</p><p></p><p><strong>RIDE CYCLE</strong>：<br/>自転車でのツーリングやシェアサイクルで持ち運びたい人はコレ</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_z437Tz",
+        "text_ycWQaJ"
+      ],
+      "custom_css": [],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_liquid_KqaGwn": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".tableWrap {margin: 0 5% 0 5%;}",
+        ".tableWrap th {background: #00; width: 10%;}",
+        ".tableWrap td {background: #fff; width: 30%;}",
+        ".tableWrap,td,th {border: 1px solid #ccc; border-collapse: collapse;}",
+        ".tableWrap th,.tableWrap td {text-align: left; min-width: 200px; padding: 10px; height: 60px;}",
+        ".tableWrap th p,p {text-align: center;}",
+        "p {display: block; margin: 0; padding: 0; text-align: left; font-size: 0.9em;}",
+        "h3 {margin: 25px 0 0 0;}",
+        "@media screen and (max-width: 850px) {.tableWrap {display: block; overflow-x: scroll; word-break: break-word; }}",
+        "img {width: 100%;}"
+      ],
+      "settings": {
+        "custom_liquid": "<table class=\"tableWrap\">\n  <tr>\n    <th> </th>\n    <th>\n      <p>PANP RIDE</p><img height=\"\" width=\"\" alt=\"PANP®︎ RIDE\" src=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/product-PRIDE.png?v=1714371193\" loading=\"lazy\">\n    </th>\n    <th>\n      <p>PANP RIDE PRO</p><img height=\"\" width=\"\" alt=\"PANP®︎ PRO\" src=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/product-RIDE-PRO.png?v=1714371194\" loading=\"lazy\">\n    </th>\n    <th>\n      <p>PANP RIDE CYCLE</p><img height=\"\" width=\"\" alt=\"PANP®︎ CYCLE\" src=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/product-RIDE-CYCLE.jpg?v=1745125248\" loading=\"lazy\">\n    </th>\n  </tr>\n  <tr>\n    <th>どんな特徴があるの？</th>\n    <td>自転車、バイク、ボールなどにおすすめの万能タイプ</td>\n    <td>車のタイヤなど、大容量のものにおすすめのパワータイプ</td>\n    <td>スッキリとしたフォルムでツーリング時など持ち運びに便利なタイプ</td>\n  </tr>\n  <tr>\n    <th>価格は？</th>\n    <td>7,980円</td>\n    <td>12,980円</td>\n    <td>11,980円</td>\n  </tr>\n  <tr>\n    <th>バッテリー満タンでどのくらい使える？<br>※あくまで目安です。タイヤの種類によって異なります。</th>\n    <td>\n      <h3>ママチャリ</h3>\n      <p>速度：わずか40秒</br> 入れられる本数：20本</br></p>\n      <p>（タイヤサイズ：20×1.75を0PSIから40PSIにした場合）</p>\n      <h3>ロードバイク</h3>\n      <p>速度：わずか60秒</br> 入れられる本数：10回</br></p>\n      <p>（タイヤサイズ：700×23Cを4BARから8BARにした場合）</p>\n      <h3>原付</h3>\n      <p>速度：120秒</br> 入れられる本数：6本</br></p>\n      <p>（タイヤサイズ：80/90-14を0OSIから32PSIにした場合）</p>\n      <h3>普通車</h3>\n      <p>速度：120秒</br> 入れられる本数:6回</br></p>\n      <p>（タイヤサイズ：225/50R17を37PSIから40PSIにした場合）</p>\n    </td>\n    <td>\n      <h3>ママチャリ</h3>\n      <p>速度：わずか18秒</br> 入れられる本数：39本</p>\n      <p>（タイヤサイズ：20×1.75を0PSIから40PSIにした場合）</p>\n      <h3>ロードバイク</h3>\n      <p>速度：わずか30秒</br> 入れられる本数：19回</p>\n      <p>（タイヤサイズ：700×23Cを0BARから8BARにした場合）</p>\n      <h3>原付</h3>\n      <p>速度：わずか30秒</br> 入れられる本数：11本</p>\n      <p>（タイヤサイズ：80/90-12を0PSIから37PSIにした場合）</p>\n      <h3>普通車</h3>\n      <p>速度：わずか30秒</br> 入れられる本数：11回</p>\n      <p>（タイヤサイズ：225/50R17を37PSIから40PSIにした場合）</p>\n    </td>\n    <td>\n      <h3>シティサイクル</h3>\n      <p>速度：30秒</br> 入れられる本数：6-7本</p>\n      <p>（0PSIから44PSIになるまでの数値）</p>\n      <h3>ロードバイク</h3>\n      <p>速度：60秒</br> 入れられる本数：3回</p>\n      <p>（0PSIから100PSIになるまでの数値）</p>\n      <h3>MTB</h3>\n      <p>速度：40秒</br> 入れられる本数：8本</p>\n      <p>（0PSIから38PSIになるまでの数値）</p>\n      <h3>クロスバイク</h3>\n      <p>速度：50秒</br> 入れられる本数：5回</p>\n      <p>（0PSIから65PSIになるまでの数値）</p>\n    </td>\n  </tr>\n  <tr>\n    <th>サイズは？</th>\n    <td>153*60*39mm</br> 433ｇ</td>\n    <td>130*112*56mm</br> 650g</td>\n    <td>45*71.5*32mm</br> 108g</td>\n  </tr>\n  <tr>\n    <th>空気を入れるスピードの違いは？</th>\n    <td>毎分29ℓ</td>\n    <td>毎分35ℓ</td>\n    <td>毎分14ℓ</td>\n  </tr>\n  <tr>\n    <th></th>\n    <td><a href=\"https://kukiire.com/products/smart-kukiire\" class=\"button button--primary\">RIDEを見る</a></td>\n    <td><a href=\"https://panp.jp/products/panp-ridepro01\" class=\"button button--primary\">RIDE PROを見る</a></td>\n    <td><a href=\"https://panp.jp/products/panp-ridecycle01\" class=\"button button--primary\">RIDE CYCLEを見る</a></td>\n  </tr>\n</table>",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_9HxQPg",
+    "rich_text_eeczT7",
+    "multicolumn_DFYfxx",
+    "rich_text_FntGRG",
+    "rich_text_3NnnCU",
+    "custom_liquid_KqaGwn"
+  ]
+}

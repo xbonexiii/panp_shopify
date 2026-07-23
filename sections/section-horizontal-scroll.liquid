@@ -1,0 +1,252 @@
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+/* セクションの上下パディング */
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* タイトル周り */
+.section-{{ section.id }}-title-wrapper {
+  {% if section.settings.full_width %}
+    padding: 0 5vw;
+  {% else %}
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  {% endif %}
+  margin-bottom: 20px;
+}
+
+/* スクロールコンテナ */
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 10px;
+  scroll-padding-left: 10px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* カード全体 */
+.scroll-card {
+  display: block;
+  position: relative;
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: {{ section.settings.card_width }}px;
+  height: {{ section.settings.card_height }}px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--card-bg, #000);
+  color: var(--card-color, #fff);
+  text-decoration: none;
+  will-change: transform;
+  transition: transform 0.4s ease;
+}
+
+/* ホバー時ズーム */
+.scroll-card:hover {
+  transform: scale(1.02);
+}
+
+.scroll-card * {
+  color: inherit;
+}
+
+/* カード内部 */
+.scroll-card-inner {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* キャプション・タイトル・説明文 */
+.card-caption {
+  font-size: 12px;
+  opacity: 0.8;
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 5px 0 0 0;
+  line-height: 1.5;
+}
+
+.card-description {
+  font-size: 16px;
+  margin: 10px 0 0 0;
+  line-height: 1.5;
+}
+
+/* プラスボタン */
+.card-button {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(51,51,54,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: normal;
+  text-decoration: none;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* ナビボタン */
+.scroll-nav {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+.scroll-nav button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.scroll-nav button:hover {
+  background: #d6d6d7;
+}
+.scroll-nav svg {
+  width: 20px;
+  height: 20px;
+  fill: #333336;
+}
+{%- endstyle -%}
+
+<!-- セクションスタート -->
+<div class="section-{{ section.id }}-padding{% unless section.settings.full_width %} page-width{% endunless %}">
+  
+  <!-- タイトルエリア -->
+  <div class="section-{{ section.id }}-title-wrapper">
+    {%- if section.settings.section_title != blank -%}
+      <h2 class="{{ section.settings.heading_size }}">{{ section.settings.section_title }}</h2>
+    {%- endif -%}
+  </div>
+
+  <!-- スクロールエリア -->
+  <div id="ScrollContainer-{{ section.id }}" class="scroll-container">
+    {%- for block in section.blocks -%}
+      {%- assign link_url = block.settings.button_link -%}
+      <div style="position: relative;">
+        {%- if link_url != blank -%}
+          <a href="{{ link_url }}" class="scroll-card"
+            style="background-image: url('{{ block.settings.image | image_url }}'); --card-bg: {{ block.settings.background_color }}; --card-color: {{ block.settings.text_color }}">
+            <div class="scroll-card-inner">
+              <div>
+                <div class="card-caption" style="font-size: {{ block.settings.caption_font_size }}px;">{{ block.settings.caption }}</div>
+                <div class="card-title" style="font-size: {{ block.settings.title_font_size }}px;">{{ block.settings.heading }}</div>
+                <div class="card-description" style="font-size: {{ block.settings.text_font_size }}px;">{{ block.settings.text }}</div>
+              </div>
+            </div>
+            <div class="card-button">{{ block.settings.button_label | default: '+' }}</div>
+          </a>
+        {%- else -%}
+          <div class="scroll-card"
+            style="background-image: url('{{ block.settings.image | image_url }}'); --card-bg: {{ block.settings.background_color }}; --card-color: {{ block.settings.text_color }}">
+            <div class="scroll-card-inner">
+              <div>
+                <div class="card-caption" style="font-size: {{ block.settings.caption_font_size }}px;">{{ block.settings.caption }}</div>
+                <div class="card-title" style="font-size: {{ block.settings.title_font_size }}px;">{{ block.settings.heading }}</div>
+                <div class="card-description" style="font-size: {{ block.settings.text_font_size }}px;">{{ block.settings.text }}</div>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <!-- ナビボタン -->
+  <div class="scroll-nav">
+    <button type="button" onclick="scrollGallery('{{ section.id }}', 'left')" aria-label="左へ">
+      <svg viewBox="0 0 20 20"><path d="M13 15l-5-5 5-5v10z"></path></svg>
+    </button>
+    <button type="button" onclick="scrollGallery('{{ section.id }}', 'right')" aria-label="右へ">
+      <svg viewBox="0 0 20 20"><path d="M7 5l5 5-5 5V5z"></path></svg>
+    </button>
+  </div>
+
+</div>
+
+<script>
+function scrollGallery(sectionId, direction) {
+  const container = document.getElementById('ScrollContainer-' + sectionId);
+  const scrollAmount = 300;
+  if (direction === 'left') {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  } else {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  }
+}
+</script>
+
+{% schema %}
+{
+  "name": "スクロールカード",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "section_title", "label": "セクションタイトル", "default": "PANPの魅力を紹介します。" },
+    { "type": "select", "id": "heading_size", "label": "見出しサイズ", "options": [ { "value": "h2", "label": "小" }, { "value": "h1", "label": "中" }, { "value": "h0", "label": "大" } ], "default": "h1" },
+    { "type": "checkbox", "id": "full_width", "label": "全幅にする", "default": false },
+    { "type": "range", "id": "card_width", "label": "カード幅(px)", "min": 150, "max": 400, "step": 10, "default": 300 },
+    { "type": "range", "id": "card_height", "label": "カード高さ(px)", "min": 200, "max": 600, "step": 10, "default": 520 },
+    { "type": "range", "id": "padding_top", "label": "上部余白(px)", "min": 0, "max": 100, "step": 4, "default": 36 },
+    { "type": "range", "id": "padding_bottom", "label": "下部余白(px)", "min": 0, "max": 100, "step": 4, "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "カード",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "背景画像" },
+        { "type": "text", "id": "caption", "label": "キャプション" },
+        { "type": "range", "id": "caption_font_size", "label": "キャプションフォントサイズ(px)", "min": 10, "max": 24, "default": 12 },
+        { "type": "text", "id": "heading", "label": "見出し" },
+        { "type": "range", "id": "title_font_size", "label": "見出しフォントサイズ(px)", "min": 14, "max": 32, "default": 22 },
+        { "type": "text", "id": "text", "label": "説明文" },
+        { "type": "range", "id": "text_font_size", "label": "説明文フォントサイズ(px)", "min": 12, "max": 24, "default": 16 },
+        { "type": "text", "id": "button_label", "label": "ボタンラベル", "default": "+" },
+        { "type": "url", "id": "button_link", "label": "リンク先" },
+        { "type": "color", "id": "background_color", "label": "背景色", "default": "#000000" },
+        { "type": "color", "id": "text_color", "label": "テキスト色", "default": "#ffffff" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "カード横スクロール", "blocks": [ { "type": "card" }, { "type": "card" }, { "type": "card" }, { "type": "card" } ] }
+  ]
+}
+{% endschema %}

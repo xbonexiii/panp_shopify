@@ -1,0 +1,223 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_9HxQPg": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_YgV3eA": {
+          "type": "heading",
+          "settings": {
+            "heading": "AIRシリーズの選び方",
+            "heading_size": "h1"
+          }
+        },
+        "text_VQb8Cc": {
+          "type": "text",
+          "settings": {
+            "text": "アクティビティ・レジャーを中心の用途にはAIRシリーズ",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YgV3eA",
+        "text_VQb8Cc"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/air_image.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_cCbGNr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_X6Tg9a": {
+          "type": "heading",
+          "settings": {
+            "heading": "AIRシリーズの選び方",
+            "heading_size": "h0"
+          }
+        },
+        "text_F6eAwq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>お客様の用途に合わせて2つのモデルをご用意しております。</p><h3>浮き輪やエアマット、ビニールプールなど<br/>手軽に楽しむ用途には小型の<strong>「AIR」</strong></h3><h3>テント、SUP、ボートなど<br/>よりアクティビティな用途には大容量パワーの<strong>「AIR PRO」</strong></h3>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_X6Tg9a",
+        "text_F6eAwq"
+      ],
+      "custom_css": [
+        "h3 {font-size: 2.5em; color: #416923;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_WHRxpK": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qxhJjh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-PANP-AIR.png",
+            "title": "AIR",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_GcCzpi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-PANP-AIRPRO.png",
+            "title": "AIR PRO",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_qxhJjh",
+        "column_GcCzpi"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_4pbGcj": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JJgwmJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "何が違う？",
+            "heading_size": "h0"
+          }
+        },
+        "text_8iVdJz": {
+          "type": "text",
+          "settings": {
+            "text": "<h3><strong>使える幅が違います。</strong></h3><p>AIR：浮き輪、プール、、エアーマット系</p><p>AIR PRO：浮き輪、プール、エアマット系＋SUP、ゴムボート、トーイングチューブ、バナナボート、エアーテント</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JJgwmJ",
+        "text_8iVdJz"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_n4Rzhp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_DNP6kF": {
+          "type": "heading",
+          "settings": {
+            "heading": "どれを買えばいい？",
+            "heading_size": "h0"
+          }
+        },
+        "text_GRt9V4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>AIR：浮き輪、プール、エアマット、キャンプで使いたいお客様はコレ</p><p>AIR PRO：SUP、ゴムボート、バナナボート、エアーテントなど特殊な物に使いたいお客様はコレ</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DNP6kF",
+        "text_GRt9V4"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_liquid_mBzL9i": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".tableWrap {margin: 0 5% 0 5%;}",
+        ".tableWrap th {background: #00; width: 10%;}",
+        ".tableWrap td {background: #fff; width: 30%;}",
+        ".tableWrap,td,th {border: 1px solid #ccc; border-collapse: collapse;}",
+        ".tableWrap th,.tableWrap td {text-align: left; min-width: 200px; padding: 10px; height: 60px;}",
+        ".tableWrap th,p {text-align: center;}",
+        "@media screen and (max-width: 850px) {.tableWrap {display: block; overflow-x: scroll; word-break: break-word; }}",
+        "img {width: 100%;}"
+      ],
+      "settings": {
+        "custom_liquid": "<table class=\"tableWrap\">\n  <tr>\n    <th> </th>\n    <th>\n      <p>PANP AIR</p><img alt=\"PANP AIR\" src=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/product-PANP-AIR.png?v=1714375930\" loading=\"lazy\"></th>\n    <th>\n      <p>PANP®︎ AIR PRO</p><img height=\"\" width=\"\" alt=\"PANP®︎ AIR PRO\" src=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/product-PANP-AIRPRO.png?v=1714375930\" loading=\"lazy\"></th>\n  </tr>\n  <tr>\n    <th>どんな特徴があるの？</th>\n    <td>コンパクトで持ち運びしやすい</td>\n    <td>スピードが早く 使える幅が広い </td>\n  </tr>\n  <tr>\n    <th>価格は？</th>\n    <td>3,980円</td>\n    <td>19,800円</td>\n  </tr>\n  <tr>\n    <th>入れられるモノ</th>\n    <td> 浮き輪、 プール、 エアマット系 などにおすすめ </td>\n    <td> SUP、 ゴムボート、 トーイングチューブ、 バナナボート、 エアーテント、などに大容量のものにおすすめ </td>\n  </tr>\n  <tr>\n    <th>サイズは？</th>\n    <td> 4.3* 4.3*6 cm</br> 104ｇ </td>\n    <td> 28.3*19.4*9cm</br> 1490g </td>\n  </tr>\n  <tr>\n    <th>空気流量</th>\n    <td>88L/min</td>\n    <td>240L/min</td>\n  </tr>\n  <th></th>\n  <td> <a href=\"https://panp.jp/products/kukiire02\" class=\"button button--primary\">AIRはこちら</a> </td>\n  <td> <a href=\"https://panp.jp/products/panp-airpro01\" class=\"button button--primary\">AIR PROはこちら</a></td>\n  </tr>\n</table>",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_9HxQPg",
+    "rich_text_cCbGNr",
+    "multicolumn_WHRxpK",
+    "rich_text_4pbGcj",
+    "rich_text_n4Rzhp",
+    "custom_liquid_mBzL9i"
+  ]
+}

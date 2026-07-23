@@ -1,0 +1,620 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_9HxQPg": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_YgV3eA": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANPの選び方",
+            "heading_size": "h1"
+          }
+        },
+        "text_VQb8Cc": {
+          "type": "text",
+          "settings": {
+            "text": "RIDE & AIR",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YgV3eA",
+        "text_VQb8Cc"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/DSC00064_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_ebiY4t": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ki4gm9": {
+          "type": "heading",
+          "settings": {
+            "heading": "RIDEシリーズ＆AIRシリーズ",
+            "heading_size": "h1"
+          }
+        },
+        "button_RiQCFe": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ki4gm9",
+        "button_RiQCFe"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_H8T8GK": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Qpk8Mz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ride-newseries.png",
+            "title": "<strong>日常使いで様々なタイヤを中心に空気を入れたい</strong>お客様向け。",
+            "text": "<p><strong>入れられるもの：</strong>自転車全般、バイク、車、ボール</p><p><strong>入れられないもの</strong>：プール、エアマット</p>",
+            "link_label": "RIDEシリーズの選び方を見る",
+            "link": "shopify://pages/chooce-ride"
+          }
+        },
+        "column_7nWXzB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/air_image.jpg",
+            "title": "<strong>レジャー・アクティビティを中心に空気を入れたい</strong>お客様向け。",
+            "text": "<p><strong>入れられる物</strong>：浮き輪、ビニールプール、車中泊マット、エアーベット、インフレーターマット、インフレーター枕、SUP、ゴムボート、トーイングチューブ、バナナボート、エアーテント</p><p><strong>入れられない物</strong>：タイヤ全般</p>",
+            "link_label": "AIRシリーズの選び方を見る",
+            "link": "shopify://pages/chooce-air"
+          }
+        }
+      },
+      "block_order": [
+        "column_Qpk8Mz",
+        "column_7nWXzB"
+      ],
+      "custom_css": [
+        ".multicolumn-card__info .icon-wrap {display: none;}",
+        "h2 {margin: 0 auto;}",
+        "a {background-color: #0071e3; border-radius: 50px; color: #fff; display: inline-flex; justify-content: center; align-items: center; padding: 1rem 3rem; font: inherit; font-size: 1.5rem; text-decoration: none; letter-spacing: 0.1rem; line-height: calc(1 + 0.2 / var(--font-body-scale));}"
+      ],
+      "settings": {
+        "title": "PANP®︎ には２つの種類があります",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_eeczT7": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_deDR9w": {
+          "type": "heading",
+          "settings": {
+            "heading": "RIDEシリーズの選び方",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_deDR9w"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_DFYfxx": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_8TwmWz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-PRIDE.png",
+            "title": "RIDE",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_kCEiyc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-RIDE-PRO.png",
+            "title": "RIDE PRO",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_q7r7EF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-RIDE-MINI.png",
+            "title": "RIDE MINI",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_8TwmWz",
+        "column_kCEiyc",
+        "column_q7r7EF"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "お客様の使い道に合わせて3つのモデルをご用意しております。",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_FntGRG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TpHRJg": {
+          "type": "heading",
+          "settings": {
+            "heading": "何が違う？",
+            "heading_size": "h0"
+          }
+        },
+        "text_HAqeB6": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>パワーが違います。</h3><p>どのRIDEもタイヤ全般、ボール、浮き輪に空気を入れることができますが、パワーが違うので空気を入れるスピード、本体サイズ、空気を入れられる本数などの違いがあります。</p><p>車に向いている、自転車に向いている、ツーリングに向いているなどお客様の好みに合わせてお選びください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TpHRJg",
+        "text_HAqeB6"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_3NnnCU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_z437Tz": {
+          "type": "heading",
+          "settings": {
+            "heading": "どれを買えばいい？",
+            "heading_size": "h0"
+          }
+        },
+        "text_ycWQaJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>RIDE：よ<strong>く自転車、バイク</strong>に空気を入れる方はコレ。</p><p></p><p>RIDE PRO：よく<strong>車</strong>に空気を入れる人はコレ。最新モデルで一番使い勝手がいいので迷った方におすすめしております。</p><p></p><p>RIDE MINI：自転車での<strong>ツーリング</strong>やシェアサイクルで持ち運びたい人はコレ</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_z437Tz",
+        "text_ycWQaJ"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "table_BabgrV": {
+      "type": "table",
+      "blocks": {
+        "table_row_mNAHeA": {
+          "type": "table_row",
+          "settings": {
+            "description": "",
+            "option1": "<p>PANP®︎ RIDE</p>",
+            "option2": "<p>PANP®︎ RIDE MINI</p>",
+            "option3": "<p>PANP®︎ RIDE PRO</p>"
+          }
+        },
+        "table_row_N3n3YX": {
+          "type": "table_row",
+          "settings": {
+            "description": "<p>どんな特徴があるの？</p>",
+            "option1": "<p>万能</p>",
+            "option2": "<p>持ち運びに便利</p>",
+            "option3": "<p>最新モデル</p>"
+          }
+        },
+        "table_row_nGWinh": {
+          "type": "table_row",
+          "settings": {
+            "description": "<p>価格は？</p>",
+            "option1": "<p>8980</p>",
+            "option2": "<p>7980</p>",
+            "option3": "<p>13980</p>"
+          }
+        },
+        "table_row_6GKDaL": {
+          "type": "table_row",
+          "settings": {
+            "description": "<p>バッテリー満タンでどのくらい使える？</p>",
+            "option1": "<p>ママチャリ<br/>速度：わずか40秒<br/>入れられる本数：20本</p><h6>（タイヤサイズ：20×1.75を0PSIから40PSIにした場合）</h6><p>ロードバイク<br/>速度：わずか60秒<br/>入れられる本数：10回</p><h6>（タイヤサイズ：700×23Cを4BARから8BARにした場合）</h6><p>原付<br/>速度：120秒<br/>入れられる本数：6本</p><h6>（タイヤサイズ：80/90-14を0OSIから32PSIにした場合）</h6><p>普通車<br/>速度：120秒<br/>入れられる本数:6回</p><h6>（タイヤサイズ：225/50R17を37PSIから40PSIにした場合）</h6>",
+            "option2": "<p>ママチャリ<br/>速度：わずか40秒<br/>入れられる本数：6本</p><h6>（タイヤサイズ：20×1.75を0PSIから40PSIにした場合）</h6><p>ロードバイク<br/>速度：わずか75秒<br/>入れられる本数：3回</p><h6>（タイヤサイズ：700×23Cを4BARから8BARにした場合）</h6><p>原付<br/>速度：155秒<br/>入れられる本数：2本</p><h6>（タイヤサイズ：80/90-14を0PSIから32PSIにした場合）</h6><p>普通車<br/>速度：155秒<br/>入れられる本数：2回</p><h6>（タイヤサイズ：225/50R17を37PSIから40PSIにした場合）</h6>",
+            "option3": "<p>ママチャリ<br/> 速度：わずか18秒<br/>入れられる本数：39本</p><h6>（タイヤサイズ：20×1.75を0PSIから40PSIにした場合）</h6><p>ロードバイク<br/>速度：わずか30秒<br/>入れられる本数：19回</p><h6>（タイヤサイズ：700×23Cを0BARから8BARにした場合）</h6><p>原付<br/>速度：わずか30秒<br/>入れられる本数：11本</p><h6>（タイヤサイズ：80/90-12を0PSIから37PSIにした場合）</h6><p>普通車<br/>速度：わずか30秒<br/>入れられる本数：11回</p><h6>（タイヤサイズ：225/50R17を37PSIから40PSIにした場合）</h6>"
+          }
+        },
+        "table_row_dMKVP9": {
+          "type": "table_row",
+          "settings": {
+            "description": "<p>サイズは？</p>",
+            "option1": "<p>153*60*39mm<br/>433g</p>",
+            "option2": "<p>190*40*40mm<br/>405g</p>",
+            "option3": "<p>130*112*56mm<br/>650g</p>"
+          }
+        },
+        "table_row_RTXRM9": {
+          "type": "table_row",
+          "settings": {
+            "description": "<p>空気を入れるスピードの違いは？</p>",
+            "option1": "<p>毎分29ℓ</p>",
+            "option2": "<p>毎分25ℓ</p>",
+            "option3": "<p>毎分35ℓ</p>"
+          }
+        }
+      },
+      "block_order": [
+        "table_row_mNAHeA",
+        "table_row_N3n3YX",
+        "table_row_nGWinh",
+        "table_row_6GKDaL",
+        "table_row_dMKVP9",
+        "table_row_RTXRM9"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "PANP®︎ RIDEの比較表"
+      }
+    },
+    "custom_liquid_KqaGwn": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        ".tableWrap {margin: 0 5% 0 5%;}",
+        ".tableWrap th {background: #00; width: 10%;}",
+        ".tableWrap td {background: #fff; width: 30%;}",
+        ".tableWrap,td,th {border: 1px solid #ccc; border-collapse: collapse;}",
+        ".tableWrap th,.tableWrap td {text-align: left; min-width: 200px; padding: 10px; height: 60px;}",
+        ".tableWrap th,p {text-align: center;}",
+        "@media screen and (max-width: 850px) {.tableWrap {display: block; overflow-x: scroll; word-break: break-word; }}",
+        "img {width: 100%;}"
+      ],
+      "settings": {
+        "custom_liquid": "<table class=\"tableWrap\">\n  <tr>\n    <th> </th>\n    <th>\n      <p>PANP®︎ RIDE</p><img height=\"\" width=\"\" alt=\"PANP®︎ RIDE\" src=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/product-PRIDE.png?v=1714371193\" loading=\"lazy\"></th>\n    <th>\n      <p>PANP®︎ RIDE MINI</p><img height=\"\" width=\"\" alt=\"PANP®︎ PRO\" src=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/product-RIDE-PRO.png?v=1714371194\" loading=\"lazy\"></th>\n    <th>\n      <p>PANP®︎ RIDE PRO</p><img height=\"\" width=\"\" alt=\"PANP®︎ MINI\" src=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/product-RIDE-MINI.png?v=1714371194\" loading=\"lazy\"></th>\n  </tr>\n  <tr>\n    <th>どんな特徴があるの？</th>\n    <td>自転車、バイク、ボールなどにおすすめの万能タイプ</td>\n    <td>車のタイヤなど、大容量のものにおすすめのパワータイプ</td>\n    <td>スッキリとしたフォルムでツーリング時など持ち運びに便利なタイプ</td>\n  </tr>\n  <tr>\n    <th>価格は？</th>\n    <td>7,980円</td>\n    <td>-</td>\n    <td>-</td>\n  </tr>\n  <tr>\n    <th>バッテリー満タンでどのくらい使える？</th>\n    <td> \n      <h3>ママチャリ</h3>\n      <h4>速度：わずか40秒</br> 入れられる本数：20本</br>\n      </h4>\n      <h6>（タイヤサイズ：20×1.75を0PSIから40PSIにした場合）</h6> \n      <h3>ロードバイク</h3>\n      <h4>速度：わずか60秒</br> 入れられる本数：10回</br>\n      </h4>\n      <h6>（タイヤサイズ：700×23Cを4BARから8BARにした場合）</h6> \n      <h3>原付</h3>\n      <h4>速度：120秒</br> 入れられる本数：6本</br>\n      </h4>\n      <h6>（タイヤサイズ：80/90-14を0OSIから32PSIにした場合） </h6> \n      <h3>普通車</h3>\n      <h4>速度：120秒</br> 入れられる本数:6回</br>\n      </h4>\n      <h6>（タイヤサイズ：225/50R17を37PSIから40PSIにした場合）</h6>\n    </td>\n    <td> \n      <h3>ママチャリ</h3>\n      <h4>速度：わずか18秒</br> 入れられる本数：39本</h4>\n      <h6>（タイヤサイズ：20×1.75を0PSIから40PSIにした場合）</h6>\n      <h3>ロードバイク</h3>\n      <h4>速度：わずか30秒</br> 入れられる本数：19回</h4>\n      <h6>（タイヤサイズ：700×23Cを0BARから8BARにした場合）</h6>\n      <h3>原付</h3>\n      <h4>速度：わずか30秒</br> 入れられる本数：11本</h4>\n      <h6>（タイヤサイズ：80/90-12を0PSIから37PSIにした場合）</h6>\n      <h3>普通車</h3>\n      <h4>速度：わずか30秒</br> 入れられる本数：11回</h4>\n      <h6>（タイヤサイズ：225/50R17を37PSIから40PSIにした場合）</h6>\n    </td>\n    <td> \n      <h3>ママチャリ</h3>\n      <h4>速度：わずか40秒</br> 入れられる本数：6本</h4>\n      <h6>（タイヤサイズ：20×1.75を0PSIから40PSIにした場合）</h6> \n      <h3>ロードバイク</h3>\n      <h4>速度：わずか75秒</br> 入れられる本数：3回</h4>\n      <h6>（タイヤサイズ：700×23Cを4BARから8BARにした場合）</h6> \n      <h3>原付</h3>\n      <h4>速度：155秒</br> 入れられる本数：2本</h4>\n      <h6>（タイヤサイズ：80/90-14を0PSIから32PSIにした場合）</h6>\n      <h3>普通車</h3>\n      <h4>速度：155秒</br> 入れられる本数：2回</h4>\n      <h6>（タイヤサイズ：225/50R17を37PSIから40PSIにした場合）</h6>\n    </td>\n  </tr>\n  <tr>\n    <th>サイズは？</th>\n    <td> 153*60*39mm</br> 433ｇ </td>\n    <td> 130*112*56mm</br> 650g </td>\n    <td> 190*40*40mm</br> 405g </td>\n  </tr>\n  <tr>\n    <th>空気を入れるスピードの違いは？</th>\n    <td>毎分29ℓ</td>\n    <td>毎分35ℓ</td>\n    <td>毎分25ℓ</td>\n  </tr>\n  <th></th>\n  <td> <a href=\"https://kukiire.com/products/smart-kukiire\" class=\"button button--primary\">RIDEを見る</a> </td>\n  <td> <a href=\"https://page.line.me/116ektac?oat_content=url&openQrModal=true\" class=\"button button--primary\">LINEでお知らせ</a></td>\n  <td> <a href=\"https://page.line.me/116ektac?oat_content=url&openQrModal=true\" class=\"button button--primary\">LINEでお知らせ</a></td>\n  </tr>\n</table>",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_cCbGNr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_X6Tg9a": {
+          "type": "heading",
+          "settings": {
+            "heading": "AIRシリーズの選び方",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_X6Tg9a"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_WHRxpK": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qxhJjh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-PANP-AIR.png",
+            "title": "AIR",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_GcCzpi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-PANP-AIRPRO.png",
+            "title": "AIR PRO",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_qxhJjh",
+        "column_GcCzpi"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "お客様の用途に合わせて2つのモデルをご用意しております。",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_4pbGcj": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JJgwmJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "何が違う？",
+            "heading_size": "h0"
+          }
+        },
+        "text_8iVdJz": {
+          "type": "text",
+          "settings": {
+            "text": "<h3><strong>使える幅が違います。</strong></h3><p>AIR：浮き輪、プール、、エアーマット系</p><p>AIR PRO：浮き輪、プール、エアマット系＋SUP、ゴムボート、トーイングチューブ、バナナボート、エアーテント</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JJgwmJ",
+        "text_8iVdJz"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_n4Rzhp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_DNP6kF": {
+          "type": "heading",
+          "settings": {
+            "heading": "どれを買えばいい？",
+            "heading_size": "h0"
+          }
+        },
+        "text_GRt9V4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>AIR：浮き輪、プール、エアマット、キャンプで使いたいお客様はコレ</p><p>AIR PRO：SUP、ゴムボート、バナナボート、エアーテントなど特殊な物に使いたいお客様はコレ</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DNP6kF",
+        "text_GRt9V4"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_liquid_mBzL9i": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        ".tableWrap {margin: 0 5% 0 5%;}",
+        ".tableWrap th {background: #00; width: 10%;}",
+        ".tableWrap td {background: #fff; width: 30%;}",
+        ".tableWrap,td,th {border: 1px solid #ccc; border-collapse: collapse;}",
+        ".tableWrap th,.tableWrap td {text-align: left; min-width: 200px; padding: 10px; height: 60px;}",
+        ".tableWrap th,p {text-align: center;}",
+        "@media screen and (max-width: 850px) {.tableWrap {display: block; overflow-x: scroll; word-break: break-word; }}",
+        "img {width: 100%;}"
+      ],
+      "settings": {
+        "custom_liquid": "<table class=\"tableWrap\">\n  <tr>\n    <th> </th>\n    <th>\n      <p>PANP®︎ AIR</p><img alt=\"PANP®︎ AIR\" src=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/product-PANP-AIR.png?v=1714375930\" loading=\"lazy\"></th>\n    <th>\n      <p>PANP®︎ AIR PRO</p><img height=\"\" width=\"\" alt=\"PANP®︎ AIR PRO\" src=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/product-PANP-AIRPRO.png?v=1714375930\" loading=\"lazy\"></th>\n  </tr>\n  <tr>\n    <th>どんな特徴があるの？</th>\n    <td>コンパクトで持ち運びしやすい</td>\n    <td>スピードが早く 使える幅が広い </td>\n  </tr>\n  <tr>\n    <th>価格は？</th>\n    <td>3,980円</td>\n    <td>19,800円</td>\n  </tr>\n  <tr>\n    <th>入れられるモノ</th>\n    <td> 浮き輪、 プール、 エアマット系 などにおすすめ </td>\n    <td> SUP、 ゴムボート、 トーイングチューブ、 バナナボート、 エアーテント、などに大容量のものにおすすめ </td>\n  </tr>\n  <tr>\n    <th>サイズは？</th>\n    <td> 4.3* 4.3*6 cm</br> 104ｇ </td>\n    <td> 28.3*19.4*9cm</br> 1490g </td>\n  </tr>\n  <tr>\n    <th>空気流量</th>\n    <td>88L/min</td>\n    <td>240L/min</td>\n  </tr>\n  <th></th>\n  <td> <a href=\"https://page.line.me/116ektac?oat_content=url&openQrModal=true\" class=\"button button--primary\">LINEで最新情報を受け取る</a> </td>\n  <td> <a href=\"https://page.line.me/116ektac?oat_content=url&openQrModal=true\" class=\"button button--primary\">LINEで最新情報を受け取る</a></td>\n  </tr>\n</table>",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "table_piey4K": {
+      "type": "table",
+      "blocks": {
+        "table_row_LA78YJ": {
+          "type": "table_row",
+          "settings": {
+            "description": "",
+            "option1": "<p>PANP®︎ AIR</p>",
+            "option2": "<p>PANP®︎ AIR PRO</p>",
+            "option3": ""
+          }
+        },
+        "table_row_n74QGG": {
+          "type": "table_row",
+          "settings": {
+            "description": "<p>どんな特徴があるの？</p>",
+            "option1": "<p>コンパクトで持ち運びしやすい</p>",
+            "option2": "<p>スピードが早く、使える幅が広い</p>",
+            "option3": ""
+          }
+        },
+        "table_row_y3twV6": {
+          "type": "table_row",
+          "settings": {
+            "description": "<p>入れられるものは？</p>",
+            "option1": "<p>浮き輪<br/>プール<br/>エアマット系<br/>etc.</p>",
+            "option2": "<p>浮き輪<br/>プール<br/>エアマット系<br/>＋<br/>SUP<br/>ゴムボート<br/>トーイングチューブ<br/>バナナボート<br/>エアーテント<br/>etc.</p>",
+            "option3": ""
+          }
+        },
+        "table_row_MaCGPt": {
+          "type": "table_row",
+          "settings": {
+            "description": "<p>価格は？</p>",
+            "option1": "<p>3980</p>",
+            "option2": "<p>19800</p>",
+            "option3": ""
+          }
+        },
+        "table_row_b36YkW": {
+          "type": "table_row",
+          "settings": {
+            "description": "<p>サイズは？</p>",
+            "option1": "<p>4.3*4.3*6cm<br/>104g</p>",
+            "option2": "<p>28.3*19.4*9cm<br/>1490g</p>",
+            "option3": ""
+          }
+        },
+        "table_row_Yw8iFU": {
+          "type": "table_row",
+          "settings": {
+            "description": "<p>空気を入れるスピードの違いは？</p>",
+            "option1": "<p>毎分88ℓ</p>",
+            "option2": "<p>毎分240ℓ</p>",
+            "option3": ""
+          }
+        }
+      },
+      "block_order": [
+        "table_row_LA78YJ",
+        "table_row_n74QGG",
+        "table_row_y3twV6",
+        "table_row_MaCGPt",
+        "table_row_b36YkW",
+        "table_row_Yw8iFU"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "PANP®︎ AIRの比較表"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_9HxQPg",
+    "rich_text_ebiY4t",
+    "multicolumn_H8T8GK",
+    "rich_text_eeczT7",
+    "multicolumn_DFYfxx",
+    "rich_text_FntGRG",
+    "rich_text_3NnnCU",
+    "table_BabgrV",
+    "custom_liquid_KqaGwn",
+    "rich_text_cCbGNr",
+    "multicolumn_WHRxpK",
+    "rich_text_4pbGcj",
+    "rich_text_n4Rzhp",
+    "custom_liquid_mBzL9i",
+    "table_piey4K"
+  ]
+}

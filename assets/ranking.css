@@ -1,0 +1,63 @@
+.grid__item {
+  position: relative;
+}
+
+.rank-posi {
+  font-weight: 600;
+ height:50px;
+ width:50px;
+ border-radius:50%;
+ line-height:50px;
+ text-align:center;
+  position: absolute;
+}
+
+
+.rank-posi-1 {
+  background:#dab300;
+  color:#ffffff;
+}
+
+.rank-posi-2 {
+  background:#808080;
+  color:#ffffff;
+}
+
+.rank-posi-3 {
+  background:#b83333;
+  color:#ffffff;
+}
+
+@media screen and (min-width: 990px) {
+  .grid__item {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .rank-posi {
+    font-size: 1.5em;
+    top:  -5px;
+    left: -5px;
+  }
+    }
+
+  @media screen and (max-width: 989px) {
+  .grid__item {
+    margin-top: 10px;
+  }
+  }
+
+@media screen and (max-width: 989px) {
+	.rank-posi {
+    font-size: 1.5em;
+    top:  -5px;
+    left: -5px;
+}
+}
+
+
+ 
+          
+
+  

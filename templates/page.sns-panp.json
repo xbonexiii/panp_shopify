@@ -1,0 +1,250 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_qghHik": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_XXtWkx": {
+          "type": "heading",
+          "settings": {
+            "heading": "SNS投稿キャンペーン",
+            "heading_size": "h1"
+          }
+        },
+        "text_6MpGQ8": {
+          "type": "text",
+          "settings": {
+            "text": "「PANP」を使ってみた感想を</br>X（旧Twitter）・Instagram・Facebookに投稿していただくともれなく</br><strong>Amazonデジタルギフト券500円分</br></strong>をプレゼント!",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XXtWkx",
+        "text_6MpGQ8"
+      ],
+      "custom_css": [
+        "p strong {color: yellow; font-size: 1.5em;}",
+        ".banner__box {padding: 4rem 2rem;}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/SNS_4e850609-9178-4bef-94d4-8af4fd701439.png",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "rich_text_UVQMyL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LLnYPd": {
+          "type": "heading",
+          "settings": {
+            "heading": "投稿で必ずもらえる！",
+            "heading_size": "h1"
+          }
+        },
+        "text_bHwXMF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANPをご購入してくださったお客様限定でプレゼントキャンペーンを行っています！<br/>「参加者全員にプレゼント」ですので、奮ってご参加ください。<br/>Amazonギフトカードをご利用するには、ギフトカード番号をAmazonアカウントに登録するだけ。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LLnYPd",
+        "text_bHwXMF"
+      ],
+      "custom_css": [
+        ".page-width {padding: 0 1.3rem;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_DVbRQ6": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_pYQFra": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/amazon_card.png",
+            "title": "",
+            "text": "<p><em>キャンペーン主催：株式会社TradeFKJapan<br/>AmazonはAmazon.com, Inc.またはその関連会社の商標です。</em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_pYQFra"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 1,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_AqamDx": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_MYRBhD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_45.png",
+            "title": "❶ 使用中の写真か動画を撮る",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_h6hfGN": {
+          "type": "column",
+          "settings": {
+            "title": "❷ 公式アカウントをフォロー",
+            "text": "<h3>instagram</h3><h4><a href=\"https://www.instagram.com/panp_kukiire/\" target=\"_blank\" title=\"https://www.instagram.com/panp_kukiire/\">@panp_kukiire</a></h4><h3>X(Twitter)</h3><h4><a href=\"https://x.com/panp_kukiire\" target=\"_blank\" title=\"https://x.com/panp_kukiire\">@panp_kukiire</a></h4>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_mE4TG8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_45-1.png",
+            "title": "❸ ハッシュタグをつけて投稿",
+            "text": "<p>＃スマート空気入れ<br/>＃空気入れはPANP<br/>＃空気入れ<br/><br/>上記３つのハッシュタグと一緒に写真を投稿してくださいね。（動画もOK)</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_MYRBhD",
+        "column_h6hfGN",
+        "column_mE4TG8"
+      ],
+      "custom_css": [
+        "h2 {margin: auto;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "参加方法",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "投稿が完了したらこちらを記入",
+        "button_link": "https://docs.google.com/forms/d/e/1FAIpQLSf_7feSgk28kZugAp3JAGv8JIxiKI3OJxWPPUv5BE9xE44XPw/viewform",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "h1 {text-align: center;}"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "image_banner_JmDkp9": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_8Pzfnj": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>\\ これまでの皆様からの投稿 /</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_9TygW7": {
+          "type": "text",
+          "settings": {
+            "text": "#スマート空気入れ",
+            "text_style": "body"
+          }
+        },
+        "buttons_hjWPzV": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "x(Twitter)",
+            "button_link_1": "https://x.com/search?q=%23%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E7%A9%BA%E6%B0%97%E5%85%A5%E3%82%8C&src=typed_query&f=live",
+            "button_style_secondary_1": false,
+            "button_label_2": "instagram",
+            "button_link_2": "https://www.instagram.com/explore/search/keyword/?q=%23%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E7%A9%BA%E6%B0%97%E5%85%A5%E3%82%8C",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_8Pzfnj",
+        "text_9TygW7",
+        "buttons_hjWPzV"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/panp2.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "image_banner_qghHik",
+    "rich_text_UVQMyL",
+    "multicolumn_DVbRQ6",
+    "multicolumn_AqamDx",
+    "main",
+    "image_banner_JmDkp9"
+  ]
+}

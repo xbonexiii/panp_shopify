@@ -1,0 +1,678 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_jWj3gQ": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_WpYBRE": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ article.title }}",
+            "heading_size": "h1"
+          }
+        },
+        "text_e4GTR6": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WpYBRE",
+        "text_e4GTR6"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSC00020_1_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "rich_text_kB9kn3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_P7CWDH": {
+          "type": "heading",
+          "settings": {
+            "heading": "なぜ今、“本物の品質”が求められるのか",
+            "heading_size": "h1"
+          }
+        },
+        "text_eEyyAp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>空気入れは、日常の移動やレジャーの安全・快適性に直結する重要な道具です。だからこそPANPは、価格や見た目ではなく、<strong>使った人にとって本当に信頼できる品質</strong>を最優先に設計・製造しています。本記事では、PANPの品質に関する取り組みを「管理」「証明」「評価」の3つの観点からご紹介します。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_P7CWDH",
+        "text_eEyyAp"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_Efh34A": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_J7ETYQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "1｜品質を守る仕組み：設計・管理体制",
+            "heading_size": "h1"
+          }
+        },
+        "heading_CWXHCj": {
+          "type": "heading",
+          "settings": {
+            "heading": "● 日本メーカー主導の自社完結型体制",
+            "heading_size": "h2"
+          }
+        },
+        "text_CFaGTr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANPは、日本の自社チームが<strong>設計・開発・サポートを一貫して管理</strong>する体制をとっています。<br/>製造はパートナー企業と連携して行われますが、<strong>製品仕様・品質改良の判断はすべて自社で実施</strong>。<br/>現場の声が直接開発チームに届き、細かな改善がリアルタイムで反映されることが強みです。</p><p><strong>同じような製品が存在したとしても設計・開発まで入っている日本メーカーはPANPだけ。</strong></p><p><em>例：「バルブが固い」という声があれば、設計レベルで見直し。常に使いやすさをアップデート。</em></p>"
+          }
+        },
+        "heading_7tRnmU": {
+          "type": "heading",
+          "settings": {
+            "heading": "● 全数3回検品｜“たまたま良品”を許さない",
+            "heading_size": "h2"
+          }
+        },
+        "text_nKQWkT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANP製品は、<strong>全数対象で段階的な3回検品</strong>を実施。以下の検査を経た製品のみが出荷されます。</p><ol><li>外観チェック：傷・歪みの有無</li><li>動作チェック：起動・ボタン反応・空気圧表示</li><li>気密性チェック：ホース・接合部からのエア漏れ確認</li></ol><p></p><p>「すべてが良品」を標準にする、という思想が徹底されています。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_J7ETYQ",
+        "heading_CWXHCj",
+        "text_CFaGTr",
+        "heading_7tRnmU",
+        "text_nKQWkT"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "video_qcoltd_JARAqY": {
+      "type": "video-qcoltd",
+      "name": "動画(自動再生)",
+      "settings": {
+        "video": "shopify://files/videos/向上動画.mp4"
+      }
+    },
+    "multicolumn_VTE97B": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_GMXiiT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC01716.jpg",
+            "title": "パーツの検品",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_zfzxaR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC01767.jpg",
+            "title": "基盤の動作確認",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_q4kNex": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC01730.jpg",
+            "title": "組み立て",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cDbieF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC01741.jpg",
+            "title": "最終動作確認",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_GMXiiT",
+        "column_zfzxaR",
+        "column_q4kNex",
+        "column_cDbieF"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "定期的に工場を監査（毎年2−3回の現地監査）",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_gnayiX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_FUVigi": {
+          "type": "heading",
+          "settings": {
+            "heading": "2｜品質を証明する：エビデンスと国際基準",
+            "heading_size": "h1"
+          }
+        },
+        "text_At6ik3": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>PANP製品は不良率1％以下を目指しています。</h2>"
+          }
+        },
+        "heading_8dTDLt": {
+          "type": "heading",
+          "settings": {
+            "heading": "● 数値が裏付ける耐久性能と安全性",
+            "heading_size": "h2"
+          }
+        },
+        "text_UdJhqQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANP製品は、日常使用よりも厳しい環境下でテストされます。</p><ul><li>バッテリー試験：2A充電／10A放電 × 410回 → <strong>容量91%維持</strong></li><li>温度試験：−10℃～＋50℃で連続運転 → <strong>合格</strong></li><li>落下試験：1mの高さから10回落下 → <strong>全機能正常</strong><br/>これらは単なる参考値ではなく、<strong>製品ごとに記録・管理される信頼の証明</strong>です。</li></ul>"
+          }
+        },
+        "heading_imq36M": {
+          "type": "heading",
+          "settings": {
+            "heading": "● 生産現場の一部を可視化",
+            "heading_size": "h2"
+          }
+        },
+        "text_ggLE4G": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>熟練スタッフによる<strong>手作業組立</strong>（提携工場）</li><li>長時間連続使用による<strong>耐久ベンチテスト</strong></li><li>専用装置による<strong>バッテリー劣化の可視化と記録</strong><br/>品質は現場でつくられ、データで裏付けられています。</li></ul><p>PANPは徹底した管理により現在は不良率2％以下（2025年6月現在）</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FUVigi",
+        "text_At6ik3",
+        "heading_8dTDLt",
+        "text_UdJhqQ",
+        "heading_imq36M",
+        "text_ggLE4G"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_LMDgFm": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_fAezMz": {
+          "type": "heading",
+          "settings": {
+            "heading": "● 世界基準をすべてクリア",
+            "heading_size": "h2"
+          }
+        },
+        "text_hiLJLq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANPはさまざまなテストを実施し、世界各国の基準をすべてクリアしてきました。国際規格に基づき、製造工程・品質検査を徹底しています。厳格な基準を満たした製品だけをお客様にお届けしているからこそ、長期間安心して快適に使える品質を実現しています。</p><h4><strong>CE</strong>：EUの安全基準適合<br/><strong>FCC</strong>：米国電波関連の技術基準適合<br/><strong>PSE</strong>：日本の電気用品安全法に基づく適合証明<br/><strong>RoHS</strong>：EUの有害物質使用制限指令<br/><strong>UKCA</strong>：英国向けの安全基準適合<br/><strong>ISO9001</strong>：品質マネジメントシステムの国際規格</h4>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fAezMz",
+        "text_hiLJLq"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1_13bbe3e6-fcae-425e-b03c-ab62070b256a.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_AUQDxV": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_AmVQ9m": {
+          "type": "heading",
+          "settings": {
+            "heading": "3｜品質が評価される：信頼と実績",
+            "heading_size": "h1"
+          }
+        },
+        "heading_T7bQdD": {
+          "type": "heading",
+          "settings": {
+            "heading": "● 3,000件超のレビュー、平均★4.6",
+            "heading_size": "h2"
+          }
+        },
+        "text_zhwK3K": {
+          "type": "text",
+          "settings": {
+            "text": "<p>発売から数年で<strong>レビュー数3,000件超、平均評価★4.6</strong>。<br/>ユーザーからは以下のような声が寄せられています</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AmVQ9m",
+        "heading_T7bQdD",
+        "text_zhwK3K"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1746537674ae74c9cf": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_w7JY3m": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#9a9a9a",
+            "shadow": "offset-dark",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#000000",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_w7JY3m"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "rich_text_Wf6ALR": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nViEUL": {
+          "type": "heading",
+          "settings": {
+            "heading": "● 推奨率96％｜専門家の現場評価",
+            "heading_size": "h2"
+          }
+        },
+        "text_U6iBDj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>自転車整備士やカー用品店など、専門家の試用モニターによる**推奨率96%**という結果も。<br/>機能性・耐久性・安全性の3点において、<strong>プロの使用にも耐えうるスペック</strong>が証明されています。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nViEUL",
+        "text_U6iBDj"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_wPjYVp": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3LPmgm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/01282833a165249908ae1f3990846d8e.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_3LPmgm"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_m8e6cw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_e79WA6": {
+          "type": "heading",
+          "settings": {
+            "heading": "◼️ 製品を満足していただくための“3つの安心”",
+            "heading_size": "h2"
+          }
+        },
+        "text_nCH7Aq": {
+          "type": "text",
+          "settings": {
+            "text": "<ol><li><strong>信頼感：起動のたびに安定した動作</strong></li><li><strong>耐久性：長期使用でも性能が落ちにくい</strong></li><li><strong>サポート：万一に備えた保証と迅速な対応体制</strong></li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_e79WA6",
+        "text_nCH7Aq"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_dJJw4V": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_rfBjgk": {
+          "type": "heading",
+          "settings": {
+            "heading": "毎日を支える一台に、確かな品質を。",
+            "heading_size": "h1"
+          }
+        },
+        "text_TaQVzN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PANPの品質は、設計・検品・テスト・実績――<br/>すべてにおいて「妥協しないモノづくり」の姿勢から生まれています。<br/><br/>製品を手にしたその日から、<br/>あなたの日常が、少しラクで、少し安心になる。<br/>ぜひ一度、その品質をご自身で体感してください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_rfBjgk",
+        "text_TaQVzN"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "section_horizontal_scroll_dkQWQw": {
+      "type": "section-horizontal-scroll",
+      "blocks": {
+        "card_arLgYY": {
+          "type": "card",
+          "settings": {
+            "caption": "",
+            "caption_font_size": 12,
+            "heading": "",
+            "title_font_size": 22,
+            "text": "",
+            "text_font_size": 16,
+            "button_label": "+",
+            "button_link": "",
+            "background_color": "#000000",
+            "text_color": "#ffffff"
+          }
+        },
+        "card_BmJzEP": {
+          "type": "card",
+          "settings": {
+            "caption": "",
+            "caption_font_size": 12,
+            "heading": "",
+            "title_font_size": 22,
+            "text": "",
+            "text_font_size": 16,
+            "button_label": "+",
+            "button_link": "",
+            "background_color": "#000000",
+            "text_color": "#ffffff"
+          }
+        },
+        "card_qjY6Ex": {
+          "type": "card",
+          "settings": {
+            "caption": "",
+            "caption_font_size": 12,
+            "heading": "",
+            "title_font_size": 22,
+            "text": "",
+            "text_font_size": 16,
+            "button_label": "+",
+            "button_link": "",
+            "background_color": "#000000",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "card_arLgYY",
+        "card_BmJzEP",
+        "card_qjY6Ex"
+      ],
+      "disabled": true,
+      "name": "Apple風カード横スクロール",
+      "settings": {
+        "section_title": "PANPの魅力を紹介します。",
+        "heading_size": "h1",
+        "full_width": false,
+        "card_width": 300,
+        "card_height": 520,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_TrAGLK": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "PANPのスマート空気入れ",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "panp-all",
+        "products_to_show": 5,
+        "columns_desktop": 5,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "medium"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": false
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "共有する"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "title",
+        "content",
+        "share"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {}
+    },
+    "1746537656cc0bebda": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "custom_liquid_UaP6Ar": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\nstrong {\n  font-size: 1.1em;\n}\n\n.rich-text__text.rte ol {\n  counter-reset: item;\n  list-style: none;\n  padding-left: 0;\n}\n\n.rich-text__text.rte ol li {\n  counter-increment: item;\n  position: relative;\n  padding-left: 3em; /* 丸の拡大にあわせて余白も調整 */\n  margin-bottom: 1em;\n  line-height: 2;\n}\n\n.rich-text__text.rte ol li::before {\n  content: counter(item);\n  position: absolute;\n  left: 0;\n  top: 0.05em; /* 上寄せ調整 */\n  width: 2em;   /* ←ここを大きく */\n  height: 2em;  /* ←ここを大きく */\n  background-color: #D4AF37; /* ゴールド */\n  color: #fff;\n  font-weight: bold;\n  font-family: sans-serif;\n  font-size: 1em;  /* 数字サイズも調整 */\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  line-height: 1;\n}\n</style>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "image_banner_jWj3gQ",
+    "rich_text_kB9kn3",
+    "rich_text_Efh34A",
+    "multicolumn_VTE97B",
+    "video_qcoltd_JARAqY",
+    "rich_text_gnayiX",
+    "image_with_text_LMDgFm",
+    "rich_text_AUQDxV",
+    "1746537674ae74c9cf",
+    "rich_text_Wf6ALR",
+    "multicolumn_wPjYVp",
+    "rich_text_m8e6cw",
+    "rich_text_dJJw4V",
+    "section_horizontal_scroll_dkQWQw",
+    "featured_collection_TrAGLK",
+    "main",
+    "1746537656cc0bebda",
+    "custom_liquid_UaP6Ar"
+  ]
+}

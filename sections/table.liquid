@@ -1,0 +1,106 @@
+<div class="page-width">
+<div class="section-header">
+  <h2>{{ section.settings.heading }}</h2>
+</div>
+  <div class="custom-content">
+    <div class="custom__item one-whole align--center">
+      <div class="custom__item-inner custom__item-inner--liquid">
+        <div class="rte">
+          <div class="table-wrapper">
+            <table class="tm-b-table">
+              <tbody>
+                <!-- ブロックで各行を動的に出力 -->
+                {% for block in section.blocks %}
+                  <tr>
+                    <td colspan="2">{{ block.settings.description }}</td>
+                    <td>{{ block.settings.option1 }}</td>
+                    {% if block.settings.option2 != blank %}
+                      <td>{{ block.settings.option2 }}</td>
+                    {% endif %}
+                    {% if block.settings.option3 != blank %}
+                      <td>{{ block.settings.option3 }}</td>
+                    {% endif %}
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "カスタムフレキシブルテーブル",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "セクション見出し",
+      "default": "デフォルト見出し"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "table_row",
+      "name": "行の追加",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "説明"
+        },
+        {
+          "type": "richtext",
+          "id": "option1",
+          "label": "オプション1"
+        },
+        {
+          "type": "richtext",
+          "id": "option2",
+          "label": "オプション2"
+        },
+        {
+          "type": "richtext",
+          "id": "option3",
+          "label": "オプション3"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "カスタムフレキシブルテーブル",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.tm-b-table {
+  text-align: center;
+  font-size: 0.8em;
+  border-collapse: collapse;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  width: 100%; /* テーブルの幅を指定 */
+  margin: 0 auto; /* 水平方向に自動でマージンを設定 */
+}
+.tm-b-table td, .tm-b-table th {
+  padding: 8px;
+  border: 1px solid #ededed;
+}
+
+/* セクション全体を中央揃えにする */
+.custom-content {
+  margin: 0 auto; /* 左右のマージンを自動で設定して中央揃え */
+}
+
+.section-header h2 {
+  text-align: center; /* 見出しも中央揃え */
+}
+{% endstylesheet %}

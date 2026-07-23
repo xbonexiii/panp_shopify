@@ -1,0 +1,1250 @@
+<style>
+
+/* ============================================================
+   デザイントークン（design-system/tokens.css 準拠・
+   PANP共通ブルーへ値のみ差し替え。変数名は共通のまま）
+   ============================================================ */
+:root {
+  /* ---- 色（値のみブルー系に差し替え） ---- */
+  --gold: #0071e3;
+  --gold-light: #64a8ef;
+  --gold-tint: rgba(0,113,227,.08);
+  --blue: #0071e3;
+  --text: #1d1d1f;
+  --text-sub: #6e6e73;
+  --bg-white: #ffffff;
+  --bg-gray: #f5f5f7;
+  --bg-dark: #1d1d1f;
+  --star: #f5c518;
+
+  /* ---- タイポグラフィ（サイズ階層） ---- */
+  --fs-hero: clamp(32px, 5.5vw, 68px);
+  --fs-hero-compact: clamp(30px, 4.2vw, 54px);
+  --fs-h2: clamp(28px, 3.5vw, 44px);
+  --fs-h3: 22px;
+  --fs-stat: clamp(28px, 3.6vw, 48px);
+  --fs-lead: clamp(16px, 1.6vw, 20px);
+  --fs-body: 17px;
+  --fs-note: 13px;
+  --fs-micro: 12px;
+
+  /* ---- 字間 ---- */
+  --ls-hero: -0.03em;
+  --ls-heading: -0.02em;
+  --ls-num: -0.04em;
+
+  /* ---- 角丸（3階層固定） ---- */
+  --radius-card: 24px;
+  --radius-image: 16px;
+  --radius-badge: 12px;
+  --radius-pill: 50px;
+
+  /* ---- 影（1種のみ） ---- */
+  --shadow-card: 0 2px 20px rgba(0,0,0,.06);
+
+  /* ---- セクション余白 ---- */
+  --section-pad: 100px;
+  --section-pad-sp: 64px;
+}
+
+/* ============================================================
+   ベースCSS（design-system/base.css より内包）
+   ============================================================ */
+.lp-wrapper *,  .lp-wrapper *::before,  .lp-wrapper *::after{ box-sizing: border-box; margin: 0; padding: 0; }
+.lp-wrapper{ scroll-behavior: smooth; }
+.lp-wrapper{
+  font-family: Helvetica, Arial, sans-serif;
+  color: var(--text); font-size: var(--fs-body); line-height: 1.7; overflow-x: hidden;
+  background: var(--bg-white);
+}
+.lp-wrapper img{ max-width: 100%; height: auto; display: block; }
+.lp-wrapper a{ color: inherit; text-decoration: none; }
+.lp-wrapper section{ width: 100%; }
+/* 見出しは常にコンテナの色を継承（Shopify黒文字化バグ対策・省略禁止） */
+.lp-wrapper h1,  .lp-wrapper h2,  .lp-wrapper h3,  .lp-wrapper h4,  .lp-wrapper h5,  .lp-wrapper h6{ color: inherit; }
+.lp-wrapper .container{ max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.lp-wrapper .section-padding{ padding-top: var(--section-pad); padding-bottom: var(--section-pad); }
+@media (max-width: 768px) {
+  .lp-wrapper{ font-size: 16px; }
+  .lp-wrapper .container{ padding: 0 20px; }
+  .lp-wrapper .section-padding{ padding-top: var(--section-pad-sp); padding-bottom: var(--section-pad-sp); }
+}
+.lp-wrapper .fade-in{
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.lp-wrapper .fade-in.visible{ opacity: 1; transform: translateY(0); }
+.lp-wrapper .slide-left{ opacity: 0; transform: translateX(-48px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.lp-wrapper .slide-right{ opacity: 0; transform: translateX(48px);  transition: opacity 0.8s ease, transform 0.8s ease; }
+.lp-wrapper .slide-up{ opacity: 0; transform: translateY(32px);  transition: opacity 0.7s ease, transform 0.7s ease; }
+.lp-wrapper .slide-left.visible,  .lp-wrapper .slide-right.visible,  .lp-wrapper .slide-up.visible{ opacity: 1; transform: none; }
+.lp-wrapper .delay-1{ transition-delay: .15s; }
+.lp-wrapper .delay-2{ transition-delay: .3s; }
+.lp-wrapper .delay-3{ transition-delay: .45s; }
+.lp-wrapper .delay-4{ transition-delay: .6s; }
+@media (prefers-reduced-motion: reduce) {
+  .lp-wrapper .fade-in,  .lp-wrapper .slide-up,  .lp-wrapper .slide-left,  .lp-wrapper .slide-right{ opacity: 1; transform: none; transition: none; }
+}
+.lp-wrapper .scroll-hint{
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: rgba(255,255,255,0.55); font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; animation: scroll-bounce 2.2s infinite;
+}
+.lp-wrapper .scroll-hint svg{ width: 20px; height: 20px; }
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.55; }
+  50%       { transform: translateX(-50%) translateY(8px); opacity: 0.9; }
+}
+
+/* ============================================================
+   共通部品: 章eyebrowピル・見出し・本文（雛形共通パターン）
+   ============================================================ */
+.lp-wrapper .sec-inner{ max-width: 760px; width: calc(100% - 40px); margin: 0 auto; text-align: left; }
+.lp-wrapper .sec-inner--wide{ max-width: 880px; }
+.lp-wrapper .sec-h2{
+  font-size: var(--fs-h2); font-weight: 700; line-height: 1.55;
+  letter-spacing: var(--ls-heading); color: var(--text); margin-bottom: 16px;
+}
+.lp-wrapper .sec-h3{
+  font-size: var(--fs-h3); font-weight: 700; line-height: 1.6;
+  letter-spacing: var(--ls-heading); color: var(--text);
+  margin-top: 56px; margin-bottom: 14px;
+}
+.lp-wrapper .sec-lead{ font-size: var(--fs-body); line-height: 2.0; color: var(--text-sub); margin-bottom: 36px; }
+.lp-wrapper .sec-body{ font-size: var(--fs-body); line-height: 2.0; color: var(--text-sub); margin-bottom: 16px; }
+.lp-wrapper .sec-body strong{ color: var(--text); }
+.lp-wrapper .article-photo{ margin: 28px 0 36px; }
+.lp-wrapper .article-photo img{
+  width: 100%; object-fit: cover; display: block;
+  border-radius: var(--radius-image); box-shadow: var(--shadow-card);
+}
+.lp-wrapper .article-photo figcaption{ font-size: var(--fs-note); color: var(--text-sub); margin-top: 10px; text-align: center; line-height: 1.7; }
+.lp-wrapper .article-photo--diagram img{ object-fit: contain; background: var(--bg-white); }
+
+
+/* ============================================================
+   sec-hero（雛形: hero/商流2FV_キャッチ主役写真型）
+   ============================================================ */
+.lp-wrapper #sec-hero{
+  position: relative; min-height: 100svh;
+  display: flex; align-items: center; /* テキストは縦中央寄せ（雛形第2Rレビュー反映） */
+  color: #fff;
+}
+.lp-wrapper #sec-hero .hero-bg{ position: absolute; inset: 0; overflow: hidden; }
+.lp-wrapper #sec-hero .hero-bg img{ width: 100%; height: 100%; object-fit: cover; }
+.lp-wrapper #sec-hero .hero-bg::after{
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.45) 50%, rgba(0,0,0,.15) 100%);
+}
+.lp-wrapper #sec-hero .hero-inner{
+  position: relative; z-index: 1; width: 100%;
+  max-width: 1200px; margin: 0 auto;
+  padding-left: 40px; padding-right: 40px; padding-top: 72px; padding-bottom: 72px;
+}
+.lp-wrapper #sec-hero h1{
+  font-size: var(--fs-hero); font-weight: 700;
+  line-height: 1.35; letter-spacing: var(--ls-hero);
+  color: #fff; /* ダーク上の見出しは明示（Shopify対策） */
+  max-width: 680px; margin-bottom: 20px;
+}
+.lp-wrapper #sec-hero .hero-core{
+  font-size: var(--fs-lead); font-weight: 700; line-height: 1.9;
+  color: rgba(255,255,255,.92); max-width: 680px;
+  text-shadow: 0 1px 12px rgba(0,0,0,.55);
+}
+.lp-wrapper #sec-hero .hero-core em{ font-style: normal; color: var(--gold-light); }
+.lp-wrapper #sec-hero .hd-nowrap{ white-space: nowrap; } /* 行末1文字の孤立を防ぐ（手動br禁止） */
+/* 不安ワードチップはキャッチ＋芯の一言の下（雛形第3Rレビュー反映） */
+.lp-wrapper #sec-hero .worry-chips{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.lp-wrapper #sec-hero .worry-chips span{
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: var(--fs-note); font-weight: 500; color: rgba(255,255,255,.9);
+  border: 1px solid rgba(255,255,255,.35);
+  padding: 7px 14px; border-radius: var(--radius-pill);
+  backdrop-filter: blur(2px);
+}
+.lp-wrapper #sec-hero .worry-chips svg{ width: 15px; height: 15px; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-hero .hero-inner{ padding-left: 20px; padding-right: 20px; padding-top: 64px; padding-bottom: 88px; }
+  .lp-wrapper #sec-hero h1{ font-size: calc(var(--fs-hero) * 0.82); line-height: 1.4; }
+}
+
+/* ============================================================
+   sec-toc（目次・記事ページ固有）
+   ============================================================ */
+.lp-wrapper #sec-toc{ background: var(--bg-gray); padding-top: 44px; padding-bottom: 44px; }
+.lp-wrapper #sec-toc .toc-label{
+  font-size: var(--fs-micro); font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+}
+.lp-wrapper #sec-toc .toc-title{ font-size: var(--fs-lead); font-weight: 700; margin-bottom: 18px; line-height: 1.5; color: var(--text); }
+.lp-wrapper #sec-toc .toc-list{ list-style: none; display: grid; gap: 8px; }
+.lp-wrapper #sec-toc .toc-list li a{
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 13px 16px;
+  background: var(--bg-white); border-radius: var(--radius-badge);
+  box-shadow: var(--shadow-card);
+  font-size: var(--fs-note); font-weight: 700; color: var(--text);
+  transition: transform 0.2s, background 0.2s; line-height: 1.6;
+}
+.lp-wrapper #sec-toc .toc-list li a:hover{ background: var(--gold-tint); transform: translateX(4px); }
+.lp-wrapper #sec-toc .toc-num{
+  flex-shrink: 0; font-size: var(--fs-micro); font-weight: 800;
+  color: #fff; background: var(--gold);
+  width: 24px; height: 24px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  letter-spacing: var(--ls-num);
+}
+
+/* ============================================================
+   ピクトグラム比率型（雛形: proof/ピクトグラム比率型）
+   ============================================================ */
+.lp-wrapper .pg-block{ background: var(--bg-gray); border-radius: var(--radius-card); padding: 44px 32px; margin: 36px 0 48px; text-align: center; }
+.lp-wrapper .pg-label{ font-size: var(--fs-note); font-weight: 700; color: var(--text-sub); margin-bottom: 18px; }
+.lp-wrapper .pg-block .pg-stat{
+  font-size: calc(var(--fs-stat) * 1.3); font-weight: 800; letter-spacing: var(--ls-num);
+  line-height: 1.1; color: var(--gold); white-space: nowrap; margin-bottom: 26px;
+}
+.lp-wrapper .pg-block .pg-stat em{
+  font-style: normal; font-size: 0.4em; font-weight: 700; color: var(--text-sub);
+  letter-spacing: var(--ls-heading);
+}
+.lp-wrapper .pg-icons{ display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+.lp-wrapper .pg-tire{
+  width: 44px; height: 44px; color: var(--text-sub);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .4s ease, transform .4s ease, color .4s ease;
+}
+.lp-wrapper .pg-tire:not(.lit) svg{ opacity: .3; }
+.lp-wrapper .pg-tire.lit{ color: var(--gold); }
+.lp-wrapper .pg-tire.show{ opacity: 1; transform: none; }
+.lp-wrapper .pg-tire svg{ width: 100%; height: 100%; }
+@media (prefers-reduced-motion: reduce) { .pg-tire { transition: none; opacity: 1; transform: none; } }
+.lp-wrapper .pg-desc{ font-size: var(--fs-body); line-height: 2.0; color: var(--text); margin-bottom: 8px; }
+.lp-wrapper .pg-note{ font-size: var(--fs-micro); color: var(--text-sub); line-height: 1.8; }
+@media (max-width: 768px) {
+  .lp-wrapper .pg-block{ padding: 32px 18px; }
+  .lp-wrapper .pg-icons{ max-width: 260px; margin-left: auto; margin-right: auto; }
+  .lp-wrapper .pg-tire{ width: 40px; height: 40px; }
+}
+
+/* ============================================================
+   番号カード型（雛形: proof/商流2正確さ_番号カード型）
+   ============================================================ */
+.lp-wrapper .reason-card{
+  background: var(--bg-gray); border-radius: var(--radius-card);
+  padding: 32px 30px; margin-bottom: 18px;
+}
+.lp-wrapper .reason-head{ display: flex; align-items: baseline; gap: 16px; margin-bottom: 12px; }
+.lp-wrapper .reason-num{
+  font-size: var(--fs-stat); font-weight: 800; letter-spacing: var(--ls-num);
+  color: var(--gold); line-height: 1; flex-shrink: 0;
+}
+.lp-wrapper .reason-title{ font-size: var(--fs-h3); font-weight: 700; line-height: 1.5; color: var(--text); }
+.lp-wrapper .reason-card > p{ font-size: var(--fs-body); line-height: 2.0; color: var(--text); }
+@media (max-width: 768px) { .reason-card { padding: 24px 20px; } }
+
+/* ============================================================
+   横バー性能対比型（雛形: comparison/横バー性能対比型）
+   ============================================================ */
+.lp-wrapper .hb-group{ margin: 36px 0; }
+.lp-wrapper .hb-metric{ font-size: var(--fs-lead); font-weight: 700; color: var(--text); margin-bottom: 14px; }
+.lp-wrapper .hb-row{ display: grid; grid-template-columns: 8.5em 1fr auto; align-items: center; gap: 12px; margin-bottom: 10px; }
+.lp-wrapper .hb-label{ font-size: var(--fs-note); font-weight: 700; color: var(--text-sub); text-align: right; line-height: 1.5; }
+.lp-wrapper .hb-row.is-accent .hb-label{ color: var(--gold); }
+.lp-wrapper .hb-rank{
+  display: inline-block; font-size: 10px; font-weight: 800; color: #fff;
+  background: var(--gold); border-radius: 4px; padding: 1px 6px; margin-right: 4px; vertical-align: 1px;
+}
+.lp-wrapper .hb-track{ position: relative; height: 34px; background: var(--bg-gray); overflow: hidden; }
+.lp-wrapper .hb-fill{
+  height: 100%; width: 0;
+  background: var(--text-sub); opacity: .45;
+  transition: width 1.1s ease .15s;
+  display: flex; align-items: center; justify-content: flex-end; padding-right: 12px;
+}
+.lp-wrapper .hb-row.is-accent .hb-fill{ background: var(--gold); opacity: 1; }
+.lp-wrapper .hb-fill .hb-value{
+  font-size: var(--fs-note); font-weight: 800; letter-spacing: var(--ls-num);
+  color: #fff; white-space: nowrap;
+}
+.lp-wrapper .hb-value-out{ font-size: var(--fs-note); font-weight: 800; color: var(--text); white-space: nowrap; }
+.lp-wrapper .hb-note{ font-size: var(--fs-micro); color: var(--text-sub); margin-top: 16px; line-height: 1.8; }
+.lp-wrapper .hb-punch{
+  background: var(--gold-tint); border-radius: var(--radius-card);
+  padding: 26px 28px; margin: 28px 0 0; text-align: center;
+}
+.lp-wrapper .hb-punch p{ font-size: var(--fs-lead); font-weight: 700; color: var(--text); line-height: 1.8; }
+.lp-wrapper .hb-punch p strong{ color: var(--gold); }
+@media (max-width: 768px) {
+  .lp-wrapper .hb-row{ grid-template-columns: 1fr auto; gap: 6px; }
+  .lp-wrapper .hb-label{ grid-column: 1 / -1; text-align: left; }
+  .lp-wrapper .hb-track{ height: 30px; }
+}
+
+/* ============================================================
+   実写真カード型（雛形: compatible/商流2これ1台_実写真カード型）
+   ============================================================ */
+.lp-wrapper .cp-grid{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 32px 0; }
+.lp-wrapper .cp-grid--two{ grid-template-columns: 1fr 1fr; }
+.lp-wrapper .cp-card{
+  background: var(--bg-white); border-radius: var(--radius-card); overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.lp-wrapper .cp-card img{ width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.lp-wrapper .cp-card img.cp-img-contain{ object-fit: contain; background: var(--bg-white); }
+.lp-wrapper .cp-card-body{ padding: 20px; }
+.lp-wrapper .cp-card-body h3{ font-size: var(--fs-lead); font-weight: 700; line-height: 1.5; color: var(--text); margin-bottom: 10px; }
+.lp-wrapper .cp-types{ display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.lp-wrapper .cp-types span{
+  font-size: var(--fs-micro); font-weight: 700; color: var(--text-sub);
+  background: var(--bg-gray); border-radius: var(--radius-pill); padding: 4px 10px;
+}
+.lp-wrapper .cp-card-body .cp-desc{ font-size: var(--fs-note); line-height: 1.9; color: var(--text-sub); }
+.lp-wrapper .cp-tag{
+  display: inline-block; font-size: var(--fs-micro); font-weight: 700; color: var(--gold);
+  background: var(--gold-tint); border-radius: var(--radius-pill); padding: 4px 12px; margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .lp-wrapper .cp-grid{ grid-template-columns: 1fr; }
+  .lp-wrapper .cp-grid--two{ grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   等式ビジュアル型（雛形: proof/商流2音_等式ビジュアル型）
+   ============================================================ */
+.lp-wrapper .hn-eq{
+  display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 14px;
+  background: var(--bg-white); border-radius: var(--radius-card); padding: 30px 24px; margin: 32px 0;
+  box-shadow: var(--shadow-card);
+}
+.lp-wrapper .hn-eq-side{ text-align: center; }
+.lp-wrapper .hn-eq-mark{ font-size: var(--fs-h3); font-weight: 800; color: var(--text-sub); text-align: center; }
+.lp-wrapper .hn-eq .hn-db{
+  font-size: calc(var(--fs-stat) * 0.9); font-weight: 800; letter-spacing: var(--ls-num);
+  line-height: 1.1; color: var(--text); white-space: nowrap;
+}
+.lp-wrapper .hn-eq .hn-db em{
+  font-style: normal; font-size: 0.4em; font-weight: 700; color: var(--text-sub);
+  letter-spacing: var(--ls-heading); margin-left: 4px;
+}
+.lp-wrapper .hn-eq .eq-sub{ font-size: var(--fs-micro); font-weight: 700; color: var(--text-sub); margin-top: 6px; }
+.lp-wrapper .hn-eq .is-main .hn-db{ color: var(--gold); }
+.lp-wrapper .hn-chip{
+  display: inline-block; font-size: var(--fs-body); font-weight: 700; color: var(--gold);
+  background: var(--gold-tint); border-radius: var(--radius-pill); padding: 12px 24px; margin-top: 8px;
+}
+@media (max-width: 768px) {
+  /* 等式はスマホで縦積み（確定基準: 記号は縦方向） */
+  .lp-wrapper .hn-eq{ grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   単位カード（番号カード型の分解カード応用・2×2）
+   ============================================================ */
+.lp-wrapper .unit-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+.lp-wrapper .unit-card{ background: var(--bg-white); border-radius: var(--radius-card); padding: 26px 24px; box-shadow: var(--shadow-card); }
+.lp-wrapper .unit-head{ display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.lp-wrapper .unit-name{
+  font-size: calc(var(--fs-stat) * 0.7); font-weight: 800; letter-spacing: var(--ls-num);
+  color: var(--gold); line-height: 1; white-space: nowrap;
+}
+.lp-wrapper .unit-read{ font-size: var(--fs-micro); font-weight: 700; color: var(--text-sub); }
+.lp-wrapper .unit-card p{ font-size: var(--fs-note); line-height: 1.9; color: var(--text-sub); margin-bottom: 10px; }
+.lp-wrapper .unit-for{
+  display: inline-block; font-size: var(--fs-micro); font-weight: 700; color: var(--text-sub);
+  background: var(--bg-gray); border-radius: var(--radius-pill); padding: 4px 12px;
+}
+@media (max-width: 600px) { .unit-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   縦タイムライン型（雛形: howto/商流2使い方_縦タイムライン型）
+   ============================================================ -*/
+.lp-wrapper .ht-timeline{ position: relative; padding-left: 56px; margin: 40px 0 8px; }
+.lp-wrapper .ht-timeline::before{
+  content: ""; position: absolute; top: 8px; bottom: 8px; left: 17px;
+  width: 2px; background: var(--gold-tint);
+}
+.lp-wrapper .ht-tl-step{ position: relative; padding-bottom: 44px; }
+.lp-wrapper .ht-tl-step:last-child{ padding-bottom: 0; }
+.lp-wrapper .ht-tl-step .num{
+  position: absolute; left: -56px; top: 0;
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--gold); color: #fff;
+  font-size: var(--fs-body); font-weight: 800; letter-spacing: var(--ls-num);
+}
+.lp-wrapper .ht-tl-step h4{ font-size: var(--fs-lead); font-weight: 700; line-height: 1.6; color: var(--text); margin-bottom: 8px; }
+.lp-wrapper .ht-tl-step > p{ font-size: var(--fs-note); line-height: 1.9; color: var(--text-sub); margin-bottom: 14px; }
+.lp-wrapper .ht-tl-step .step-photo img{
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;
+  border-radius: var(--radius-image); box-shadow: var(--shadow-card);
+}
+.lp-wrapper .ht-tl-step .step-photo--diagram img{ object-fit: contain; background: var(--bg-white); aspect-ratio: auto; max-height: 380px; margin: 0 auto; }
+.lp-wrapper .ht-card-note{
+  position: relative; background: var(--gold-tint); border-radius: var(--radius-card);
+  padding: 18px 20px; margin-top: 14px;
+}
+.lp-wrapper .ht-card-note::before{
+  content: ""; position: absolute; top: -7px; left: 28px;
+  width: 14px; height: 14px; background: var(--gold-tint);
+  transform: rotate(45deg);
+}
+.lp-wrapper .ht-card-note p{ font-size: var(--fs-note); line-height: 1.9; color: var(--text-sub); margin-bottom: 6px; }
+.lp-wrapper .ht-card-note p:last-child{ margin-bottom: 0; }
+.lp-wrapper .ht-card-note p strong{ color: var(--text); }
+@media (max-width: 768px) {
+  .lp-wrapper .ht-timeline{ padding-left: 48px; }
+  .lp-wrapper .ht-tl-step .num{ left: -48px; width: 32px; height: 32px; }
+  .lp-wrapper .ht-timeline::before{ left: 15px; }
+}
+
+/* ============================================================
+   表示タイプ2分岐カード（BeforeAfterカード型の対比構造を応用）
+   ============================================================ */
+.lp-wrapper .ba-pair{ display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+.lp-wrapper .ba-card{ background: var(--bg-white); border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); }
+.lp-wrapper .ba-head{
+  background: var(--gold-tint); color: var(--gold);
+  font-size: var(--fs-note); font-weight: 700; padding: 12px 18px; line-height: 1.5;
+}
+.lp-wrapper .ba-example{
+  font-size: var(--fs-body); font-weight: 800; letter-spacing: var(--ls-num);
+  color: var(--text); background: var(--bg-gray); border-radius: var(--radius-badge);
+  padding: 10px 14px; margin: 16px 16px 0; text-align: center; white-space: nowrap;
+}
+.lp-wrapper .ba-body{ padding: 14px 18px 18px; }
+.lp-wrapper .ba-body p{ font-size: var(--fs-note); line-height: 1.9; color: var(--text-sub); margin-bottom: 10px; }
+.lp-wrapper .ba-body ul{ list-style: none; display: grid; gap: 6px; }
+.lp-wrapper .ba-body ul li{
+  font-size: var(--fs-micro); font-weight: 700; color: var(--text);
+  background: var(--bg-gray); border-radius: var(--radius-badge); padding: 8px 12px; line-height: 1.6;
+}
+@media (max-width: 700px) { .ba-pair { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   記事チェックリスト（まとめ以外の本文用）
+   ============================================================ */
+.lp-wrapper .article-list{ list-style: none; display: grid; gap: 10px; margin: 24px 0; }
+.lp-wrapper .article-list li{
+  display: flex; align-items: flex-start; gap: 10px;
+  background: var(--bg-gray); border-radius: var(--radius-badge);
+  padding: 13px 16px; font-size: var(--fs-note); font-weight: 700; color: var(--text); line-height: 1.7;
+}
+.lp-wrapper .article-list li svg{ width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; color: var(--gold); }
+
+/* ============================================================
+   sec-summary（雛形: summary/商流2まとめ_緑帯結論先出し型・帯色ブルー）
+   ============================================================ */
+.lp-wrapper #sec-summary{ background: var(--gold); color: #fff; }
+.lp-wrapper #sec-summary .sm-label{
+  font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading);
+  color: rgba(255,255,255,.75); margin-bottom: 16px;
+}
+.lp-wrapper #sec-summary h2{
+  font-size: var(--fs-h2); font-weight: 700; line-height: 1.55;
+  letter-spacing: var(--ls-heading); color: #fff; margin-bottom: 20px;
+}
+.lp-wrapper #sec-summary .sec-inner .sm-core{
+  font-size: calc(var(--fs-lead) * 1.3); font-weight: 800; line-height: 1.7;
+  letter-spacing: var(--ls-heading); color: #fff; margin-bottom: 40px;
+}
+.lp-wrapper #sec-summary .sm-cards{ display: grid; gap: 12px; margin-bottom: 40px; }
+.lp-wrapper #sec-summary .sm-card{
+  display: flex; align-items: flex-start; gap: 12px;
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+  border-radius: var(--radius-card); padding: 16px 18px;
+}
+.lp-wrapper #sec-summary .sm-card svg{ width: 20px; height: 20px; flex-shrink: 0; margin-top: 4px; color: #fff; }
+.lp-wrapper #sec-summary .sm-card p{ font-size: var(--fs-body); font-weight: 700; line-height: 1.9; color: #fff; }
+.lp-wrapper #sec-summary .sm-close{ font-size: var(--fs-body); font-weight: 700; line-height: 2.0; color: #fff; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-summary .sec-inner .sm-core{ font-size: var(--fs-lead); }
+}
+
+/* ============================================================
+   sec-products（雛形: cta/クロスセル2カード型・2×2）
+   ============================================================ */
+.lp-wrapper #sec-products{ background: var(--bg-gray); }
+.lp-wrapper #sec-products .xs-inner{ max-width: 1080px; width: calc(100% - 40px); margin: 0 auto; }
+.lp-wrapper #sec-products .xs-eyebrow{
+  display: block; font-size: var(--fs-note); font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 14px;
+}
+.lp-wrapper #sec-products h2{
+  font-size: var(--fs-h2); font-weight: 700; line-height: 1.4; letter-spacing: var(--ls-heading);
+  color: var(--text); text-align: center; margin-bottom: 14px;
+}
+.lp-wrapper #sec-products .xs-head{ font-size: var(--fs-body); line-height: 2.0; color: var(--text-sub); text-align: center; max-width: 620px; margin: 0 auto 44px; }
+.lp-wrapper #sec-products .xs-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.lp-wrapper #sec-products .xs-card{
+  display: grid; grid-template-columns: 1fr 1.2fr; align-items: center;
+  background: var(--bg-white); border-radius: var(--radius-card); overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.lp-wrapper #sec-products .xs-card img{ width: 100%; height: 100%; min-height: 200px; object-fit: cover; display: block; }
+.lp-wrapper #sec-products .xs-card-body{ padding: 26px 24px; text-align: left; }
+.lp-wrapper #sec-products .xs-tag{
+  display: inline-block; font-size: var(--fs-micro); font-weight: 700; color: var(--gold);
+  border: 1px solid var(--gold); border-radius: var(--radius-pill);
+  padding: 3px 12px; margin-bottom: 12px; letter-spacing: var(--ls-heading);
+}
+.lp-wrapper #sec-products .xs-card-body h3{ font-size: var(--fs-h3); font-weight: 700; line-height: 1.5; color: var(--text); margin-bottom: 8px; }
+.lp-wrapper #sec-products .xs-price{
+  font-size: calc(var(--fs-stat) * 0.6); font-weight: 800; letter-spacing: var(--ls-num);
+  color: var(--text); margin-bottom: 6px; white-space: nowrap;
+}
+.lp-wrapper #sec-products .xs-price small{ font-size: var(--fs-micro); font-weight: 700; color: var(--text-sub); margin-right: 6px; letter-spacing: 0; }
+.lp-wrapper #sec-products .xs-ship{
+  display: inline-block; font-size: var(--fs-micro); font-weight: 700; color: var(--gold);
+  background: var(--gold-tint); border-radius: var(--radius-pill); padding: 3px 12px; margin-bottom: 16px;
+}
+.lp-wrapper #sec-products .xs-link{
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: var(--fs-note); font-weight: 700; color: var(--gold);
+  border-bottom: 1px solid currentColor; padding-bottom: 2px;
+}
+.lp-wrapper #sec-products .xs-link svg{ width: 14px; height: 14px; }
+@media (max-width: 900px) {
+  .lp-wrapper #sec-products .xs-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .lp-wrapper #sec-products .xs-card{ grid-template-columns: 1fr; }
+  .lp-wrapper #sec-products .xs-card img{ min-height: 0; aspect-ratio: 16 / 9; object-fit: cover; }
+}
+
+/* ============================================================
+   sec-related（関連記事・実写真カード型応用）
+   ============================================================ */
+.lp-wrapper #sec-related{ background: var(--bg-white); }
+.lp-wrapper #sec-related .rel-label{
+  font-size: var(--fs-micro); font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+}
+.lp-wrapper #sec-related h2{
+  font-size: calc(var(--fs-h2) * 0.75); font-weight: 700; line-height: 1.4;
+  letter-spacing: var(--ls-heading); color: var(--text); margin-bottom: 28px;
+}
+.lp-wrapper #sec-related .rel-grid{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+.lp-wrapper #sec-related .rel-card{
+  background: var(--bg-white); border-radius: var(--radius-card); overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex; flex-direction: column;
+  transition: transform 0.2s;
+}
+.lp-wrapper #sec-related .rel-card:hover{ transform: translateY(-4px); }
+.lp-wrapper #sec-related .rel-card img{ width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.lp-wrapper #sec-related .rel-body{ padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+.lp-wrapper #sec-related .rel-date{ font-size: var(--fs-micro); color: var(--text-sub); margin-bottom: 6px; }
+.lp-wrapper #sec-related .rel-title{ font-size: var(--fs-note); font-weight: 700; line-height: 1.6; color: var(--text); margin-bottom: 8px; }
+.lp-wrapper #sec-related .rel-excerpt{
+  font-size: var(--fs-micro); line-height: 1.8; color: var(--text-sub);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+@media (max-width: 800px) {
+  .lp-wrapper #sec-related .rel-grid{ grid-template-columns: 1fr; }
+  .lp-wrapper #sec-related .rel-card{ flex-direction: row; }
+  .lp-wrapper #sec-related .rel-card img{ width: 128px; aspect-ratio: auto; flex-shrink: 0; }
+  .lp-wrapper #sec-related .rel-body{ padding: 14px 16px; }
+  .lp-wrapper #sec-related .rel-excerpt{ -webkit-line-clamp: 2; }
+}
+
+
+</style>
+
+<div id="lp-{{ section.id }}" class="lp-wrapper">
+<!-- ============================================================
+     sec-hero: 記事ヒーロー（雛形: hero/商流2FV_キャッチ主役写真型）
+     ============================================================ -->
+<section
+  id="sec-hero"
+  data-section-type="hero"
+  data-section-name="記事ヒーロー"
+  data-section-order="1"
+>
+  <div class="hero-bg">
+    <img
+      data-slot="hero-image"
+      data-asset-id="cdn:1651199635340.jpg"
+      src="https://cdn.shopify.com/s/files/1/0564/1591/1987/files/1651199635340.jpg?v=1759560379"
+      alt="空気が抜けてつぶれた自転車のタイヤ"
+    />
+  </div>
+  <div class="hero-inner">
+    <h1 data-slot="headline" class="fade-in">これで完璧！<br>タイヤと空気圧の<span class="hd-nowrap">基礎知識</span></h1>
+    <p class="hero-core fade-in delay-1" data-slot="core-line">パンクの約7割は、じつは<span class="hd-nowrap"><em>「空気圧の低下」</em>が原因。</span>この1本で、基礎が全部わかります。</p>
+    <div class="worry-chips fade-in delay-2" data-slot="worry-chips">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 20h16a2 2 0 0 0 1.73-2Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>パンクが心配</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>バルブの種類がわからない</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>適正空気圧を知りたい</span>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     sec-toc: 目次
+     ============================================================ -->
+<section
+  id="sec-toc"
+  data-section-type="features"
+  data-section-name="目次"
+  data-section-order="2"
+>
+  <div class="sec-inner">
+    <p class="toc-label">この記事の内容</p>
+    <h2 class="toc-title" data-slot="toc-title">5分で「空気圧の基礎」がひととおり身につきます。</h2>
+    <ul class="toc-list">
+      <li><a href="#sec-chapter1"><span class="toc-num">1</span>自転車のタイヤがパンクする原因の7割が空気圧</a></li>
+      <li><a href="#sec-chapter2"><span class="toc-num">2</span>バルブの種類を知ろう！これであなたもバルブマスター！</a></li>
+      <li><a href="#sec-chapter3"><span class="toc-num">3</span>空気を入れる頻度は？</a></li>
+      <li><a href="#sec-chapter4"><span class="toc-num">4</span>空気圧の単位は4種類！</a></li>
+      <li><a href="#sec-chapter5"><span class="toc-num">5</span>最適な空気圧を確認する方法</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     sec-chapter1: 第1章（雛形: ピクトグラム比率型＋番号カード型＋横バー性能対比型）
+     ============================================================ -->
+<section
+  id="sec-chapter1"
+  data-section-type="empathy"
+  data-section-name="第1章 パンク原因の7割は空気圧"
+  data-section-order="3"
+  class="section-padding"
+>
+  <div class="sec-inner">
+    <h2 class="sec-h2 fade-in" data-slot="ch1-headline">自転車のタイヤがパンクする原因の7割が空気圧</h2>
+    <p class="sec-lead" data-slot="ch1-lead">タイヤのパンクは、釘やガラスなどを踏むことが原因だと思われがちですが、実はパンクの約7割は「タイヤの空気圧の低下」が原因だと言われています。</p>
+
+    <!-- ピクトグラム比率型: パンク10件中 約7件 -->
+    <div class="pg-block slide-up" data-slot="ch1-pictograph">
+      <p class="pg-label">パンクの原因に占める「空気圧の低下」の割合</p>
+      <p class="pg-stat">約<span data-count="7">0</span><em>割</em></p>
+      <div class="pg-icons" aria-label="タイヤ10本のうち約7本を表すアイコン">
+        <span class="pg-tire lit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="pg-tire lit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="pg-tire lit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="pg-tire lit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="pg-tire lit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="pg-tire lit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="pg-tire lit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="pg-tire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="pg-tire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="pg-tire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+      </div>
+      <p class="pg-desc" data-slot="ch1-pg-desc">釘やガラスを踏むよりも、日々の空気圧不足のほうがずっと多いパンク原因です。</p>
+      <p class="pg-note">※「パンクの約7割は空気圧の低下が原因」と言われています。</p>
+    </div>
+
+    <h3 class="sec-h3" data-slot="ch1-subhead1">なぜ空気圧の低下でパンクするのか？</h3>
+
+    <!-- 番号カード型: 原因2つ -->
+    <div class="reason-card slide-up" data-slot="ch1-cause-1">
+      <div class="reason-head">
+        <span class="reason-num">01</span>
+        <p class="reason-title">段差などの衝撃で「リム打ちパンク」</p>
+      </div>
+      <p>タイヤが十分に空気を保っていないと、段差でホイールとチューブの間に挟まってパンクする。</p>
+    </div>
+    <div class="reason-card slide-up" data-slot="ch1-cause-2">
+      <div class="reason-head">
+        <span class="reason-num">02</span>
+        <p class="reason-title">チューブの折れや摩擦</p>
+      </div>
+      <p>チューブがタイヤ内で折れたり重なったりして、摩擦により穴が開く。</p>
+    </div>
+
+    <p class="sec-body" style="margin-top: 40px;" data-slot="ch1-stat-lead">また、自動車の高速道路における故障原因では、タイヤが<strong>55.2％で1位</strong>という統計もあり、日常的な空気圧チェックの重要性が伺えます。</p>
+
+    <!-- 横バー性能対比型: 高速道路故障統計 -->
+    <div class="hb-group slide-up" data-slot="ch1-stat-chart">
+      <p class="hb-metric">高速道路における故障部位別発生率</p>
+      <div class="hb-row is-accent">
+        <span class="hb-label"><span class="hb-rank">1位</span>タイヤ</span>
+        <div class="hb-track"><div class="hb-fill" data-w="100%"><span class="hb-value">55.2%</span></div></div>
+      </div>
+      <div class="hb-row">
+        <span class="hb-label">2位 潤滑油</span>
+        <div class="hb-track"><div class="hb-fill" data-w="8.9%">&nbsp;</div></div>
+        <span class="hb-value-out">4.9%</span>
+      </div>
+      <div class="hb-row">
+        <span class="hb-label">3位 冷却水</span>
+        <div class="hb-track"><div class="hb-fill" data-w="7.8%">&nbsp;</div></div>
+        <span class="hb-value-out">4.3%</span>
+      </div>
+      <p class="hb-note">※ バーの長さは発生率の比率。タイヤの主な症状は「パンク・バースト・空気圧不足」。2位以下を大きく引き離しています。</p>
+    </div>
+
+    <p class="sec-body" data-slot="ch1-closing">乗り物のタイヤは走行時に激しい摩擦や衝撃を受け続けています。日頃からタイヤの整備と空気圧の調整を行い、安全な走行を心がけましょう。</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     sec-chapter2: 第2章（雛形: compatible/実写真カード型）
+     ============================================================ -->
+<section
+  id="sec-chapter2"
+  data-section-type="features"
+  data-section-name="第2章 バルブの種類"
+  data-section-order="4"
+  class="section-padding"
+  style="background: var(--bg-gray);"
+>
+  <div class="sec-inner sec-inner--wide">
+    <h2 class="sec-h2 fade-in" data-slot="ch2-headline">バルブの種類を知ろう！これであなたもバルブマスター！</h2>
+    <p class="sec-lead" data-slot="ch2-lead">バルブとは、タイヤに付いている突起状の空気の入れ口のことです。乗り物に付いているバルブの形状には、大きく分けて<strong>英式・仏式・米式の3種類</strong>があります。</p>
+
+    <h3 class="sec-h3" style="margin-top: 0;" data-slot="ch2-subhead1">乗り物には3種類の空気バルブがある！</h3>
+
+    <figure class="article-photo article-photo--diagram slide-up">
+      <img
+        data-slot="ch2-valve-image"
+        data-asset-id="cdn:20211221-151919-1651201592304.png"
+        src="https://cdn.shopify.com/s/files/1/0564/1591/1987/files/20211221-151919-1651201592304.png?v=1759560469"
+        alt="仏式・英式・米式 3種類のバルブの形状比較"
+        style="max-height: 440px; margin: 0 auto;"
+      />
+      <figcaption>左から仏式・英式・米式。形も太さも異なります。</figcaption>
+    </figure>
+
+    <!-- 実写真カード型の3カード構造（バルブ3種） -->
+    <div class="cp-grid" data-slot="ch2-valve-cards">
+      <div class="cp-card slide-up">
+        <div class="cp-card-body">
+          <span class="cp-tag">シティサイクルの定番</span>
+          <h3>英式バルブ</h3>
+          <div class="cp-types"><span>ママチャリ</span><span>電動アシスト</span></div>
+          <p class="cp-desc">日本のシティサイクル（ママチャリ）に多く採用されており、一般的な手動ポンプでも対応しやすい。</p>
+        </div>
+      </div>
+      <div class="cp-card slide-up delay-1">
+        <div class="cp-card-body">
+          <span class="cp-tag">高圧対応</span>
+          <h3>仏式バルブ</h3>
+          <div class="cp-types"><span>ロードバイク</span><span>クロスバイク</span><span>ピスト</span></div>
+          <p class="cp-desc">ロードバイクやクロスバイクに使われ、細いバルブで高圧対応。精密な空気調整が可能。</p>
+        </div>
+      </div>
+      <div class="cp-card slide-up delay-2">
+        <div class="cp-card-body">
+          <span class="cp-tag">高耐久</span>
+          <h3>米式バルブ</h3>
+          <div class="cp-types"><span>自動車</span><span>バイク</span><span>MTB</span></div>
+          <p class="cp-desc">自動車やバイクに採用されており、耐久性が高く、空気漏れが少ない。</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="sec-body" data-slot="ch2-closing">それぞれに特徴があり、使う空気入れのタイプも異なります。自分の乗り物のバルブ形状を知っておくことで、空気入れのトラブルを防ぐことができます。</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     sec-chapter3: 第3章（雛形: comparison/横バー性能対比型）
+     ============================================================ -->
+<section
+  id="sec-chapter3"
+  data-section-type="howto"
+  data-section-name="第3章 空気を入れる頻度"
+  data-section-order="5"
+  class="section-padding"
+>
+  <div class="sec-inner">
+    <h2 class="sec-h2 fade-in" data-slot="ch3-headline">空気を入れる頻度は？</h2>
+    <p class="sec-lead" data-slot="ch3-lead">乗り物の空気圧を日頃からチェックすることが大事だと分かっていても、「どのくらいの頻度で空気を入れればいいの？」と疑問に思う方も多いでしょう。一般的な目安としては、以下のようになります。</p>
+
+    <!-- 横バー性能対比型: 頻度の目安 -->
+    <div class="hb-group slide-up" style="margin-top: 0;" data-slot="ch3-freq-chart">
+      <p class="hb-metric">空気を入れる頻度の目安</p>
+      <div class="hb-row is-accent">
+        <span class="hb-label">ロードバイク</span>
+        <div class="hb-track"><div class="hb-fill" data-w="26%"><span class="hb-value">週1回</span></div></div>
+      </div>
+      <div class="hb-row is-accent">
+        <span class="hb-label">クロスバイク</span>
+        <div class="hb-track"><div class="hb-fill" data-w="26%"><span class="hb-value">週1回</span></div></div>
+      </div>
+      <div class="hb-row">
+        <span class="hb-label">ママチャリ</span>
+        <div class="hb-track"><div class="hb-fill" data-w="50%">&nbsp;</div></div>
+        <span class="hb-value-out">2週間に1回</span>
+      </div>
+      <div class="hb-row">
+        <span class="hb-label">マウンテンバイク</span>
+        <div class="hb-track"><div class="hb-fill" data-w="50%">&nbsp;</div></div>
+        <span class="hb-value-out">2週間に1回</span>
+      </div>
+      <div class="hb-row">
+        <span class="hb-label">自動車</span>
+        <div class="hb-track"><div class="hb-fill" data-w="100%">&nbsp;</div></div>
+        <span class="hb-value-out">月に1回程度</span>
+      </div>
+      <p class="hb-note">※ バーの長さはチェック間隔。バーが短い乗り物ほど、こまめなチェックが必要です。</p>
+    </div>
+
+    <p class="sec-body" data-slot="ch3-body">意外と短い間隔でチェックが必要なのに驚かれるかもしれません。タイヤの空気は自然に抜けていくもので、<strong>2〜3日前に膨らませた風船が徐々に萎んでいくようなイメージ</strong>です。</p>
+
+    <!-- 結論の一撃 -->
+    <div class="hb-punch slide-up" data-slot="ch3-key-message">
+      <p>「入れたから安心」ではなく、<strong>定期的なチェック</strong>が安全走行の鍵。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     sec-chapter4: 第4章（雛形: 分解カード＋proof/等式ビジュアル型）
+     ============================================================ -->
+<section
+  id="sec-chapter4"
+  data-section-type="spec"
+  data-section-name="第4章 空気圧の単位は4種類"
+  data-section-order="6"
+  class="section-padding"
+  style="background: var(--bg-gray);"
+>
+  <div class="sec-inner">
+    <h2 class="sec-h2 fade-in" data-slot="ch4-headline">空気圧の単位は4種類！</h2>
+    <p class="sec-lead" data-slot="ch4-lead">空気圧を表す単位は世界的に統一されておらず、以下の4種類が使われています。</p>
+
+    <!-- 分解カード: 単位4種 -->
+    <div class="unit-grid" data-slot="ch4-unit-cards">
+      <div class="unit-card slide-up">
+        <div class="unit-head"><span class="unit-name">psi</span><span class="unit-read">プサイ</span></div>
+        <p>1平方インチあたりに何ポンドの圧力がかかるかを示す単位。</p>
+        <span class="unit-for">主にロードバイクなど高圧タイヤ</span>
+      </div>
+      <div class="unit-card slide-up delay-1">
+        <div class="unit-head"><span class="unit-name">bar</span><span class="unit-read">バール</span></div>
+        <p>MTBや自動車の空気圧によく使用される単位。感覚的に分かりやすい。</p>
+        <span class="unit-for">MTB・自動車</span>
+      </div>
+      <div class="unit-card slide-up delay-2">
+        <div class="unit-head"><span class="unit-name">kPa</span><span class="unit-read">キロパスカル</span></div>
+        <p>台風の気圧などでも聞く単位。日本の一部の製品にも採用されています。</p>
+        <span class="unit-for">日本の一部製品</span>
+      </div>
+      <div class="unit-card slide-up delay-3">
+        <div class="unit-head"><span class="unit-name">kgf/cm²</span><span class="unit-read">重量キログラム毎平方センチメートル</span></div>
+        <p>日本で昔から使われている単位で、特にママチャリやシティサイクルに多く表記されています。</p>
+        <span class="unit-for">ママチャリ・シティサイクル</span>
+      </div>
+    </div>
+
+    <!-- 等式ビジュアル型: 換算関係 -->
+    <div class="hn-eq slide-up" data-slot="ch4-conv-band">
+      <div class="hn-eq-side is-main">
+        <p class="hn-db">1<em>bar</em></p>
+        <p class="eq-sub">バール</p>
+      </div>
+      <div class="hn-eq-mark" aria-hidden="true">≒</div>
+      <div class="hn-eq-side">
+        <p class="hn-db">14.5<em>psi</em></p>
+        <p class="eq-sub">プサイ</p>
+      </div>
+      <div class="hn-eq-mark" aria-hidden="true">=</div>
+      <div class="hn-eq-side">
+        <p class="hn-db">100<em>kPa</em></p>
+        <p class="eq-sub">キロパスカル</p>
+      </div>
+    </div>
+
+    <p class="sec-body" data-slot="ch4-closing">「なんで4種類もあるの？」と混乱してしまうかもしれませんが、実際は<strong>psiかbar</strong>のどちらかがほとんど。これだけ覚えておけば問題ありません。</p>
+    <span class="hn-chip fade-in" data-slot="ch4-key-message">覚えるのは「psi」と「bar」の2つだけでOK</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     sec-chapter5: 第5章（雛形: howto/縦タイムライン型＋対比カード＋実写真カード型）
+     ============================================================ -->
+<section
+  id="sec-chapter5"
+  data-section-type="howto"
+  data-section-name="第5章 最適な空気圧を確認する方法"
+  data-section-order="7"
+  class="section-padding"
+>
+  <div class="sec-inner">
+    <h2 class="sec-h2 fade-in" data-slot="ch5-headline">最適な空気圧を確認する方法</h2>
+    <p class="sec-lead" data-slot="ch5-lead">空気入れの際に重要なのは、「タイヤにとって最適な空気圧」に調整することです。空気が多すぎても少なすぎても、走行性能や安全性が低下します。</p>
+
+    <h3 class="sec-h3" style="margin-top: 0;" data-slot="ch5-subhead1">適正空気圧とは？</h3>
+    <p class="sec-body" data-slot="ch5-def">適正空気圧とは、<strong>「タイヤの性能が最も発揮され、かつ最もパンクしにくい空気圧」</strong>のことです。スマート空気入れなどの製品では目安表が付属していますが、最も確実なのは「タイヤ自体に記載された数値」を確認することです。</p>
+
+    <h3 class="sec-h3" data-slot="ch5-subhead2">タイヤサイドの表示をチェック</h3>
+
+    <!-- 縦タイムライン型: 確認の3ステップ -->
+    <div class="ht-timeline" data-slot="ch5-steps">
+      <div class="ht-tl-step slide-up">
+        <span class="num">1</span>
+        <h4>タイヤの側面（サイドウォール）を見る</h4>
+        <p>見るべき場所はタイヤの側面です。ここに「min.85psi–max.115psi」などのように表示されています。</p>
+        <div class="step-photo">
+          <img
+            data-slot="ch5-sidewall-image"
+            data-asset-id="cdn:1651202566671.jpg"
+            src="https://cdn.shopify.com/s/files/1/0564/1591/1987/files/1651202566671.jpg?v=1759560655"
+            alt="ロードバイクのタイヤ側面に刻印された空気圧表示（6.0-10.0 BAR / 85-115 PSI）"
+          />
+        </div>
+      </div>
+      <div class="ht-tl-step slide-up">
+        <span class="num">2</span>
+        <h4>表示のタイプを確認する</h4>
+        <p>「min.85psiｰmax.115psi」という&quot;範囲が表示&quot;されている場合と、「115psi」という&quot;上限が表示&quot;されている場合があります。</p>
+
+        <!-- 対比2カード（BeforeAfterカード型の対比構造） -->
+        <div class="ba-pair" data-slot="ch5-branch-cards">
+          <div class="ba-card">
+            <p class="ba-head">「範囲」が表示されている場合</p>
+            <p class="ba-example">min.85psi – max.115psi</p>
+            <div class="ba-body">
+              <p>空気圧をその範囲内に保ちます。体重や用途によって調整しましょう。</p>
+              <ul>
+                <li>軽めの人 → 最低値（min）寄り</li>
+                <li>重めの人 → 最大値（max）寄り</li>
+              </ul>
+            </div>
+          </div>
+          <div class="ba-card">
+            <p class="ba-head">「上限」だけが表示されている場合</p>
+            <p class="ba-example">115psi</p>
+            <div class="ba-body">
+              <p>空気圧は上限を超えてはいけません。その近くまで入れるのが目安です。</p>
+              <ul>
+                <li>例：115psi なら、115psi 近くまで</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-photo step-photo--diagram slide-up">
+          <img
+            data-slot="ch5-pattern-image"
+            data-asset-id="cdn:kukiatsu.jpg"
+            src="https://cdn.shopify.com/s/files/1/0564/1591/1987/files/kukiatsu.jpg?v=1759561716"
+            alt="空気圧の『範囲』表示と『上限』表示の違いを示す図解"
+          />
+        </div>
+      </div>
+      <div class="ht-tl-step slide-up">
+        <span class="num">3</span>
+        <h4>数値に合わせて空気を入れる</h4>
+        <p>表示された数値を目安に、体重や用途に合わせて空気圧を調整すれば完了です。</p>
+      </div>
+    </div>
+
+    <h3 class="sec-h3" data-slot="ch5-subhead3">車やバイクの場合</h3>
+    <p class="sec-body" data-slot="ch5-vehicle-lead">自動車やバイクの適正空気圧は、<strong>車体にも記載</strong>されています。以下の場所をチェックしましょう。</p>
+
+    <!-- 実写真カード型: ラベルの位置 -->
+    <div class="cp-grid cp-grid--two" data-slot="ch5-vehicle-cards">
+      <div class="cp-card slide-up">
+        <img
+          class="cp-img-contain"
+          data-slot="ch5-car-image"
+          data-asset-id="cdn:1-1651203007824.png"
+          src="https://cdn.shopify.com/s/files/1/0564/1591/1987/files/1-1651203007824.png?v=1759560808"
+          alt="自動車の運転席ドア開口部に貼られた空気圧ラベルの位置図"
+        />
+        <div class="cp-card-body">
+          <h3>自動車</h3>
+          <p class="cp-desc">運転席ドアの開口部や給油口付近に貼られているラベルをチェック。</p>
+        </div>
+      </div>
+      <div class="cp-card slide-up delay-1">
+        <img
+          data-slot="ch5-bike-image"
+          data-asset-id="cdn:1651203091994.jpg"
+          src="https://cdn.shopify.com/s/files/1/0564/1591/1987/files/1651203091994.jpg?v=1759560844"
+          alt="バイクのスイングアーム付近に貼られたタイヤ空気圧ラベル"
+        />
+        <div class="cp-card-body">
+          <h3>バイク</h3>
+          <p class="cp-desc">フレーム、チェーンガード、またはスイングアーム付近をチェック。</p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="article-photo slide-up">
+      <img
+        data-slot="ch5-cartire-image"
+        data-asset-id="cdn:1651202648519.jpg"
+        src="https://cdn.shopify.com/s/files/1/0564/1591/1987/files/1651202648519.jpg?v=1759560726"
+        alt="自動車タイヤ側面の空気圧刻印（40 PSI / 275 kPa）"
+        style="height: 320px;"
+      />
+      <figcaption>車のタイヤ側面にも刻印があります（例：40 PSI / 275 kPa）。</figcaption>
+    </figure>
+
+    <p class="sec-body" data-slot="ch5-closing">最適な空気圧はメーカーが車種ごとに設定しており、その範囲内で調整することで走行性能と安全性が保たれます。</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     sec-summary: まとめ（雛形: summary/緑帯結論先出し型・帯色ブルー）
+     ============================================================ -->
+<section
+  id="sec-summary"
+  data-section-type="summary"
+  data-section-name="まとめ"
+  data-section-order="8"
+  class="section-padding"
+>
+  <div class="sec-inner">
+    <p class="sm-label fade-in" data-slot="summary-eyebrow">まとめ</p>
+    <h2 class="fade-in" data-slot="summary-headline">小さな習慣が、安全で快適な走りをつくる。</h2>
+    <p class="sm-core fade-in" data-slot="summary-core">パンクの多くは空気圧の低下が原因であり、日頃のチェックで防ぐことができます。</p>
+
+    <div class="sm-cards" data-slot="summary-cards">
+      <div class="sm-card slide-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <p>パンクの約7割は「空気圧の低下」が原因。日頃のチェックで防げる。</p>
+      </div>
+      <div class="sm-card slide-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <p>バルブ形状（英式・仏式・米式）と単位（psi / bar）を知れば、空気入れで迷わない。</p>
+      </div>
+      <div class="sm-card slide-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <p>適正空気圧はタイヤ側面・車体ラベルで確認し、その範囲内に調整する。</p>
+      </div>
+    </div>
+
+    <p class="sm-close fade-in" data-slot="summary-closing">タイヤのバルブ形状や空気圧の単位、そして適正値の確認方法を理解することで、乗り物の性能を最大限に引き出すことができます。今日からできる小さな習慣で、安全で快適なライドやドライブを楽しみましょう。</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     sec-products: PANP製品（雛形: cta/クロスセル2カード型・2×2）
+     ============================================================ -->
+<section
+  id="sec-products"
+  data-section-type="cta"
+  data-section-name="PANP製品紹介"
+  data-section-order="9"
+  class="section-padding"
+>
+  <div class="xs-inner">
+    <span class="xs-eyebrow fade-in" data-slot="products-eyebrow">PANP SMART AIR PUMP</span>
+    <h2 class="fade-in" data-slot="products-headline">PANPのスマート空気入れ</h2>
+    <p class="xs-head fade-in" data-slot="products-lead">PANPではタイヤから浮き輪まで、使うものによって適切な空気入れを提案します。</p>
+    <div class="xs-grid">
+      <div class="xs-card slide-up" data-slot="product-ride">
+        <img
+          data-slot="product-ride-image"
+          data-asset-id="cdn:0625_AB__RIDE_B.png"
+          src="https://panp.jp/cdn/shop/files/0625_AB__RIDE_B.png?v=1721895640&width=800"
+          alt="PANP RIDE（ライド）"
+        />
+        <div class="xs-card-body">
+          <span class="xs-tag">スタンダードモデル</span>
+          <h3>PANP RIDE（ライド）</h3>
+          <p class="xs-price"><small>通常価格</small>¥7,880</p>
+          <span class="xs-ship">送料無料</span><br>
+          <a class="xs-link" href="https://panp.jp/products/smart-kukiire" data-slot="product-ride-link">詳しく見る
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="xs-card slide-up delay-1" data-slot="product-ridepro">
+        <img
+          data-slot="product-ridepro-image"
+          data-asset-id="cdn:ridepro-sum.jpg"
+          src="https://panp.jp/cdn/shop/files/ridepro-sum.jpg?v=1747032499&width=800"
+          alt="PANP RIDE PRO（ライド プロ）"
+        />
+        <div class="xs-card-body">
+          <span class="xs-tag">車をよく使う方に</span>
+          <h3>PANP RIDE PRO（ライド プロ）</h3>
+          <p class="xs-price"><small>通常価格</small>¥12,880</p>
+          <span class="xs-ship">送料無料</span><br>
+          <a class="xs-link" href="https://panp.jp/products/panp-ridepro01" data-slot="product-ridepro-link">詳しく見る
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="xs-card slide-up" data-slot="product-air">
+        <img
+          data-slot="product-air-image"
+          data-asset-id="cdn:air-new2-sum.jpg"
+          src="https://panp.jp/cdn/shop/files/air-new2-sum_f2db840f-cb88-41c7-9045-3ce23f41bfdc.jpg?v=1757346108&width=800"
+          alt="PANP AIR（エアー）"
+        />
+        <div class="xs-card-body">
+          <span class="xs-tag">レジャー中心の方に</span>
+          <h3>PANP AIR（エアー）</h3>
+          <p class="xs-price"><small>通常価格</small>¥3,880</p>
+          <span class="xs-ship">送料無料</span><br>
+          <a class="xs-link" href="https://panp.jp/products/kukiire02" data-slot="product-air-link">詳しく見る
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="xs-card slide-up delay-1" data-slot="product-ridecycle">
+        <img
+          data-slot="product-ridecycle-image"
+          data-asset-id="cdn:rice_cycle-thum4.png"
+          src="https://panp.jp/cdn/shop/files/rice_cycle-thum4.png?v=1739341187&width=800"
+          alt="PANP RIDE CYCLE（ライド サイクル）"
+        />
+        <div class="xs-card-body">
+          <span class="xs-tag">サイクルモデル</span>
+          <h3>PANP RIDE CYCLE（ライド サイクル）</h3>
+          <p class="xs-price"><small>通常価格</small>¥11,880</p>
+          <span class="xs-ship">送料無料</span><br>
+          <a class="xs-link" href="https://panp.jp/products/panp-ridecycle01" data-slot="product-ridecycle-link">詳しく見る
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     sec-related: 関連記事
+     ============================================================ -->
+<section
+  id="sec-related"
+  data-section-type="features"
+  data-section-name="関連記事"
+  data-section-order="10"
+  class="section-padding"
+>
+  <div class="sec-inner sec-inner--wide">
+    <p class="rel-label">RELATED ARTICLES</p>
+    <h2 data-slot="related-headline">あわせて読みたい</h2>
+    <div class="rel-grid">
+      <a class="rel-card slide-up" href="https://panp.jp/blogs/infomation/tpu-tube" data-slot="related-1">
+        <img
+          data-slot="related-1-image"
+          data-asset-id="cdn:DSC01687.jpg"
+          src="https://panp.jp/cdn/shop/articles/DSC01687.jpg?v=1758094960&width=533"
+          alt="TPUビニールチューブをお使いの方へ"
+        />
+        <div class="rel-body">
+          <p class="rel-date">2025年9月17日</p>
+          <p class="rel-title">TPUビニールチューブをお使いの方へ</p>
+          <p class="rel-excerpt">PANP RIDE CYCLEの排気口は高熱が発生します。ご利用の際は延長ホースを使用し、本体の熱が直接タイヤに伝わらないようにご利用ください。</p>
+        </div>
+      </a>
+      <a class="rel-card slide-up delay-1" href="https://panp.jp/blogs/infomation/comfortable-ride-tire-pressure" data-slot="related-2">
+        <img
+          data-slot="related-2-image"
+          data-asset-id="cdn:image_fx_a8163529.png"
+          src="https://panp.jp/cdn/shop/articles/image_fx_a8163529-a199-49cc-8199-ecb05bcda5db.png?v=1753411656&width=533"
+          alt="空気圧で変わる自転車の乗り心地"
+        />
+        <div class="rel-body">
+          <p class="rel-date">2025年7月25日</p>
+          <p class="rel-title">空気圧で変わる自転車の乗り心地｜快適なライドは適正空気圧から</p>
+          <p class="rel-excerpt">自転車やロードバイク、車の乗り心地は空気圧で変わる？カテゴリー別の適正空気圧と、快適で安全な走行のための管理ポイントを解説します。</p>
+        </div>
+      </a>
+      <a class="rel-card slide-up delay-2" href="https://panp.jp/blogs/infomation/compact-electric-air-pump" data-slot="related-3">
+        <img
+          data-slot="related-3-image"
+          data-asset-id="cdn:DSC02632.jpg"
+          src="https://panp.jp/cdn/shop/articles/DSC02632.jpg?v=1739920603&width=533"
+          alt="簡単収納可能！コンパクトデザインの電動空気入れの魅力"
+        />
+        <div class="rel-body">
+          <p class="rel-date">2025年2月19日</p>
+          <p class="rel-title">簡単収納可能！コンパクトデザインの電動空気入れの魅力</p>
+          <p class="rel-excerpt">日常生活を便利にするコンパクト電動空気入れは、効率的で持ち運びやすいデザインが魅力。自転車や車、スポーツ用品に素早く空気を入れられます。</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- コアスクリプト（design-system/scripts.js ＋ セクション専用JS） -->
+<script>
+/* ① スライドインアニメーション発火（IntersectionObserver） */
+(function () {
+  var targets = document.querySelectorAll('.slide-left, .slide-right, .slide-up, .fade-in');
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('visible'); }); return;
+  }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  targets.forEach(function (el) { obs.observe(el); });
+})();
+
+/* ② ピクトグラム: タイヤアイコンを1個ずつ時差で点灯（雛形: ピクトグラム比率型 専用JS） */
+(function () {
+  var icons = document.querySelectorAll('.pg-tire');
+  if (!icons.length) return;
+  function reveal() {
+    icons.forEach(function (el, i) {
+      setTimeout(function () { el.classList.add('show'); }, i * 110);
+    });
+  }
+  if (!('IntersectionObserver' in window)) { reveal(); return; }
+  var wrap = document.querySelector('.pg-icons');
+  new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { reveal(); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 }).observe(wrap);
+})();
+
+/* ③ カウントアップ（data-count・ピクトグラム比率型の大数字） */
+(function () {
+  var els = document.querySelectorAll('[data-count]');
+  if (!els.length) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function run(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    if (reduced) { el.textContent = target; return; }
+    var dur = 1000, start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step); else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+  if (!('IntersectionObserver' in window)) { els.forEach(run); return; }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { run(e.target); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  els.forEach(function (el) { obs.observe(el); });
+})();
+
+/* ④ 横バー: スクロール到達時に伸ばす（雛形: 横バー性能対比型 専用JS） */
+(function () {
+  var fills = document.querySelectorAll('.hb-fill');
+  if (!fills.length) return;
+  if (!('IntersectionObserver' in window)) {
+    fills.forEach(function (el) { el.style.width = el.getAttribute('data-w'); }); return;
+  }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.style.width = e.target.getAttribute('data-w'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.4 });
+  fills.forEach(function (el) { obs.observe(el); });
+})();
+</script>
+
+
+<!-- GUIDE_PANEL_END ============================================================ -->
+</div>
+
+{% schema %}
+{"name": "LP panp-blog-tire-pressur", "settings": [], "presets": [{"name": "LP panp-blog-tire-pressur"}]}
+{% endschema %}

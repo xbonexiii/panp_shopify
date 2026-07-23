@@ -1,0 +1,389 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_qJppbq": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/DSC00072_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_Q8pdCz": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WQmFED": {
+          "type": "heading",
+          "settings": {
+            "heading": "使えばきっと驚く。",
+            "heading_size": "h1"
+          }
+        },
+        "text_DNrkXg": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>空気入れが「手軽に楽に」なるPANP®︎</h3><p>空気入れのどんな所が楽になったのか、お客様からのお声を掲載しております。</p><p>ご参考になれば幸いです！</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WQmFED",
+        "text_DNrkXg"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multirow_Uk6Wwj": {
+      "type": "multirow",
+      "blocks": {
+        "row_K977QV": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/DSC01511_5d5533c1-c171-4739-92d1-084192471022.jpg",
+            "caption": "",
+            "heading": "早く買えば良かったと思うくらい「楽」",
+            "text": "<ul><li> 使い方も動画で見れるし簡単！もっと早く買わなかったのを後悔してます！</li><li>車も自転車も一瞬で空気が入るので、もっと早く買っていたらもっと楽だったのに～</li><li>自転車しか使う当てがないのでしばらく購入を迷っていたのですが、あっという間に空気を入れることができて、もっと早く買えばよかったです。</li><li>一瞬で空気入れ完了！ 早く買えば良かったです。</li><li>自動で停止するので楽でした。とにかく、楽に入れられてもっと早く買っていればと思いました。</li><li> ボールも自転車も一瞬で対応できるので、生活が楽になりました。なんでもっと早く買わなかったんだろうと思う商品です。</li><li>「疲れる、汚れる、ちゃんと入ったか分からない」面倒で億劫な作業か解放されました！</li><li>「早く買っておけば良かった」のセリフを言う時がきました</li></ul>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_GX9BnX": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/DSC01480_c51b4e2a-fdd5-4c6d-b040-1f8c49daa1d1.jpg",
+            "caption": "",
+            "heading": "手間と時間がかからず「楽」",
+            "text": "<ul><li>手放しで作業できるので他の作業をしている間に終わるので圧倒的に手間が省けました。</li><li>空気入れの手間とハードルがぐっと低くなりました。</li><li>手間取ることも力も必要なく、すぐに簡単に空気を入れることが出来ました！すごい！</li><li>とても簡単で、時間も短く空気入れが楽になりました！</li><li>手動と比べ、時間も労力も短縮され、驚くほど簡単です。</li></ul>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_rXTtHw": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/DSC01848_1_c4da029e-1ee5-4a92-b295-4d38ca504eb4.jpg",
+            "caption": "",
+            "heading": "簡単に使えて「楽」",
+            "text": "<ul><li>使用方法が動画で確認できるのがすごく良い！</li><li>使用方法はとっても簡単ですが、動画のおかげでさらにわかりやすかったです！</li><li>こんなに楽で操作も簡単で万能でコンパクトな欲しい要素を全て詰め合わせたかの様な物があるなんてもっと早く知っていたかったなと思うぐらい素晴らしい商品だと思いました！</li><li>説明がわかりやすい！家族みんなで使わせていただきます。</li><li>操作が簡単で、様々な空気入れシーンで使えるのが良い。 </li><li>「操作が簡単、空気圧が設定できる、ボタン一つで空気入れが数十秒で完了する、手動空気入れのように力を使わないので手が疲れない」等の便利な点が多く空気入れが苦にならなくなった。</li></ul>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_aUN6rm": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/DSC00982-2_f5f839d5-0772-4913-b366-3a5a93dcafbe.jpg",
+            "caption": "",
+            "heading": "コンパクトサイズで「楽」",
+            "text": "<ul><li>軽量で持ち運びが楽なこと、保管にも場所を取らない。</li><li>持ち運びできるし、場所取らないし、すぐ空気が入るし楽です!高いと思いましたが、その価値はあります。</li><li>持ち運びも楽だし収納も場所をとりません、説明書も分かりやすくてすごく良いですね</li><li>こんなコンパクトな空気入れがあるものなのですね。一気に収納スペースに余裕が生まれました。空気入れのハードルが一気に下がりました。</li><li>自転車の空気入れなきゃなーと思ってるけど、大きな空気入れを駐輪場まで持って行ってシュコシュコ入れてまたそれを持って自宅に戻って…と考えるだけでまた今度にしておこうと思って結局ずっとやらない自転車の空気入れ。それがこんなに簡単にできてしまうなんて、もっと早く買っておけばよかったです！</li></ul>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_K977QV",
+        "row_GX9BnX",
+        "row_rXTtHw",
+        "row_aUN6rm"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-right",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_ckwBeX": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "メディアで紹介されました！",
+        "heading_size": "h1",
+        "blog": "media",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_TRKBiF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Ngkm6T": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>KUKIIRE スマート空気入れをレビュー！口コミ・評判をもとに徹底検証</p>",
+            "link_label": "詳しくはこちら",
+            "link": "https://my-best.com/products/666970"
+          }
+        },
+        "column_6kq8ci": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>スマート空気入れKUKiiREを利用してみた！電動空気入れ初挑戦！[Air Pump Review]</p>",
+            "link_label": "詳しくはこちら",
+            "link": "https://www.youtube.com/watch?v=tl_2M5NuxDM"
+          }
+        },
+        "column_bYdbCP": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>自転車・クルマ・バイクの空気入れをこれ1台で！ スマート空気入れ「KUKiiRE」</p>",
+            "link_label": "詳しくはこちら",
+            "link": "https://getnavi.jp/vehicles/766623/"
+          }
+        },
+        "column_rcAVTR": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>【Kukiire】「スマート空気入れ」で空気を入れるのはめっちゃ楽！ただしロードバイク乗りだと使う上で気をつけないといけないことも。</p>",
+            "link_label": "詳しくはこちら",
+            "link": "https://www.youtube.com/watch?v=KIDTXY3WqIo"
+          }
+        },
+        "column_pFKUDe": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>kukiire スマート空気入れに関する情報まとめ</p>",
+            "link_label": "詳しくはこちら",
+            "link": "https://minkara.carview.co.jp/search/?q=kukiire+%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E7%A9%BA%E6%B0%97%E5%85%A5%E3%82%8C"
+          }
+        },
+        "column_U36pyj": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>スマート空気入れ KUKiiRE レビュー</p>",
+            "link_label": "詳しくはこちら",
+            "link": "https://ameblo.jp/keto-55/entry-12742282865.html"
+          }
+        },
+        "column_Un8yGw": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>【スマート空気入れ レビュー】コンパクト＆パワフル！ワンタッチで自転車・バイク・車のタイヤ空気を入れられる充電式空気入れ</p>",
+            "link_label": "詳しくはこちら",
+            "link": "https://gadgerba.com/smart-kukiire/"
+          }
+        }
+      },
+      "block_order": [
+        "column_Ngkm6T",
+        "column_6kq8ci",
+        "column_bYdbCP",
+        "column_rcAVTR",
+        "column_pFKUDe",
+        "column_U36pyj",
+        "column_Un8yGw"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Media Information",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_VJa9P7": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/DSC01659_e7b5af6b-f141-4bc4-99c0-9ca892804aca.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_XhDNhf": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_8j9iW3": {
+          "type": "heading",
+          "settings": {
+            "heading": "PHOTO REVIEW",
+            "heading_size": "h1"
+          }
+        },
+        "text_4miPMy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>「レビューをまとめました。」</p><p>PANPは2022年の販売から累計5万個を販売し、<br/>1918件（2024年5月1日集計）のレビューをいただいています。</p><p>数多くのレビューを見やすくするためにトピックを分類しておりますので、<br/>ご購入の際の参考にお役立てください。</p><p></p>"
+          }
+        },
+        "button_iXcagG": {
+          "type": "button",
+          "settings": {
+            "button_label": "レビューのまとめ",
+            "button_link": "shopify://pages/review-top",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_8j9iW3",
+        "text_4miPMy",
+        "button_iXcagG"
+      ],
+      "custom_css": [],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-26c48073-c7e1-4daf-8269-57438c64b35c",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "171464444871b24b89": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_FE7WHc": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "hide_thumbnails": false,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1080,
+            "is_sample": false
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_FE7WHc"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_YGMACM": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/media_image.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "featured_collection_ranking_Fz8dNL": {
+      "type": "featured-collection-ranking",
+      "settings": {
+        "title": "Ranking",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "ranking",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_qJppbq",
+    "rich_text_Q8pdCz",
+    "multirow_Uk6Wwj",
+    "featured_blog_ckwBeX",
+    "multicolumn_TRKBiF",
+    "image_banner_VJa9P7",
+    "rich_text_XhDNhf",
+    "171464444871b24b89",
+    "main",
+    "image_banner_YGMACM",
+    "featured_collection_ranking_Fz8dNL"
+  ]
+}

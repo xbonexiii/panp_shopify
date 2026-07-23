@@ -1,0 +1,406 @@
+<div class="ah" id="ah-{{ section.id }}" data-section-id="{{ section.id }}">
+
+  <div class="ah__text-block">
+    <p class="ah__eyebrow">{{ section.settings.eyebrow }}</p>
+    <h1 class="ah__heading">
+      {{ section.settings.heading_plain }}
+      <span class="ah__heading-accent" style="color: {{ section.settings.accent_color }};">{{ section.settings.heading_accent }}</span>
+    </h1>
+    <div class="ah__actions">
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link }}" class="ah__button">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+      {% if section.settings.sub_text != blank %}
+        <p class="ah__sub-text">{{ section.settings.sub_text }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="ah__image-wrap" id="ah-wrap-{{ section.id }}">
+    {% if section.settings.video != blank %}
+
+      {%- comment -%} video_tag フィルターで確実にレンダリング {%- endcomment -%}
+      {% if section.settings.video_loop %}
+        {{- section.settings.video | video_tag:
+          class: 'ah__video',
+          autoplay: true,
+          loop: true,
+          muted: true,
+          playsinline: true,
+          preload: 'auto'
+        -}}
+      {% else %}
+        {{- section.settings.video | video_tag:
+          class: 'ah__video',
+          autoplay: true,
+          muted: true,
+          playsinline: true,
+          preload: 'auto'
+        -}}
+      {% endif %}
+
+      {%- comment -%} 動画終了後に表示するポスター画像 {%- endcomment -%}
+      {% if section.settings.image != blank %}
+        <img
+          class="ah__image ah__image--poster"
+          src="{{ section.settings.image | image_url: width: 1200 }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          loading="eager"
+          width="1200"
+          height="900"
+        >
+      {% endif %}
+
+    {% elsif section.settings.image != blank %}
+      <img
+        class="ah__image"
+        src="{{ section.settings.image | image_url: width: 1200 }}"
+        alt="{{ section.settings.image.alt | escape }}"
+        loading="eager"
+        width="1200"
+        height="900"
+      >
+    {% else %}
+      <div class="ah__image-placeholder">
+        {{ 'product-1' | placeholder_svg_tag: 'ah__placeholder-svg' }}
+      </div>
+    {% endif %}
+  </div>
+
+</div>
+
+{%- style -%}
+
+/* ===== ベース ===== */
+.ah {
+  position: relative;
+  width: 100%;
+  background-color: {{ section.settings.bg_color }};
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: clamp(48px, 6vw, 80px);
+}
+
+/* ===== テキストブロック ===== */
+.ah__text-block {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 0 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: ah-fade-up 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards;
+}
+
+.ah__eyebrow {
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 400;
+  color: #1d1d1f;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.ah__heading {
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #1d1d1f;
+  margin: 0;
+}
+
+.ah__heading-accent {
+  display: inline;
+}
+
+/* ===== ボタン ===== */
+.ah__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.ah__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  background: #1d1d1f;
+  color: #fff;
+  border-radius: 980px;
+  font-size: 17px;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: background 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.ah__button:hover {
+  background: #3a3a3c;
+  transform: scale(1.03);
+  color: #fff;
+}
+
+.ah__sub-text {
+  font-size: 13px;
+  color: #6e6e73;
+  margin: 0;
+}
+
+/* ===== 画像エリア ===== */
+.ah__image-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: clamp(24px, 4vw, 48px);
+  padding: 0 24px;
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  animation: ah-image-in 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s forwards;
+  will-change: transform;
+}
+
+.ah__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* 動画ポスター（動画終了後に表示） */
+.ah__image--poster {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ah__image-wrap.ah--video-ended .ah__video {
+  opacity: 0;
+}
+
+.ah__image-wrap.ah--video-ended .ah__image--poster {
+  display: block;
+}
+
+.ah__video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: opacity 0.4s ease;
+}
+
+.ah__image-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #e8e8ed;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ah__placeholder-svg {
+  width: 60%;
+  height: 60%;
+  opacity: 0.3;
+}
+
+/* ===== キーフレームアニメーション ===== */
+@keyframes ah-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ah-image-in {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 767px) {
+  .ah {
+    padding-top: 40px;
+  }
+
+  .ah__heading {
+    font-size: clamp(36px, 10vw, 56px);
+    letter-spacing: -0.02em;
+  }
+
+  .ah__eyebrow {
+    font-size: 15px;
+  }
+
+  .ah__button {
+    font-size: 15px;
+    padding: 10px 22px;
+  }
+
+  .ah__image-wrap {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+}
+
+{%- endstyle -%}
+
+<script>
+(function() {
+  var section  = document.getElementById('ah-{{ section.id }}');
+  var imageWrap = document.getElementById('ah-wrap-{{ section.id }}');
+  if (!section || !imageWrap) return;
+
+  /* ===== 動画: 自動再生を確実にする ===== */
+  var video = imageWrap.querySelector('video');
+  if (video) {
+    /* autoplayが失敗した場合のフォールバック */
+    var playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(function() {
+        /* ユーザー操作後に再試行 */
+        document.addEventListener('click', function retry() {
+          video.play();
+          document.removeEventListener('click', retry);
+        }, { once: true });
+      });
+    }
+
+    {% unless section.settings.video_loop %}
+    /* 1回再生で停止 */
+    video.addEventListener('ended', function() {
+      video.pause();
+      imageWrap.classList.add('ah--video-ended');
+    });
+    {% endunless %}
+  }
+
+  /* ===== スクロールパララックス ===== */
+  function onScroll() {
+    var rect = section.getBoundingClientRect();
+    var scrolled = -rect.top;
+    if (scrolled < 0) return;
+
+    var parallax = scrolled * 0.25;
+    imageWrap.style.transform = 'translateY(' + parallax + 'px) scale(1)';
+
+    var textBlock = section.querySelector('.ah__text-block');
+    if (textBlock) {
+      var textFade = Math.max(0, 1 - scrolled / 300);
+      textBlock.style.opacity = textFade;
+      textBlock.style.transform = 'translateY(' + (-scrolled * 0.12) + 'px)';
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Appleヒーロー",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景色",
+      "default": "#f5f5f7"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "小見出し（上）",
+      "default": "MacBook Neo"
+    },
+    {
+      "type": "text",
+      "id": "heading_plain",
+      "label": "大見出し（黒文字部分）",
+      "default": "こんにちは、"
+    },
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "大見出し（カラー文字部分）",
+      "default": "Neo。"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "アクセントカラー",
+      "default": "#8fc641"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "ボタンテキスト",
+      "default": "購入"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "ボタンリンク"
+    },
+    {
+      "type": "text",
+      "id": "sub_text",
+      "label": "ボタン下テキスト",
+      "default": "から、またはの回払いから*"
+    },
+    {
+      "type": "header",
+      "content": "メディア設定"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "動画（優先表示）"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "動画をループ再生する",
+      "info": "オフにすると1回再生で停止します",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "画像（動画未設定時 / 動画終了後に表示）"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Appleヒーロー"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,714 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "guide-header",
+      "name": "ガイドヘッダー",
+      "settings": {
+        "html_id": "",
+        "main_title": "乗り物ごとの空気の抜き方",
+        "guide_title": "ガイドメニュー",
+        "guide_description": "用途をアイコンからお選びください。",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_icon_menu_YE4fb6": {
+      "type": "guide-icon-menu",
+      "blocks": {
+        "guide_icon_7Vpxwq": {
+          "type": "guide_icon",
+          "name": "シティサイクルアイコン",
+          "settings": {
+            "icon_image": "shopify://shop_images/citybike-jp.png",
+            "link_url": "#cycle"
+          }
+        },
+        "guide_icon_J4NHi3": {
+          "type": "guide_icon",
+          "name": "クロスバイクアイコン",
+          "settings": {
+            "icon_image": "shopify://shop_images/crossbike-jp.png",
+            "link_url": "#roadBike"
+          }
+        },
+        "guide_icon_acidac": {
+          "type": "guide_icon",
+          "name": "車アイコン",
+          "settings": {
+            "icon_image": "shopify://shop_images/car-jp.png",
+            "link_url": "#car"
+          }
+        },
+        "guide_icon_nmfGdG": {
+          "type": "guide_icon",
+          "name": "バイクアイコン",
+          "settings": {
+            "icon_image": "shopify://shop_images/motorcycle-jp.png",
+            "link_url": "#car"
+          }
+        },
+        "guide_icon_UakYhX": {
+          "type": "guide_icon",
+          "name": "ボールアイコン",
+          "settings": {
+            "icon_image": "shopify://shop_images/ball-jp.png",
+            "link_url": "#ball"
+          }
+        },
+        "guide_icon_wHGw6K": {
+          "type": "guide_icon",
+          "name": "うきわアイコン",
+          "settings": {
+            "icon_image": "shopify://shop_images/swimring-jp.png",
+            "link_url": "#ukiwa"
+          }
+        }
+      },
+      "block_order": [
+        "guide_icon_7Vpxwq",
+        "guide_icon_J4NHi3",
+        "guide_icon_acidac",
+        "guide_icon_nmfGdG",
+        "guide_icon_UakYhX",
+        "guide_icon_wHGw6K"
+      ],
+      "name": "ガイドアイコンメニュー",
+      "settings": {
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_header_q688qw": {
+      "type": "guide-header",
+      "name": "ガイドヘッダー",
+      "settings": {
+        "html_id": "cycle",
+        "main_title": "",
+        "guide_title": "自転車/ママチャリ 編",
+        "guide_description": "",
+        "margin_top": 120,
+        "margin_bottom": 50
+      }
+    },
+    "image_with_text_tiRHtF": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_eH8cmE": {
+          "type": "heading",
+          "settings": {
+            "heading": "英式バルブ",
+            "heading_size": "h2"
+          }
+        },
+        "text_byfRFg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>○ 空気注入口（英式バルブ）は写真の形状です。</p><p>シティサイクルやママチャリなど、一般的な自転車に多い形式です。</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_eH8cmE",
+        "text_byfRFg"
+      ],
+      "name": "英式バルブ",
+      "settings": {
+        "image": "shopify://shop_images/RIDE-eisiki_bulb.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_accordion_aaFmzz": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_NiFija": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2952.jpg",
+            "step_description": "【1】キャップを外す。"
+          }
+        },
+        "step_item_iTmfqD": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2953_dc5dc429-f7f9-4f87-9cab-7de58355d678.jpg",
+            "step_description": "【２】バルブを緩める。　　- 反時計周りにゆっくり回すと「プシュー」と空気が抜ける音がします。"
+          }
+        },
+        "step_item_BK6xbV": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2954.jpg",
+            "step_description": "バルブとキャップを締め戻して、完了。"
+          }
+        },
+        "step_item_fMUUD6": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2955.jpg",
+            "step_description": " 上記の方法で抜けない場合は、虫ゴムを少し抜いてみてください。 ※ 一気に抜くと全空気が抜けてしまうので、少し抜いてすぐ戻してください。"
+          }
+        },
+        "step_item_jBUVY7": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2957.jpg",
+            "step_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_item_NiFija",
+        "step_item_iTmfqD",
+        "step_item_BK6xbV",
+        "step_item_fMUUD6",
+        "step_item_jBUVY7"
+      ],
+      "name": "ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "手順を写真で確認する",
+        "open_by_default": true,
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_content_wVrQnM": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_N3VNq9": {
+          "type": "image_text_combo",
+          "disabled": true,
+          "settings": {
+            "combo_image": "shopify://shop_images/RIDE-eisiki_bulb.png",
+            "combo_text": "<p>　</p><p>　○ 空気注入口（英式バルブ）は下記写真の形状です。</p>",
+            "layout": "text_top"
+          }
+        },
+        "image_text_combo_iMPErX": {
+          "type": "image_text_combo",
+          "disabled": true,
+          "settings": {
+            "combo_image": "shopify://shop_images/RIDE-eishiki.png",
+            "combo_text": "<p>●<strong>準備するもの</strong></p><p>英式バルブ用のアタッチメント・エアーホース（本体に収納されています）・RIDE本体</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_N3VNq9",
+        "image_text_combo_iMPErX"
+      ],
+      "name": "ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_header_JKrjDz": {
+      "type": "guide-header",
+      "name": "ガイドヘッダー",
+      "settings": {
+        "html_id": "roadBike",
+        "main_title": "",
+        "guide_title": "クロスバイク/ロードバイク 編",
+        "guide_description": "",
+        "margin_top": 120,
+        "margin_bottom": 50
+      }
+    },
+    "image_with_text_MFwDCf": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_78rni3": {
+          "type": "heading",
+          "settings": {
+            "heading": "仏式（フレンチ）バルブ",
+            "heading_size": "h2"
+          }
+        },
+        "text_XtHR9i": {
+          "type": "text",
+          "settings": {
+            "text": "<p>○ 空気注入口（仏式バルブ）は写真の形状です。</p><p>ロードバイクやクロスバイクなど、スピードレース仕様などのバイクに多い形式です。</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_78rni3",
+        "text_XtHR9i"
+      ],
+      "name": "仏式バルブ",
+      "settings": {
+        "image": "shopify://shop_images/RIDE-sports-1.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_content_fhFKFC": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_fCYHV7": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/RIDE-sports-1.png",
+            "combo_text": "<p>　</p><p>　○ 空気注入口（英式バルブ）は下記写真の形状です。</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_fCYHV7"
+      ],
+      "disabled": true,
+      "name": "ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_accordion_imU8pH": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_tctFYC": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2949.jpg",
+            "step_description": "【1】キャップを外す。"
+          }
+        },
+        "step_item_9XtxCT": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2949_0931bee1-4000-42be-9d20-0ddda7870c53.jpg",
+            "step_description": "【２】バルブを緩める。<br>  - 反時計周りに、止まるまで回します。"
+          }
+        },
+        "step_item_Am8P69": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2950.jpg",
+            "step_description": ""
+          }
+        },
+        "step_item_DA66V7": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2951.jpg",
+            "step_description": "【3】バルブを押す。<br>- 先端を押すと「プシュー」と空気が抜ける音がします。"
+          }
+        },
+        "step_item_TwQNRw": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/20220107-170731-1651208802436.png",
+            "step_description": "バルブとキャップを締め戻して、完了。"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_tctFYC",
+        "step_item_9XtxCT",
+        "step_item_Am8P69",
+        "step_item_DA66V7",
+        "step_item_TwQNRw"
+      ],
+      "name": "ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "手順を写真で確認する",
+        "open_by_default": true,
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_header_7gbt4V": {
+      "type": "guide-header",
+      "name": "ガイドヘッダー",
+      "settings": {
+        "html_id": "car",
+        "main_title": "",
+        "guide_title": "車・バイク・スクーター 編",
+        "guide_description": "",
+        "margin_top": 120,
+        "margin_bottom": 50
+      }
+    },
+    "image_with_text_YYXEkN": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_P4f3fR": {
+          "type": "heading",
+          "settings": {
+            "heading": "米式バルブ",
+            "heading_size": "h2"
+          }
+        },
+        "text_xWD6He": {
+          "type": "text",
+          "settings": {
+            "text": "<p>○ 空気注入口（米式バルブ）は写真の形状です。</p><p>自動車やバイクなどに多い形式です。</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_P4f3fR",
+        "text_xWD6He"
+      ],
+      "name": "米式バルブ",
+      "settings": {
+        "image": "shopify://shop_images/bike-car-bulb.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_content_irUAQJ": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_AE4Y6X": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/bike-car-bulb.png",
+            "combo_text": "<p>　</p><p>　○ 空気注入口（米式バルブ）は下記写真の形状です。</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_AE4Y6X"
+      ],
+      "disabled": true,
+      "name": "ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_accordion_m4pRdt": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_EWnNET": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2945.jpg",
+            "step_description": "【1】エアホースを抜いて電源をオンにします。"
+          }
+        },
+        "step_item_7nXnKT": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2945_27b2c272-d95b-4a1c-a40d-62ed668497ca.jpg",
+            "step_description": "【2】バルブを押す。<br>- バルブを押すと「プシュー」と空気が抜ける音がします。"
+          }
+        },
+        "step_item_PMMnQP": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2947.jpg",
+            "step_description": "キャップを締め戻して、完了。"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_EWnNET",
+        "step_item_7nXnKT",
+        "step_item_PMMnQP"
+      ],
+      "name": "ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "手順を写真で確認する",
+        "open_by_default": true,
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_header_jBGpHd": {
+      "type": "guide-header",
+      "name": "ガイドヘッダー",
+      "settings": {
+        "html_id": "ball",
+        "main_title": "",
+        "guide_title": "ボール 編",
+        "guide_description": "",
+        "margin_top": 120,
+        "margin_bottom": 50
+      }
+    },
+    "image_with_text_3Nh4Mw": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_dr6wpW": {
+          "type": "heading",
+          "settings": {
+            "heading": "ボールホール",
+            "heading_size": "h2"
+          }
+        },
+        "text_M4LNWq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>○ 空気注入口（ボールホール）は写真の形状です。</p><p>バスケットボール、サッカーボールなど、一般的なボールの形式です。</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dr6wpW",
+        "text_M4LNWq"
+      ],
+      "name": "ボールホール",
+      "settings": {
+        "image": "shopify://shop_images/RIDE-ball-hole.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_content_r3MhGy": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_7URnKV": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/RIDE-ball-hole.png",
+            "combo_text": "<p>　</p><p>　○ 空気注入口（米式バルブ）は下記写真の形状です。</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_7URnKV"
+      ],
+      "disabled": true,
+      "name": "ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_accordion_a3FaAf": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_GdhBYe": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2961.jpg",
+            "step_description": "【1】空気口にボール用アタッチメントを差し込む。- 手で抑えると「プシュー」と空気が抜ける音がします。"
+          }
+        },
+        "step_item_VRyetp": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2961.jpg",
+            "step_description": "もし抜けない場合は、挿し方が浅すぎないか確認してみてください。"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_GdhBYe",
+        "step_item_VRyetp"
+      ],
+      "name": "ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "手順を写真で確認する",
+        "open_by_default": true,
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_header_CBA97a": {
+      "type": "guide-header",
+      "name": "ガイドヘッダー",
+      "settings": {
+        "html_id": "ukiwa",
+        "main_title": "",
+        "guide_title": "浮き輪など",
+        "guide_description": "",
+        "margin_top": 120,
+        "margin_bottom": 50
+      }
+    },
+    "image_with_text_zfGB9Y": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_kqVbV9": {
+          "type": "heading",
+          "settings": {
+            "heading": "浮き輪空気注入",
+            "heading_size": "h2"
+          }
+        },
+        "text_rYJVHF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>○ 空気注入口（うきわ等）は写真の形状です。</p><p>浮き輪やエアーマットなどに多い形式です。</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kqVbV9",
+        "text_rYJVHF"
+      ],
+      "name": "うきわ",
+      "settings": {
+        "image": "shopify://shop_images/ukiwa-use_96cc46a4-832c-4849-a126-d010848cbf94.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_content_h7MmCf": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_fwK777": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/ukiwa-use_96cc46a4-832c-4849-a126-d010848cbf94.png",
+            "combo_text": "<p>　</p><p>　○ 空気注入口（米式バルブ）は下記写真の形状です。</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_fwK777"
+      ],
+      "disabled": true,
+      "name": "ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_accordion_nNkhXQ": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_wnUpdE": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2962.jpg",
+            "step_description": "【1】キャップを外す。"
+          }
+        },
+        "step_item_AwPP3V": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2967.jpg",
+            "step_description": "【2】洗濯バサミでつまむ。"
+          }
+        },
+        "step_item_FATDtz": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/IMG_2963.jpg",
+            "step_description": "つまむと「プシュー」と空気が抜ける音がします。あとは手放しでOK!"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_wnUpdE",
+        "step_item_AwPP3V",
+        "step_item_FATDtz"
+      ],
+      "name": "ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "手順を写真で確認する",
+        "open_by_default": true,
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    }
+  },
+  "order": [
+    "main",
+    "guide_icon_menu_YE4fb6",
+    "guide_header_q688qw",
+    "image_with_text_tiRHtF",
+    "guide_accordion_aaFmzz",
+    "guide_content_wVrQnM",
+    "guide_header_JKrjDz",
+    "image_with_text_MFwDCf",
+    "guide_content_fhFKFC",
+    "guide_accordion_imU8pH",
+    "guide_header_7gbt4V",
+    "image_with_text_YYXEkN",
+    "guide_content_irUAQJ",
+    "guide_accordion_m4pRdt",
+    "guide_header_jBGpHd",
+    "image_with_text_3Nh4Mw",
+    "guide_content_r3MhGy",
+    "guide_accordion_a3FaAf",
+    "guide_header_CBA97a",
+    "image_with_text_zfGB9Y",
+    "guide_content_h7MmCf",
+    "guide_accordion_nNkhXQ"
+  ]
+}

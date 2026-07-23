@@ -1,0 +1,1620 @@
+<style>
+
+/* ================== tokens.css ================== */
+:root {
+  /* ---- 色 ---- */
+  --gold: #A37729;
+  --gold-light: #c49535;
+  --gold-tint: rgba(163,119,41,.1);
+  --blue: #0071e3;
+  --text: #1d1d1f;
+  --text-sub: #6e6e73;
+  --bg-white: #ffffff;
+  --bg-gray: #f5f5f7;
+  --bg-dark: #1d1d1f;
+  --star: #f5c518;
+
+  /* ---- タイポグラフィ（サイズ階層） ---- */
+  --fs-hero: clamp(32px, 5.5vw, 68px);
+  --fs-hero-compact: clamp(30px, 4.2vw, 54px);
+  --fs-h2: clamp(28px, 3.5vw, 44px);
+  --fs-h3: 22px;
+  --fs-stat: clamp(28px, 3.6vw, 48px);
+  --fs-lead: clamp(16px, 1.6vw, 20px);
+  --fs-body: 17px;
+  --fs-note: 13px;
+  --fs-micro: 12px;
+
+  /* ---- 字間 ---- */
+  --ls-hero: -0.03em;
+  --ls-heading: -0.02em;
+  --ls-num: -0.04em;
+
+  /* ---- 角丸（3階層固定） ---- */
+  --radius-card: 24px;
+  --radius-image: 16px;
+  --radius-badge: 12px;
+  --radius-pill: 50px;
+
+  /* ---- 影（1種のみ） ---- */
+  --shadow-card: 0 2px 20px rgba(0,0,0,.06);
+
+  /* ---- セクション余白 ---- */
+  --section-pad: 100px;
+  --section-pad-sp: 64px;
+}
+
+/* ================== base.css ================== */
+.lp-wrapper *,  .lp-wrapper *::before,  .lp-wrapper *::after{ box-sizing: border-box; margin: 0; padding: 0; }
+.lp-wrapper{ scroll-behavior: smooth; }
+.lp-wrapper{
+  font-family: Helvetica, Arial, sans-serif;
+  color: var(--text); font-size: var(--fs-body); line-height: 1.7; overflow-x: hidden;
+}
+.lp-wrapper img{ max-width: 100%; height: auto; display: block; }
+.lp-wrapper a{ color: inherit; text-decoration: none; }
+.lp-wrapper section{ width: 100%; }
+/* 見出しは常にコンテナの色を継承（Shopifyテーマの h1/h2{color:#1d1d1f} 直接指定に負けて黒くなる再発バグを防ぐ・省略禁止） */
+.lp-wrapper h1,  .lp-wrapper h2,  .lp-wrapper h3,  .lp-wrapper h4,  .lp-wrapper h5,  .lp-wrapper h6{ color: inherit; }
+.lp-wrapper .container{ max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.lp-wrapper .section-padding{ padding-top: var(--section-pad); padding-bottom: var(--section-pad); }
+.lp-wrapper h2.section-title{ font-size: var(--fs-h2); font-weight: 700; line-height: 1.3; letter-spacing: var(--ls-heading); }
+@media (max-width: 768px) {
+  .lp-wrapper{ font-size: 16px; }
+  .lp-wrapper .container{ padding: 0 20px; }
+  .lp-wrapper .section-padding{ padding-top: var(--section-pad-sp); padding-bottom: var(--section-pad-sp); }
+}
+
+/* ---- アニメーションクラス（4種） ---- */
+.lp-wrapper .fade-in{ opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.lp-wrapper .fade-in.visible{ opacity: 1; transform: translateY(0); }
+.lp-wrapper .slide-left{ opacity: 0; transform: translateX(-48px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.lp-wrapper .slide-right{ opacity: 0; transform: translateX(48px);  transition: opacity 0.8s ease, transform 0.8s ease; }
+.lp-wrapper .slide-up{ opacity: 0; transform: translateY(32px);  transition: opacity 0.7s ease, transform 0.7s ease; }
+.lp-wrapper .slide-left.visible,  .lp-wrapper .slide-right.visible,  .lp-wrapper .slide-up.visible{ opacity: 1; transform: none; }
+.lp-wrapper .delay-1{ transition-delay: .15s; }
+.lp-wrapper .delay-2{ transition-delay: .3s; }
+.lp-wrapper .delay-3{ transition-delay: .45s; }
+.lp-wrapper .delay-4{ transition-delay: .6s; }
+
+/* ---- ボタンコンポーネント ---- */
+.lp-wrapper .btn-primary{
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold); color: #fff;
+  font-size: 18px; font-weight: 700; padding: 18px 40px;
+  border-radius: var(--radius-pill); cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  border: none; letter-spacing: 0.02em;
+}
+.lp-wrapper .btn-primary:hover{ background: var(--gold-light); transform: translateY(-1px); }
+.lp-wrapper .btn-secondary{
+  display: inline-block; color: var(--gold); font-size: 15px; font-weight: 500;
+  margin-top: 16px; border-bottom: 1px solid currentColor; padding-bottom: 2px;
+}
+
+/* ---- スクロール誘導矢印 ---- */
+.lp-wrapper .scroll-hint{
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: rgba(255,255,255,0.55); font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; animation: scroll-bounce 2.2s infinite;
+}
+.lp-wrapper .scroll-hint svg{ width: 20px; height: 20px; }
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.55; }
+  50%       { transform: translateX(-50%) translateY(8px); opacity: 0.9; }
+}
+
+/* ---- ソーシャルプルーフ（ヒーロー内） ---- */
+.lp-wrapper .hero-social-proof{ display: flex; align-items: center; gap: 8px; margin-top: 12px; color: #fff; font-size: 14px; }
+.lp-wrapper .hero-social-proof .stars{ color: #f5c518; letter-spacing: 2px; font-size: 16px; }
+
+/* ---- 最終CTA直前 お客様の声引用 ---- */
+.lp-wrapper .cta-voice{ max-width: 480px; margin: 0 auto 32px; text-align: center; }
+.lp-wrapper .cta-voice blockquote{
+  font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.85);
+  font-style: italic; margin: 0 0 8px;
+  border-left: 2px solid var(--gold); padding-left: 14px; text-align: left;
+}
+.lp-wrapper .cta-voice cite{ font-size: var(--fs-micro); color: rgba(255,255,255,0.5); display: block; text-align: right; }
+
+/* ---- モバイルスティッキーCTA（上スクロールで凹む・下スクロールで再表示） ---- */
+.lp-wrapper #sticky-cta{
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 8000;
+  padding: 12px 20px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 80%, transparent);
+  transform: translateY(0); transition: transform .3s ease;
+}
+.lp-wrapper #sticky-cta.retract{ transform: translateY(110%); }
+.lp-wrapper #sticky-cta a{
+  display: block; width: 100%; text-align: center;
+  background: var(--gold); color: #fff;
+  font-size: 16px; font-weight: 700; padding: 16px; border-radius: var(--radius-badge);
+}
+.lp-wrapper #sticky-cta .sticky-note{ text-align: center; font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 6px; }
+@media (min-width: 769px) { #sticky-cta { display: none !important; } }
+
+/* ---- 2カラム 画像+テキスト グリッド ---- */
+.lp-wrapper .two-col-inner{ display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.lp-wrapper .two-col-image-wrap img{ width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-image); display: block; }
+@media (max-width: 768px) {
+  .lp-wrapper .two-col-inner{ grid-template-columns: 1fr; gap: 32px; }
+  .lp-wrapper .two-col-image-wrap{ order: -1; }
+  .lp-wrapper .two-col-image-wrap img{ height: 260px; }
+}
+
+/* ================== RIDE_PRO_テーマ.css ================== */
+/* ============================================================
+   案件テーマ: PANP RIDE PRO route-1（車ドライバー向け・高価格帯プレミアムLP）
+   原稿メモ指定: 落ち着いた緑（メイン）・オレンジ（CTA・感情の橋・強調のみ）。
+   変更: RIDEシリーズはブランドカラー=ゴールド #A37729（緑はAIRシリーズ）／
+         CTAボタンは青（信頼の青・2026-07-04確定）／感情の橋のみオレンジ。
+   使い方: tokens.css の直後・base.css の【後】に読み込む（値の上書きのみ）
+   ============================================================ */
+:root {
+  --gold: #A37729;
+  --gold-light: #C0913A;
+  --gold-tint: rgba(163, 119, 41, .08);
+
+  /* CTAボタン専用 = 青（信頼の青） */
+  --cta: #1E6FD9;
+  --cta-light: #3E85E8;
+
+  /* 感情の橋 専用 = オレンジ（章末の1文のみ） */
+  --bridge: #E8722A;
+
+  /* 背景 = 温かみのある白系 */
+  --bg-white: #FDFCF9;
+  --bg-gray: #F5F2EC;
+  --bg-dark: #1C1A17;
+}
+.lp-wrapper .btn-primary{ background: var(--cta); }
+.lp-wrapper .btn-primary:hover{ background: var(--cta-light); }
+.lp-wrapper #sticky-cta a{ background: var(--cta); }
+.lp-wrapper .bridge-line{
+  font-size: var(--fs-h3); font-weight: 700; color: var(--bridge);
+  line-height: 1.8;
+}
+/* 見出しの改行位置調整用（行末1〜2文字の孤立を防ぐ・手動br禁止基準に準拠） */
+.lp-wrapper .hd-nowrap{ white-space: nowrap; }
+
+/* ================== sec-hero（FV・キャッチ主役写真型） ================== */
+.lp-wrapper #sec-hero{
+  position: relative; min-height: 100svh;
+  display: flex; align-items: center;
+  color: #fff;
+}
+.lp-wrapper #sec-hero .hero-bg{ position: absolute; inset: 0; overflow: hidden; }
+.lp-wrapper #sec-hero .hero-bg img{ width: 100%; height: 100%; object-fit: cover; }
+.lp-wrapper #sec-hero .hero-bg::after{
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.28) 50%, rgba(0,0,0,.08) 100%);
+}
+.lp-wrapper #sec-hero .hero-brand{
+  position: absolute; top: 28px; left: 40px; z-index: 2;
+  height: 26px; width: auto; display: block;
+}
+.lp-wrapper #sec-hero .hero-inner{
+  position: relative; z-index: 1; width: 100%;
+  max-width: 1200px; margin: 0 auto;
+  padding-left: 40px; padding-right: 40px; padding-top: 72px; padding-bottom: 72px;
+}
+.lp-wrapper #sec-hero .worry-chips{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.lp-wrapper #sec-hero .worry-chips span{
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: var(--fs-note); font-weight: 500; color: rgba(255,255,255,.9);
+  border: 1px solid rgba(255,255,255,.35);
+  padding: 7px 14px; border-radius: var(--radius-pill);
+  backdrop-filter: blur(2px);
+}
+.lp-wrapper #sec-hero .worry-chips svg{ width: 15px; height: 15px; }
+.lp-wrapper #sec-hero h1{
+  font-size: var(--fs-hero); font-weight: 700;
+  line-height: 1.35; letter-spacing: var(--ls-hero);
+  color: #fff;
+  max-width: 720px; margin-bottom: 20px;
+}
+.lp-wrapper #sec-hero .hero-core{
+  font-size: var(--fs-lead); font-weight: 700; line-height: 1.9;
+  color: rgba(255,255,255,.92); max-width: 680px;
+}
+.lp-wrapper #sec-hero .hero-core em{ font-style: normal; color: var(--gold-light); }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-hero .hero-brand{ left: 20px; top: 20px; }
+  .lp-wrapper #sec-hero .hero-inner{ padding-left: 20px; padding-right: 20px; padding-top: 64px; padding-bottom: 88px; }
+  .lp-wrapper #sec-hero h1{ font-size: calc(var(--fs-hero) * 0.82); line-height: 1.4; }
+}
+
+/* ================== sec-howto（誰でも使える・写真3ステップ型） ================== */
+.lp-wrapper #sec-howto{ background: var(--bg-white); color: var(--text); }
+.lp-wrapper #sec-howto .ht-inner{ max-width: 880px; width: calc(100% - 40px); margin: 0 auto; text-align: left; }
+.lp-wrapper #sec-howto .ht-eyebrow{
+  display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading);
+  color: var(--gold); background: var(--gold-tint);
+  padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 20px;
+}
+.lp-wrapper #sec-howto h2{
+  font-size: var(--fs-h2); font-weight: 700; line-height: 1.55;
+  letter-spacing: var(--ls-heading); color: var(--text); margin-bottom: 40px;
+}
+.lp-wrapper #sec-howto .ht-steps{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-bottom: 52px; }
+.lp-wrapper #sec-howto .ht-step{ background: var(--bg-gray); border-radius: var(--radius-card); overflow: hidden; }
+.lp-wrapper #sec-howto .ht-step img{ width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.lp-wrapper #sec-howto .ht-step-body{ padding: 20px; }
+.lp-wrapper #sec-howto .ht-step .num{
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--gold); color: #fff;
+  font-size: var(--fs-body); font-weight: 800; letter-spacing: var(--ls-num);
+  margin-bottom: 12px;
+}
+.lp-wrapper #sec-howto .ht-step h3{ font-size: var(--fs-lead); font-weight: 700; line-height: 1.6; color: var(--text); margin-bottom: 8px; }
+.lp-wrapper #sec-howto .ht-step p{ font-size: var(--fs-note); line-height: 1.9; color: var(--text-sub); }
+/* PANPカード=「難しそう」の先回り解消（2カラム: 実物写真×説明） */
+.lp-wrapper #sec-howto .ht-card-block{
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 28px; align-items: center;
+  background: var(--gold-tint); border-radius: var(--radius-card);
+  padding: 32px 28px; margin-bottom: 36px;
+}
+.lp-wrapper #sec-howto .ht-card-block img{ width: 100%; border-radius: var(--radius-image); display: block; }
+.lp-wrapper #sec-howto .ht-card-block .worry{ font-size: var(--fs-body); font-weight: 700; line-height: 1.9; color: var(--text); margin-bottom: 12px; }
+.lp-wrapper #sec-howto .ht-card-block p{ font-size: var(--fs-note); line-height: 1.9; color: var(--text-sub); margin-bottom: 8px; }
+.lp-wrapper #sec-howto .ht-card-block .ht-no-unit{
+  font-size: var(--fs-lead); font-weight: 700; line-height: 1.8; color: var(--gold); margin-bottom: 0;
+}
+.lp-wrapper #sec-howto .ht-voice{ border-left: 3px solid var(--gold); padding-left: 18px; margin: 0 0 28px; }
+.lp-wrapper #sec-howto .ht-voice p{ font-size: var(--fs-note); line-height: 1.9; color: var(--text); font-style: italic; margin-bottom: 4px; }
+.lp-wrapper #sec-howto .ht-voice .src{ font-size: var(--fs-micro); color: var(--text-sub); }
+.lp-wrapper #sec-howto .ht-close{ font-size: var(--fs-body); font-weight: 700; line-height: 2.0; color: var(--text); }
+.lp-wrapper #sec-howto .ht-close .bridge-line{ display: block; margin-top: 4px; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-howto .ht-steps{ grid-template-columns: 1fr; }
+  .lp-wrapper #sec-howto .ht-card-block{ grid-template-columns: 1fr; padding: 24px 20px; }
+  .lp-wrapper #sec-howto .ht-card-block img{ order: -1; }
+}
+
+/* ================== sec-compatible（これ1台で・実写真カード型） ================== */
+.lp-wrapper #sec-compatible{ background: var(--bg-gray); color: var(--text); }
+.lp-wrapper #sec-compatible .cp-inner{ max-width: 880px; width: calc(100% - 40px); margin: 0 auto; text-align: left; }
+.lp-wrapper #sec-compatible .cp-eyebrow{
+  display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading);
+  color: var(--gold); background: var(--gold-tint);
+  padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 20px;
+}
+.lp-wrapper #sec-compatible h2{
+  font-size: var(--fs-h2); font-weight: 700; line-height: 1.55;
+  letter-spacing: var(--ls-heading); color: var(--text); margin-bottom: 16px;
+}
+.lp-wrapper #sec-compatible .cp-valve{ font-size: var(--fs-body); line-height: 2.0; color: var(--text-sub); margin-bottom: 12px; }
+.lp-wrapper #sec-compatible .cp-valve-pills{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+.lp-wrapper #sec-compatible .cp-valve-pills span{
+  font-size: var(--fs-micro); font-weight: 700; color: var(--gold);
+  background: var(--bg-white); border-radius: var(--radius-pill); padding: 6px 14px;
+  box-shadow: var(--shadow-card); white-space: nowrap;
+}
+.lp-wrapper #sec-compatible .cp-grid{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+.lp-wrapper #sec-compatible .cp-card{
+  background: var(--bg-white); border-radius: var(--radius-card); overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.lp-wrapper #sec-compatible .cp-card img{ width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.lp-wrapper #sec-compatible .cp-card-body{ padding: 18px; }
+.lp-wrapper #sec-compatible .cp-card h3{ font-size: var(--fs-lead); font-weight: 700; line-height: 1.5; color: var(--text); margin-bottom: 10px; }
+.lp-wrapper #sec-compatible .cp-types{ display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.lp-wrapper #sec-compatible .cp-types span{
+  font-size: var(--fs-micro); font-weight: 700; color: var(--text-sub);
+  background: var(--bg-gray); border-radius: var(--radius-pill); padding: 4px 10px;
+}
+.lp-wrapper #sec-compatible .cp-inner .cp-sum{
+  font-size: var(--fs-lead); font-weight: 700; line-height: 1.9; color: var(--gold); margin-bottom: 14px;
+}
+.lp-wrapper #sec-compatible .cp-close{ font-size: var(--fs-body); font-weight: 700; line-height: 2.0; color: var(--text); }
+.lp-wrapper #sec-compatible .cp-close .bridge-line{ display: block; margin-top: 4px; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-compatible .cp-grid{ grid-template-columns: 1fr 1fr; }
+  .lp-wrapper #sec-compatible .cp-card h3{ font-size: var(--fs-body); }
+}
+
+/* ================== sec-voices（10万人＋お客様の声＋CTA／最多の声先出し型） ================== */
+.lp-wrapper #sec-voices{ background: var(--bg-white); color: var(--text); }
+.lp-wrapper #sec-voices .vo-inner{ max-width: 880px; width: calc(100% - 40px); margin: 0 auto; text-align: left; }
+.lp-wrapper #sec-voices .vo-eyebrow{
+  display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading);
+  color: var(--gold); background: var(--gold-tint);
+  padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 20px;
+}
+.lp-wrapper #sec-voices .vo-inner .vo-top-voice{
+  font-size: calc(var(--fs-h2) * 1.1); font-weight: 800; line-height: 1.5;
+  letter-spacing: var(--ls-heading); color: var(--gold);
+  margin-bottom: 12px;
+}
+.lp-wrapper #sec-voices .vo-top-label{ font-size: var(--fs-body); line-height: 2.0; color: var(--text-sub); margin-bottom: 36px; }
+/* 評価サマリーバー（総合★・件数・星1件数を先出しして証拠を集約） */
+.lp-wrapper #sec-voices .vo-rating{
+  display: flex; align-items: center; gap: 24px;
+  background: var(--bg-gray); border-radius: var(--radius-card);
+  padding: 22px 28px; margin-bottom: 30px;
+}
+.lp-wrapper #sec-voices .vo-rating .vo-rating-score{ text-align: center; flex-shrink: 0; }
+.lp-wrapper #sec-voices .vo-rating .vo-rating-num{
+  font-size: calc(var(--fs-stat) * 1.15); font-weight: 800; letter-spacing: var(--ls-num);
+  line-height: 1; color: var(--gold); display: block;
+}
+.lp-wrapper #sec-voices .vo-rating .vo-rating-stars{ color: var(--star); font-size: var(--fs-lead); letter-spacing: 3px; display: block; margin-top: 4px; }
+.lp-wrapper #sec-voices .vo-rating .vo-rating-meta{ border-left: 1px solid rgba(0,0,0,.12); padding-left: 24px; }
+.lp-wrapper #sec-voices .vo-rating .vo-rating-meta p{ font-size: var(--fs-note); line-height: 1.7; color: var(--text-sub); margin: 0; }
+.lp-wrapper #sec-voices .vo-rating .vo-rating-meta strong{ font-size: var(--fs-lead); font-weight: 800; color: var(--text); letter-spacing: var(--ls-num); }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-voices .vo-rating{ gap: 16px; padding: 18px 20px; }
+  .lp-wrapper #sec-voices .vo-rating .vo-rating-meta{ padding-left: 16px; }
+}
+.lp-wrapper #sec-voices h2{
+  font-size: var(--fs-lead); font-weight: 700; line-height: 1.6;
+  letter-spacing: var(--ls-heading); color: var(--text); margin-bottom: 18px;
+}
+.lp-wrapper #sec-voices .vo-band{
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(0,0,0,.12); border-bottom: 1px solid rgba(0,0,0,.12);
+  margin-bottom: 16px;
+}
+.lp-wrapper #sec-voices .vo-band-cell{ padding: 18px 10px; text-align: center; }
+.lp-wrapper #sec-voices .vo-band-cell + .vo-band-cell{ border-left: 1px solid rgba(0,0,0,.12); }
+.lp-wrapper #sec-voices .vo-band-cell h3{ font-size: var(--fs-micro); font-weight: 700; color: var(--text-sub); margin-bottom: 6px; }
+.lp-wrapper #sec-voices .vo-band-cell .vo-num{
+  font-size: calc(var(--fs-stat) * 0.7); font-weight: 800; letter-spacing: var(--ls-num);
+  line-height: 1.1; color: var(--text); white-space: nowrap;
+}
+.lp-wrapper #sec-voices .vo-band-cell .vo-num em{
+  font-style: normal; font-size: 0.45em; font-weight: 700; color: var(--text-sub);
+  letter-spacing: var(--ls-heading); margin-left: 3px;
+}
+.lp-wrapper #sec-voices .vo-band-cell .vo-num .star-mark{ color: var(--star); }
+.lp-wrapper #sec-voices .vo-band-cell .vo-num em.denom{ font-size: 0.45em; }
+.lp-wrapper #sec-voices .vo-medal{ text-align: center; margin: 24px 0 8px; }
+.lp-wrapper #sec-voices .vo-medal img{ width: 52%; max-width: 220px; height: auto; display: inline-block; }
+.lp-wrapper #sec-voices .vo-note{ font-size: var(--fs-micro); color: var(--text-sub); margin-bottom: 44px; }
+.lp-wrapper #sec-voices .vo-cards{ display: grid; gap: 14px; margin-bottom: 44px; }
+.lp-wrapper #sec-voices .vo-card{
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--bg-gray); border-radius: var(--radius-card); padding: 20px;
+}
+.lp-wrapper #sec-voices .vo-card .avatar{
+  width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+  background: var(--gold-tint);
+  display: flex; align-items: center; justify-content: center;
+}
+.lp-wrapper #sec-voices .vo-card .avatar svg{ width: 22px; height: 22px; color: var(--gold); }
+.lp-wrapper #sec-voices .vo-card .stars{ color: var(--star); font-size: var(--fs-note); letter-spacing: 2px; margin-bottom: 4px; }
+.lp-wrapper #sec-voices .vo-card p{ font-size: var(--fs-body); line-height: 1.9; color: var(--text); margin-bottom: 4px; }
+.lp-wrapper #sec-voices .vo-card .src{ font-size: var(--fs-micro); color: var(--text-sub); }
+.lp-wrapper #sec-voices .vo-cta{ text-align: center; }
+.lp-wrapper #sec-voices .vo-cta .btn-primary{ white-space: nowrap; }
+.lp-wrapper #sec-voices .vo-cta .cta-sub{ font-size: var(--fs-note); font-weight: 700; color: var(--text-sub); margin-top: 12px; }
+.lp-wrapper #sec-voices .vo-cta .cta-sub strong{ color: var(--gold); font-size: var(--fs-body); letter-spacing: var(--ls-num); }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-voices .vo-band{ grid-template-columns: 1fr 1fr; }
+  .lp-wrapper #sec-voices .vo-band-cell:nth-child(3){ border-left: none; }
+  .lp-wrapper #sec-voices .vo-band-cell:nth-child(n+3){ border-top: 1px solid rgba(0,0,0,.12); }
+  .lp-wrapper #sec-voices .vo-medal img{ width: 60%; }
+}
+
+/* ================== sec-guarantee（返品＋保証・2カード型） ================== */
+.lp-wrapper #sec-guarantee{ background: var(--bg-gray); color: var(--text); }
+.lp-wrapper #sec-guarantee .gr-inner{ max-width: 680px; margin: 0 auto; padding: 0 20px; text-align: left; }
+.lp-wrapper #sec-guarantee h2{
+  font-size: var(--fs-h2); font-weight: 700; line-height: 1.5;
+  letter-spacing: var(--ls-heading); color: var(--text); margin-bottom: 40px;
+}
+.lp-wrapper #sec-guarantee .gr-cards{
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  max-width: 880px; width: calc(100% - 40px); margin: 0 auto 44px;
+}
+.lp-wrapper #sec-guarantee .gr-card{
+  background: var(--bg-white); border-radius: var(--radius-card);
+  padding: 32px 28px; box-shadow: var(--shadow-card);
+}
+.lp-wrapper #sec-guarantee .gr-label{
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: var(--fs-note); font-weight: 700; color: var(--gold);
+  background: var(--gold-tint);
+  padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 18px;
+}
+.lp-wrapper #sec-guarantee .gr-label svg{ width: 15px; height: 15px; }
+.lp-wrapper #sec-guarantee .gr-card .gr-stat{
+  font-size: calc(var(--fs-stat) * 1.9); font-weight: 800; letter-spacing: var(--ls-num);
+  line-height: 1.05; color: var(--gold); white-space: nowrap; margin-bottom: 8px;
+}
+.lp-wrapper #sec-guarantee .gr-card .gr-stat em{ font-style: normal; font-size: 0.4em; font-weight: 700; color: var(--text-sub); margin-left: 2px; }
+.lp-wrapper #sec-guarantee .gr-card .gr-stat em.pre{ margin-left: 0; margin-right: 4px; }
+.lp-wrapper #sec-guarantee .gr-card .gr-stat-sub{ font-size: var(--fs-lead); font-weight: 700; color: var(--text); margin-bottom: 18px; }
+.lp-wrapper #sec-guarantee .gr-card h3{ font-size: var(--fs-note); font-weight: 700; line-height: 1.6; color: var(--text-sub); margin-bottom: 8px; }
+.lp-wrapper #sec-guarantee .gr-card p:not(.gr-stat):not(.gr-stat-sub){ font-size: var(--fs-note); line-height: 1.9; color: var(--text-sub); margin-bottom: 6px; }
+.lp-wrapper #sec-guarantee .gr-chips{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.lp-wrapper #sec-guarantee .gr-chips span{
+  font-size: var(--fs-micro); font-weight: 700; color: var(--text-sub);
+  background: var(--bg-gray);
+  padding: 6px 12px; border-radius: var(--radius-pill);
+}
+.lp-wrapper #sec-guarantee .support-row{ display: flex; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
+.lp-wrapper #sec-guarantee .support-row span{
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: var(--fs-note); font-weight: 700; color: var(--text);
+}
+.lp-wrapper #sec-guarantee .support-row svg{ width: 18px; height: 18px; color: var(--gold); }
+.lp-wrapper #sec-guarantee .gr-close{
+  max-width: 680px; margin: 0 auto; padding: 0 20px;
+  font-size: var(--fs-lead); font-weight: 700; line-height: 2.0; color: var(--text);
+}
+.lp-wrapper #sec-guarantee .gr-close .bridge-line{ display: block; margin-top: 4px; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-guarantee .gr-cards{ grid-template-columns: 1fr; }
+  .lp-wrapper #sec-guarantee .gr-card{ padding: 26px 20px; }
+}
+
+/* ================== sec-faq（よくある質問・最小アコーディオン型） ================== */
+.lp-wrapper #sec-faq{ background: var(--bg-white); color: var(--text); }
+.lp-wrapper #sec-faq .fq-inner{ max-width: 680px; width: calc(100% - 40px); margin: 0 auto; text-align: left; }
+.lp-wrapper #sec-faq .fq-label{
+  font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading);
+  color: var(--text-sub); margin-bottom: 16px;
+}
+.lp-wrapper #sec-faq h2{
+  font-size: var(--fs-h2); font-weight: 700; line-height: 1.55;
+  letter-spacing: var(--ls-heading); color: var(--text); margin-bottom: 32px;
+}
+.lp-wrapper #sec-faq details{ border-top: 1px solid rgba(0,0,0,.12); }
+.lp-wrapper #sec-faq details:last-of-type{ border-bottom: 1px solid rgba(0,0,0,.12); }
+.lp-wrapper #sec-faq summary{
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;
+  padding: 18px 2px; cursor: pointer; list-style: none;
+  font-size: var(--fs-body); font-weight: 700; line-height: 1.7; color: var(--text);
+}
+.lp-wrapper #sec-faq summary::-webkit-details-marker{ display: none; }
+.lp-wrapper #sec-faq summary svg{ width: 18px; height: 18px; flex-shrink: 0; margin-top: 5px; color: var(--gold); transition: transform .25s ease; }
+.lp-wrapper #sec-faq details[open] summary svg{ transform: rotate(180deg); }
+.lp-wrapper #sec-faq .fq-a{ padding: 0 2px 20px; font-size: var(--fs-note); line-height: 2.0; color: var(--text-sub); }
+
+/* ================== sec-closing-cta（締めの最終CTA・製品背景オーバーレイ×信頼性） ================== */
+/* タイヤの上のRIDE本体（暗ガレージ演出・RIDE_021）をフル背景に敷き、ダークオーバーレイ＋
+   ゆっくりズーム（ケンバーンズ）でダイナミックに。テキスト・バッジ・CTAを白文字で重ねる。 */
+.lp-wrapper #sec-closing-cta{
+  position: relative; overflow: hidden;
+  background: var(--bg-dark); color: #fff; text-align: center;
+}
+.lp-wrapper #sec-closing-cta .cc-bg{
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  transform: scale(1.06);
+  filter: brightness(1.18) saturate(1.05);
+  animation: cc-kenburns 22s ease-in-out infinite alternate;
+}
+@keyframes cc-kenburns {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.16); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-wrapper #sec-closing-cta .cc-bg{ animation: none; }
+}
+.lp-wrapper #sec-closing-cta .cc-overlay{
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(0,0,0,0) 0%, rgba(0,0,0,.40) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,.34) 0%, rgba(0,0,0,.10) 45%, rgba(0,0,0,.70) 100%);
+}
+.lp-wrapper #sec-closing-cta .cc-inner{
+  position: relative; z-index: 1;
+  max-width: 860px; width: calc(100% - 40px); margin: 0 auto;
+}
+.lp-wrapper #sec-closing-cta .cc-eyebrow{
+  display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading);
+  color: var(--gold-light); background: rgba(255,255,255,.10); backdrop-filter: blur(3px);
+  padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 22px;
+}
+.lp-wrapper #sec-closing-cta h2{
+  font-size: min(var(--fs-hero-compact), 6.6vw); font-weight: 700; line-height: 1.3;
+  letter-spacing: var(--ls-heading); color: #fff; margin-bottom: 18px;
+  white-space: nowrap; text-shadow: 0 2px 24px rgba(0,0,0,.5);
+}
+.lp-wrapper #sec-closing-cta .cc-lead{ font-size: var(--fs-lead); line-height: 1.9; color: rgba(255,255,255,.9); margin-bottom: 34px; text-shadow: 0 1px 12px rgba(0,0,0,.5); }
+.lp-wrapper #sec-closing-cta .cc-badges{ display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
+.lp-wrapper #sec-closing-cta .cc-badges span{
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: var(--fs-note); font-weight: 700; color: #fff;
+  background: rgba(0,0,0,.40); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(4px);
+  padding: 10px 18px; border-radius: var(--radius-pill); white-space: nowrap;
+}
+.lp-wrapper #sec-closing-cta .cc-badges svg{ width: 15px; height: 15px; flex-shrink: 0; color: var(--gold-light); }
+.lp-wrapper #sec-closing-cta .btn-primary{ font-size: 20px; padding: 20px 48px; box-shadow: 0 8px 30px rgba(30,111,217,.45); }
+/* 価値アンカー（冒頭の「年4万円の損」を最終CTA直前で想起させ、1回きりの投資として納得させる） */
+.lp-wrapper #sec-closing-cta .cc-anchor{
+  display: inline-flex; align-items: stretch; gap: 0;
+  background: rgba(0,0,0,.42); border: 1px solid rgba(255,255,255,.2); backdrop-filter: blur(4px);
+  border-radius: var(--radius-card); overflow: hidden;
+  margin-bottom: 28px; max-width: 620px; width: 100%;
+}
+.lp-wrapper #sec-closing-cta .cc-anchor-cell{ flex: 1; padding: 18px 22px; text-align: center; }
+.lp-wrapper #sec-closing-cta .cc-anchor-cell + .cc-anchor-cell{ border-left: 1px solid rgba(255,255,255,.2); }
+.lp-wrapper #sec-closing-cta .cc-anchor-cap{ display: block; font-size: var(--fs-micro); font-weight: 700; color: rgba(255,255,255,.7); margin-bottom: 6px; letter-spacing: var(--ls-heading); }
+.lp-wrapper #sec-closing-cta .cc-anchor-fig{ display: block; font-size: var(--fs-h3); font-weight: 800; letter-spacing: var(--ls-num); line-height: 1.2; }
+.lp-wrapper #sec-closing-cta .cc-anchor-cell.is-loss .cc-anchor-fig{ color: rgba(255,255,255,.85); }
+.lp-wrapper #sec-closing-cta .cc-anchor-cell.is-buy .cc-anchor-fig{ color: var(--gold-light); }
+.lp-wrapper #sec-closing-cta .cc-anchor-note{ display: block; font-size: var(--fs-micro); font-weight: 700; color: rgba(255,255,255,.55); margin-top: 4px; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-closing-cta .cc-anchor{ max-width: 100%; }
+  .lp-wrapper #sec-closing-cta .cc-anchor-cell{ padding: 14px 12px; }
+  .lp-wrapper #sec-closing-cta .cc-anchor-fig{ font-size: var(--fs-lead); }
+}
+.lp-wrapper #sec-closing-cta .cc-price{ font-size: var(--fs-lead); font-weight: 800; color: #fff; margin-bottom: 20px; text-shadow: 0 1px 12px rgba(0,0,0,.5); }
+.lp-wrapper #sec-closing-cta .cc-price span{ font-size: var(--fs-note); font-weight: 700; color: rgba(255,255,255,.78); margin-left: 6px; }
+.lp-wrapper #sec-closing-cta .cc-note{ font-size: var(--fs-note); color: rgba(255,255,255,.68); margin-top: 16px; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-closing-cta{ text-align: left; }
+  .lp-wrapper #sec-closing-cta h2{ font-size: clamp(28px, 7.6vw, 40px); white-space: normal; }
+  .lp-wrapper #sec-closing-cta .cc-badges{ justify-content: flex-start; }
+  .lp-wrapper #sec-closing-cta .cc-overlay{ background: linear-gradient(to bottom, rgba(0,0,0,.44) 0%, rgba(0,0,0,.26) 40%, rgba(0,0,0,.76) 100%); }
+  .lp-wrapper #sec-closing-cta .cc-badges span{ font-size: var(--fs-micro); padding: 8px 14px; }
+}
+
+/* ================== sec-loss（損失の提示・縦棒グラフ／損失=ダークトーン） ================== */
+.lp-wrapper #sec-loss{ background: var(--bg-dark); color: #fff; }
+.lp-wrapper #sec-loss .cb-inner{ max-width: 760px; width: calc(100% - 40px); margin: 0 auto; text-align: left; }
+.lp-wrapper #sec-loss .cb-eyebrow{ display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading); color: var(--gold-light); background: rgba(255,255,255,.08); padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+.lp-wrapper #sec-loss h2{ font-size: var(--fs-h2); font-weight: 700; line-height: 1.55; letter-spacing: var(--ls-heading); color: #fff; margin-bottom: 14px; }
+.lp-wrapper #sec-loss .cb-lead{ font-size: var(--fs-body); line-height: 2.0; color: rgba(255,255,255,.8); margin-bottom: 40px; }
+/* 4万円の内訳＝「なぜ損をするのか」を3つに分解（興味フック強化・2026-07-08追加） */
+.lp-wrapper #sec-loss .cb-breakdown-title{ font-size: var(--fs-lead); font-weight: 700; color: #fff; margin-bottom: 20px; }
+.lp-wrapper #sec-loss .cb-breakdown-title strong{ color: var(--gold-light); font-weight: 800; }
+.lp-wrapper #sec-loss .cb-breakdown{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 26px; }
+.lp-wrapper #sec-loss .cb-loss-card{ background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-card); padding: 26px 22px; }
+.lp-wrapper #sec-loss .cb-loss-icon{ width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; flex-shrink: 0; }
+.lp-wrapper #sec-loss .cb-loss-icon svg{ width: 24px; height: 24px; color: var(--gold-light); }
+.lp-wrapper #sec-loss .cb-loss-card .cb-loss-step{ font-size: var(--fs-micro); font-weight: 800; color: var(--gold-light); letter-spacing: var(--ls-heading); display: block; margin-bottom: 6px; }
+.lp-wrapper #sec-loss .cb-loss-card h3{ font-size: var(--fs-lead); font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.5; }
+.lp-wrapper #sec-loss .cb-loss-card p{ font-size: var(--fs-note); line-height: 1.9; color: rgba(255,255,255,.72); }
+.lp-wrapper #sec-loss .cb-sum{ font-size: var(--fs-body); line-height: 1.9; color: rgba(255,255,255,.85); margin-bottom: 48px; }
+.lp-wrapper #sec-loss .cb-sum strong{ color: var(--gold-light); font-weight: 800; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-loss .cb-breakdown{ grid-template-columns: 1fr; gap: 12px; }
+  .lp-wrapper #sec-loss .cb-loss-card{ padding: 20px 18px; display: flex; gap: 16px; align-items: flex-start; }
+  .lp-wrapper #sec-loss .cb-loss-icon{ margin-bottom: 0; }
+}
+.lp-wrapper #sec-loss .cb-chart{ position: relative; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; align-items: end; height: 300px; margin-bottom: 8px; padding: 0 8px; border-bottom: 2px solid rgba(255,255,255,.15); }
+.lp-wrapper #sec-loss .cb-col{ display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
+.lp-wrapper #sec-loss .cb-amount{ font-size: var(--fs-h3); font-weight: 800; letter-spacing: var(--ls-num); color: rgba(255,255,255,.55); white-space: nowrap; margin-bottom: 8px; }
+.lp-wrapper #sec-loss .cb-col.is-ride .cb-amount{ color: var(--gold-light); }
+.lp-wrapper #sec-loss .cb-bar{ width: 56%; height: 0; transition: height 1.1s ease .15s; }
+.lp-wrapper #sec-loss .cb-col.is-loss .cb-bar{ background: rgba(255,255,255,.22); }
+.lp-wrapper #sec-loss .cb-col.is-ride .cb-bar{ background: var(--gold); }
+@media (prefers-reduced-motion: reduce) { #sec-loss .cb-bar { transition: none; } }
+.lp-wrapper #sec-loss .cb-labels{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; padding: 0 8px; margin-bottom: 40px; }
+.lp-wrapper #sec-loss .cb-label{ text-align: center; font-size: var(--fs-note); font-weight: 700; color: #fff; line-height: 1.6; }
+.lp-wrapper #sec-loss .cb-label span{ display: block; font-size: var(--fs-micro); font-weight: 700; color: rgba(255,255,255,.55); margin-top: 4px; }
+.lp-wrapper #sec-loss .cb-punch{ background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius-card); padding: 24px 28px; font-size: var(--fs-lead); font-weight: 700; line-height: 1.9; color: #fff; }
+.lp-wrapper #sec-loss .cb-punch strong{ color: var(--gold-light); }
+.lp-wrapper #sec-loss .cb-note{ font-size: var(--fs-micro); color: rgba(255,255,255,.5); margin-top: 16px; line-height: 1.8; }
+@media (max-width: 768px) { #sec-loss .cb-chart { height: 240px; gap: 24px; } #sec-loss .cb-labels { gap: 24px; } #sec-loss .cb-amount { font-size: var(--fs-body); } }
+
+/* ================== sec-pain（課題の痛み・生声吹き出し／ダークトーン） ================== */
+.lp-wrapper #sec-pain{ background: var(--bg-dark); color: #fff; }
+.lp-wrapper #sec-pain .na-inner{ max-width: 680px; width: calc(100% - 40px); margin: 0 auto; text-align: left; }
+.lp-wrapper #sec-pain .na-eyebrow{ display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading); color: var(--gold-light); background: rgba(255,255,255,.08); padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+.lp-wrapper #sec-pain h2{ font-size: var(--fs-h2); font-weight: 700; line-height: 1.55; letter-spacing: var(--ls-heading); color: #fff; margin-bottom: 18px; }
+.lp-wrapper #sec-pain .na-lead{ font-size: var(--fs-body); line-height: 2.0; color: rgba(255,255,255,.8); margin-bottom: 30px; }
+.lp-wrapper #sec-pain .na-voices{ display: grid; gap: 18px; margin-bottom: 36px; }
+.lp-wrapper #sec-pain .na-voice{ display: flex; align-items: flex-start; gap: 12px; }
+.lp-wrapper #sec-pain .na-voice .avatar{ width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; background: rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; }
+.lp-wrapper #sec-pain .na-voice .avatar svg{ width: 22px; height: 22px; color: var(--gold-light); }
+.lp-wrapper #sec-pain .na-voice .bubble .quote-mark{ width: 18px; height: 18px; color: var(--gold-light); opacity: .5; display: block; margin-bottom: 6px; }
+.lp-wrapper #sec-pain .na-voice .bubble{ position: relative; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-card); padding: 16px 18px; }
+.lp-wrapper #sec-pain .na-voice .bubble::before{ display: none; }
+.lp-wrapper #sec-pain .na-voice .bubble p{ font-size: var(--fs-note); line-height: 1.9; color: #fff; margin-bottom: 6px; }
+.lp-wrapper #sec-pain .na-voice .bubble .src{ font-size: var(--fs-micro); color: rgba(255,255,255,.55); }
+.lp-wrapper #sec-pain .na-close{ font-size: var(--fs-body); font-weight: 700; line-height: 2.0; color: #fff; }
+.lp-wrapper #sec-pain .na-close .bridge-line{ display: block; margin-top: 4px; }
+
+/* ================== sec-solution（解決・製品コールアウト型／製品透明・ダーク吹き出し） ================== */
+.lp-wrapper #sec-solution{ background: var(--bg-gray); color: var(--text); }
+.lp-wrapper #sec-solution .sol-inner{ max-width: 680px; margin: 0 auto; padding: 0 20px; text-align: left; }
+.lp-wrapper #sec-solution .sol-eyebrow{ display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: 0.14em; color: var(--gold); background: var(--gold-tint); padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 24px; }
+.lp-wrapper #sec-solution h2{ font-size: var(--fs-h2); font-weight: 700; line-height: 1.5; letter-spacing: var(--ls-heading); color: var(--text); margin-bottom: 16px; }
+.lp-wrapper #sec-solution h2 em{ font-style: normal; color: var(--gold); }
+.lp-wrapper #sec-solution .sol-product-name{ font-size: var(--fs-lead); font-weight: 700; color: var(--text); }
+.lp-wrapper #sec-solution .product-stage{ position: relative; max-width: 880px; margin: 48px auto; padding: 0 20px; }
+/* 背景カードは透明（製品画像そのものを主役に・contain で全体表示） */
+.lp-wrapper #sec-solution .stage-photo{ background: transparent; }
+.lp-wrapper #sec-solution .stage-photo img{ width: 100%; height: 460px; object-fit: contain; filter: drop-shadow(0 24px 44px rgba(0,0,0,.18)); }
+/* コールアウトはダーク吹き出し＋ゴールドアイコン（プレミアム感） */
+.lp-wrapper #sec-solution .callout{ position: absolute; display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-note); font-weight: 700; color: #fff; background: rgba(28,26,23,.9); backdrop-filter: blur(3px); padding: 11px 18px; border-radius: var(--radius-pill); box-shadow: 0 8px 26px rgba(0,0,0,.3); }
+.lp-wrapper #sec-solution .callout svg{ width: 16px; height: 16px; color: var(--gold-light); }
+.lp-wrapper #sec-solution .callout::after{ content: ""; position: absolute; border-left: 7px solid transparent; border-right: 7px solid transparent; }
+.lp-wrapper #sec-solution .callout.c1{ top: 6%; left: 2%; }
+.lp-wrapper #sec-solution .callout.c1::after{ bottom: -8px; left: 28px; border-top: 9px solid rgba(28,26,23,.9); }
+.lp-wrapper #sec-solution .callout.c2{ top: 42%; right: 0; }
+.lp-wrapper #sec-solution .callout.c2::after{ bottom: -8px; left: 28px; border-top: 9px solid rgba(28,26,23,.9); }
+.lp-wrapper #sec-solution .callout.c3{ bottom: 6%; left: 8%; }
+.lp-wrapper #sec-solution .callout.c3::after{ top: -8px; left: 28px; border-bottom: 9px solid rgba(28,26,23,.9); }
+.lp-wrapper #sec-solution .sol-transform{ font-size: var(--fs-lead); font-weight: 700; line-height: 2.0; color: var(--text); max-width: 640px; margin: 0 auto 44px; }
+.lp-wrapper #sec-solution .sol-transform em{ font-style: normal; color: var(--gold); }
+.lp-wrapper #sec-solution .sol-cta{ text-align: center; margin-bottom: 56px; }
+.lp-wrapper #sec-solution .sol-cta .btn-primary{ white-space: nowrap; }
+.lp-wrapper #sec-solution .sol-cta .cta-note{ font-size: var(--fs-note); color: var(--text-sub); margin-top: 12px; }
+.lp-wrapper #sec-solution .sol-cta .cta-note strong{ color: var(--gold); font-size: var(--fs-body); letter-spacing: var(--ls-num); }
+.lp-wrapper #sec-solution .sol-doubt p{ font-size: var(--fs-body); line-height: 2.0; color: var(--text-sub); margin-bottom: 4px; }
+.lp-wrapper #sec-solution .sol-doubt .bridge-line{ margin-top: 12px; display: inline-block; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-solution .product-stage{ margin: 36px auto; }
+  .lp-wrapper #sec-solution .stage-photo img{ height: 300px; }
+  .lp-wrapper #sec-solution .callout{ position: static; margin: 8px 6px 0 0; }
+  .lp-wrapper #sec-solution .callout::after{ display: none; }
+  .lp-wrapper #sec-solution .callout-row-mobile{ display: flex; flex-wrap: wrap; justify-content: center; margin-top: 12px; }
+}
+
+/* ================== sec-accuracy（精度±1PSI・数字主役＋ディスプレイUI） ================== */
+.lp-wrapper #sec-accuracy{ background: var(--bg-gray); color: var(--text); }
+.lp-wrapper #sec-accuracy .ac-inner{
+  max-width: 880px; width: calc(100% - 40px); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center;
+}
+.lp-wrapper #sec-accuracy .ac-eyebrow{
+  display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading);
+  color: var(--gold); background: var(--gold-tint);
+  padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 18px;
+}
+.lp-wrapper #sec-accuracy h2{ font-size: var(--fs-h2); font-weight: 700; line-height: 1.5; letter-spacing: var(--ls-heading); color: var(--text); margin-bottom: 16px; }
+.lp-wrapper #sec-accuracy .ac-inner .ac-stat{
+  font-size: calc(var(--fs-stat) * 1.7); font-weight: 800; letter-spacing: var(--ls-num);
+  line-height: 1; color: var(--gold); white-space: nowrap; margin-bottom: 6px;
+}
+.lp-wrapper #sec-accuracy .ac-inner .ac-stat em{ font-style: normal; font-size: 0.32em; font-weight: 700; color: var(--text-sub); letter-spacing: var(--ls-heading); margin-left: 8px; }
+.lp-wrapper #sec-accuracy .ac-stat-label{ font-size: var(--fs-note); font-weight: 700; color: var(--text-sub); margin-bottom: 20px; }
+.lp-wrapper #sec-accuracy .ac-body{ font-size: var(--fs-body); line-height: 2.0; color: var(--text); }
+.lp-wrapper #sec-accuracy .ac-body .bridge-line{ display: block; margin-top: 8px; }
+/* ディスプレイUI（目標値に達して自動停止） */
+.lp-wrapper #sec-accuracy .psi-display{
+  background: var(--bg-dark); border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+  padding: 44px 32px; text-align: center; color: #fff;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.lp-wrapper #sec-accuracy .psi-label{ font-size: var(--fs-note); color: rgba(255,255,255,.55); letter-spacing: 0.12em; margin-bottom: 12px; }
+.lp-wrapper #sec-accuracy .psi-value{ font-size: calc(var(--fs-stat) * 1.4); font-weight: 800; letter-spacing: var(--ls-num); line-height: 1; white-space: nowrap; color: var(--gold-light); }
+.lp-wrapper #sec-accuracy .psi-value .psi-unit{ font-size: 0.35em; font-weight: 700; color: rgba(255,255,255,.7); margin-left: 6px; }
+/* 単一数字のカウントアップ: 35.0から目標40.0までゆっくり上がり、同じ数値になったら止まる */
+.lp-wrapper #sec-accuracy .psi-single{ margin: 14px 0 4px; text-align: center; }
+.lp-wrapper #sec-accuracy .psi-caption{ font-size: var(--fs-micro); font-weight: 700; color: rgba(255,255,255,.5); letter-spacing: 0.1em; margin-bottom: 10px; }
+.lp-wrapper #sec-accuracy .psi-figure{ font-size: calc(var(--fs-stat) * 1.5); font-weight: 800; letter-spacing: var(--ls-num); line-height: 1; white-space: nowrap; color: var(--gold-light); }
+.lp-wrapper #sec-accuracy .psi-figure .psi-unit{ font-size: 0.32em; font-weight: 700; color: rgba(255,255,255,.7); margin-left: 6px; letter-spacing: var(--ls-heading); }
+.lp-wrapper #sec-accuracy .psi-reached{ font-size: var(--fs-note); font-weight: 700; color: var(--gold-light); margin-top: 18px; opacity: 0; transform: translateY(4px); transition: opacity .45s ease, transform .45s ease; }
+.lp-wrapper #sec-accuracy .psi-reached.show{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { #sec-accuracy .psi-reached { transition: none; opacity: 1; transform: none; } }
+.lp-wrapper #sec-accuracy .psi-note{ font-size: var(--fs-note); color: rgba(255,255,255,.75); }
+.lp-wrapper #sec-accuracy .psi-note strong{ color: #fff; }
+.lp-wrapper #sec-accuracy .psi-badge{
+  display: inline-block; margin: 14px auto 0;
+  font-size: var(--fs-micro); font-weight: 700; color: var(--gold-light);
+  border: 1px solid rgba(255,255,255,.3); padding: 5px 14px; border-radius: var(--radius-pill);
+}
+@media (max-width: 768px) {
+  .lp-wrapper #sec-accuracy .ac-inner{ grid-template-columns: 1fr; gap: 28px; }
+  .lp-wrapper #sec-accuracy .psi-display{ order: -1; padding: 36px 24px; }
+}
+
+/* ================== sec-specs（スピード・電池・大容量／スタッツカード3連型） ================== */
+.lp-wrapper #sec-specs{ background: var(--bg-white); color: var(--text); }
+.lp-wrapper #sec-specs .sp-inner{ max-width: 880px; width: calc(100% - 40px); margin: 0 auto; text-align: left; }
+.lp-wrapper #sec-specs .sp-card{
+  background: var(--bg-gray); border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+  padding: 32px 28px; margin-bottom: 22px;
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 28px; align-items: start;
+}
+.lp-wrapper #sec-specs .sp-eyebrow{
+  display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading);
+  color: var(--gold); background: var(--gold-tint);
+  padding: 5px 14px; border-radius: var(--radius-pill); margin-bottom: 16px;
+}
+.lp-wrapper #sec-specs .sp-card .sp-stat{ font-size: calc(var(--fs-stat) * 1.6); font-weight: 800; letter-spacing: var(--ls-num); line-height: 1.05; color: var(--gold); white-space: nowrap; margin-bottom: 8px; }
+.lp-wrapper #sec-specs .sp-card .sp-stat em{ font-style: normal; font-size: 0.4em; font-weight: 700; color: var(--text-sub); letter-spacing: var(--ls-heading); margin-left: 8px; }
+.lp-wrapper #sec-specs .sp-card .sp-stat em.pre{ margin-left: 0; margin-right: 8px; }
+.lp-wrapper #sec-specs .sp-stat-label{ font-size: var(--fs-note); font-weight: 700; color: var(--text-sub); margin-bottom: 18px; }
+.lp-wrapper #sec-specs .sp-num img{ width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: var(--radius-image); }
+.lp-wrapper #sec-specs .sp-card h2{ font-size: var(--fs-lead); font-weight: 700; line-height: 1.6; color: var(--text); margin-bottom: 10px; }
+.lp-wrapper #sec-specs .sp-card .sp-body{ font-size: var(--fs-note); line-height: 1.9; color: var(--text-sub); margin-bottom: 14px; }
+.lp-wrapper #sec-specs .sp-mini-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.lp-wrapper #sec-specs .sp-mini{ position: relative; overflow: hidden; background: var(--bg-white); border-radius: var(--radius-badge); padding: 12px 14px; box-shadow: var(--shadow-card); }
+.lp-wrapper #sec-specs .sp-mini .mini-bg{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.lp-wrapper #sec-specs .sp-mini .mini-overlay{ position: absolute; inset: 0; background: linear-gradient(to right, rgba(255,255,255,.95) 40%, rgba(255,255,255,.55) 100%); }
+.lp-wrapper #sec-specs .sp-mini > h3,  .lp-wrapper #sec-specs .sp-mini > p,  .lp-wrapper #sec-specs .sp-mini > span{ position: relative; }
+.lp-wrapper #sec-specs .sp-mini h3{ font-size: var(--fs-micro); font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.lp-wrapper #sec-specs .sp-mini .sp-mini-time{ font-size: calc(var(--fs-stat) * 0.55); font-weight: 800; letter-spacing: var(--ls-num); color: var(--gold); white-space: nowrap; line-height: 1.2; }
+.lp-wrapper #sec-specs .sp-mini .sp-mini-time em{ font-style: normal; font-size: 0.5em; font-weight: 700; color: var(--text-sub); letter-spacing: var(--ls-heading); margin-left: 4px; }
+.lp-wrapper #sec-specs .sp-mini .sp-mini-time em:first-child{ margin-left: 0; margin-right: 4px; }
+.lp-wrapper #sec-specs .sp-mini .cond{ font-size: var(--fs-micro); color: var(--text-sub); line-height: 1.6; display: block; margin-top: 2px; }
+.lp-wrapper #sec-specs .sp-chips{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.lp-wrapper #sec-specs .sp-chips span{ font-size: var(--fs-micro); font-weight: 700; color: var(--text); background: var(--bg-white); border-radius: var(--radius-pill); padding: 6px 14px; white-space: nowrap; }
+.lp-wrapper #sec-specs .sp-close{ font-size: var(--fs-note); font-weight: 700; line-height: 1.9; color: var(--text); }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-specs .sp-card{ grid-template-columns: 1fr; gap: 18px; padding: 24px 20px; }
+}
+
+/* ================== sec-proof（実績・信頼／カウントアップ実績ダッシュボード型） ================== */
+.lp-wrapper #sec-proof{ background: var(--bg-dark); color: #fff; }
+.lp-wrapper #sec-proof .kd-inner{ max-width: 880px; width: calc(100% - 40px); margin: 0 auto; text-align: left; }
+.lp-wrapper #sec-proof .kd-eyebrow{
+  display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading);
+  color: var(--gold-light); background: rgba(255,255,255,.08);
+  padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 20px;
+}
+.lp-wrapper #sec-proof h2{ font-size: var(--fs-h2); font-weight: 700; line-height: 1.55; letter-spacing: var(--ls-heading); color: #fff; margin-bottom: 14px; }
+.lp-wrapper #sec-proof .kd-lead{ font-size: var(--fs-body); line-height: 2.0; color: rgba(255,255,255,.8); margin-bottom: 44px; }
+.lp-wrapper #sec-proof .kd-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.lp-wrapper #sec-proof .kd-cell{ background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-card); padding: 30px 28px; }
+.lp-wrapper #sec-proof .kd-cell h3{ display: flex; align-items: center; gap: 8px; font-size: var(--fs-note); font-weight: 700; color: rgba(255,255,255,.65); margin-bottom: 12px; }
+.lp-wrapper #sec-proof .kd-cell h3 svg{ width: 16px; height: 16px; color: var(--gold-light); flex-shrink: 0; }
+.lp-wrapper #sec-proof .kd-cell .kd-num{ font-size: calc(var(--fs-stat) * 1.15); font-weight: 800; letter-spacing: var(--ls-num); line-height: 1.1; color: var(--gold-light); white-space: nowrap; }
+.lp-wrapper #sec-proof .kd-cell .kd-num em{ font-style: normal; font-size: 0.42em; font-weight: 700; color: rgba(255,255,255,.7); letter-spacing: var(--ls-heading); margin-left: 4px; }
+.lp-wrapper #sec-proof .kd-cell .kd-sub{ font-size: var(--fs-micro); color: rgba(255,255,255,.55); margin-top: 10px; line-height: 1.7; }
+.lp-wrapper #sec-proof .kd-close{ font-size: var(--fs-body); font-weight: 700; line-height: 2.0; color: #fff; }
+.lp-wrapper #sec-proof .kd-source{ font-size: var(--fs-micro); color: rgba(255,255,255,.45); margin-top: 18px; line-height: 1.7; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-proof .kd-grid{ grid-template-columns: 1fr; }
+  .lp-wrapper #sec-proof .kd-cell{ padding: 24px 22px; }
+}
+
+/* ================== sec-spec-table（製品仕様・スペック表＋同梱物／ページ内完結のための詳細情報） ================== */
+.lp-wrapper #sec-spec-table{ background: var(--bg-white); color: var(--text); }
+.lp-wrapper #sec-spec-table .st-inner{ max-width: 880px; width: calc(100% - 40px); margin: 0 auto; text-align: left; }
+/* 上段: 主役4スタッツ（グレーカード・数字特大／数字先出しハイブリッド型） */
+.lp-wrapper #sec-spec-table .sh-stats{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 44px; }
+.lp-wrapper #sec-spec-table .sh-stat{ background: var(--bg-gray); border-radius: var(--radius-card); padding: 26px 18px; box-shadow: var(--shadow-card); text-align: center; }
+.lp-wrapper #sec-spec-table .sh-stat .label{ font-size: var(--fs-micro); font-weight: 700; color: var(--text-sub); margin-bottom: 8px; }
+.lp-wrapper #sec-spec-table .sh-stat .num{ font-size: var(--fs-stat); font-weight: 800; letter-spacing: var(--ls-num); line-height: 1.1; color: var(--gold); white-space: nowrap; }
+.lp-wrapper #sec-spec-table .sh-stat .num em{ font-style: normal; font-size: 0.45em; font-weight: 700; color: var(--text-sub); letter-spacing: var(--ls-heading); margin-left: 4px; }
+.lp-wrapper #sec-spec-table .sh-stat .cond{ font-size: var(--fs-micro); color: var(--text-sub); margin-top: 6px; line-height: 1.5; }
+.lp-wrapper #sec-spec-table .st-eyebrow{
+  display: inline-block; font-size: var(--fs-note); font-weight: 700; letter-spacing: var(--ls-heading);
+  color: var(--gold); background: var(--gold-tint);
+  padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 20px;
+}
+.lp-wrapper #sec-spec-table h2{ font-size: var(--fs-h2); font-weight: 700; line-height: 1.5; letter-spacing: var(--ls-heading); color: var(--text); margin-bottom: 28px; }
+/* 下段: cofo式罫線表（従属・静かに補完） */
+.lp-wrapper #sec-spec-table .sh-table{ border-top: 1px solid rgba(0,0,0,.15); margin-bottom: 20px; }
+.lp-wrapper #sec-spec-table .sh-row{ display: grid; grid-template-columns: 11em 1fr; align-items: baseline; gap: 16px; padding: 16px 4px; border-bottom: 1px solid rgba(0,0,0,.1); }
+.lp-wrapper #sec-spec-table .sh-row dt{ font-size: var(--fs-note); color: var(--text-sub); }
+.lp-wrapper #sec-spec-table .sh-row dd{ font-size: var(--fs-body); color: var(--text); line-height: 1.8; }
+.lp-wrapper #sec-spec-table .sh-note{ font-size: var(--fs-micro); color: var(--text-sub); opacity: .85; margin-bottom: 44px; line-height: 1.7; }
+.lp-wrapper #sec-spec-table .st-box-title{ font-size: var(--fs-lead); font-weight: 700; color: var(--text); margin-bottom: 16px; }
+.lp-wrapper #sec-spec-table ul.st-included{ display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-bottom: 44px; padding: 0; }
+.lp-wrapper #sec-spec-table ul.st-included li{ display: flex; align-items: flex-start; gap: 8px; font-size: var(--fs-note); line-height: 1.6; color: var(--text-sub); list-style: none; }
+.lp-wrapper #sec-spec-table ul.st-included li svg{ width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; margin-top: 3px; }
+.lp-wrapper #sec-spec-table .st-cta{ text-align: center; }
+.lp-wrapper #sec-spec-table .st-cta .st-price{ font-size: var(--fs-lead); font-weight: 800; color: var(--text); margin-bottom: 14px; letter-spacing: var(--ls-num); }
+.lp-wrapper #sec-spec-table .st-cta .st-price span{ font-size: var(--fs-note); font-weight: 700; color: var(--text-sub); margin-left: 6px; }
+.lp-wrapper #sec-spec-table .st-cta .btn-primary{ white-space: nowrap; }
+.lp-wrapper #sec-spec-table .st-cta .cta-sub{ font-size: var(--fs-note); font-weight: 700; color: var(--text-sub); margin-top: 12px; }
+@media (max-width: 768px) {
+  .lp-wrapper #sec-spec-table .sh-stats{ grid-template-columns: 1fr 1fr; gap: 10px; }
+  .lp-wrapper #sec-spec-table .sh-row{ grid-template-columns: 1fr; gap: 4px; padding: 12px 2px; }
+  .lp-wrapper #sec-spec-table ul.st-included{ grid-template-columns: 1fr; }
+}
+
+/* ================== フッター ================== */
+.lp-wrapper #lp-footer{ background: var(--bg-dark); padding: 48px 20px 32px; text-align: center; }
+.lp-wrapper #lp-footer .footer-logo{ height: 32px; width: auto; display: block; margin: 0 auto 20px; opacity: 0.85; }
+.lp-wrapper #lp-footer p{ color: rgba(255,255,255,.6); font-size: var(--fs-micro); }
+
+
+
+/* ---- eyebrow（見出し上の小ラベル）を一時非表示（2026-07-14 市山さん指示） ----
+   削除はせず表示だけ止める。復活させるときはこのブロックを消す */
+.lp-wrapper [class*="eyebrow"] { display: none !important; }
+</style>
+
+<div id="lp-{{ section.id }}" class="lp-wrapper">
+<section
+  id="sec-hero"
+  data-section-type="hero"
+  data-section-name="ヒーロー（4万円損失・車ドライバー）"
+  data-section-order="1"
+>
+  <div class="hero-bg">
+    <img data-slot="hero-bg" data-asset-id="RIDEPRO-車空気入れ横長"
+         src="https://drive.google.com/thumbnail?id=1Q9-EwBdN3pj-AGePyk1NBF0nWiUshgfr&sz=w1600"
+         alt="[画像仕様: 縦横フル・SUVの前で男性がタイヤに空気を入れている実使用シーン・自然光・下部1/3は暗め（白文字の可読性確保）]" />
+  </div>
+  <img class="hero-brand" data-slot="brand-logo" data-asset-id="PANP_LOGO_WHITE" src="https://drive.google.com/thumbnail?id=1mp5JwzqAc7nO6ESyHM0fpd7EENf8lC0b&sz=w1600" alt="PANP" />
+  <div class="hero-inner">
+    <div class="worry-chips fade-in" data-slot="worry-chips">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>燃費が落ちる</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 20h16a2 2 0 0 0 1.73-2Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>パンクが不安</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="15" y1="22" y2="22"/><line x1="4" x2="14" y1="9" y2="9"/><path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"/><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"/></svg>スタンドは面倒</span>
+    </div>
+    <h1 data-slot="headline" class="fade-in delay-1">タイヤの空気圧を放置すると、<br>年間4万円、損をする。</h1>
+    <p class="hero-core fade-in delay-2" data-slot="core-line">自宅で<em>±1PSI</em>。ガソリンスタンドに行かなくていい、PANP RIDE PRO。</p>
+  </div>
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<section
+  id="sec-loss"
+  class="section-padding"
+  data-section-type="empathy"
+  data-section-name="損失の提示（縦棒グラフ出費比較型）"
+  data-section-order="2"
+>
+  <div class="cb-inner">
+    <span class="cb-eyebrow fade-in" data-slot="eyebrow">気づかない損失</span>
+    <h2 class="fade-in" data-slot="headline">あなたは今、気づかずに<span class="hd-nowrap">損をしている。</span></h2>
+    <p class="cb-lead fade-in" data-slot="lead">タイヤの空気圧は、乗っているだけで少しずつ抜けていきます。下がっても体感できないから、多くの人が気づきません。でも、その「見えない低下」が、静かに家計を削り続けています。</p>
+
+    <p class="cb-breakdown-title fade-in" data-slot="breakdown-title">放置がまねく損は、大きく<strong>3つ</strong>。</p>
+    <div class="cb-breakdown" data-slot="loss-breakdown">
+      <div class="cb-loss-card slide-up">
+        <div class="cb-loss-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="15" y1="22" y2="22"/><line x1="4" x2="14" y1="9" y2="9"/><path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"/><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"/></svg></div>
+        <div class="cb-loss-body">
+          <span class="cb-loss-step">損 その1</span>
+          <h3>燃費のムダ</h3>
+          <p>空気圧が10%下がると、燃費は約1〜2%悪化。走るほど、余分なガソリン代が積み上がっていきます。</p>
+        </div>
+      </div>
+      <div class="cb-loss-card slide-up">
+        <div class="cb-loss-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <div class="cb-loss-body">
+          <span class="cb-loss-step">損 その2</span>
+          <h3>タイヤの寿命が縮む</h3>
+          <p>空気圧不足は偏った摩耗を招き、タイヤの交換時期を早めます。1本数千〜数万円の出費が、前倒しに。</p>
+        </div>
+      </div>
+      <div class="cb-loss-card slide-up">
+        <div class="cb-loss-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 20h16a2 2 0 0 0 1.73-2Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
+        <div class="cb-loss-body">
+          <span class="cb-loss-step">損 その3</span>
+          <h3>パンク・バーストの危険</h3>
+          <p>空気圧の低いタイヤは走行中に発熱しやすく、高速でのバーストやパンクにつながることもあります。</p>
+        </div>
+      </div>
+    </div>
+    <p class="cb-sum fade-in" data-slot="loss-sum">これらを合わせると、年間1万km走るドライバーで<strong>年間4万円以上</strong>の損失になる計算です。</p>
+
+    <div class="cb-chart slide-up" data-slot="chart" aria-label="放置の年間損失と本体価格の比較グラフ">
+      <div class="cb-col is-loss">
+        <p class="cb-amount">約40,000円</p>
+        <div class="cb-bar" data-h="84%">&nbsp;</div>
+      </div>
+      <div class="cb-col is-ride">
+        <p class="cb-amount">12,880円</p>
+        <div class="cb-bar" data-h="27%">&nbsp;</div>
+      </div>
+    </div>
+    <div class="cb-labels" data-slot="labels">
+      <p class="cb-label">空気圧を放置<span>毎年・くり返し</span></p>
+      <p class="cb-label">PANP RIDE PRO<span>本体・一度きり</span></p>
+    </div>
+
+    <p class="cb-punch slide-up" data-slot="punch">毎年こぼれ続ける損失より、<strong>一度これを持つほうが、ずっと安い。</strong></p>
+    <p class="cb-note fade-in" data-slot="note">※ 年間4万円は、燃費悪化・タイヤ摩耗を含む概算です。走行距離・車種により変わります。</p>
+  </div>
+</section>
+
+<section
+  id="sec-pain"
+  class="section-padding"
+  data-section-type="empathy"
+  data-section-name="課題の痛み（生声吹き出し型）"
+  data-section-order="3"
+>
+  <div class="na-inner">
+    <span class="na-eyebrow fade-in" data-slot="eyebrow">あなただけじゃない</span>
+    <h2 class="fade-in" data-slot="headline">分かっていても、つい<span class="hd-nowrap">後回しにしてしまう。</span></h2>
+    <p class="na-lead fade-in" data-slot="lead">空気圧管理が大事だと知っていても、多くのドライバーが「なんとなく後回し」にしています。</p>
+
+    <div class="na-voices" data-slot="pain-voices">
+      <div class="na-voice slide-up">
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="bubble">
+          <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+          <p>「ガソリンスタンドで空気を入れてもらうのは、なんだか恥ずかしくて頼みづらい。」</p>
+          <span class="src">ドライバーの声</span>
+        </div>
+      </div>
+      <div class="na-voice slide-up">
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="bubble">
+          <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+          <p>「入れなきゃと思いつつ、タイミングを逃して、また今度にしてしまう。」</p>
+          <span class="src">ドライバーの声</span>
+        </div>
+      </div>
+      <div class="na-voice slide-up">
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="bubble">
+          <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+          <p>「自分で入れようとしたけど、どれくらい入れればいいのか分からなかった。」</p>
+          <span class="src">ドライバーの声</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="na-close fade-in" data-slot="close-line">その「面倒」も「分からない」も、道具ひとつで消えます。<span class="bridge-line">自宅の駐車場が、あなたの味方になります。</span></p>
+  </div>
+</section>
+
+<section
+  id="sec-solution"
+  class="section-padding"
+  data-section-type="solution"
+  data-section-name="解決（自宅が自分専用GS・製品コールアウト型）＋中間CTA"
+  data-section-order="4"
+>
+  <div class="sol-inner">
+    <span class="sol-eyebrow slide-up" data-slot="eyebrow">解決</span>
+    <h2 data-slot="solution-headline" class="slide-up">自宅が、<em>自分専用のガソリンスタンド</em>になる。</h2>
+    <p class="sol-product-name slide-up" data-slot="product-name">それを、かなえるのが PANP RIDE PRO です。</p>
+  </div>
+
+  <div class="product-stage slide-up" data-slot="product-stage">
+    <div class="stage-photo">
+      <img data-slot="product-image" data-asset-id="RIDE_PRO_045"
+           src="https://drive.google.com/thumbnail?id=1z9d8iE0vPp_sxgLgNqR15Cp79jyRi1QS&sz=w1600"
+           alt="[画像仕様: PANP RIDE PRO本体・正面〜斜め・LEDに数字点灯・白〜温白背景の静物・周囲にコールアウト配置の余白]" />
+    </div>
+    <div class="callout-row-mobile">
+      <span class="callout c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>±1PSIで自動ストップ</span>
+      <span class="callout c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="10" x="2" y="7" rx="2"/><line x1="22" x2="22" y1="11" y2="13"/></svg>コードレスで駐車場そのまま</span>
+      <span class="callout c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>車・バイク・自転車すべて</span>
+    </div>
+  </div>
+
+  <div class="sol-inner">
+    <p class="sol-transform slide-up" data-slot="transform-line">駐車場で、つないでボタンを押すだけ。設定した空気圧に±1PSIの精度で自動停止するから、<em>入れすぎも、不足も、もう心配しなくていい。</em></p>
+
+    <div class="sol-cta slide-up">
+      <a data-slot="solution-cta-button" class="btn-primary" href="/cart/42187339759667:1">カートに入れる →</a>
+      <p class="cta-note" data-slot="solution-cta-note"><strong>¥12,880</strong>（税込・送料無料）／30日間返品保証・1〜2日以内発送</p>
+    </div>
+
+    <div class="sol-doubt slide-up" data-slot="doubt-bridge">
+      <p>ただ、ここで気になりますよね。ボタンひとつで、ほんとうにプロ並みの精度で止まれるのか。</p>
+      <span class="bridge-line" data-slot="bridge-line">その精度には、はっきりした数字があります。</span>
+    </div>
+  </div>
+</section>
+
+<section
+  id="sec-accuracy"
+  class="section-padding"
+  data-section-type="features"
+  data-section-name="精度±1PSI（数字主役＋ディスプレイUI）"
+  data-section-order="5"
+>
+  <div class="ac-inner">
+    <div class="ac-text">
+      <span class="ac-eyebrow fade-in" data-slot="eyebrow">精度</span>
+      <h2 class="slide-left" data-slot="headline">プロ整備士レベルの精度を、自宅で。</h2>
+      <p class="ac-stat slide-left" data-slot="accuracy-stat">±1<em>PSI</em></p>
+      <p class="ac-stat-label slide-left" data-slot="stat-label">設定値との誤差</p>
+      <p class="ac-body slide-left" data-slot="body">設定値に達したら、自動で止まる。だから、入れすぎもありません。「だいたいこのくらい」ではなく、<strong>「正確にこの空気圧」</strong>が、自宅の駐車場でできます。<span class="bridge-line" data-slot="bridge-line">その精度が、燃費も、安全も、タイヤの寿命も守ります。</span></p>
+    </div>
+    <div class="psi-display slide-right" data-slot="psi-display" aria-hidden="true">
+      <p class="psi-label">目標 40.0 PSI に設定</p>
+      <div class="psi-single">
+        <p class="psi-caption">いまの空気圧</p>
+        <p class="psi-figure"><span class="cu-psi">35.0</span><span class="psi-unit">PSI</span></p>
+      </div>
+      <p class="psi-reached"><strong>✓ 40.0 PSI に到達 → 自動でストップ</strong></p>
+      <span class="psi-badge">誤差 ±1PSI 以内</span>
+    </div>
+  </div>
+</section>
+
+<section
+  id="sec-specs"
+  class="section-padding"
+  data-section-type="features"
+  data-section-name="スピード・電池・パワー（スタッツカード3連型）"
+  data-section-order="6"
+>
+  <div class="sp-inner">
+
+    <div class="sp-card slide-up" data-slot="speed-card">
+      <div class="sp-num">
+        <span class="sp-eyebrow">充填速度</span>
+        <p class="sp-stat" data-slot="speed-stat">35<em>L/min</em></p>
+        <p class="sp-stat-label">車のタイヤ 約30秒/本</p>
+        <img data-slot="speed-photo" data-asset-id="RIDEPRO-車空気入れシーン横長" src="https://drive.google.com/thumbnail?id=1bmRTbggWB0S5ugcm5_K7NjMB8EUAmXKd&sz=w1600"
+             alt="[画像仕様: 横4:3・車のタイヤに空気を入れている動きのあるカット・スピード感]" />
+      </div>
+      <div>
+        <h2 data-slot="speed-headline">待たせない。だから、続けられる。</h2>
+        <p class="sp-body" data-slot="speed-lead">高い空気圧が必要な車のタイヤでも、スイスイ入っていきます。家族の車4本も、あっという間です。</p>
+        <div class="sp-mini-grid" data-slot="time-grid">
+          <div class="sp-mini"><img class="mini-bg" data-slot="mini-bg-car" data-asset-id="RIDE_PRO_037" src="https://drive.google.com/thumbnail?id=1iz94Y17mrAGEaLBCSV6030R2DR9i8iAo&sz=w1600" alt="[画像仕様: 自動車のタイヤ寄りカット・カード背景用]"><div class="mini-overlay">&nbsp;</div><h3>普通乗用車</h3><p class="sp-mini-time"><em>約</em>30<em>秒</em></p><span class="cond">225/50R17／37→40PSI</span></div>
+          <div class="sp-mini"><img class="mini-bg" data-slot="mini-bg-suv" data-asset-id="RIDE_PRO_036" src="https://drive.google.com/thumbnail?id=1ojkTR9f9T2zjb0rxT6cA19angf4EAUWj&sz=w1600" alt="[画像仕様: SUV/ワゴンのタイヤ寄りカット・カード背景用]"><div class="mini-overlay">&nbsp;</div><h3>SUV・ワゴン</h3><p class="sp-mini-time"><em>約</em>45<em>秒</em></p><span class="cond">大径タイヤ</span></div>
+          <div class="sp-mini"><img class="mini-bg" data-slot="mini-bg-motorcycle" data-asset-id="RIDEPRO-バイクタイヤ" src="https://drive.google.com/thumbnail?id=1PeG10P0Gyg4xmWu37tKerP877eG3pqVG&sz=w1600" alt="[画像仕様: バイクのタイヤ寄りカット・カード背景用]"><div class="mini-overlay">&nbsp;</div><h3>バイク</h3><p class="sp-mini-time"><em>約</em>30<em>秒</em></p><span class="cond">80/90-14／0→32PSI</span></div>
+          <div class="sp-mini"><img class="mini-bg" data-slot="mini-bg-mamachari" data-asset-id="RIDEPRO-自転車タイヤ" src="https://drive.google.com/thumbnail?id=1swO5iEGMydAL8VTEjPULptY0Wdg9nGs6&sz=w1600" alt="[画像仕様: ママチャリのタイヤ寄りカット・カード背景用]"><div class="mini-overlay">&nbsp;</div><h3>ママチャリ</h3><p class="sp-mini-time"><em>約</em>18<em>秒</em></p><span class="cond">20×1.75／0→40PSI</span></div>
+        </div>
+        <p class="sp-close" data-slot="speed-close">出かける前の数十秒で、その日の走りが変わります。</p>
+      </div>
+    </div>
+
+    <div class="sp-card slide-up" data-slot="battery-card">
+      <div class="sp-num">
+        <span class="sp-eyebrow">バッテリー</span>
+        <p class="sp-stat" data-slot="battery-stat"><em class="pre">1回充電で</em>11<em>本</em></p>
+        <p class="sp-stat-label">車のタイヤ約11本分（7,800mAh）</p>
+        <img data-slot="battery-photo" data-asset-id="RIDE_PRO_012" src="https://drive.google.com/thumbnail?id=1SKvGbT4bRRqm6IsFW6GtTM4dBlqsBXyI&sz=w1600"
+             alt="[画像仕様: 横4:3・USB Type-Cで充電するカット or コードレスで駐車場で使う様子]" />
+      </div>
+      <div>
+        <h2 data-slot="battery-headline">1回の充電で、家族全員のタイヤを。</h2>
+        <p class="sp-body" data-slot="battery-lead">7,800mAhの大容量バッテリー。4人家族の車4本も、1回の充電で余裕。コードレスだから、駐車場でそのまま使えます。</p>
+        <div class="sp-chips" data-slot="battery-chips">
+          <span>USB Type-C 充電</span><span>シガーソケット対応</span><span>4人家族の車4本もOK</span>
+        </div>
+        <p class="sp-close" data-slot="battery-close">コンセントの場所も、コードのわずらわしさも、気にせずにすみます。</p>
+      </div>
+    </div>
+
+    <div class="sp-card slide-up" data-slot="power-card">
+      <div class="sp-num">
+        <span class="sp-eyebrow">パワー</span>
+        <p class="sp-stat" data-slot="power-stat">150<em>PSI</em></p>
+        <p class="sp-stat-label">最大気圧（1,034kPa）</p>
+        <img data-slot="power-photo" data-asset-id="DRIVE-ユーザー支給-power" src="https://drive.google.com/thumbnail?id=1ty_3yNfWcdVL8zOg_-h5U4L-98fx0SF6&sz=w1600"
+             alt="[画像仕様: 横4:3・本体のLEDディスプレイ表示のクローズアップ or 大径タイヤに使うカット]" />
+      </div>
+      <div>
+        <h2 data-slot="power-headline">軽自動車から大径SUVまで、これ1台。</h2>
+        <p class="sp-body" data-slot="power-lead">最大150PSIまで対応。ほぼすべての乗用車タイヤに使えます。高い圧が必要な大径タイヤでも、しっかり入ります。</p>
+        <div class="sp-chips" data-slot="power-chips">
+          <span>軽〜SUV対応</span><span>大径タイヤOK</span><span>動作音 約65dB</span>
+        </div>
+        <p class="sp-close" data-slot="power-close">車を乗り換えても、ずっと使い続けられます。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section
+  id="sec-compatible"
+  class="section-padding"
+  data-section-type="compatible"
+  data-section-name="対応製品（実写真カード型）"
+  data-section-order="7"
+>
+  <div class="cp-inner">
+    <span class="cp-eyebrow fade-in" data-slot="eyebrow">これ1台で</span>
+    <h2 class="fade-in" data-slot="headline">車もバイクも自転車も、これ1台。</h2>
+    <p class="cp-valve fade-in" data-slot="valve-line">米式・英式・仏式の3種類のアタッチメントが付属。バルブの形を気にせず、家じゅうの乗り物にそのまま使えます。</p>
+    <div class="cp-valve-pills fade-in" data-slot="valve-pills">
+      <span>米式バルブ対応</span><span>英式バルブ対応</span><span>仏式バルブ対応</span>
+    </div>
+
+    <div class="cp-grid" data-slot="category-cards">
+      <div class="cp-card slide-up">
+        <img data-slot="cat-car-photo" data-asset-id="RIDEPRO-車タイヤ" src="https://drive.google.com/thumbnail?id=15WG0eKRbySwmthqqeHpMQFmFgJWFQyFw&sz=w1600"
+             alt="[画像仕様: 横4:3・自宅駐車場の車（SUV/セダン）に空気を入れる実使用シーン]" />
+        <div class="cp-card-body">
+          <h3>車</h3>
+          <div class="cp-types"><span>軽自動車</span><span>普通乗用車</span><span>SUV</span><span>ミニバン</span><span>ワゴン車</span></div>
+        </div>
+      </div>
+      <div class="cp-card slide-up">
+        <img data-slot="cat-bike-photo" data-asset-id="RIDEPRO-バイクタイヤ" src="https://drive.google.com/thumbnail?id=1PeG10P0Gyg4xmWu37tKerP877eG3pqVG&sz=w1600"
+             alt="[画像仕様: 横4:3・バイク（スクーター/アメリカン）に空気を入れる実使用シーン]" />
+        <div class="cp-card-body">
+          <h3>バイク</h3>
+          <div class="cp-types"><span>スクーター</span><span>アメリカン</span><span>オフロード</span><span>トラック</span></div>
+        </div>
+      </div>
+      <div class="cp-card slide-up">
+        <img data-slot="cat-bicycle-photo" data-asset-id="RIDEPRO-自転車タイヤ" src="https://drive.google.com/thumbnail?id=1swO5iEGMydAL8VTEjPULptY0Wdg9nGs6&sz=w1600"
+             alt="[画像仕様: 横4:3・ロードバイク/クロスバイクに空気を入れる実使用シーン]" />
+        <div class="cp-card-body">
+          <h3>自転車</h3>
+          <div class="cp-types"><span>ロードバイク</span><span>クロスバイク</span><span>マウンテンバイク</span><span>ママチャリ</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="cp-sum fade-in" data-slot="summary-line">1台あれば、家族全員の乗り物の空気圧を、自宅でまとめて管理できます。</p>
+    <p class="cp-close fade-in" data-slot="close-line">乗り物ごとに道具を使い分ける必要は、もうありません。<span class="bridge-line">プールや浮き輪など高容量のレジャー用は、姉妹品の PANP AIR が専用です。</span></p>
+  </div>
+</section>
+
+<section
+  id="sec-proof"
+  class="section-padding"
+  data-section-type="proof"
+  data-section-name="実績・信頼（カウントアップ実績ダッシュボード型）"
+  data-section-order="8"
+>
+  <div class="kd-inner">
+    <span class="kd-eyebrow fade-in" data-slot="eyebrow">実績と信頼</span>
+    <h2 class="fade-in" data-slot="headline">シリーズ累計102,706台が選んだ、<span class="hd-nowrap">PANPの電動ポンプ。</span></h2>
+    <p class="kd-lead fade-in" data-slot="lead">選ばれ続けてきた理由は、数字が物語っています。</p>
+
+    <div class="kd-grid" data-slot="stats-grid">
+      <div class="kd-cell slide-up">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>シリーズ累計販売</h3>
+        <p class="kd-num"><span class="cu" data-count="102706" data-decimals="0" data-comma="1">0</span><em>台</em></p>
+        <p class="kd-sub">PANPの空気入れシリーズ全体の累計台数です。</p>
+      </div>
+      <div class="kd-cell slide-up">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>専門家の評価</h3>
+        <p class="kd-num"><span class="cu" data-count="97" data-decimals="0">0</span><em>%が推奨</em></p>
+        <p class="kd-sub">空気圧の専門家による評価です。</p>
+      </div>
+      <div class="kd-cell slide-up">
+        <h3><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>レビュー総数</h3>
+        <p class="kd-num"><span class="cu" data-count="1284" data-decimals="0" data-comma="1">0</span><em>件</em></p>
+        <p class="kd-sub">星1は、そのうちわずか4件です。</p>
+      </div>
+      <div class="kd-cell slide-up">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>返品率</h3>
+        <p class="kd-num"><span class="cu" data-count="0.20" data-decimals="2">0</span><em>%</em></p>
+        <p class="kd-sub">手放す人が、ほとんどいません。</p>
+      </div>
+    </div>
+
+    <p class="kd-close fade-in" data-slot="close-line">日本メーカーが、日本人スタッフを工場に常駐させて品質管理。だから、1年保証（レビュー投稿で最大2年）を付けられます。</p>
+    <p class="kd-source fade-in" data-slot="source">※ 累計販売台数はPANP空気入れシリーズ全体。専門家推奨率・レビュー数・返品率とあわせて自社調べ（レビュー数は2026-07-05時点・全販路合計）。</p>
+  </div>
+</section>
+
+<section
+  id="sec-howto"
+  class="section-padding"
+  data-section-type="howto"
+  data-section-name="使い方（写真4ステップ型）"
+  data-section-order="9"
+>
+  <div class="ht-inner">
+    <span class="ht-eyebrow fade-in" data-slot="eyebrow">使い方</span>
+    <h2 class="fade-in" data-slot="headline">操作は、4ステップ。</h2>
+
+    <div class="ht-steps" data-slot="steps" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="ht-step slide-up">
+        <img data-slot="step-1-photo" data-asset-id="RIDEPRO-howto-1-バルブ接続" src="https://drive.google.com/thumbnail?id=1Try_tyjwNb0Ior04HaYuJnRrPq6GUuCU&sz=w1600"
+             alt="[画像仕様: 横4:3・タイヤバルブにエアホースのアダプターを接続する手元クローズアップ]" />
+        <div class="ht-step-body">
+          <span class="num">1</span>
+          <h3>バルブに接続する</h3>
+          <p>エアホースのアダプターをタイヤの空気注入口に接続。米式・仏式・英式の3種類に対応。</p>
+        </div>
+      </div>
+      <div class="ht-step slide-up">
+        <img data-slot="step-2-photo" data-asset-id="RIDE_PRO_005" src="https://drive.google.com/thumbnail?id=1oPW2spO0mZHO0bzvMnH85UkXxb1DKLwy&sz=w1600"
+             alt="[画像仕様: 横4:3・本体LEDディスプレイで目標空気圧を設定する操作]" />
+        <div class="ht-step-body">
+          <span class="num">2</span>
+          <h3>空気圧を設定する</h3>
+          <p>ボタンで目標空気圧を設定。タイヤ側面または車のドア内側の推奨値を参考に。</p>
+        </div>
+      </div>
+      <div class="ht-step slide-up">
+        <img data-slot="step-3-photo" data-asset-id="RIDEPRO-howto-3-スタート押す" src="https://drive.google.com/thumbnail?id=1jIACnBUEeJ2AQ0hL7Fv8RRmC3tGblDZ9&sz=w1600"
+             alt="[画像仕様: 横4:3・スタートボタンを押す瞬間のアップ]" />
+        <div class="ht-step-body">
+          <span class="num">3</span>
+          <h3>スタートを押すだけ</h3>
+          <p>±1PSIの精度で、設定値に達したら自動停止。あとは待つだけです。</p>
+        </div>
+      </div>
+      <div class="ht-step slide-up">
+        <img data-slot="step-4-photo" data-asset-id="RIDEPRO-howto-4-ホース取り外し" src="https://drive.google.com/thumbnail?id=1h6ehL58FPmvPBZ4rXne0wLxZb0HrkTHx&sz=w1600"
+             alt="[画像仕様: 横4:3・ホースを取り外して完了する様子]" />
+        <div class="ht-step-body">
+          <span class="num">4</span>
+          <h3>取り外して完了</h3>
+          <p>ホースを抜いて蓋をすれば完了。エア抜けを防ぐロック機構付き。</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="ht-close fade-in" data-slot="close-line">バルブに接続して、数字を設定して、ボタンを押す。<span class="bridge-line">それだけで、プロ並みの空気圧管理が自宅でできます。</span></p>
+  </div>
+</section>
+
+<section
+  id="sec-voices"
+  class="section-padding"
+  data-section-type="proof"
+  data-section-name="お客様の声＋CTA②（最多の声先出し型）"
+  data-section-order="10"
+>
+  <div class="vo-inner">
+    <span class="vo-eyebrow fade-in" data-slot="eyebrow">お客様の声</span>
+    <p class="vo-top-voice fade-in" data-slot="top-voice">「もう、スタンドに行かなくなった。」</p>
+    <p class="vo-top-label fade-in" data-slot="top-voice-label">使った方から、いちばん多く聞くのが、この声です。</p>
+
+    <h2 class="fade-in" data-slot="headline">使った人が語る、リアルな声。</h2>
+
+    <div class="vo-rating fade-in" data-slot="rating-summary">
+      <div class="vo-rating-score">
+        <span class="vo-rating-num">4.5</span>
+        <span class="vo-rating-stars">★★★★★</span>
+      </div>
+      <div class="vo-rating-meta">
+        <p><strong>1,284件</strong>のレビュー（各販路4.5〜4.69）</p>
+        <p>星1は、そのうちわずか4件です。</p>
+      </div>
+    </div>
+
+    <div class="vo-cards" data-slot="voice-cards">
+      <div class="vo-card slide-up">
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <p>「休日に家族の車をまとめて点検できるようになった。スタンドに行く手間がなくなって快適です。」</p>
+          <span class="src">ご購入者さまレビューより</span>
+        </div>
+      </div>
+      <div class="vo-card slide-up">
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <p>「設定した数字でぴたっと止まるので安心。入れすぎの心配がなくなりました。」</p>
+          <span class="src">ご購入者さまレビューより</span>
+        </div>
+      </div>
+      <div class="vo-card slide-up">
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <p>「車もバイクも自転車も、これ1台で済むのが便利。充電のもちもよくて満足です。」</p>
+          <span class="src">ご購入者さまレビューより</span>
+        </div>
+      </div>
+      <div class="vo-card slide-up">
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <p>「思っていたよりコンパクトで、車に積んでおける。長距離前の点検が習慣になりました。」</p>
+          <span class="src">ご購入者さまレビューより</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vo-cta fade-in" data-slot="cta-block">
+      <a class="btn-primary" data-slot="cta-button" href="/cart/42187339759667:1">カートに入れる</a>
+      <p class="cta-sub" data-slot="cta-sub"><strong>¥12,880</strong>（税込・送料無料）／30日間返品保証</p>
+    </div>
+  </div>
+</section>
+
+<section
+  id="sec-guarantee"
+  class="section-padding"
+  data-section-type="proof"
+  data-section-name="返品の約束＋保証・サポート（2カード型）"
+  data-section-order="11"
+>
+  <div class="gr-inner">
+    <h2 data-slot="guarantee-headline" class="slide-up">合わなければ返品OK。買ったあとも、お任せください。</h2>
+  </div>
+
+  <div class="gr-cards">
+    <div class="gr-card slide-up" data-slot="return-card">
+      <span class="gr-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>返品の約束</span>
+      <p class="gr-stat">30<em>日</em></p>
+      <p class="gr-stat-sub">どんな理由でも、返品できます</p>
+      <h3>「合うかな」のリスクは、こちらで引き受けます</h3>
+      <p>高価格帯の製品です。「自分に合うかな」と迷うのは、当たり前のこと。</p>
+      <p>「思っていたのと違った」「開けて使ってみたけれど、合わなかった」。それでも、返せます。</p>
+      <p class="sub">ご負担いただくのは、返品のときの返送料だけです。</p>
+      <div class="gr-chips" data-slot="delivery-chips">
+        <span>お届けの送料は無料</span><span>年中無休</span><span>1〜2日以内に発送</span>
+      </div>
+    </div>
+
+    <div class="gr-card slide-up" data-slot="warranty-card">
+      <span class="gr-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>保証・サポート</span>
+      <p class="gr-stat"><em class="pre">最大</em>2<em>年</em></p>
+      <p class="gr-stat-sub">メーカー保証（レビューを書くと、1年から2年に延びます）</p>
+      <h3>買ったあとの毎日も、安心です</h3>
+      <p>使い方や調子で困ったときは、電話・LINE・メール・ホームページから相談できます。</p>
+      <p>日本メーカーが、日本人スタッフを工場に常駐させて品質管理しています。</p>
+      <div class="support-row" data-slot="support-channels" aria-label="相談窓口: 電話・LINE・メール">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>電話</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>LINE</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>メール</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="gr-close slide-up" data-slot="close-bridge">買う前の迷いも、買ったあとの不安も、ぜんぶ引き受けます。</p>
+</section>
+
+<section
+  id="sec-spec-table"
+  class="section-padding"
+  data-section-type="spec"
+  data-section-name="製品仕様（スペック表＋同梱物）"
+  data-section-order="12"
+>
+  <div class="st-inner">
+    <span class="st-eyebrow fade-in" data-slot="eyebrow">製品仕様</span>
+    <h2 class="fade-in" data-slot="headline">数字で見る、PANP RIDE PRO。</h2>
+
+    <div class="sh-stats" data-slot="hero-stats">
+      <div class="sh-stat slide-up" data-slot="stat-1">
+        <p class="label">空気圧精度</p>
+        <p class="num">±1<em>PSI</em></p>
+        <p class="cond">誤差1PSI以下で自動停止</p>
+      </div>
+      <div class="sh-stat slide-up delay-1" data-slot="stat-2">
+        <p class="label">充填速度</p>
+        <p class="num">35<em>L/分</em></p>
+        <p class="cond">車のタイヤ約30秒/本</p>
+      </div>
+      <div class="sh-stat slide-up delay-2" data-slot="stat-3">
+        <p class="label">最大空気圧</p>
+        <p class="num">150<em>PSI</em></p>
+        <p class="cond">車・SUVにも対応</p>
+      </div>
+      <div class="sh-stat slide-up delay-3" data-slot="stat-4">
+        <p class="label">バッテリー</p>
+        <p class="num">7,800<em>mAh</em></p>
+        <p class="cond">車のタイヤ約11本分</p>
+      </div>
+    </div>
+
+    <dl class="sh-table fade-in" data-slot="spec-table">
+      <div class="sh-row"><dt>本体サイズ</dt><dd>130 × 112 × 56 mm</dd></div>
+      <div class="sh-row"><dt>本体重量</dt><dd>650g</dd></div>
+      <div class="sh-row"><dt>最大空気圧</dt><dd>150PSI（1,034kPa）</dd></div>
+      <div class="sh-row"><dt>対応単位</dt><dd>PSI / kPa / BAR / kg/cm²</dd></div>
+      <div class="sh-row"><dt>バッテリー</dt><dd>7,800mAh（3.7V / 28.86Wh）</dd></div>
+      <div class="sh-row"><dt>充電</dt><dd>USB Type-C / 約3時間（5V/2A）</dd></div>
+      <div class="sh-row"><dt>動作音</dt><dd>65dB（掃除機・車のアイドリング音と同程度）</dd></div>
+      <div class="sh-row"><dt>対応バルブ</dt><dd>米式 / 英式 / 仏式（3種付属）</dd></div>
+      <div class="sh-row"><dt>本体素材</dt><dd>高硬度ABS樹脂</dd></div>
+      <div class="sh-row"><dt>取得認証</dt><dd>CE / FCC / IC / IEC / MSDS / PSE / ROHS / UKCA / UL</dd></div>
+      <div class="sh-row"><dt>商品寿命の目安</dt><dd>約5年（月3回使用）</dd></div>
+      <div class="sh-row"><dt>メーカー保証</dt><dd>1年（レビュー投稿で最大2年）</dd></div>
+    </dl>
+    <p class="sh-note fade-in" data-slot="note">※ 数値は自社測定・公式仕様に基づく採用値です。使用環境により変動する場合があります。</p>
+
+    <p class="st-box-title fade-in" data-slot="included-title">同梱物（12点）</p>
+    <ul class="st-included fade-in" data-slot="included-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>本体</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>米式エアホース</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>英式アタッチメント</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>仏式アタッチメント</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>浮き輪用アタッチメント</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>ボール用アタッチメント</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>収納袋</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>充電ケーブル（USB-C → A）</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>シガーソケット用ケーブル</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>説明書兼保証書</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>STEPカード</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>PANPカード（空気圧目安表・使い方動画QR）</li>
+    </ul>
+
+    <div class="st-cta fade-in" data-slot="spec-cta">
+      <p class="st-price">¥12,880<span>税込・送料無料</span></p>
+      <a class="btn-primary" data-slot="spec-cta-button" href="/cart/42187339759667:1">カートに入れる →</a>
+      <p class="cta-sub">30日間返品保証・1〜2日以内発送</p>
+    </div>
+  </div>
+</section>
+
+<section
+  id="sec-faq"
+  class="section-padding"
+  data-section-type="faq"
+  data-section-name="よくある質問（最小アコーディオン型）"
+  data-section-order="13"
+>
+  <div class="fq-inner">
+    <p class="fq-label fade-in" data-slot="eyebrow">よくある質問</p>
+    <h2 class="fade-in" data-slot="headline">気になることに、お答えします。</h2>
+
+    <div data-slot="faq-list">
+      <details><summary>どんな車のタイヤに使えますか?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="fq-a">軽自動車・普通乗用車・SUV・ミニバン・ワゴン車に対応しています。最大150PSI（1,034kPa）対応なので、ほぼすべての乗用車タイヤに使えます。</p></details>
+      <details><summary>精度はどれくらいですか?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="fq-a">±1PSIの精度で自動停止します。設定値に達したら自動で止まるので、入れすぎの心配がありません。</p></details>
+      <details><summary>1回の充電で何本分使えますか?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="fq-a">車のタイヤ（225/50R17、37→40PSI）で約11本分。4人家族のタイヤ4本を余裕でまかなえます。</p></details>
+      <details><summary>バイクや自転車にも使えますか?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="fq-a">はい。米式・英式・仏式の3種類のアダプターが付属しているので、ほとんどの自転車・バイクのタイヤに使えます。</p></details>
+      <details><summary>音はうるさいですか?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="fq-a">動作音は約65dBです。深夜の住宅街での使用は避けてください。昼間の屋外であれば近隣への影響は少ないです。</p></details>
+      <details><summary>どれくらい長持ちしますか?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="fq-a">月3回使用で約5年の耐久性を想定しています。日本人スタッフが工場で品質管理を行い、高品質な部品を使用しています。</p></details>
+    </div>
+  </div>
+</section>
+
+<section
+  id="sec-closing-cta"
+  data-section-type="cta"
+  class="section-padding"
+  data-section-name="最終CTA（今日からプロ仕様・製品背景オーバーレイ）"
+  data-section-order="14"
+>
+  <img class="cc-bg" data-slot="closing-bg-photo" data-asset-id="RIDEPRO-切り株演出暗"
+       src="https://drive.google.com/thumbnail?id=1QTXopFGt5CWocmBLDnVxT60YbqEZf4XY&sz=w1600"
+       alt="[画像仕様: PANP RIDE PRO本体の演出カット（暗背景・ゴールドライティング）or 車のタイヤの上に置いた本体・プレミアム感]" />
+  <div class="cc-overlay">&nbsp;</div>
+
+  <div class="cc-inner">
+    <span class="cc-eyebrow fade-in" data-slot="eyebrow">いま、はじめるなら</span>
+    <h2 class="fade-in" data-slot="headline">今日から、タイヤ管理をプロ仕様に。</h2>
+    <p class="cc-lead fade-in" data-slot="lead">シリーズ累計102,706台のPANPが磨いてきた±1PSIの精度を、あなたの駐車場に。ガソリンスタンドに行く手間も、空気圧の不安も、今日で終わりです。</p>
+
+    <div class="cc-badges fade-in" data-slot="trust-badges">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>1年保証（最大2年）</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>送料無料</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>30日返品OK</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>±1PSIの精度</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>シリーズ累計102,706台</span>
+    </div>
+
+    <div class="cc-anchor fade-in" data-slot="value-anchor" aria-label="放置の年間損失と本体価格の比較">
+      <div class="cc-anchor-cell is-loss">
+        <span class="cc-anchor-cap">空気圧を放置</span>
+        <span class="cc-anchor-fig">約40,000円</span>
+        <span class="cc-anchor-note">毎年・くり返し</span>
+      </div>
+      <div class="cc-anchor-cell is-buy">
+        <span class="cc-anchor-cap">RIDE PRO 本体</span>
+        <span class="cc-anchor-fig">12,880円</span>
+        <span class="cc-anchor-note">一度きり</span>
+      </div>
+    </div>
+    <p class="cc-price fade-in" data-slot="price">¥12,880<span>税込・送料無料</span></p>
+    <a class="btn-primary fade-in" data-slot="closing-cta-button" href="/cart/42187339759667:1">カートに入れる →</a>
+    <p class="cc-note fade-in" data-slot="cta-note">30日間、リスクゼロで試せます。年中無休で1〜2日以内に発送。</p>
+  </div>
+</section>
+
+
+
+
+
+<footer id="lp-footer">
+  <img class="footer-logo" data-slot="footer-logo" data-asset-id="PANP_LOGO_WHITE"
+       src="https://drive.google.com/thumbnail?id=1mp5JwzqAc7nO6ESyHM0fpd7EENf8lC0b&sz=w1600" alt="PANP" />
+  <p>&copy; 2026 PANP</p>
+</footer>
+
+
+<!-- モバイルスティッキーCTA（scripts.js が sec-hero 通過後に表示・sec-closing-cta 表示中は非表示に制御） -->
+<div id="sticky-cta">
+  <a href="/cart/42187339759667:1">カートに入れる ¥12,880</a>
+  <p class="sticky-note">税込・送料無料／30日間返品保証</p>
+</div>
+
+<script>
+/* ============================================================
+   LP共通JavaScript 3本セット（design-system/scripts.js をインライン化）
+   ① スライドイン発火 ② パララックス ③ スティッキーCTA制御
+   ============================================================ */
+
+/* ① スライドインアニメーション発火（IntersectionObserver） */
+(function () {
+  var targets = document.querySelectorAll('.slide-left, .slide-right, .slide-up, .fade-in');
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('visible'); }); return;
+  }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  targets.forEach(function (el) { obs.observe(el); });
+})();
+
+/* ② パララックス（デスクトップのみ・STRENGTH=40px） */
+(function () {
+  if (window.matchMedia('(max-width: 768px)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = Array.prototype.slice.call(document.querySelectorAll('.parallax-bg'));
+  var STRENGTH = 40; var ticking = false;
+  function update() {
+    var vh = window.innerHeight;
+    els.forEach(function (img) {
+      var section = img.parentElement;
+      var rect = section.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > vh) return;
+      var offset = (rect.top + rect.height / 2 - vh / 2) / (vh + rect.height) * STRENGTH * 2;
+      img.style.transform = 'translateY(' + offset.toFixed(2) + 'px)';
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
+})();
+
+/* ③ モバイルスティッキーCTA制御（sec-heroを通過したら出現・sec-closing-cta表示中は隠す・上スクロールで凹む） */
+(function () {
+  var el = document.getElementById('sticky-cta');
+  if (!el) return;
+  var shown = false;
+  /* 上スクロール=読み返し中はバナーを凹ませて視界を空け、下スクロールで再表示（デフォルト挙動） */
+  var lastY = window.scrollY;
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (shown) {
+      if (y < lastY - 4) el.classList.add('retract');
+      else if (y > lastY + 4) el.classList.remove('retract');
+    }
+    lastY = y;
+  }, { passive: true });
+  var trigger = document.getElementById('sec-hero');
+  if (trigger && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting && !shown && window.scrollY > trigger.offsetTop) {
+          el.style.display = 'block'; shown = true;
+        }
+      });
+    }, { threshold: 0 }).observe(trigger);
+  }
+  var closingCta = document.getElementById('sec-closing-cta');
+  if (closingCta && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        el.style.display = e.isIntersecting ? 'none' : (shown ? 'block' : 'none');
+      });
+    }, { threshold: 0.1 }).observe(closingCta);
+  }
+})();
+
+/* ④ 損失の縦棒グラフ発火（スクロール到達で height を設定） */
+(function () {
+  var bars = document.querySelectorAll('#sec-loss .cb-bar');
+  if (!bars.length) return;
+  if (!('IntersectionObserver' in window)) { bars.forEach(function (el) { el.style.height = el.getAttribute('data-h'); }); return; }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.style.height = e.target.getAttribute('data-h'); obs.unobserve(e.target); } });
+  }, { threshold: 0.4 });
+  bars.forEach(function (el) { obs.observe(el); });
+})();
+
+/* ⑤ 実績カウントアップ発火（スクロール到達で 0→実数値） */
+(function () {
+  var els = document.querySelectorAll('#sec-proof .cu');
+  if (!els.length) return;
+  function fmt(v, dec, comma) { var s = v.toFixed(dec); if (comma) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); return s; }
+  function run(el) {
+    var target = parseFloat(el.getAttribute('data-count')), dec = parseInt(el.getAttribute('data-decimals') || '0', 10), comma = el.getAttribute('data-comma') === '1', t0 = null, DUR = 1300;
+    function step(ts) { if (!t0) t0 = ts; var p = Math.min((ts - t0) / DUR, 1), eased = 1 - Math.pow(1 - p, 3); el.textContent = fmt(target * eased, dec, comma); if (p < 1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  if (!('IntersectionObserver' in window)) { els.forEach(function (el) { var d = parseInt(el.getAttribute('data-decimals') || '0', 10); el.textContent = fmt(parseFloat(el.getAttribute('data-count')), d, el.getAttribute('data-comma') === '1'); }); return; }
+  var obs = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { run(e.target); obs.unobserve(e.target); } }); }, { threshold: 0.5 });
+  els.forEach(function (el) { obs.observe(el); });
+})();
+
+/* ⑥ 精度セクション: 空気圧カウントアップ（35.0→40.0・ゆっくり一定ペース・到達で停止＋✓表示） */
+(function () {
+  var el = document.querySelector('#sec-accuracy .cu-psi');
+  if (!el) return;
+  var reached = document.querySelector('#sec-accuracy .psi-reached');
+  var START = 35.0, GOAL = 40.0, DUR = 4500;
+  function finish() { el.textContent = GOAL.toFixed(1); if (reached) reached.classList.add('show'); }
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { finish(); return; }
+  function run() {
+    var t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / DUR, 1);
+      el.textContent = (START + (GOAL - START) * p).toFixed(1);
+      if (p < 1) requestAnimationFrame(step); else finish();
+    }
+    requestAnimationFrame(step);
+  }
+  if (!('IntersectionObserver' in window)) { finish(); return; }
+  new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (e) { if (e.isIntersecting) { run(); obs.unobserve(e.target); } });
+  }, { threshold: 0.5 }).observe(el);
+})();
+
+</script>
+</div>
+
+{% schema %}
+{"name": "LP ridepro-route-1-202607", "settings": [], "presets": [{"name": "LP ridepro-route-1-202607"}]}
+{% endschema %}

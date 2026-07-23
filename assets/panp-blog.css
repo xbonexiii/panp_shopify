@@ -1,0 +1,1041 @@
+/* ════════════════════════════════
+   PANP Blog CSS v4 — Apple.com スタイル
+   Shopify blog body用
+════════════════════════════════ */
+
+/* ──────────────────────────────
+   1. TOKENS
+────────────────────────────── */
+.panp-blog {
+  font-size: 1.6rem; /* 16px base: theme.liquid で html=62.5% のため */
+  line-height: 1.6;
+  /* ── Apple カラーパレット ── */
+  --black:        #1d1d1f;
+  --gray-900:     #424245;
+  --gray-700:     #6e6e73;
+  --gray-500:     #86868b;
+  --gray-400:     #a1a1a6;
+  --gray-300:     #c7c7cc;
+  --gray-200:     #d2d2d7;
+  --gray-100:     #e8e8ed;
+  --gray-50:      #f5f5f7;
+  --white:        #ffffff;
+  --border:       #d2d2d7;
+  --border-mid:   #b9b9be;
+
+  /* ── Apple アクセントカラー ── */
+  --accent:       #0071e3;
+  --accent-hover: #0077ed;
+  --accent-light: #e8f0fe;
+
+  /* ── セマンティックカラー ── */
+  --red:          #ff3b30;
+  --red-light:    #fff2f2;
+  --red-dark:     #c0392b;
+
+  /* ── フォント ── */
+  --font-jp:   -apple-system, 'SF Pro JP', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  --font-en:   -apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', 'SFMono-Regular', ui-monospace, 'Menlo', monospace;
+
+  --radius:    12px;
+  --radius-sm: 8px;
+  --radius-pill: 980px;
+  --trans:     0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow:    0 4px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.04);
+  --shadow-md: 0 8px 32px rgba(0,0,0,.10), 0 2px 8px rgba(0,0,0,.06);
+}
+
+/* ──────────────────────────────
+   2. RESET
+────────────────────────────── */
+.panp-blog *, .panp-blog *::before, .panp-blog *::after { box-sizing: border-box; }
+.panp-blog img {
+  display: block; max-width: 100%; height: auto;
+  border: none; border-radius: 0; box-shadow: none; margin-bottom: 0;
+}
+.panp-blog a   { color: inherit; text-decoration: none; }
+.panp-blog ul, .panp-blog ol { list-style: none; margin: 0; padding: 0; }
+.panp-blog li  { list-style: none; margin: 0; padding: 0; }
+.panp-blog li::before { content: none; }
+.panp-blog p   { margin: 0; padding: 0; font-family: var(--font-en); color: var(--gray-700); }
+.panp-blog h1, .panp-blog h2, .panp-blog h3,
+.panp-blog h4, .panp-blog h5, .panp-blog h6 {
+  font-size: 1em;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--black);
+  margin: 0; padding: 0;
+  text-transform: none;
+  word-break: normal;
+}
+
+/* ──────────────────────────────
+   3. 記事ヘッダー
+────────────────────────────── */
+.panp-blog .article-header {
+  padding-bottom: 2.75em;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3em;
+}
+.panp-blog .article-cat {
+  display: inline-block;
+  font-family: var(--font-en);
+  font-size: 0.75em; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--accent);
+  margin-bottom: 1em;
+}
+.panp-blog .article-title {
+  font-family: var(--font-display);
+  font-size: clamp(2em, 5vw, 3em);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.03em;
+  color: var(--black); margin-bottom: 1.25em;
+}
+.panp-blog .article-lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.125em, 2vw, 1.3125em);
+  line-height: 1.7; letter-spacing: -0.01em;
+  color: var(--gray-700); margin-bottom: 1.75em;
+}
+.panp-blog .author {
+  display: flex; align-items: center; gap: 0.75em; margin-bottom: 1em;
+}
+.panp-blog .author-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--gray-100);
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-en); font-size: 0.875em; color: var(--gray-500); overflow: hidden;
+}
+.panp-blog .author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.panp-blog .author-name { font-size: 0.9375em; font-weight: 600; color: var(--black); letter-spacing: -0.01em; }
+.panp-blog .author-role {
+  font-family: var(--font-en); font-size: 0.8125em;
+  color: var(--gray-500); letter-spacing: -0.01em;
+}
+.panp-blog .article-meta {
+  display: flex; flex-wrap: wrap; gap: 1em;
+  font-family: var(--font-en); font-size: 0.8125em;
+  color: var(--gray-500); letter-spacing: -0.01em; margin-bottom: 2em;
+}
+.panp-blog .article-meta span { display: flex; align-items: center; gap: 0.3em; }
+.panp-blog .article-meta svg {
+  width: 12px; height: 12px; stroke: currentColor; fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.panp-blog .article-cover {
+  width: 100%; aspect-ratio: 16 / 9;
+  background: var(--gray-100); border-radius: var(--radius); overflow: hidden;
+}
+.panp-blog .article-cover img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ──────────────────────────────
+   4. TOC
+────────────────────────────── */
+.panp-blog .toc {
+  background: var(--gray-50);
+  border-radius: var(--radius); padding: 1.5em 1.75em; margin-bottom: 3em;
+}
+.panp-blog .toc-label {
+  font-family: var(--font-en); font-size: 0.75em; font-weight: 600;
+  letter-spacing: 0.01em; text-transform: uppercase;
+  color: var(--gray-500); margin-bottom: 1em;
+}
+.panp-blog .toc-list { display: flex; flex-direction: column; gap: 0.55em; list-style: none; }
+.panp-blog .toc-list li { display: flex; gap: 0.65em; align-items: baseline; padding-left: 0; }
+.panp-blog .toc-list li::before { display: none; }
+.panp-blog .toc-num {
+  font-family: var(--font-en); font-size: 0.75em; font-weight: 500;
+  color: var(--gray-300); min-width: 1.5em; flex-shrink: 0;
+}
+.panp-blog .toc-list a {
+  font-size: 1em; font-weight: 400; color: var(--accent);
+  line-height: 1.6; letter-spacing: -0.01em; transition: opacity var(--trans);
+}
+.panp-blog .toc-list a:hover { opacity: 0.7; }
+
+/* ──────────────────────────────
+   5. 本文タイポグラフィ
+────────────────────────────── */
+.panp-blog h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5em, 3vw, 1.875em);
+  font-weight: 700; line-height: 1.2; letter-spacing: -0.025em;
+  color: var(--black);
+  margin: 4em 0 1.25em;
+}
+.panp-blog h2:first-child { margin-top: 0; }
+.panp-blog h3 {
+  font-family: var(--font-display);
+  font-size: 1.375em; font-weight: 600;
+  line-height: 1.3; letter-spacing: -0.02em; color: var(--black);
+  margin: 2.75em 0 0.85em;
+}
+.panp-blog p {
+  font-size: 1.0625em; line-height: 1.8; letter-spacing: -0.003em;
+  color: var(--gray-700); margin-bottom: 1.5em;
+}
+.panp-blog p:last-child { margin-bottom: 0; }
+.panp-blog a {
+  color: var(--accent);
+  text-decoration: none; transition: opacity var(--trans);
+}
+.panp-blog a:hover { opacity: 0.75; }
+.panp-blog strong, .panp-blog b { font-weight: 700; color: var(--black); }
+.panp-blog em, .panp-blog i { font-style: italic; color: var(--gray-700); }
+.panp-blog code {
+  font-family: var(--font-mono); font-size: 0.875em;
+  background: var(--gray-50);
+  color: var(--gray-900); padding: 0.15em 0.5em; border-radius: 6px;
+}
+
+/* ──────────────────────────────
+   6. 強調スタイル
+────────────────────────────── */
+.panp-blog mark,
+.panp-blog .hl {
+  background: rgba(0, 113, 227, 0.12);
+  color: inherit;
+  font-weight: inherit;
+  padding: 0.05em 0.1em;
+  border-radius: 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.panp-blog .em-text {
+  color: var(--black);
+  font-weight: 600;
+}
+
+/* ──────────────────────────────
+   7. リスト
+────────────────────────────── */
+.panp-blog ul {
+  margin: 1.25em 0 1.75em; padding: 0;
+  display: flex; flex-direction: column; gap: 0.4em;
+}
+.panp-blog ul li {
+  font-size: 1.0625em; line-height: 1.8; letter-spacing: -0.003em;
+  color: var(--gray-700);
+}
+
+.panp-blog ol {
+  counter-reset: ol-counter;
+  margin: 1.25em 0 1.75em; padding: 0;
+  display: flex; flex-direction: column; gap: 0.4em;
+}
+.panp-blog ol li {
+  counter-increment: ol-counter;
+  font-size: 1.0625em; line-height: 1.8; letter-spacing: -0.003em;
+  color: var(--gray-700); position: relative; padding-left: 2em;
+}
+.panp-blog ol li::before {
+  content: counter(ol-counter);
+  position: absolute; left: 0; top: 0;
+  font-family: var(--font-en); font-size: 0.8125em; font-weight: 600;
+  color: var(--accent); letter-spacing: -0.01em; line-height: 1.9;
+  min-width: 1.4em; text-align: right;
+}
+
+/* ──────────────────────────────
+   8. Blockquote / Pullquote
+────────────────────────────── */
+.panp-blog blockquote, .panp-blog .blockquote {
+  background: var(--gray-50);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+  margin: 2em 0;
+  padding: 1.25em 1.5em;
+  font-size: 1.0625em; line-height: 1.8; letter-spacing: -0.003em;
+  color: var(--gray-700); font-style: normal;
+}
+.panp-blog blockquote cite, .panp-blog .blockquote cite {
+  display: block; font-style: normal; font-family: var(--font-en);
+  font-size: 0.8125em; color: var(--gray-500); margin-top: 0.75em;
+  letter-spacing: -0.01em; font-weight: 500;
+}
+.panp-blog .pullquote {
+  margin: 3em 0; padding: 2em 0;
+  border-top: 2px solid var(--black); border-bottom: 1px solid var(--border);
+  font-family: var(--font-display);
+  font-size: clamp(1.375em, 2.5vw, 1.75em);
+  font-weight: 700; line-height: 1.35; letter-spacing: -0.025em; color: var(--black);
+}
+
+/* ──────────────────────────────
+   9. Divider
+────────────────────────────── */
+.panp-blog hr, .panp-blog .divider {
+  border: none; border-top: 1px solid var(--border); margin: 3em 0;
+}
+
+/* ──────────────────────────────
+   10. Callout 4種
+────────────────────────────── */
+.panp-blog .callout {
+  border-radius: var(--radius-sm);
+  padding: 1.1em 1.4em; margin: 2em 0;
+  background: var(--gray-50);
+}
+.panp-blog .callout-label {
+  font-family: var(--font-en); font-size: 0.75em; font-weight: 600;
+  letter-spacing: 0.01em; text-transform: uppercase;
+  color: var(--gray-500); margin-bottom: 0.4em;
+}
+.panp-blog .callout-/* Info — Apple Blue */
+.panp-blog .callout.info { background: rgba(0, 113, 227, 0.07); }
+.panp-blog .callout.info .callout-label { color: var(--accent); }
+/* Tip */
+.panp-blog .callout.tip { background: var(--gray-50); }
+.panp-blog .callout.tip .callout-label { color: var(--gray-500); }
+/* Warning */
+.panp-blog .callout.warning {
+  background: rgba(255, 149, 0, 0.08);
+}
+.panp-blog .callout.warning .callout-label { color: #bf5900; }
+.panp-blog .callout.warning .callout-body  { color: var(--gray-700); }
+/* Alert */
+.panp-blog .callout.alert {
+  background: rgba(255, 59, 48, 0.08);
+}
+.panp-blog .callout.alert .callout-label { color: var(--red); font-weight: 700; }
+.panp-blog .callout.alert .callout-body  { color: var(--red-dark); }
+
+/* ──────────────────────────────
+   11. Figure / Figcaption
+────────────────────────────── */
+.panp-blog .figure { margin: 2.5em 0; }
+.panp-blog .figure img, .panp-blog .figure .cover-image {
+  width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius);
+  background: var(--gray-100); object-fit: cover; display: block;
+  box-shadow: var(--shadow-sm);
+}
+.panp-blog .figcaption {
+  font-family: var(--font-en); font-size: 0.8125em; color: var(--gray-500);
+  text-align: center; margin-top: 0.75em; letter-spacing: -0.01em; line-height: 1.6;
+}
+
+/* ──────────────────────────────
+   12. Data Table + Badge
+────────────────────────────── */
+.panp-blog .table-wrap {
+  width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius); margin: 1.75em 0;
+  box-shadow: var(--shadow-sm);
+  scrollbar-width: thin; scrollbar-color: var(--gray-300) transparent;
+}
+.panp-blog .table-wrap::-webkit-scrollbar { height: 3px; }
+.panp-blog .table-wrap::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 99px; }
+.panp-blog .data-table {
+  width: 100%; min-width: 480px; border-collapse: collapse; font-size: 1em;
+}
+.panp-blog .data-table caption {
+  font-family: var(--font-en); font-size: 0.8125em; font-weight: 600;
+  color: var(--gray-500); letter-spacing: -0.01em;
+  text-align: left; padding: 1em 1.25em;
+  border-bottom: 1px solid var(--border); background: var(--gray-50); caption-side: top;
+}
+.panp-blog .data-table thead tr { background: var(--gray-50); border-bottom: 1px solid var(--border); }
+.panp-blog .data-table th {
+  font-family: var(--font-en); font-weight: 600; font-size: 0.8125em;
+  letter-spacing: -0.01em; color: var(--gray-500);
+  text-align: left; padding: 0.85em 1.25em; white-space: nowrap;
+}
+.panp-blog .data-table tbody tr {
+  border-bottom: 1px solid var(--border); background: var(--white); transition: background var(--trans);
+}
+.panp-blog .data-table tbody tr:last-child { border-bottom: none; }
+.panp-blog .data-table tbody tr:hover { background: var(--gray-50); }
+.panp-blog .data-table td {
+  padding: 0.9em 1.25em; color: var(--gray-700);
+  vertical-align: middle; line-height: 1.6; letter-spacing: -0.003em;
+}
+.panp-blog .badge {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-family: var(--font-en); font-size: 0.75em; font-weight: 600;
+  letter-spacing: -0.01em; padding: 0.2em 0.75em; border-radius: var(--radius-pill);
+}
+.panp-blog .badge.up    { background: var(--accent); color: var(--white); }
+.panp-blog .badge.down  { background: var(--gray-100); color: var(--gray-500); }
+.panp-blog .badge.flat  { background: var(--gray-50); color: var(--gray-500); }
+.panp-blog .badge.alert { background: rgba(255,59,48,0.1); color: var(--red-dark); }
+.panp-blog .badge.stone { background: var(--gray-100); color: var(--gray-700); }
+
+/* ──────────────────────────────
+   13. Share / Tags / Author Card
+────────────────────────────── */
+.panp-blog .share-btns {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em;
+  margin: 2.5em 0; padding: 1.5em 0;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.panp-blog .share-label {
+  font-family: var(--font-en); font-size: 0.8125em; font-weight: 600;
+  letter-spacing: -0.01em; color: var(--gray-500); margin-right: 0.25em;
+}
+.panp-blog .share-btn {
+  display: inline-flex; align-items: center; gap: 0.4em;
+  font-family: var(--font-en); font-size: 0.875em; font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--accent); border: 1.5px solid var(--accent); border-radius: var(--radius-pill);
+  padding: 0.45em 1.2em; background: transparent; cursor: pointer;
+  transition: background var(--trans), color var(--trans);
+}
+.panp-blog .share-btn:hover { background: var(--accent); color: var(--white); }
+.panp-blog .share-btn svg {
+  width: 13px; height: 13px; stroke: currentColor; fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.panp-blog .tag-list {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4em; margin: 1.75em 0;
+}
+.panp-blog .tag-list-label {
+  font-family: var(--font-en); font-size: 0.8125em; font-weight: 600;
+  letter-spacing: -0.01em; color: var(--gray-500); margin-right: 0.25em;
+}
+.panp-blog .tag {
+  display: inline-block; font-family: var(--font-en); font-size: 0.8125em; font-weight: 500;
+  letter-spacing: -0.01em; color: var(--accent);
+  background: rgba(0, 113, 227, 0.08);
+  border-radius: var(--radius-pill); padding: 0.25em 0.9em;
+  transition: background var(--trans), color var(--trans);
+}
+.panp-blog .tag:hover { background: var(--accent); color: var(--white); }
+.panp-blog .author-card {
+  display: flex; gap: 1.5em; align-items: flex-start;
+  border-radius: var(--radius);
+  padding: 1.75em; margin: 3em 0;
+  background: var(--gray-50);
+  box-shadow: var(--shadow-sm);
+}
+.panp-blog .author-card .avatar {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--gray-200); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-en); font-size: 1em; color: var(--gray-500); overflow: hidden;
+}
+.panp-blog .author-card .avatar img { width: 100%; height: 100%; object-fit: cover; }
+.panp-blog .author-card .author-name { font-size: 1.0625em; font-weight: 700; color: var(--black); margin-bottom: 0.2em; letter-spacing: -0.015em; }
+.panp-blog .author-card .author-role {
+  font-family: var(--font-en); font-size: 0.875em; color: var(--gray-500); letter-spacing: -0.01em; margin-bottom: 0.7em;
+}
+.panp-blog .author-card .author-bio {
+  font-size: 1em; line-height: 1.8; letter-spacing: -0.003em; color: var(--gray-700);
+}
+
+/* ──────────────────────────────
+   14. Related / Post Nav
+────────────────────────────── */
+.panp-blog .related-articles { margin: 3em 0; padding-top: 2em; border-top: 1px solid var(--border); }
+.panp-blog .related-articles .section-label {
+  font-family: var(--font-en); font-size: 0.8125em; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--gray-500); margin-bottom: 1.25em;
+}
+.panp-blog .related-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+  gap: 0.75em;
+}
+.panp-blog .related-card {
+  background: var(--gray-50); border-radius: var(--radius-sm);
+  padding: 1.25em 1.3em; display: block;
+  transition: background var(--trans), box-shadow var(--trans);
+}
+.panp-blog .related-card:hover { background: var(--white); box-shadow: var(--shadow); }
+.panp-blog .related-card .related-cat {
+  font-family: var(--font-en); font-size: 0.75em; font-weight: 600;
+  letter-spacing: -0.01em; color: var(--accent); margin-bottom: 0.45em;
+}
+.panp-blog .related-card .related-title {
+  font-size: 0.9375em; font-weight: 500; color: var(--black); line-height: 1.5; letter-spacing: -0.015em;
+}
+.panp-blog .post-nav {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.75em;
+  margin: 3em 0;
+}
+.panp-blog .post-nav-item {
+  background: var(--gray-50); border-radius: var(--radius-sm);
+  padding: 1.3em 1.5em; display: block;
+  transition: background var(--trans), box-shadow var(--trans);
+}
+.panp-blog .post-nav-item:hover { background: var(--white); box-shadow: var(--shadow); }
+.panp-blog .post-nav-item.prev { text-align: left; }
+.panp-blog .post-nav-item.next { text-align: right; }
+.panp-blog .post-nav-label {
+  font-family: var(--font-en); font-size: 0.75em; font-weight: 600;
+  letter-spacing: -0.01em; color: var(--accent); margin-bottom: 0.45em;
+}
+.panp-blog .post-nav-title {
+  font-size: 1em; font-weight: 500; color: var(--black); line-height: 1.45; letter-spacing: -0.015em;
+}
+
+/* ──────────────────────────────
+   15. Tooltip / Toast
+────────────────────────────── */
+.panp-blog .tooltip-wrap { position: relative; display: inline-block; }
+.panp-blog .tooltip {
+  position: absolute; bottom: calc(100% + 7px); left: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--white);
+  font-family: var(--font-en); font-size: 0.8125em; font-weight: 500; letter-spacing: -0.01em;
+  padding: 0.45em 0.9em; border-radius: var(--radius-pill); white-space: nowrap;
+  pointer-events: none; opacity: 0;
+  transform: translateX(-50%) translateY(4px);
+  transition: opacity var(--trans), transform var(--trans); z-index: 50;
+}
+.panp-blog .tooltip::after {
+  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 4px solid transparent; border-top-color: rgba(0,0,0,0.8);
+}
+.panp-blog .tooltip-wrap:hover .tooltip { opacity: 1; transform: translateX(-50%) translateY(0); }
+.panp-blog-toast {
+  position: fixed; bottom: 2em; left: 50%;
+  transform: translateX(-50%) translateY(14px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  color: var(--white);
+  font-family: var(--font-en); font-size: 0.9375em; font-weight: 500; letter-spacing: -0.01em;
+  padding: 0.65em 1.6em; border-radius: var(--radius-pill);
+  opacity: 0; pointer-events: none; white-space: nowrap;
+  transition: opacity 0.22s ease, transform 0.22s ease; z-index: 300;
+}
+.panp-blog-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ──────────────────────────────
+   16. レスポンシブ
+   ・768px : タブレット
+   ・600px : スマートフォン（主要ブレーク）
+   ・480px : 小型スマートフォン
+────────────────────────────── */
+
+/* ── タブレット（〜768px） ── */
+@media (max-width: 768px) {
+  /* 記事ヘッダー */
+  .panp-blog .article-title {
+    font-size: clamp(1.625em, 4.5vw, 2.5em);
+  }
+  .panp-blog .article-lead {
+    font-size: 1.0625em;
+  }
+
+  /* 見出し */
+  .panp-blog h2 {
+    font-size: clamp(1.25em, 3.5vw, 1.625em);
+    margin: 3em 0 1.25em;
+  }
+  .panp-blog h3 {
+    font-size: 1.1875em;
+    margin: 2.25em 0 0.75em;
+  }
+
+  /* pullquote */
+  .panp-blog .pullquote {
+    font-size: clamp(1.125em, 2.5vw, 1.5em);
+    padding: 1.5em 0;
+    margin: 2.5em 0;
+  }
+
+  /* 著者カード：少し詰める */
+  .panp-blog .author-card {
+    padding: 1.35em;
+  }
+
+  /* 関連記事グリッド */
+  .panp-blog .related-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr));
+  }
+
+  /* テーブル */
+  .panp-blog .data-table {
+    font-size: 0.9375em;
+  }
+}
+
+/* ── スマートフォン（〜600px） ── */
+@media (max-width: 600px) {
+  /* 記事ヘッダー */
+  .panp-blog .article-header {
+    padding-bottom: 2em;
+    margin-bottom: 2.25em;
+  }
+  .panp-blog .article-title {
+    font-size: clamp(1.5em, 6.5vw, 2em);
+    letter-spacing: -0.025em;
+  }
+  .panp-blog .article-lead {
+    font-size: 1em;
+    line-height: 1.85;
+    margin-bottom: 1.25em;
+  }
+  .panp-blog .article-cover { aspect-ratio: 4 / 3; }
+
+  /* 著者 */
+  .panp-blog .author { gap: 0.6em; }
+  .panp-blog .author-avatar { width: 32px; height: 32px; }
+  .panp-blog .author-name   { font-size: 0.9375em; }
+  .panp-blog .author-role   { font-size: 0.75em; }
+  .panp-blog .article-meta  { font-size: 0.75em; gap: 0.75em; }
+
+  /* TOC */
+  .panp-blog .toc {
+    padding: 1.25em 1.25em;
+    margin-bottom: 2.25em;
+  }
+  .panp-blog .toc-list a { font-size: 0.9375em; }
+  .panp-blog .toc-num    { font-size: 0.6875em; }
+
+  /* 見出し */
+  .panp-blog h2 {
+    font-size: 1.25em;
+    margin: 2.5em 0 1em;
+    letter-spacing: -0.02em;
+  }
+  .panp-blog h3 {
+    font-size: 1.125em;
+    margin: 2em 0 0.65em;
+  }
+
+  /* 本文 */
+  .panp-blog p {
+    font-size: 1em;
+    line-height: 1.85;
+  }
+
+  /* リスト */
+  .panp-blog ul li,
+  .panp-blog ol li {
+    font-size: 1em;
+    line-height: 1.8;
+  }
+
+  /* blockquote */
+  .panp-blog blockquote,
+  .panp-blog .blockquote {
+    padding: 1em 1.1em;
+    font-size: 1em;
+  }
+
+  /* pullquote */
+  .panp-blog .pullquote {
+    font-size: 1.125em;
+    padding: 1.25em 0;
+    margin: 2em 0;
+  }
+
+  /* callout */
+  .panp-blog .callout {
+    padding: 0.9em 1.1em;
+    margin: 1.5em 0;
+    border-radius: var(--radius-sm);
+  }
+  .panp-blog .callout-label { font-size: 0.6875em; }
+  .panp-blog .callout-body  { font-size: 0.9375em; }
+
+  /* figure */
+  .panp-blog .figure { margin: 2em 0; }
+  .panp-blog .figcaption { font-size: 0.75em; }
+
+  /* テーブル */
+  .panp-blog .data-table {
+    font-size: 0.875em;
+    min-width: 420px;
+  }
+  .panp-blog .data-table th { padding: 0.75em 0.9em; font-size: 0.6875em; }
+  .panp-blog .data-table td { padding: 0.75em 0.9em; }
+
+  /* シェア・タグ */
+  .panp-blog .share-btns {
+    gap: 0.4em;
+    padding: 1.25em 0;
+    margin: 2em 0;
+  }
+  .panp-blog .share-btn { font-size: 0.8125em; padding: 0.45em 0.9em; }
+  .panp-blog .tag       { font-size: 0.75em; padding: 0.2em 0.75em; }
+
+  /* 著者カード */
+  .panp-blog .author-card {
+    flex-direction: column;
+    padding: 1.25em;
+    gap: 1em;
+    border-radius: var(--radius);
+  }
+  .panp-blog .author-card .avatar { width: 48px; height: 48px; }
+  .panp-blog .author-card .author-name { font-size: 1em; }
+  .panp-blog .author-card .author-bio  { font-size: 0.9375em; }
+
+  /* 関連記事 */
+  .panp-blog .related-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+  }
+  .panp-blog .related-card { padding: 1em 1.1em; }
+  .panp-blog .related-card .related-title { font-size: 0.9375em; }
+
+  /* ポストナビ */
+  .panp-blog .post-nav {
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+  }
+  .panp-blog .post-nav-item { padding: 1em 1.25em; }
+  .panp-blog .post-nav-title { font-size: 0.9375em; }
+}
+
+/* ── 小型スマートフォン（〜480px） ── */
+@media (max-width: 480px) {
+  .panp-blog .article-title {
+    font-size: clamp(1.375em, 7vw, 1.75em);
+  }
+  .panp-blog h2 { font-size: 1.1875em; }
+  .panp-blog h3 { font-size: 1.0625em; }
+  .panp-blog p,
+  .panp-blog ul li,
+  .panp-blog ol li { font-size: 0.9375em; }
+
+  .panp-blog .toc { padding: 1em 1em; }
+  .panp-blog .toc-list a { font-size: 0.875em; }
+
+  .panp-blog .callout { padding: 0.85em 1em; }
+
+  /* テーブルを縦スクロールより読みやすく */
+  .panp-blog .data-table {
+    font-size: 0.8125em;
+    min-width: 360px;
+  }
+
+  /* toast を画面幅に収める */
+  .panp-blog-toast {
+    font-size: 0.875em;
+    padding: 0.6em 1.25em;
+    max-width: calc(100vw - 2em);
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* ════════════════════════════════
+   17. ページレイアウト
+════════════════════════════════ */
+.panp-blog .page-wrap {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 3em 1.5em 6em;
+}
+
+/* ── ヒーローバナー ── */
+.panp-blog .hero-banner {
+  background: #1d1d1f;
+  border-radius: 20px;
+  padding: 3.5em 3em;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+.panp-blog .hero-banner::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(0,113,227,0.35) 0%, transparent 70%);
+  pointer-events: none;
+}
+.panp-blog .hero-cat {
+  display: inline-block;
+  font-size: 0.75em; font-weight: 600; letter-spacing: 0.02em;
+  color: #0071e3;
+  margin-bottom: 1.25em;
+  text-transform: uppercase;
+}
+.panp-blog .hero-title {
+  font-size: clamp(2em, 5vw, 3em);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0 0 1.25em;
+}
+.panp-blog .hero-lead {
+  font-size: 1.0625em; line-height: 1.75; letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.65);
+  margin: 0 0 2.25em;
+  max-width: 520px;
+}
+.panp-blog .hero-meta {
+  display: flex; gap: 1.25em; align-items: center;
+  font-size: 0.8125em; color: rgba(255,255,255,0.4);
+  letter-spacing: -0.01em;
+}
+.panp-blog .hero-meta svg {
+  width: 12px; height: 12px; stroke: currentColor; fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+  margin-right: 0.3em; vertical-align: middle;
+}
+
+/* ── ヒーロー数字 ── */
+.panp-blog .hero-number-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #d2d2d7;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2.5em;
+}
+.panp-blog .hero-num-item {
+  background: #fff;
+  padding: 1.75em 1.5em;
+  text-align: center;
+}
+.panp-blog .hero-num-item:first-child { border-radius: 16px 0 0 16px; }
+.panp-blog .hero-num-item:last-child  { border-radius: 0 16px 16px 0; }
+.panp-blog .hero-num-label {
+  font-size: 0.75em; font-weight: 600; color: #86868b;
+  letter-spacing: 0.01em; text-transform: uppercase; margin-bottom: 0.5em;
+}
+.panp-blog .hero-num-value {
+  font-size: clamp(1.75em, 4vw, 2.5em);
+  font-weight: 700; letter-spacing: -0.04em; line-height: 1;
+  color: #1d1d1f;
+}
+.panp-blog .hero-num-value.accent { color: #0071e3; }
+.panp-blog .hero-num-sub {
+  font-size: 0.75em; color: #86868b; margin-top: 0.35em;
+  letter-spacing: -0.01em;
+}
+
+/* ── 記事本文エリア ── */
+.panp-blog .article-body { padding: 2.5em 2.25em; }
+
+/* ── セクション区切り ── */
+.panp-blog .section-header {
+  display: flex; align-items: center; gap: 0.85em;
+  margin: 4em 0 1.5em;
+}
+.panp-blog .section-header:first-of-type { margin-top: 0; }
+.panp-blog .section-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #0071e3; color: #fff;
+  font-size: 0.6875em; font-weight: 700; letter-spacing: 0.02em;
+  text-transform: uppercase;
+  width: 28px; height: 28px; border-radius: 8px;
+  flex-shrink: 0;
+}
+.panp-blog .section-header h2 {
+  font-size: clamp(1.375em, 3vw, 1.75em);
+  font-weight: 700; letter-spacing: -0.025em; line-height: 1.2;
+  color: #1d1d1f;
+  margin: 0;
+}
+
+/* ── 節約スタットカード ── */
+.panp-blog .stat-inline {
+  display: inline-flex; align-items: baseline; gap: 0.2em;
+  background: rgba(0,113,227,0.08);
+  border-radius: 8px;
+  padding: 0.1em 0.5em;
+  vertical-align: baseline;
+}
+.panp-blog .stat-inline .amount {
+  font-size: 1.1em; font-weight: 700; color: #0071e3;
+  letter-spacing: -0.02em;
+}
+.panp-blog .stat-card {
+  background: linear-gradient(135deg, #0071e3 0%, #0051a8 100%);
+  border-radius: 16px;
+  padding: 2em 2.25em;
+  margin: 2em 0;
+  color: #fff;
+  display: flex; align-items: center; gap: 2em;
+}
+.panp-blog .stat-card-num {
+  font-size: clamp(2.5em, 6vw, 3.5em);
+  font-weight: 700; letter-spacing: -0.05em; line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.panp-blog .stat-card-detail { flex: 1; }
+.panp-blog .stat-card-title {
+  font-size: 1em; font-weight: 600; letter-spacing: -0.01em;
+  margin-bottom: 0.4em;
+  opacity: 0.95;
+}
+.panp-blog .stat-card-desc {
+  font-size: 0.875em; line-height: 1.65; letter-spacing: -0.005em;
+  opacity: 0.72;
+}
+
+/* ── 損失リスト ── */
+.panp-blog .loss-list {
+  display: flex; flex-direction: column; gap: 0.75em;
+  margin: 1.75em 0;
+}
+.panp-blog .loss-item {
+  display: flex; align-items: center; gap: 1em;
+  background: #f5f5f7; border-radius: 12px;
+  padding: 1em 1.25em;
+}
+.panp-blog .loss-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.125em; flex-shrink: 0;
+}
+.panp-blog .loss-icon.red    { background: rgba(255,59,48,0.1); }
+.panp-blog .loss-icon.orange { background: rgba(255,149,0,0.1); }
+.panp-blog .loss-icon.blue   { background: rgba(0,113,227,0.1); }
+.panp-blog .loss-label  { font-size: 0.8125em; font-weight: 600; color: #1d1d1f; margin-bottom: 0.15em; letter-spacing: -0.01em; }
+.panp-blog .loss-amount { font-size: 0.875em; font-weight: 700; color: #0071e3; letter-spacing: -0.01em; }
+.panp-blog .loss-note   { font-size: 0.75em; color: #86868b; letter-spacing: -0.005em; }
+
+/* ── チェックリスト ── */
+.panp-blog .check-list { list-style: none; padding: 0; margin: 1.25em 0 1.75em; display: flex; flex-direction: column; gap: 0.5em; }
+.panp-blog .check-list li {
+  display: flex; align-items: center; gap: 0.75em;
+  font-size: 1.0625em; line-height: 1.7; color: #6e6e73;
+  padding: 0.6em 1em;
+  background: #f5f5f7; border-radius: 10px;
+  letter-spacing: -0.003em;
+}
+
+/* ── 都市伝説 callout ── */
+.panp-blog .myth-item {
+  border-radius: 12px; background: #f5f5f7;
+  padding: 1.1em 1.4em; margin: 0.75em 0;
+}
+.panp-blog .myth-label {
+  font-size: 0.875em; font-weight: 700; color: #1d1d1f;
+  margin-bottom: 0.4em; letter-spacing: -0.01em;
+}
+.panp-blog .myth-label .x-mark { color: #ff3b30; margin-right: 0.3em; }
+.panp-blog .myth-
+/* ── まとめテーブル ── */
+.panp-blog .summary-table-wrap {
+  margin: 2em 0; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.panp-blog .summary-table { width: 100%; border-collapse: collapse; font-size: 0.9375em; }
+.panp-blog .summary-table thead tr { background: #1d1d1f; }
+.panp-blog .summary-table th {
+  font-size: 0.75em; font-weight: 600; color: rgba(255,255,255,0.6);
+  text-align: left; padding: 0.9em 1.25em;
+  letter-spacing: 0.01em; text-transform: uppercase;
+}
+.panp-blog .summary-table tbody tr { border-bottom: 1px solid #f0f0f5; background: #fff; }
+.panp-blog .summary-table tbody tr:last-child { border-bottom: none; background: #f5f5f7; }
+.panp-blog .summary-table td { padding: 0.85em 1.25em; color: #6e6e73; letter-spacing: -0.003em; }
+.panp-blog .summary-table td:first-child { font-weight: 600; color: #1d1d1f; white-space: nowrap; }
+.panp-blog .summary-table td.amount { font-weight: 700; color: #0071e3; white-space: nowrap; }
+.panp-blog .summary-table tr:last-child td { font-weight: 700; color: #1d1d1f; font-size: 1em; }
+.panp-blog .summary-table tr:last-child td.amount { font-size: 1.125em; color: #0071e3; }
+
+/* ── CTA エリア ── */
+.panp-blog .cta-box {
+  background: linear-gradient(135deg, #1d1d1f 0%, #2d2d2f 100%);
+  border-radius: 20px;
+  padding: 2.5em 2.75em;
+  margin: 3em 0 0;
+  color: #fff;
+}
+.panp-blog .cta-box-title {
+  font-size: 1.5em; font-weight: 700; letter-spacing: -0.025em;
+  margin-bottom: 0.5em;
+}
+.panp-blog .cta-box-sub {
+  font-size: 1em; color: rgba(255,255,255,0.6);
+  line-height: 1.65; margin-bottom: 1.75em; letter-spacing: -0.01em;
+}
+
+/* ── 出典 ── */
+.panp-blog .source-block {
+  background: #f5f5f7; border-radius: 12px;
+  padding: 1.25em 1.5em;
+  font-size: 0.8125em; line-height: 1.75; color: #86868b;
+  letter-spacing: -0.005em; margin-top: 2.5em;
+}
+.panp-blog .source-block cite { font-style: normal; }
+
+/* ════════════════════════════════
+   18. ページレイアウト レスポンシブ
+════════════════════════════════ */
+
+/* ── タブレット（〜768px） ── */
+@media (max-width: 768px) {
+  .panp-blog .page-wrap { padding: 2em 1.25em 5em; }
+  .panp-blog .hero-banner { padding: 2.75em 2.25em; }
+  .panp-blog .hero-num-item { padding: 1.5em 1.1em; }
+  .panp-blog .hero-num-value { font-size: clamp(1.5em, 4.5vw, 2.25em); }
+  .panp-blog .stat-card { padding: 1.75em 1.75em; gap: 1.5em; }
+  .panp-blog .stat-card-num { font-size: clamp(2em, 5vw, 3em); }
+  .panp-blog .cta-box { padding: 2.25em 2.25em; }
+  .panp-blog .summary-table th { padding: 0.75em 1em; }
+  .panp-blog .summary-table td { padding: 0.75em 1em; }
+}
+
+/* ── スマートフォン（〜600px） ── */
+@media (max-width: 600px) {
+  .panp-blog .page-wrap { padding: 1em 0.75em 4em; }
+
+  .panp-blog .hero-banner { padding: 2em 1.5em; border-radius: 16px; }
+  .panp-blog .hero-title { font-size: clamp(1.625em, 7vw, 2em); letter-spacing: -0.025em; }
+  .panp-blog .hero-lead { font-size: 0.9375em; margin-bottom: 1.75em; }
+  .panp-blog .hero-meta { font-size: 0.75em; gap: 0.9em; }
+
+  .panp-blog .hero-number-row { grid-template-columns: 1fr 1fr; border-radius: 12px; margin-bottom: 0.75em; }
+  .panp-blog .hero-number-row .hero-num-item:nth-child(1) { border-radius: 12px 0 0 0; }
+  .panp-blog .hero-number-row .hero-num-item:nth-child(2) { border-radius: 0 12px 0 0; }
+  .panp-blog .hero-number-row .hero-num-item:nth-child(3) { grid-column: 1 / -1; border-radius: 0 0 12px 12px; border-top: 1px solid #d2d2d7; }
+  .panp-blog .hero-num-item { padding: 1.25em 1em; }
+  .panp-blog .hero-num-value { font-size: clamp(1.5em, 6vw, 2em); }
+  .panp-blog .hero-num-label { font-size: 0.6875em; }
+  .panp-blog .hero-num-sub   { font-size: 0.6875em; }
+
+  .panp-blog .section-header { gap: 0.65em; margin: 3em 0 1.1em; }
+  .panp-blog .section-badge  { width: 24px; height: 24px; font-size: 0.625em; border-radius: 6px; }
+  .panp-blog .section-header h2 { font-size: clamp(1.125em, 4.5vw, 1.5em); }
+
+  .panp-blog .stat-card { flex-direction: column; align-items: flex-start; gap: 0.75em; padding: 1.5em; border-radius: 12px; }
+  .panp-blog .stat-card-num { font-size: clamp(2em, 8vw, 2.75em); }
+  .panp-blog .stat-card-title { font-size: 0.9375em; }
+  .panp-blog .stat-card-desc  { font-size: 0.8125em; }
+
+  .panp-blog .loss-item { padding: 0.85em 1em; gap: 0.75em; }
+  .panp-blog .loss-icon { width: 32px; height: 32px; font-size: 1em; border-radius: 8px; }
+  .panp-blog .loss-label  { font-size: 0.8125em; }
+  .panp-blog .loss-amount { font-size: 0.875em; }
+  .panp-blog .loss-note   { font-size: 0.6875em; }
+
+  .panp-blog .check-list li { font-size: 0.9375em; padding: 0.55em 0.85em; }
+
+  .panp-blog .myth-item  { padding: 0.9em 1em; border-radius: 10px; }
+  .panp-blog .myth-label { font-size: 0.8125em; }
+  .panp-blog .myth-body  { font-size: 0.875em; }
+
+  .panp-blog .summary-table-wrap { border-radius: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .panp-blog .summary-table { min-width: 400px; font-size: 0.875em; }
+  .panp-blog .summary-table th { padding: 0.7em 0.9em; font-size: 0.6875em; }
+  .panp-blog .summary-table td { padding: 0.7em 0.9em; font-size: 0.875em; }
+  .panp-blog .summary-table tr:last-child td { font-size: 0.9375em; }
+
+  .panp-blog .cta-box { padding: 2em 1.5em; border-radius: 16px; margin-top: 2em; }
+  .panp-blog .cta-box-title { font-size: 1.25em; }
+  .panp-blog .cta-box-sub   { font-size: 0.9375em; margin-bottom: 1.5em; }
+
+  .panp-blog .source-block { padding: 1em 1.1em; font-size: 0.75em; }
+}
+
+/* ── 小型スマートフォン（〜480px） ── */
+@media (max-width: 480px) {
+  .panp-blog .page-wrap { padding: 0.75em 0.5em 3.5em; }
+  .panp-blog .hero-banner { padding: 1.75em 1.25em; border-radius: 14px; }
+  .panp-blog .hero-title { font-size: clamp(1.5em, 8vw, 1.875em); }
+  .panp-blog .hero-lead  { font-size: 0.9em; }
+  .panp-blog .hero-number-row { border-radius: 10px; }
+  .panp-blog .hero-num-item { padding: 1em 0.85em; }
+  .panp-blog .hero-num-value { font-size: clamp(1.375em, 7vw, 1.75em); }
+  .panp-blog .stat-card { padding: 1.25em; border-radius: 10px; }
+  .panp-blog .stat-card-num { font-size: clamp(1.75em, 9vw, 2.5em); }
+  .panp-blog .section-header h2 { font-size: clamp(1.0625em, 5vw, 1.375em); }
+  .panp-blog .cta-box { padding: 1.5em 1.25em; border-radius: 14px; }
+  .panp-blog .cta-box-title { font-size: 1.125em; }
+}

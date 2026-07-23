@@ -1,0 +1,40 @@
+{%- style -%}
+  .qcoltd-video-auto-loop-wrap, .qcoltd-video-auto-loop-wrap video {
+    width: 100%;
+  }
+{%- endstyle -%}
+
+<div class="qcoltd-video-auto-loop-wrap">
+  {{
+    section.settings.video
+    | video_tag:
+      image_size: '1100x',
+      autoplay: true,
+      loop: true,
+      controls: false,
+      muted: true
+  }}
+</div>
+
+{% schema %}
+{
+  "name": "動画(自動再生)",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:sections.video.settings.video.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "動画(自動再生)"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,690 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_g3bBJk": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_EBVfEk": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ article.title }}",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EBVfEk"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "{{ article.image }}",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_fndqGd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4Y3EEm": {
+          "type": "heading",
+          "settings": {
+            "heading": "【対談】日々のメンテが走りを変えるー</br>元オリンピアン飯島誠 × 『PANP』秋吉一貴",
+            "heading_size": "h2"
+          }
+        },
+        "text_gGAE4U": {
+          "type": "text",
+          "settings": {
+            "text": "<p>空気圧を整えるだけで、ペダルは軽く、走りは安心に。<br/>元オリンピアン飯島誠さんと『PANP』秋吉一貴さんが、タイヤと空気圧の本当の重要性と、誰でも続けられるメンテ術を語ります。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4Y3EEm",
+        "text_gGAE4U"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_kycdKH": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_kRRHcY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/014A3733.jpg",
+            "title": "元 オリンピア　飯島 誠さん",
+            "text": "<p>ブリヂストンサイクル株式会社</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_LgeJjh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/014A3635.jpg",
+            "title": "PANP　秋吉 一貴",
+            "text": "<p>株式会社TradeFKJapan</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_kRRHcY",
+        "column_LgeJjh"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "half",
+        "image_ratio": "circle",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-0a530325-dd24-4918-845a-b3aebaf5ffe0",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "speech_bubble_9fhmfM": {
+      "type": "speech-bubble",
+      "blocks": {
+        "bubble_TXtjxg": {
+          "type": "bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3733.jpg",
+            "avatar_alt_text": "飯島",
+            "speaker_name": "飯島",
+            "content_text": "<p>私は自転車競技のトラックレースという種目でオリンピックのシドニー、アテネ、北京と3大会選手として出場し、引退後ブリヂストンサイクルでブランド推進を担当しながら、ツールド九州2025の公式解説者としても活動しています。</p>",
+            "bubble_alignment": "left"
+          }
+        },
+        "bubble_CwUrWm": {
+          "type": "bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3635.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "秋吉",
+            "content_text": "<p>福岡・博多に本社を置く株式会TradeFKJapanの代表を務めています。電動空気入れ『PANP』の企画・製造・販売を手がけるほか、福岡県観光連盟と連携し、サイクルツーリズム推進事業にも取り組んでいます。</p>",
+            "bubble_alignment": "right"
+          }
+        }
+      },
+      "block_order": [
+        "bubble_TXtjxg",
+        "bubble_CwUrWm"
+      ],
+      "name": "会話バブル",
+      "settings": {
+        "section_title": "お二人の簡単なプロフィールを教えて下さい。",
+        "heading_size": "h2",
+        "section_description": "",
+        "heading_alignment": "left",
+        "full_width": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collage_q6fwhx": {
+      "type": "collage",
+      "blocks": {
+        "image_37fN8D": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BC-00020.jpg"
+          }
+        },
+        "image_kRnMEn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BC-00040.jpg"
+          }
+        },
+        "image_4hN4cg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/014A3527.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_37fN8D",
+        "image_kRnMEn",
+        "image_4hN4cg"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "none",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "speech_bubble_RbFaTL": {
+      "type": "speech-bubble",
+      "blocks": {
+        "bubble_JGghHn": {
+          "type": "bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3733.jpg",
+            "avatar_alt_text": "飯島",
+            "speaker_name": "飯島",
+            "content_text": "<p><strong>福岡の朝倉で毎年開催されているあさくらサイクルフェスティバル</strong>ですね。</p>",
+            "bubble_alignment": "left"
+          }
+        },
+        "bubble_VJWqRg": {
+          "type": "bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3635.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "秋吉",
+            "content_text": "<p>私たちは参加者の方々へのタイヤメンテのサポータとして参加し、そのブースに飯島さんが立ち寄ってくださったのがきっかけですね。</p>",
+            "bubble_alignment": "right"
+          }
+        }
+      },
+      "block_order": [
+        "bubble_JGghHn",
+        "bubble_VJWqRg"
+      ],
+      "name": "会話バブル",
+      "settings": {
+        "section_title": "お二人の出会いを教えて下さい。",
+        "heading_size": "h2",
+        "section_description": "",
+        "heading_alignment": "left",
+        "full_width": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collage_6nnfQM": {
+      "type": "collage",
+      "blocks": {
+        "image_43BPkt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DSC01687.jpg"
+          }
+        },
+        "image_RxUTJT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DSC01691.jpg"
+          }
+        },
+        "image_6k9TcM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/asakura-start.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_43BPkt",
+        "image_RxUTJT",
+        "image_6k9TcM"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "none",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "speech_bubble_8TEyqa": {
+      "type": "speech-bubble",
+      "blocks": {
+        "customer_bubble_VA7QdC": {
+          "type": "customer_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3733.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "飯島",
+            "content_text": "<p>もちろんです。<strong>タイヤは唯一地面と接する部分であり、安全性・パフォーマンスに直結します。</strong>例えばロードバイクでは、空気圧もタイヤの太さや天候に応じて細かく調整します。適切な調整が安心感と安定した走行につながります。<br/></p>"
+          }
+        },
+        "staff_bubble_Hhm7aM": {
+          "type": "staff_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3748.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "秋吉",
+            "content_text": "<p>タイヤは「安全」「快適」「効率」を支える心臓部です。<strong>空気圧が低ければ転倒やパンクリスクが増し、高すぎればグリップが落ちて安定性を損ないます。</strong>自動車トラブルで一番多いのは、タイヤ空気圧の不足によるパンクです。また<strong>JAFの実車テストでも、適正空気圧から30％減ると燃費が4.6％悪化する</strong>という結果が出ています。空気圧管理は安全性にも経済性にも大きな影響を与えるのです。<br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "customer_bubble_VA7QdC",
+        "staff_bubble_Hhm7aM"
+      ],
+      "name": "会話バブル",
+      "settings": {
+        "section_title": "タイヤと空気圧の重要性",
+        "heading_size": "h2",
+        "section_description": "<p>そもそもタイヤはそんなに重要なパーツなのでしょうか？</p>",
+        "heading_alignment": "left",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "speech_bubble_fRCxHM": {
+      "type": "speech-bubble",
+      "blocks": {
+        "customer_bubble_BJUQgz": {
+          "type": "customer_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3733.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "飯島",
+            "content_text": "<p><strong>プロでも空気圧調整には気を使います。</strong>倒し込みの挙動が不安定になると非常に危険ですし、私たちは<strong>テスト走行で「内側に巻き込む感覚」や「食いつきの甘さ」</strong>など、数値化できない部分までエンジニアにフィードバックしています。</p>"
+          }
+        },
+        "staff_bubble_8LUHjc": {
+          "type": "staff_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3748.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "秋吉",
+            "content_text": "<p>私たちは<strong>そうした繊細な調整を、誰でも簡単に実現できるようにと開発したのが『PANP』</strong>です。数値で確認し、ボタン一つで適正空気圧まで自動充填できます。<br/>一人でも多くの方々へ安心と安全を提供したいという一心で誰でも手軽で使用できる電動空気入れを開発しました。</p>"
+          }
+        },
+        "customer_bubble_FC6XLt": {
+          "type": "customer_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3733.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "飯島",
+            "content_text": "<p>私自身も愛用していますが、本当に便利ですね。私の様なロードユーザーには強い味方になりますし、主婦の方々にも簡単に扱える商品なのでオススメです。<br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "customer_bubble_BJUQgz",
+        "staff_bubble_8LUHjc",
+        "customer_bubble_FC6XLt"
+      ],
+      "name": "会話バブル",
+      "settings": {
+        "section_title": "メンテナンスの大切さと『PANP』の可能性",
+        "heading_size": "h2",
+        "section_description": "<p>なかなか日々のメンテナンスは面倒で後回しになってしまいますが、何がそんな重要ですか。</p>",
+        "heading_alignment": "left",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "speech_bubble_RHXgdw": {
+      "type": "speech-bubble",
+      "blocks": {
+        "customer_bubble_jNKPK3": {
+          "type": "customer_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3733.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "飯島",
+            "content_text": "<p>企業、自治体、教育機関と連携・協力し、未就学児から小・中・高校生から高齢者まで、ライフステージごとに異なる自転車に関する課題の解決を目指して、交通安全啓発活動を実施しています。<br/>私はこの活動を通して<strong>１件でも事故を減らし、自転車をより安全に楽しんでいただける様、活動しています。</strong></p>"
+          }
+        },
+        "staff_bubble_p7YFAH": {
+          "type": "staff_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3748.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "秋吉",
+            "content_text": "<p>私たちも今後は、警察や自治体と連携して交通安全キャンペーンを展開していきたいと考えています。<br/>是非飯島さんとご一緒できれば嬉しいです。</p>"
+          }
+        },
+        "customer_bubble_4y3fT3": {
+          "type": "customer_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3733.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "飯島",
+            "content_text": "<p>是非やりましょう。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "customer_bubble_jNKPK3",
+        "staff_bubble_p7YFAH",
+        "customer_bubble_4y3fT3"
+      ],
+      "name": "会話バブル",
+      "settings": {
+        "section_title": "地域貢献と安全啓発",
+        "heading_size": "h2",
+        "section_description": "<p>飯島さんは安全啓発を積極的に実施されているとのことですが、どの様なことをされているのでしょうか。</p>",
+        "heading_alignment": "left",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collage_gLA4Ex": {
+      "type": "collage",
+      "blocks": {
+        "image_HVFYVy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_8431.heic"
+          }
+        },
+        "image_3kVCtz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_8441_2.heic"
+          }
+        },
+        "image_4ptQed": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_8469.heic"
+          }
+        }
+      },
+      "block_order": [
+        "image_HVFYVy",
+        "image_3kVCtz",
+        "image_4ptQed"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "none",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "speech_bubble_G8MKer": {
+      "type": "speech-bubble",
+      "blocks": {
+        "customer_bubble_p6xnxt": {
+          "type": "customer_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3733.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "飯島",
+            "content_text": "<p>九州5県がコースとなる国際イベントです。<br/>普段皆さんが利用している道がコースとなり、<strong>身近に世界の有名選手の走りを肌で感じることができます。</strong><br/>またレース当日は会場付近でイベントも開催され、<strong>ご家族でも楽しめる</strong>イベンとなっているので、是非お越しください。<br/></p>"
+          }
+        },
+        "staff_bubble_FBPqXU": {
+          "type": "staff_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3748.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "秋吉",
+            "content_text": "<p>私たちも<strong>メンテナンスの観点から関わり、自転車文化をさらに広げていきたい</strong>と思っています。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "customer_bubble_p6xnxt",
+        "staff_bubble_FBPqXU"
+      ],
+      "name": "会話バブル",
+      "settings": {
+        "section_title": "ツールド九州2025への思い",
+        "heading_size": "h2",
+        "section_description": "<p>最後に飯島さんが解説をされるツール・ド・九州について教えて下さい。</p>",
+        "heading_alignment": "left",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "speech_bubble_hi6L3X": {
+      "type": "speech-bubble",
+      "blocks": {
+        "customer_bubble_XKBiak": {
+          "type": "customer_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3733.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "飯島",
+            "content_text": "<p>こちらこそありがとうございました。まずは簡単な空気圧メンテから始めて、自転車をより楽しんでいただきたいです。<br/></p>"
+          }
+        },
+        "staff_bubble_XwrbXY": {
+          "type": "staff_bubble",
+          "settings": {
+            "avatar_image": "shopify://shop_images/014A3748.jpg",
+            "avatar_alt_text": "",
+            "speaker_name": "秋吉",
+            "content_text": "<p>『PANP』がその第一歩になれば嬉しいです。本日はありがとうございました。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "customer_bubble_XKBiak",
+        "staff_bubble_XwrbXY"
+      ],
+      "name": "会話バブル",
+      "settings": {
+        "section_title": "本日は有難う御座いました。お二人のお話から、日々のメンテナンスの重要性と自転車の楽しさを改めて実感しました。",
+        "heading_size": "h2",
+        "section_description": "",
+        "heading_alignment": "left",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_krhPGK": {
+      "type": "rich-text",
+      "blocks": {
+        "text_87aLBG": {
+          "type": "text",
+          "settings": {
+            "text": "<p><a href=\"https://www.bridgestone.co.jp/csr/soc/\" target=\"_blank\" title=\"日本国内での社会貢献活動\">BridgeStone | 日本国内での社会貢献活動</a><a href=\"https://www.bridgestone.co.jp/csr/soc/\" target=\"_blank\" title=\"日本国内での社会貢献活動\"><br/></a><a href=\"https://tourdekyushu.asia/\">マイナビ ツール・ド・九州2025</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_87aLBG"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_emDEqm": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "RIDEシリーズ",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "ride-series",
+        "products_to_show": 4,
+        "columns_desktop": 3,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_NRUib4": {
+      "type": "featured-blog",
+      "disabled": true,
+      "settings": {
+        "heading": "Blog posts",
+        "heading_size": "h1",
+        "blog": "infomation",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "medium"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": false
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "title",
+        "content",
+        "share"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".article-template {margin: 0px 0px 100px;}",
+        "h2 {margin: 50px 0 0 0; border-left: 5px solid #000000; /*線の設定*/ padding: 2px 8px; /*余白の設定*/}",
+        "iframe.youtube-16-9 {width: 100%; height: auto; aspect-ratio: 16 / 9;}",
+        "li ul {border: none !important;}",
+        ".rte ul,.rte ol {border-radius: 8px; list-style: none; padding: 2rem; background: #fff; border: 3px solid #333;}",
+        "li a {color: #333; text-decoration: none;}",
+        "video {margin: auto;}"
+      ],
+      "settings": {}
+    },
+    "featured_collection_ranking_ApYtjJ": {
+      "type": "featured-collection-ranking",
+      "disabled": true,
+      "settings": {
+        "title": "Ranking",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "ranking",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_g3bBJk",
+    "rich_text_fndqGd",
+    "multicolumn_kycdKH",
+    "speech_bubble_9fhmfM",
+    "collage_q6fwhx",
+    "speech_bubble_RbFaTL",
+    "collage_6nnfQM",
+    "speech_bubble_8TEyqa",
+    "speech_bubble_fRCxHM",
+    "speech_bubble_RHXgdw",
+    "collage_gLA4Ex",
+    "speech_bubble_G8MKer",
+    "speech_bubble_hi6L3X",
+    "rich_text_krhPGK",
+    "featured_collection_emDEqm",
+    "featured_blog_NRUib4",
+    "main",
+    "featured_collection_ranking_ApYtjJ"
+  ]
+}

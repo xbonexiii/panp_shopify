@@ -1,0 +1,341 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_QrPUWy": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n.article-template {\n  margin: 0px 0px 100px;\n}\n\niframe.youtube-16-9 {\n  width: 100%;\n  height: auto;\n  aspect-ratio: 16 / 9;\n}\nli ul {\n  border: none !important;\n}\n.rte ul,\n.rte ol {\n  border-radius: 8px;\n  list-style: none;\n  padding: 2rem;\n  background: #fff;\n  border: 3px solid #333;\n}\nli a {\n  color: #333;\n  text-decoration: none;\n}\nvideo {\n  margin: auto;\n}\n</style>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_LJERBd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ff7dVt": {
+          "type": "heading",
+          "settings": {
+            "heading": "CONTACT US",
+            "heading_size": "h1"
+          }
+        },
+        "text_TXyjQE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Contact us at WhatsApp for more information</p>"
+          }
+        },
+        "button_gHG4Qk": {
+          "type": "button",
+          "settings": {
+            "button_label": "WhatsApp PANP",
+            "button_link": "https://wa.me/81926002657",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ff7dVt",
+        "text_TXyjQE",
+        "button_gHG4Qk"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5837008b-ab06-4516-8237-5909ca63347f",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_PV8NkF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_yb6n87": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_B06E768D3C60-1.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_yb6n87"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_F8iW4V": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_jQFfQt": {
+          "type": "heading",
+          "settings": {
+            "heading": "WhatsApp",
+            "heading_size": "h1"
+          }
+        },
+        "text_nmkaU7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Please download the WhatsApp app and contact us there.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_xT7nFL": {
+          "type": "button",
+          "settings": {
+            "button_label": "WhatsApp",
+            "button_link": "https://www.whatsapp.com/download?lang=us",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_jQFfQt",
+        "text_nmkaU7",
+        "button_xT7nFL"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/IMG_B06E768D3C60-1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-5837008b-ab06-4516-8237-5909ca63347f",
+        "color_scheme": "scheme-5837008b-ab06-4516-8237-5909ca63347f",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "h1 {text-align: center;}"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "featured_blog_Tbi7th": {
+      "type": "featured-blog",
+      "disabled": true,
+      "settings": {
+        "heading": "メディア紹介",
+        "heading_size": "h1",
+        "blog": "media",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_MkCegf": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_7EGG3F": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANPシリーズのラインナップはこちら",
+            "heading_size": "h2"
+          }
+        },
+        "text_WPceFQ": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "buttons_Q4wgWi": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "商品一覧",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7EGG3F",
+        "text_WPceFQ",
+        "buttons_Q4wgWi"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/DSC09847_128.jpg",
+        "image_2": "shopify://shop_images/DSC09843_129.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "featured_collection_ranking_yx6ctF": {
+      "type": "featured-collection-ranking",
+      "disabled": true,
+      "settings": {
+        "title": "Ranking",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "ranking",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_nUCKVn": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_9XPRzt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I am not sure if the air pressure is correct.",
+            "icon": "check_mark",
+            "row_content": "<p>Please <a href=\"https://panp.jp/blogs/safety-security/perfect-airbag-trivia\" title=\"https://panp.jp/blogs/safety-security/perfect-airbag-trivia\">check</a> the guide below for recommended air pressure.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_j7PVLx": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Air leaks when inflating a Presta valve.",
+            "icon": "check_mark",
+            "row_content": "<p>The Presta adapter may not be attached securely.<br/>Please check the following.<br/>The Presta adapter uses a screw-on design.<br/>Turn it clockwise until it stops and feels secure.<br/>A video guide is also available to show how to inflate Presta valves.<br/>If air still leaks, please contact us using the link below.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_pyw39X": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "The O-ring on the Presta adapter comes off.",
+            "icon": "check_mark",
+            "row_content": "<p>Please check the two points below.</p><p>[1] How to attach the Presta adapter<br/>The Presta adapter uses a screw-on design.<br/>Turn it clockwise until it stops and feels secure.</p><p>[2] How to remove the Presta adapter<br/>Hold the Presta adapter firmly with one hand.<br/>With the other hand, turn the U.S. air hose counterclockwise to loosen it.<br/>Then rotate the Presta adapter counterclockwise and remove it from the valve.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dARQ4E": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "The hose and the main unit become hot.",
+            "icon": "check_mark",
+            "row_content": "<p>The unit, U.S. air hose, and hose connection may feel warm during use.<br/><br/>This product includes a safety system that shuts off power before overheating.<br/><br/>This helps ensure safe operation.<br/><br/>However, parts may remain hot right after continuous use.<br/><br/>Please wait a short time before touching or removing the hose.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_DHwXUM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "The air pressure does not display for U.K. valves.",
+            "icon": "check_mark",
+            "row_content": "<p>Due to the valve design, pressure does not show when simply connected.<br/>The smart inflator measures pressure during inflation.<br/>It detects the force pushing back from air inside the tube.<br/>For this reason, pressure displays only while inflating.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_9XPRzt",
+        "collapsible_row_j7PVLx",
+        "collapsible_row_pyw39X",
+        "collapsible_row_dARQ4E",
+        "collapsible_row_DHwXUM"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "FAQ",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_QrPUWy",
+    "rich_text_LJERBd",
+    "multicolumn_PV8NkF",
+    "image_with_text_F8iW4V",
+    "main",
+    "featured_blog_Tbi7th",
+    "image_banner_MkCegf",
+    "featured_collection_ranking_yx6ctF",
+    "collapsible_content_nUCKVn"
+  ]
+}

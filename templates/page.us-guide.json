@@ -1,0 +1,221 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_gJJMG9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_EcLtcd": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/ride-sam.jpg",
+            "title": "PANP RIDE",
+            "text": "<p><a href=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/0503PANP__RIDE.pdf?v=1715839100\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/0503PANP__RIDE.pdf?v=1715839100\">取り扱い説明書</a></p>",
+            "link_label": "操作ガイド",
+            "link": "shopify://pages/panp-ride-use"
+          }
+        },
+        "column_4Ff3jE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/itemimage_ridepro.jpg",
+            "title": "PANP RIDE PRO",
+            "text": "<p><a href=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/PANP__RIDEPROol.pdf?v=1721239343\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/PANP__RIDEPROol.pdf?v=1721239343\">取り扱い説明書</a></p>",
+            "link_label": "操作ガイド",
+            "link": "https://panp.jp/en-us/pages/ride-pro-use"
+          }
+        },
+        "column_aw6T8F": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/DSC02608.jpg",
+            "title": "PANP RIDE CYCLE",
+            "text": "<p><a href=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/1119__cycleol_1.pdf?v=1737806388\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/1119__cycleol_1.pdf?v=1737806388\">取り扱い説明書</a></p>",
+            "link_label": "操作ガイド",
+            "link": "shopify://pages/ride-cycle"
+          }
+        },
+        "column_GKthUr": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/itemimage_ridemini_1c54ac07-653f-4dfd-ab8b-346582b00c1a.jpg",
+            "title": "PANP RIDE MINI",
+            "text": "<p><a href=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/240516PANP__RIDEMINIol.pdf?v=1721634996\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/240516PANP__RIDEMINIol.pdf?v=1721634996\">取り扱い説明書</a></p>",
+            "link_label": "操作ガイド",
+            "link": "shopify://pages/ride-mini-use"
+          }
+        }
+      },
+      "block_order": [
+        "column_EcLtcd",
+        "column_4Ff3jE",
+        "column_aw6T8F",
+        "column_GKthUr"
+      ],
+      "custom_css": [
+        "a {background-color: #0071e3; border-radius: 50px; color: #fff; display: flex; justify-content: center; align-items: center; padding: 1rem 3rem; font: inherit; font-size: 1.5rem; text-decoration: none; letter-spacing: 0.1rem; line-height: calc(1 + 0.2 / var(--font-body-scale));}",
+        ".rte a {background-color: #1d1d1f; border-radius: 50px;}",
+        ".grid__item .media:hover {opacity: 0.7;}"
+      ],
+      "settings": {
+        "title": "RIDE シリーズ",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_mdgejb": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qyHdHj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/air-sam.jpg",
+            "title": "PANP AIR",
+            "text": "<p><a href=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/PANP__Airol.pdf?v=1716180649\" target=\"_blank\" title=\"PANP AIR取り扱い説明書\">取り扱い説明書</a></p>",
+            "link_label": "操作ガイド",
+            "link": "shopify://pages/panp-air-use"
+          }
+        },
+        "column_cbyDWe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/itemimage_airpro.jpg",
+            "title": "PANP AIR PRO",
+            "text": "<p><a href=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/PANP__AIRPROol.pdf?v=1721239254\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0564/1591/1987/files/PANP__AIRPROol.pdf?v=1721239254\">取り扱い説明書</a></p>",
+            "link_label": "操作ガイド",
+            "link": "shopify://pages/air-pro-use"
+          }
+        }
+      },
+      "block_order": [
+        "column_qyHdHj",
+        "column_cbyDWe"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "a {background-color: #0071e3; border-radius: 50px; color: #fff; display: flex; justify-content: center; align-items: center; padding: 1rem 3rem; font: inherit; font-size: 1.5rem; text-decoration: none; letter-spacing: 0.1rem; line-height: calc(1 + 0.2 / var(--font-body-scale));}",
+        ".rte a {background-color: #1d1d1f; border-radius: 50px;}",
+        ".grid__item .media:hover {opacity: 0.7;}"
+      ],
+      "settings": {
+        "title": "AIRシリーズ",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "banner_DAYdeH": {
+      "type": "banner",
+      "blocks": {
+        "image_gpA6C4": {
+          "type": "image",
+          "settings": {
+            "image_box": "shopify://shop_images/itemimage_ride.jpg",
+            "link": "shopify://pages/panp-ride-use",
+            "heading": "PANP RIDE",
+            "text": "",
+            "rounded_corners": true,
+            "heading_position": "bottom"
+          }
+        },
+        "image_PVQACR": {
+          "type": "image",
+          "settings": {
+            "image_box": "shopify://shop_images/ridepro-sam.png",
+            "link": "shopify://products/panp-ridepro01",
+            "heading": "PANP RIDE PRO",
+            "text": "近日公開",
+            "rounded_corners": true,
+            "heading_position": "bottom"
+          }
+        },
+        "image_Ep7inL": {
+          "type": "image",
+          "settings": {
+            "image_box": "shopify://shop_images/ridemini-sam.png",
+            "link": "shopify://products/panp-ridemini01",
+            "heading": "PANP RIDE MINI",
+            "text": "近日公開",
+            "rounded_corners": true,
+            "heading_position": "bottom"
+          }
+        },
+        "image_YxUfAK": {
+          "type": "image",
+          "settings": {
+            "image_box": "shopify://shop_images/air-sam.png",
+            "link": "shopify://products/kukiire02",
+            "heading": "PANP AIR",
+            "text": "近日公開",
+            "rounded_corners": true,
+            "heading_position": "bottom"
+          }
+        },
+        "image_kgFE3j": {
+          "type": "image",
+          "settings": {
+            "image_box": "shopify://shop_images/airpro-sam.png",
+            "link": "shopify://products/panp-airpro01",
+            "heading": "PANP AIR PRO",
+            "text": "近日公開",
+            "rounded_corners": true,
+            "heading_position": "bottom"
+          }
+        }
+      },
+      "block_order": [
+        "image_gpA6C4",
+        "image_PVQACR",
+        "image_Ep7inL",
+        "image_YxUfAK",
+        "image_kgFE3j"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "multicolumn_gJJMG9",
+    "multicolumn_mdgejb",
+    "banner_DAYdeH"
+  ]
+}

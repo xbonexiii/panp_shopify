@@ -1,0 +1,723 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "guide-header",
+      "name": "ガイドヘッダー",
+      "settings": {
+        "html_id": "",
+        "main_title": "RIDE CYCLE<br>使い方",
+        "guide_title": "ガイドメニュー",
+        "guide_description": "用途をアイコンからお選びください。",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_icon_menu_YE4fb6": {
+      "type": "guide-icon-menu",
+      "blocks": {
+        "guide_icon_h8kMJ3": {
+          "type": "guide_icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/cycle_905e6c72-85fd-46a0-ac3d-f6d6b6f68d6d.png",
+            "link_url": "#HowToOperate"
+          }
+        },
+        "guide_icon_J4NHi3": {
+          "type": "guide_icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/roadcycle-jp.png",
+            "link_url": "#roadBike"
+          }
+        },
+        "guide_icon_7Vpxwq": {
+          "type": "guide_icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/citybike-jp.png",
+            "link_url": "#cycle"
+          }
+        },
+        "guide_icon_UakYhX": {
+          "type": "guide_icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/ball-jp.png",
+            "link_url": "#ball"
+          }
+        }
+      },
+      "block_order": [
+        "guide_icon_h8kMJ3",
+        "guide_icon_J4NHi3",
+        "guide_icon_7Vpxwq",
+        "guide_icon_UakYhX"
+      ],
+      "name": "ガイドアイコンメニュー",
+      "settings": {
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_header_WFnqDm": {
+      "type": "guide-header",
+      "name": "ガイドヘッダー",
+      "settings": {
+        "html_id": "HowToOperate",
+        "main_title": "",
+        "guide_title": "タッチパネルの操作方法",
+        "guide_description": "",
+        "margin_top": 120,
+        "margin_bottom": 0
+      }
+    },
+    "video_w3pRJY": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/Onz47vFv4B0?si=sJa5oyRZCzcCEJbV",
+        "cover_image": "shopify://shop_images/ridecycle.jpg",
+        "description": "RIDEの操作方法",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_content_M4w7BB": {
+      "type": "guide-content",
+      "blocks": {
+        "image_only_pkT8KN": {
+          "type": "image_only",
+          "settings": {
+            "image": "shopify://shop_images/11deaabe4b7196b781b1082ccc202eba.png"
+          }
+        },
+        "rich_text_cyjq8V": {
+          "type": "rich_text",
+          "settings": {
+            "rich_text": "<h3>タッチパネル操作について</h3><ol><li>電源ボタンを３秒間長押しすると電源が入ります。（電源を切る際は「OFF」と表示されるまで、電源マークを３秒間長押し）</li><li>「モードの切り替え」ができます。</li><li>「空気圧の単位を変更」できます。</li><li>▲/▼ボタンで入れたい「空気圧を調節」できます。※長押しで素早く数値が変化します。</li><li>電源ボタンを押すと空気注入スタート、終わると自動停止します。※途中で止める場合は電源ボタンを押します。</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "image_only_pkT8KN",
+        "rich_text_cyjq8V"
+      ],
+      "name": "ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_header_JKrjDz": {
+      "type": "guide-header",
+      "name": "クロスバイク/ロードバイク 編ヘッダー",
+      "settings": {
+        "html_id": "roadBike",
+        "main_title": "",
+        "guide_title": "クロスバイク/ロードバイク 編",
+        "guide_description": "",
+        "margin_top": 120,
+        "margin_bottom": 50
+      }
+    },
+    "guide_content_fhFKFC": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_fCYHV7": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/RIDE-sports-1.png",
+            "combo_text": "<p>　</p><p>　○ 空気注入口（英式バルブ）は下記写真の形状です。</p>",
+            "layout": "text_top"
+          }
+        },
+        "image_text_combo_nPHdYf": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/RIDECYCLE.png",
+            "combo_text": "<p>●<strong>準備するもの</strong></p><p>仏式バルブ用のアタッチメント・CYCLE本体</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_fCYHV7",
+        "image_text_combo_nPHdYf"
+      ],
+      "name": "クロスバイク/ロードバイク 編ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "rich_text_wQwPUG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7RH6w3": {
+          "type": "heading",
+          "settings": {
+            "heading": "TPU(ビニール)チューブをお使いの方へ",
+            "heading_size": "h1"
+          }
+        },
+        "text_cMqMqm": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>チューブ破損を防ぐため、必ずホースをご使用ください。</h3><p>近年の軽量化志向により、<strong>TPU（熱可塑性ポリウレタン）製のチューブやプラスチック素材のバルブ</strong>が増えています。<strong>この素材は非常に熱に弱く、電動空気入れの排気口は非常に高温になります</strong>ので、付属のホースを必ずご使用ください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7RH6w3",
+        "text_cMqMqm"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 8
+      }
+    },
+    "guide_content_eiQxT9": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_zY48hq": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/hourseandfrench_42f40083-7a4e-4d63-9039-eeaf6ccf608e.png",
+            "combo_text": "<h2>ご自身のチューブがTPUか分からない場合は…</h2><p>・チューブが半透明〜透明で、ツルツルした質感<br/>・軽量で、くるくる丸めやすい<br/>・空気を差し込む部分がプラスチック製<br/>・「TPU」や「Ultralight」「Superlight」と記載がある</p>",
+            "layout": "image_top"
+          }
+        },
+        "image_only_RNQcRj": {
+          "type": "image_only",
+          "settings": {
+            "image": "shopify://shop_images/tpu.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_zY48hq",
+        "image_only_RNQcRj"
+      ],
+      "name": "ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "video_EiA3WN": {
+      "type": "video",
+      "name": "クロスバイク/ロードバイク 編動画",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/MzJYxkWoGEU?si=1tC3NPpnLYv1s5Km",
+        "cover_image": "shopify://shop_images/ridecycle-road.jpg",
+        "description": "クロスバイクの空気の入れ方",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_accordion_imU8pH": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_tctFYC": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-06.65.png",
+            "step_description": "【1】電源マークを3秒長押しし、電源を入れます。"
+          }
+        },
+        "step_item_9XtxCT": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-11.83.png",
+            "step_description": "【2】タイヤの設定空気圧を確認します。"
+          }
+        },
+        "step_item_Am8P69": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-24.09.png",
+            "step_description": "【3】▼ボタンを2回押してPSI/BARのお好みの単位に設定します。"
+          }
+        },
+        "step_item_DA66V7": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-32.72.png",
+            "step_description": "【4】▲/▼ボタンで入れたい「空気圧」を調整します。"
+          }
+        },
+        "step_item_TwQNRw": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-40.07.png",
+            "step_description": "【5】バルブキャップを外します。外したキャップを無くさないように注意してくださいね！"
+          }
+        },
+        "step_item_tPqxyJ": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-46.80.png",
+            "step_description": "【6】バルブ上部のネジを反時計回りに止まるまで緩めます。"
+          }
+        },
+        "step_item_biLk7a": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-49.16.png",
+            "step_description": "【7】バルブを1回プッシュして、空気を抜きます。※バルブの固着を取り除く効果があります。"
+          }
+        },
+        "step_item_zRTRey": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-57.18.png",
+            "step_description": "【8】仏式アタッチメントを取り付けます。"
+          }
+        },
+        "step_item_K8Bqgg": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-59.43.png",
+            "step_description": "【9】●ボタンを押して空気注入開始。"
+          }
+        },
+        "step_item_KY3m8L": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-06.11.png",
+            "step_description": "【10】空気が入れ終わると自動的に停止します。"
+          }
+        },
+        "step_item_CPVc3b": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-09.72.png",
+            "step_description": "【11】仏式アタッチメントを取り外します。"
+          }
+        },
+        "step_item_WD6Pzb": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-14.71.png",
+            "step_description": "【12】空気バルブのキャップを忘れずに締めてください。"
+          }
+        },
+        "step_item_QbRqGm": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-19.19.png",
+            "step_description": "【13】●ボタンを長押しで電源がオフになります。"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_tctFYC",
+        "step_item_9XtxCT",
+        "step_item_Am8P69",
+        "step_item_DA66V7",
+        "step_item_TwQNRw",
+        "step_item_tPqxyJ",
+        "step_item_biLk7a",
+        "step_item_zRTRey",
+        "step_item_K8Bqgg",
+        "step_item_KY3m8L",
+        "step_item_CPVc3b",
+        "step_item_WD6Pzb",
+        "step_item_QbRqGm"
+      ],
+      "name": "クロスバイク/ロードバイク 編ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "手順を写真で確認する",
+        "open_by_default": false,
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_header_q688qw": {
+      "type": "guide-header",
+      "name": "自転車/ママチャリ 編",
+      "settings": {
+        "html_id": "cycle",
+        "main_title": "",
+        "guide_title": "自転車/ママチャリ 編",
+        "guide_description": "",
+        "margin_top": 120,
+        "margin_bottom": 50
+      }
+    },
+    "guide_content_wVrQnM": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_N3VNq9": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/RIDE-eisiki_bulb.png",
+            "combo_text": "<p>　</p><p>　○ 空気注入口（英式バルブ）は下記写真の形状です。</p>",
+            "layout": "text_top"
+          }
+        },
+        "image_text_combo_iMPErX": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/RIDECYCLE_-1.png",
+            "combo_text": "<p>●<strong>準備するもの</strong></p><p>英式バルブ用のアタッチメント・エアーホース・CYCLE本体</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_N3VNq9",
+        "image_text_combo_iMPErX"
+      ],
+      "name": "自転車/ママチャリ 編",
+      "settings": {
+        "html_id": "",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "video_tzqYar": {
+      "type": "video",
+      "name": "自転車/ママチャリ 編動画",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/y0T_GixIrfw?si=yxaT9G2CKIIzyPAM",
+        "cover_image": "shopify://shop_images/ridecycle-citycycle.jpg",
+        "description": "シティサイクル、ママチャリの空気の入れ方",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_accordion_aaFmzz": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_NiFija": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-07.31_526b88a9-ef10-4762-9dbf-f811a0d38900.png",
+            "step_description": "【1】電源マークを3秒長押しし、電源を入れます。"
+          }
+        },
+        "step_item_iTmfqD": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-11.83.png",
+            "step_description": "【2】タイヤの設定空気圧を確認します。"
+          }
+        },
+        "step_item_BK6xbV": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-26.46.png",
+            "step_description": "【3】▼ボタンを2回押してPSI/BARのお好みの単位に設定します。"
+          }
+        },
+        "step_item_TXTQCn": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-35.83.png",
+            "step_description": "【4】▲/▼ボタンで入れたい「空気圧」を調整します。"
+          }
+        },
+        "step_item_3HYTTp": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-39.72.png",
+            "step_description": "【5】本体にエアホースを取り付けます。"
+          }
+        },
+        "step_item_tJiB87": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-46.30.png",
+            "step_description": "【6】英式アタッチメントとエアホースを取り付けます。"
+          }
+        },
+        "step_item_Et7LUQ": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-52.99.png",
+            "step_description": "【7】自転車のバルブキャップを外します。外したキャップを無くさないように注意してくださいね！"
+          }
+        },
+        "step_item_qTYjJJ": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-58.07.png",
+            "step_description": "【8】英式バルブを挟み込むように装着します。"
+          }
+        },
+        "step_item_69zght": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-03.06.png",
+            "step_description": "【9】●ボタンを押して空気注入開始！"
+          }
+        },
+        "step_item_7PC788": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-10.65.png",
+            "step_description": "【10】空気が入れ終わると自動的に停止します。"
+          }
+        },
+        "step_item_eLykF9": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-14.03.png",
+            "step_description": "【11】空気バルブのキャップを忘れずに閉めてください。"
+          }
+        },
+        "step_item_QYCjNj": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-18.33.png",
+            "step_description": "【12】英式アタッチメントをエアホースから取り外します。"
+          }
+        },
+        "step_item_zwhWxV": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-22.43.png",
+            "step_description": "【13】エアホースを本体から取り外します。"
+          }
+        },
+        "step_item_QTFUdQ": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-26.50.png",
+            "step_description": "【14】●ボタンを長押しで電源がオフになります。"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_NiFija",
+        "step_item_iTmfqD",
+        "step_item_BK6xbV",
+        "step_item_TXTQCn",
+        "step_item_3HYTTp",
+        "step_item_tJiB87",
+        "step_item_Et7LUQ",
+        "step_item_qTYjJJ",
+        "step_item_69zght",
+        "step_item_7PC788",
+        "step_item_eLykF9",
+        "step_item_QYCjNj",
+        "step_item_zwhWxV",
+        "step_item_QTFUdQ"
+      ],
+      "name": "自転車/ママチャリ 編ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "手順を写真で確認する",
+        "open_by_default": false,
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "guide_header_jBGpHd": {
+      "type": "guide-header",
+      "name": "ボール 編ガイドヘッダー",
+      "settings": {
+        "html_id": "ball",
+        "main_title": "",
+        "guide_title": "ボール 編",
+        "guide_description": "",
+        "margin_top": 120,
+        "margin_bottom": 50
+      }
+    },
+    "guide_content_r3MhGy": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_7URnKV": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/RIDE-ball-hole.png",
+            "combo_text": "<p>　</p><p>　○ 空気注入口（米式バルブ）は下記写真の形状です。</p>",
+            "layout": "text_top"
+          }
+        },
+        "image_text_combo_XJkdAp": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/RIDECYCLE_ff97efa6-452f-4e2f-b7f1-95ae1d518e07.png",
+            "combo_text": "<p>●<strong>準備するもの</strong></p><p>ボール用のアタッチメント・CYCLE本体</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_7URnKV",
+        "image_text_combo_XJkdAp"
+      ],
+      "name": "ボール 編ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    },
+    "video_P8TzXq": {
+      "type": "video",
+      "name": "ボール 編動画",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/2A-8Qj579Rc?si=VeNL5LR9aYdK9IXG",
+        "cover_image": "shopify://shop_images/ridecycle-balls.jpg",
+        "description": "ボールの空気の入れ方",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_accordion_a3FaAf": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_GdhBYe": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-07.31_526b88a9-ef10-4762-9dbf-f811a0d38900.png",
+            "step_description": "【1】電源マークを3秒長押しし、電源を入れます。"
+          }
+        },
+        "step_item_pmgwgQ": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-10.56.png",
+            "step_description": "【2】ボールの設定空気圧を確認します。"
+          }
+        },
+        "step_item_ipFirD": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-25.97.png",
+            "step_description": "【3】▼ボタンを2回押してPSI/BARのお好みの単位に設定します。"
+          }
+        },
+        "step_item_PafUNU": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-32.83.png",
+            "step_description": "【4】▲/▼ボタンで入れたい「空気圧」を調整します。"
+          }
+        },
+        "step_item_ANTeA7": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-41.48.png",
+            "step_description": "【5】ボール用アタッチメントを取り付けます。時計回りに回しながら本体に取り付けます。"
+          }
+        },
+        "step_item_cQzzGn": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-50.27.png",
+            "step_description": "【6】ボールの空気注入口にボール用アタッチメントを挿入します。"
+          }
+        },
+        "step_item_hVjqgn": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-00-54.70.png",
+            "step_description": "【7】●ボタンを押して空気注入開始！"
+          }
+        },
+        "step_item_a7kC3E": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-02.13.png",
+            "step_description": "【8】空気が入れ終わると自動的に停止します。"
+          }
+        },
+        "step_item_4E7Hyh": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-08.04.png",
+            "step_description": "【9】ボール用アタッチメントを本体から取り外します！"
+          }
+        },
+        "step_item_LPHEqr": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/PANP_CYCLE_00-01-12.00.png",
+            "step_description": "【10】●ボタンを長押しで電源がオフになります。"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_GdhBYe",
+        "step_item_pmgwgQ",
+        "step_item_ipFirD",
+        "step_item_PafUNU",
+        "step_item_ANTeA7",
+        "step_item_cQzzGn",
+        "step_item_hVjqgn",
+        "step_item_a7kC3E",
+        "step_item_4E7Hyh",
+        "step_item_LPHEqr"
+      ],
+      "name": "ボール 編ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "手順を写真で確認する",
+        "open_by_default": false,
+        "margin_top": 30,
+        "margin_bottom": 30
+      }
+    }
+  },
+  "order": [
+    "main",
+    "guide_icon_menu_YE4fb6",
+    "guide_header_WFnqDm",
+    "video_w3pRJY",
+    "guide_content_M4w7BB",
+    "guide_header_JKrjDz",
+    "guide_content_fhFKFC",
+    "rich_text_wQwPUG",
+    "guide_content_eiQxT9",
+    "video_EiA3WN",
+    "guide_accordion_imU8pH",
+    "guide_header_q688qw",
+    "guide_content_wVrQnM",
+    "video_tzqYar",
+    "guide_accordion_aaFmzz",
+    "guide_header_jBGpHd",
+    "guide_content_r3MhGy",
+    "video_P8TzXq",
+    "guide_accordion_a3FaAf"
+  ]
+}

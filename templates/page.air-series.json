@@ -1,0 +1,965 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_DxwwQ7": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_TMFXa7": {
+          "type": "heading",
+          "settings": {
+            "heading": "AIR SERIES",
+            "heading_size": "h1"
+          }
+        },
+        "text_zyQJQw": {
+          "type": "text",
+          "settings": {
+            "text": "レジャーでのPANP®︎",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TMFXa7",
+        "text_zyQJQw"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/air_image.jpg",
+        "image_overlay_opacity": 10,
+        "image_height": "large",
+        "desktop_content_position": "middle-right",
+        "show_text_box": false,
+        "desktop_content_alignment": "right",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_NYyagY": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_NqcTaa": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANP Airならボタンを押すだけ。",
+            "heading_size": "h0"
+          }
+        },
+        "text_hiQ3bT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>レジャーでの空気入れ作業をめっちゃ楽にする、自動の空気入れ。</p><h3>空気を入れたいものに接続、ボタンを押すだけで、<br/>自動的に空気を入れてくれます。</h3>"
+          }
+        },
+        "text_nE96Bz": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>※動画は倍速です。</h6>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NqcTaa",
+        "text_hiQ3bT",
+        "text_nE96Bz"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 1080px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 32px; } .rich-text__blocks > * + * {margin-top: 0.5em; } p, h3, h6 {text-align: left; }}",
+        "h2 {color: #416923;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "video_background_6yXyLY": {
+      "type": "video-background",
+      "custom_css": [
+        ".media {background-color: #fafafc;}"
+      ],
+      "settings": {
+        "video": "shopify://files/videos/AIR動画.mp4",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_ftF7tK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_DP8fYQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "FEATURE",
+            "heading_size": "h0"
+          }
+        },
+        "text_iHdqL7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>特徴</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DP8fYQ",
+        "text_iHdqL7"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 1080px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 32px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_cByLCn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_WUcGkG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/easy.png",
+            "title": "",
+            "text": "<h4>ボタンを<br/>押すだけ</h4>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pcwTMV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/easy.png",
+            "title": "",
+            "text": "<h4>操作がカンタン</h4>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_iLhGaC": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/strong.png",
+            "title": "",
+            "text": "<h4>耐久性能への<br/>こだわり</h4>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_WUcGkG",
+        "column_pcwTMV",
+        "column_iLhGaC"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".grid {display: flex; justify-content: center; margin: 0 5em;}",
+        "@media screen and (max-width: 540px) {.grid {display: flex; justify-content: left; margin: initial; }}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h0",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 5,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_MNekbx": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HFBG6y": {
+          "type": "heading",
+          "settings": {
+            "heading": "片付けも楽になる！空気抜き機能",
+            "heading_size": "h0"
+          }
+        },
+        "text_CVMgDt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>遊んだ後の片付けもめっちゃ楽！</p><p>プールや浮き輪、エアマットなど空気を入れたものを片付けるときに、<br/>空気を抜くのって時間がかかるし大変じゃないですか？</p><p>PANP®︎ Airは空気を抜く機能も付いてるから、ボタンを押すだけで空気が抜けて片付けがとても楽になります！</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HFBG6y",
+        "text_CVMgDt"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 1080px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 32px; } .rich-text__blocks > * + * {margin-top: 0.5em; } p {text-align: left; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "video_background_F9JJGk": {
+      "type": "video-background",
+      "custom_css": [
+        ".media {background-color: #fafafc00;}"
+      ],
+      "settings": {
+        "video": "shopify://files/videos/AIR動画_1.mp4",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_kHfY8p": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pRqVpz": {
+          "type": "heading",
+          "settings": {
+            "heading": "これ1台でたくさんのモノに使える",
+            "heading_size": "h0"
+          }
+        },
+        "text_pGaebz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>空気注入口は浮き輪やエアマットなどで形が違うため、<br/>たくさんのモノに空気を入れられるようにアタッチメントの種類を豊富にご準備しております。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pRqVpz",
+        "text_pGaebz"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 1080px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 32px; } .rich-text__blocks > * + * {margin-top: 0.5em; } p {text-align: left; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_4AAVGR": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_P8eBPi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/float-ring_078fe7a0-0224-4b7e-ab06-683adbce8039.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6eiYiU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pool_e7871742-abf9-409b-8ce4-6f9ba790ba3d.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3eF4NU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/matt_da6044ef-4074-4c6e-8be0-87fccbb7113c.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_P8eBPi",
+        "column_6eiYiU",
+        "column_3eF4NU"
+      ],
+      "custom_css": [
+        ".grid {display: flex; justify-content: center; margin: 0 15%;}",
+        ".multicolumn .title {margin: auto;}",
+        "@media screen and (max-width: 540px) {.grid {display: flex; justify-content: left; margin: initial; } .grid__item {max-width: calc(32% - var(--grid-mobile-horizontal-spacing) / 2); margin: 0 auto; }}"
+      ],
+      "settings": {
+        "title": "AIRシリーズ対応",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_pdymhA": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_DyTU8M": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ukiwa2.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_kU9MLU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/bed.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_eikWrG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/other.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_DyTU8M",
+        "column_kU9MLU",
+        "column_eikWrG"
+      ],
+      "custom_css": [
+        ".grid {display: flex; justify-content: center;}",
+        ".multicolumn .title {margin: auto;}",
+        "@media screen and (min-width: 750px) {.background-none .multicolumn-card__image-wrapper {margin: 0 8em; }}"
+      ],
+      "settings": {
+        "title": "対応製品の一例",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 1,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "slideshow_MJkV7M": {
+      "type": "slideshow",
+      "settings": {
+        "layout": "grid",
+        "slide_height": "small",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "banner_VbKyUU": {
+      "type": "banner",
+      "blocks": {
+        "image_xR8tNG": {
+          "type": "image",
+          "settings": {
+            "image_box": "shopify://shop_images/itemimage_air_209c4202-5673-4468-b6bc-8b697b004b03.jpg",
+            "link": "",
+            "heading": "PANPAIR",
+            "text": "小さく頑丈",
+            "rounded_corners": true,
+            "heading_position": "bottom"
+          }
+        },
+        "image_FXF388": {
+          "type": "image",
+          "settings": {
+            "image_box": "shopify://shop_images/itemimage_airpro_8abde436-b1eb-4184-b29e-be30c1b71b39.jpg",
+            "link": "",
+            "heading": "PANP AIR PRO",
+            "text": "パワフル",
+            "rounded_corners": true,
+            "heading_position": "bottom"
+          }
+        }
+      },
+      "block_order": [
+        "image_xR8tNG",
+        "image_FXF388"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "multicolumn_EQnXAT": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_AcNiU9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/big.png",
+            "title": "",
+            "text": "<h5>アウトドアエアマット<br/>フローティングマットレス</h5>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_THDzCT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/small_1e6facfb-cd77-49d7-af27-a286fb747110.png",
+            "title": "",
+            "text": "<h5>アウトドアマットレス<br/>インフレーター枕</h5>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_h4VwAF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/big_png.png",
+            "title": "",
+            "text": "<h5>浮き輪・プール<br/>ビニール遊具</h5>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cJnxY8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/small.png",
+            "title": "",
+            "text": "<h5>浮き輪<br/>プール</h5>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Ntzhfm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/big_50932353-4a81-4c2a-ad18-4ed045015e3e.png",
+            "title": "",
+            "text": "<h5>インフレーターマット</h5>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_E3EUNC": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/png.png",
+            "title": "",
+            "text": "<h5>圧縮袋</h5>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_AcNiU9",
+        "column_THDzCT",
+        "column_h4VwAF",
+        "column_cJnxY8",
+        "column_Ntzhfm",
+        "column_E3EUNC"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".grid {display: flex; justify-content: center;}",
+        "h2 {text-align: center; margin: auto;}",
+        "@media screen and (max-width: 540px) {.grid {display: flex; justify-content: left; }}"
+      ],
+      "settings": {
+        "title": "付属アタッチメント（AIRタイプ）",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_BiTq7Q": {
+      "type": "rich-text",
+      "blocks": {
+        "text_GTTcBn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>注意：※入れられないモノ</p><p>タイヤには空気を入れることができません。（自転車、車、バイクなど）タイヤの空気入れをお探しの方は、<a href=\"/pages/ride\" title=\"Rideシリーズを見る\">RIDEシリーズ</a>をお選びください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_GTTcBn"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "scheme-d772ff1b-9c8d-4765-93aa-7721e6eaa020",
+        "full_width": false,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_KtQyNK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xfdhwY": {
+          "type": "heading",
+          "settings": {
+            "heading": "こんな時にPANP AIRが活躍します",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xfdhwY"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 1080px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 26px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_banner_jhCh8n": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/air-siries-b.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "image_with_text_ULzKYL": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_gfALc7": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>お家で</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_4XVkbX": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>お子さんとのプール遊び</li><li>お子さんとビニール遊具で遊ぶ時</li><li>お庭でBBQするときの火おこしを素早くする</li><li>キーボードを掃除するときのエアダスター</li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_gfALc7",
+        "text_4XVkbX"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/air-scene1.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_iWjFy3": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_TEMjNw": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>お外で</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_3WkLkU": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>プールで、浮き輪がすぐに膨らむと</li><li>海で、浮き輪がすぐに膨らむ</li><li>キャンプで、エアマットに空気を入れている間に他の準備ができる</li><li>車中泊で、マットに空気を入れて快適に就寝</li><li>BBQで、風を送って火起こしを素早く</li></ul>",
+            "text_style": "body"
+          }
+        },
+        "caption_4GrxzH": {
+          "type": "caption",
+          "settings": {
+            "caption": "一家に一台あれば便利です！",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TEMjNw",
+        "text_3WkLkU",
+        "caption_4GrxzH"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/air-scene2.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_FgdtKp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_CHQM8U": {
+          "type": "heading",
+          "settings": {
+            "heading": "お子さん1人で使えるくらい、操作がカンタン",
+            "heading_size": "h0"
+          }
+        },
+        "text_RwJApD": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>ボタンはたった1つだけ。お子さんでも使えるようにシンプルにしました。</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CHQM8U",
+        "text_RwJApD"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks > * + * {margin-top: 0.5em; background-color: #fff; padding: 20px; border-radius: 8px; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 32px; } p {text-align: left; } .rich-text__blocks > * + * {margin-top: 1em; background-color: #fff; padding: 20px; border-radius: 8px; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multirow_yYTd8c": {
+      "type": "multirow",
+      "blocks": {
+        "row_wkPQLK": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/air-1.png",
+            "caption": "",
+            "heading": "1. 電源を入れる",
+            "text": "<h3>アタッチメントを付ける。</h3>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_MLnixm": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/air-2.png",
+            "caption": "",
+            "heading": "2. 取り付ける",
+            "text": "<h3><strong>空気注入口とAIR本体を</strong>接続する<strong>。</strong></h3>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_epCyAD": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/air-3.png",
+            "caption": "",
+            "heading": "3. 空気入れ開始",
+            "text": "<h3>ボタンを2回押すと空気が入り出します。</h3>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_wkPQLK",
+        "row_MLnixm",
+        "row_epCyAD"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.image-with-text .grid {margin: 0rem 8rem; }}",
+        ".caption-with-letter-spacing--medium {font-size: 2rem; color: #416923;}"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "primary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "align-right",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-26c48073-c7e1-4daf-8269-57438c64b35c",
+        "mobile_content_alignment": "left",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_d4BjLm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_66F64Y": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-PANP-AIR.png",
+            "title": "AIR",
+            "text": "<h2>小さくてもパワフル。<br/>そして頑丈。</h2><h2>浮き輪やプールを素早く膨らませます。</h2><p><strong>サイズ</strong>：</p><p><strong>空気流入量</strong>：毎分180L</p>",
+            "link_label": "AIRを見る",
+            "link": "shopify://products/kukiire02"
+          }
+        },
+        "column_XgL6Ub": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-PANP-AIRPRO.png",
+            "title": "AIR PRO",
+            "text": "<h2>パワフルな大容量対応タイプ。<br/>レジャーで大活躍。</h2><h2>SUPやボートなどパワーが必要なものにも対応</h2><p><strong>サイズ</strong>：</p><p><strong>空気流入量：</strong>毎分L</p>",
+            "link_label": "AIR PROを見る",
+            "link": "shopify://products/panp-airpro01"
+          }
+        }
+      },
+      "block_order": [
+        "column_66F64Y",
+        "column_XgL6Ub"
+      ],
+      "custom_css": [
+        ".grid {display: flex; justify-content: left;}",
+        "p {font-size: 16px;}",
+        ".multicolumn .title {margin: auto;}",
+        "@media screen and (min-width: 750px) {.background-none .multicolumn-card__image-wrapper {margin: 0; justify-content: center; } .multicolumn {margin: 3em; }}",
+        "a {background-color: #0071e3; border-radius: 50px; color: #fff; display: inline-flex; justify-content: center; align-items: center; padding: 1rem 3rem; font: inherit; font-size: 1.5rem; text-decoration: none; letter-spacing: 0.1rem; line-height: calc(1 + 0.2 / var(--font-body-scale));}"
+      ],
+      "settings": {
+        "title": "AIR SERIES",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "AIRシリーズの選び方",
+        "button_link": "shopify://pages/chooce-air",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_MkCegf": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_7EGG3F": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANPシリーズのラインナップはこちら",
+            "heading_size": "h2"
+          }
+        },
+        "text_WPceFQ": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "buttons_Q4wgWi": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "商品一覧",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7EGG3F",
+        "text_WPceFQ",
+        "buttons_Q4wgWi"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/DSC09847_128.jpg",
+        "image_2": "shopify://shop_images/DSC09843_129.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "featured_collection_ranking_yx6ctF": {
+      "type": "featured-collection-ranking",
+      "settings": {
+        "title": "Ranking",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "ranking",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_DxwwQ7",
+    "rich_text_NYyagY",
+    "video_background_6yXyLY",
+    "rich_text_ftF7tK",
+    "multicolumn_cByLCn",
+    "rich_text_MNekbx",
+    "video_background_F9JJGk",
+    "rich_text_kHfY8p",
+    "multicolumn_4AAVGR",
+    "multicolumn_pdymhA",
+    "slideshow_MJkV7M",
+    "banner_VbKyUU",
+    "multicolumn_EQnXAT",
+    "rich_text_BiTq7Q",
+    "rich_text_KtQyNK",
+    "image_banner_jhCh8n",
+    "image_with_text_ULzKYL",
+    "image_with_text_iWjFy3",
+    "rich_text_FgdtKp",
+    "multirow_yYTd8c",
+    "multicolumn_d4BjLm",
+    "main",
+    "image_banner_MkCegf",
+    "featured_collection_ranking_yx6ctF"
+  ]
+}

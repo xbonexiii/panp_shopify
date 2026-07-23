@@ -1,0 +1,351 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_qtJ4Pn": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Image_fx_745df17d-b6a4-45c7-bdda-4dbcb03ba37e.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_WHibEq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_N7jkfM": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANPを取り扱いたい法人様",
+            "heading_size": "h1"
+          }
+        },
+        "text_kNHDNC": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>販売店：お問い合わせフォーム</h3><p>店舗でのお取り扱いを希望される販売店様、代理店様はこちらからご連絡ください。<br/>店頭販売のみお取引可能です。<br/>お申込み後、担当のものより折り返しご連絡させていただきます。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_N7jkfM",
+        "text_kNHDNC"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_4Hg6MU": {
+      "type": "rich-text",
+      "blocks": {
+        "text_Fb37fe": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>TEL</h3><p>092-600-2657<br/><br/></p><h3><strong>営業時間</strong></h3><p>営業時間：平日10:00〜18:00まで<br/>休業日：土日祝日</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_Fb37fe"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collapsible_content_bM3B9U": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_hAA3kN": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "WEBサイトの画像を利用できますか？",
+            "icon": "none",
+            "row_content": "<p>弊社商品の紹介であれば、画像は自由にご利用いただけます。<br/>加工を行う場合は、弊社へ一度ご確認ください。</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NjJC7E": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "店頭用販促物はありますか？",
+            "icon": "none",
+            "row_content": "<p>販促にお役立てるポップ等を準備中です。担当者より詳細をご確認ください。</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_wJRLTD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "取り引き条件はありますか？",
+            "icon": "none",
+            "row_content": "<p>・インターネット販売は原則全て禁止です。<br/>・請求書はChatWork/Eメール送付いたします。<br/>・送料は無料です。</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_eTLqxt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "通販ですが仕入れできますか？",
+            "icon": "none",
+            "row_content": "<p>現在、原則として実店舗販売の店舗様のみお取引させていただいております。</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_hAA3kN",
+        "collapsible_row_NjJC7E",
+        "collapsible_row_wJRLTD",
+        "collapsible_row_eTLqxt"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "FAQ",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "corporate_contact_form": {
+      "type": "custom-contact-form",
+      "blocks": {
+        "company_name": {
+          "type": "text_field",
+          "settings": {
+            "label": "会社名 / 団体名",
+            "field_name": "company_name",
+            "placeholder": "会社名をご入力ください",
+            "required": true
+          }
+        },
+        "department": {
+          "type": "text_field",
+          "settings": {
+            "label": "部署名 / 役職名",
+            "field_name": "department",
+            "placeholder": "部署名をご入力ください",
+            "required": false
+          }
+        },
+        "contact_name": {
+          "type": "text_field",
+          "settings": {
+            "label": "ご担当者様名",
+            "field_name": "contact_name",
+            "placeholder": "担当者様をフルネームでご入力ください",
+            "required": true
+          }
+        },
+        "email": {
+          "type": "email_field",
+          "settings": {
+            "label": "Email",
+            "placeholder": "メールアドレスをご入力ください",
+            "required": true
+          }
+        },
+        "phone": {
+          "type": "phone_field",
+          "settings": {
+            "label": "ご連絡先の電話番号",
+            "field_name": "phone",
+            "placeholder": "000-0000-0000",
+            "required": true
+          }
+        },
+        "contact_method": {
+          "type": "radio_group",
+          "settings": {
+            "label": "ご連絡方法",
+            "field_name": "contact_method",
+            "options": "メール, 電話, どちらでも可",
+            "required": true
+          }
+        },
+        "message": {
+          "type": "textarea",
+          "settings": {
+            "label": "お問い合わせ内容",
+            "placeholder": "ご質問内容がありましたらご自由にご入力ください",
+            "rows": 6,
+            "required": true
+          }
+        }
+      },
+      "block_order": [
+        "company_name",
+        "department",
+        "contact_name",
+        "email",
+        "phone",
+        "contact_method",
+        "message"
+      ],
+      "settings": {
+        "form_identifier": "法人様専用フォーム",
+        "heading": "こちらをご入力ください。",
+        "submit_button_text": "送信する",
+        "success_heading": "お問い合わせありがとうございます",
+        "success_message": "送信完了しました！\n内容を確認のうえ、担当者よりメールでご連絡させていただきます。今しばらくお待ちください。",
+        "redirect_url": "",
+        "error_message": "申し訳ありません。送信に失敗しました。\n時間をおいて、もう一度お試しください。"
+      }
+    },
+    "multicolumn_97i4f7": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_QVUnKy": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/select-pro.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pwLg8x": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/select-pro2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PkigjR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/public-institution.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_7AzFp6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/riders-cafe.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ENhNx8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/select-zett.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pnHRqM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/event.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bpdTxc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/retail_store.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_mp9rXf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/shops.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_QVUnKy",
+        "column_pwLg8x",
+        "column_PkigjR",
+        "column_7AzFp6",
+        "column_ENhNx8",
+        "column_pnHRqM",
+        "column_bpdTxc",
+        "column_mp9rXf"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "PANP採用実績",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_qtJ4Pn",
+    "rich_text_WHibEq",
+    "rich_text_4Hg6MU",
+    "collapsible_content_bM3B9U",
+    "corporate_contact_form",
+    "multicolumn_97i4f7"
+  ]
+}

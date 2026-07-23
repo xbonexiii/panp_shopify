@@ -1,0 +1,411 @@
+{% comment %}
+  /**
+   * ガイドアコーディオンセクション（動的）
+   *
+   * 概要: 写真付き手順を表示するアコーディオンセクション
+   * 主な仕様:
+   * - 動的なタイトル、手順画像、説明文の設定
+   * - アコーディオンの開閉機能
+   * - レスポンシブデザイン対応（PC: 2列、SP: 1列）
+   *
+   * 制限事項:
+   * - 管理画面から全て編集可能
+   */
+{% endcomment %}
+
+<div
+  class="guide-accordion-{{ section.id }} page-width"
+  {% if section.settings.html_id != blank %}
+    id="{{ section.settings.html_id }}"
+  {% endif %}
+>
+  <div class="container">
+    <!-- アコーディオンコンテナ -->
+    <div class="row">
+      <div class="col-12">
+        <div class="accordion-container" id="accordion-{{ section.id }}">
+          <button class="accordion-header" onclick="toggleAccordion('{{ section.id }}')">
+            <span class="accordion-icon"></span>
+            <span class="accordion-text"
+              ><strong>{{ section.settings.accordion_title }}</strong></span
+            >
+            <span class="accordion-arrow"></span>
+          </button>
+
+          <div class="accordion-content" id="content-{{ section.id }}">
+            <div class="steps-grid">
+              {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'step_item' %}
+                    <div class="step-item" {{ block.shopify_attributes }}>
+                      {% if block.settings.step_image != blank %}
+                        <div class="step-image-container">
+                          <img
+                            src="{{ block.settings.step_image | image_url: width: 800 }}"
+                            alt="{{ block.settings.step_image.alt | escape }}"
+                            class="step-image"
+                            loading="lazy"
+                          >
+                        </div>
+                      {% else %}
+                        <div class="dummy-step-image">
+                          <span>手順画像</span>
+                        </div>
+                      {% endif %}
+                      <p class="step-description">{{ block.settings.step_description }}</p>
+                    </div>
+                {% endcase %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .guide-accordion-{{ section.id }} {
+    background-color: #f8f8f8;
+    margin-top: {{ section.settings.margin_top_pc }}px;
+    margin-bottom: {{ section.settings.margin_bottom_pc }}px;
+  }
+
+  .guide-accordion .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .accordion-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .accordion-header:hover {
+    background-color: #fff;
+  }
+
+  .accordion-icon {
+    margin-right: 10px;
+    font-size: 18px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='currentColor'%3E%3Cpath d='M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6C173.9 32 155.6 45.2 149.1 64.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .accordion-arrow {
+    margin-left: auto;
+    font-size: 22px;
+  }
+
+  .accordion-arrow::before {
+    content: '\25BC'; /* 下向き矢印 */
+  }
+
+  .accordion-container.open .accordion-arrow {
+    transform: rotate(180deg);
+  }
+
+  .accordion-text {
+    flex: 1;
+    text-align: left;
+  }
+
+  .accordion-content {
+    background-color: #fff;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+  }
+
+  .accordion-container.open .accordion-content {
+    opacity: 1;
+    max-height: none;
+  }
+
+  .step-image-container {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+  }
+
+  .step-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .steps-grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .step-item {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+  }
+
+  .dummy-step-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .step-description {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+    margin: 10px 0 0;
+  }
+
+  /* レスポンシブデザイン */
+  @media (max-width: 768px) {
+    .guide-accordion-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top_sp }}px;
+      margin-bottom: {{ section.settings.margin_bottom_sp }}px;
+    }
+
+    .step-image-container {
+      height: auto;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 15px;
+    }
+
+    .accordion-header {
+      padding: 15px;
+      font-size: 18px;
+    }
+
+    .step-item {
+      padding: 12px;
+    }
+
+    .step-description {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .guide-accordion-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top_sp }}px;
+      margin-bottom: {{ section.settings.margin_bottom_sp }}px;
+    }
+
+    .accordion-header {
+      padding: 12px;
+      font-size: 18px;
+    }
+
+    .accordion-icon {
+      font-size: 16px;
+    }
+
+    .dummy-step-image {
+      font-size: 16px;
+    }
+
+    .step-description {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<script>
+  function toggleAccordion(sectionId) {
+    const accordion = document.getElementById('accordion-' + sectionId);
+    const content = document.getElementById('content-' + sectionId);
+
+    if (accordion && content) {
+      accordion.classList.toggle('open');
+    }
+  }
+
+  // デフォルトで開いている場合の設定
+  document.addEventListener('DOMContentLoaded', function() {
+    {% if section.settings.open_by_default %}
+      const accordion = document.getElementById('accordion-{{ section.id }}');
+      if (accordion) {
+        accordion.classList.add('open');
+      }
+    {% endif %}
+  });
+</script>
+
+{% schema %}
+{
+  "name": "ガイドアコーディオン",
+  "tag": "section",
+  "class": "section-guide-accordion",
+  "settings": [
+    {
+      "type": "text",
+      "id": "html_id",
+      "label": "ID名",
+      "info": "HTML要素のIDを入力してください"
+    },
+    {
+      "type": "text",
+      "id": "accordion_title",
+      "label": "アコーディオンタイトル",
+      "default": "手順を写真で確認する"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_by_default",
+      "label": "デフォルトで開いた状態にする",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "余白設定"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_pc",
+      "label": "PC上部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_pc",
+      "label": "PC下部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_top_sp",
+      "label": "SP上部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_sp",
+      "label": "SP下部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step_item",
+      "name": "手順アイテム",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "step_image",
+          "label": "手順画像",
+          "info": "推奨サイズ: 400px × 300px"
+        },
+        {
+          "type": "text",
+          "id": "step_description",
+          "label": "手順説明",
+          "default": "手順の説明を入力してください"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "ガイドアコーディオン",
+      "settings": {
+        "accordion_title": "手順を写真で確認する",
+        "open_by_default": false
+      },
+      "blocks": [
+        {
+          "type": "step_item",
+          "settings": {
+            "step_description": "電源を入れ、エアーホースを接続してください。"
+          }
+        },
+        {
+          "type": "step_item",
+          "settings": {
+            "step_description": "適正な空気圧を設定してください。"
+          }
+        },
+        {
+          "type": "step_item",
+          "settings": {
+            "step_description": "バルブにホースを接続し、しっかりと固定してください。"
+          }
+        },
+        {
+          "type": "step_item",
+          "settings": {
+            "step_description": "電源ボタンを押して空気注入を開始してください。"
+          }
+        },
+        {
+          "type": "step_item",
+          "settings": {
+            "step_description": "設定した空気圧に達したら自動で停止します。"
+          }
+        },
+        {
+          "type": "step_item",
+          "settings": {
+            "step_description": "ホースを取り外し、バルブキャップを閉めて完了です。"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

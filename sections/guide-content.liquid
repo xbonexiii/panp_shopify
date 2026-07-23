@@ -1,0 +1,430 @@
+{% comment %}
+  /**
+   * ガイドコンテンツセクション（動的）
+   *
+   * 概要: 2カラムレイアウトで複数のコンテンツパターンを表示
+   * 主な仕様:
+   * - 動的な2カラムレイアウト（左右交互配置）
+   * - 複数のブロックパターン対応
+   * - パターン1: 画像のみ
+   * - パターン2: リッチテキスト
+   * - パターン3: 画像とテキストの組み合わせ（上下切り替え可能）
+   * - レスポンシブデザイン対応
+   *
+   * 制限事項:
+   * - 管理画面から全て編集可能
+   */
+{% endcomment %}
+
+<div
+  class="guide-content-{{ section.id }} page-width"
+  {% if section.settings.html_id != blank %}
+    id="{{ section.settings.html_id }}"
+  {% endif %}
+>
+  <div class="container">
+    <!-- CSS Grid 2カラムレイアウト -->
+    <div class="content-grid">
+      {% for block in section.blocks %}
+        <div class="content-block-wrapper" {{ block.shopify_attributes }}>
+          {% case block.type %}
+            {% when 'image_only' %}
+              <div class="content-block image-only-block">
+                {% if block.settings.image != blank %}
+                  <div class="block-image">
+                    <img
+                      src="{{ block.settings.image | image_url: width: 600 }}"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      class="block-img"
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                    >
+                  </div>
+                {% else %}
+                  <div class="dummy-image">
+                    <span>画像を設定してください</span>
+                  </div>
+                {% endif %}
+              </div>
+
+            {% when 'rich_text' %}
+              <div class="content-block rich-text-block">
+                <div class="rich-text-content">
+                  {{ block.settings.rich_text }}
+                </div>
+              </div>
+
+            {% when 'image_text_combo' %}
+              <div class="content-block combo-block {% if block.settings.layout == 'text_top' %}text-top{% else %}image-top{% endif %}">
+                {% if block.settings.layout == 'text_top' %}
+                  <!-- テキストが上 -->
+                  {% if block.settings.combo_text != blank %}
+                    <div class="combo-text">
+                      {{ block.settings.combo_text }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.combo_image != blank %}
+                    <div class="combo-image">
+                      <img
+                        src="{{ block.settings.combo_image | image_url: width: 600 }}"
+                        alt="{{ block.settings.combo_image.alt | escape }}"
+                        class="combo-img"
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                      >
+                    </div>
+                  {% else %}
+                    <div class="dummy-image">
+                      <span>画像を設定してください</span>
+                    </div>
+                  {% endif %}
+                {% else %}
+                  <!-- 画像が上 -->
+                  {% if block.settings.combo_image != blank %}
+                    <div class="combo-image">
+                      <img
+                        src="{{ block.settings.combo_image | image_url: width: 600 }}"
+                        alt="{{ block.settings.combo_image.alt | escape }}"
+                        class="combo-img"
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                      >
+                    </div>
+                  {% else %}
+                    <div class="dummy-image">
+                      <span>画像を設定してください</span>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.combo_text != blank %}
+                    <div class="combo-text">
+                      {{ block.settings.combo_text }}
+                    </div>
+                  {% endif %}
+                {% endif %}
+              </div>
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .guide-content-{{ section.id }} {
+    background-color: #f8f8f8;
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
+  .guide-content .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    grid-auto-rows: minmax(auto, max-content);
+  }
+
+  .content-block-wrapper {
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  /* 共通ブロックスタイル */
+  .content-block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* パターン1: 画像のみ */
+  .image-only-block .block-image,
+  .image-only-block .dummy-image {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .block-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* パターン2: リッチテキスト */
+  .rich-text-block .rich-text-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .rich-text-content h1,
+  .rich-text-content h2,
+  .rich-text-content h3 {
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .rich-text-content p {
+    margin-bottom: 15px;
+  }
+
+  .rich-text-content ul,
+  .rich-text-content ol {
+    margin-bottom: 15px;
+    padding-left: 20px;
+  }
+
+  /* パターン3: 画像とテキストの組み合わせ */
+  .combo-block .combo-image,
+  .combo-block .dummy-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .combo-block.text-top .combo-image,
+  .combo-block.text-top .dummy-image {
+    margin-bottom: 0;
+    margin-top: 15px;
+  }
+
+  .combo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .combo-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .combo-text h1,
+  .combo-text h2,
+  .combo-text h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .combo-text p {
+    margin-bottom: 10px;
+  }
+
+  /* ダミー画像スタイル */
+  .dummy-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+  }
+
+  /* レスポンシブデザイン */
+  @media (max-width: 768px) {
+    .guide-content-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top_sp }}px;
+      margin-bottom: {{ section.settings.margin_bottom_sp }}px;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .content-block {
+      padding: 15px;
+    }
+
+    .rich-text-content,
+    .combo-text {
+      font-size: 14px;
+    }
+
+    .dummy-image {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .guide-content-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top_sp }}px;
+      margin-bottom: {{ section.settings.margin_bottom_sp }}px;
+    }
+
+    .content-grid {
+      gap: 12px;
+    }
+
+    .content-block {
+      padding: 12px;
+    }
+
+    .rich-text-content,
+    .combo-text {
+      font-size: 13px;
+    }
+
+    .dummy-image {
+      font-size: 13px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "ガイドコンテンツ",
+  "tag": "section",
+  "class": "section-guide-content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "html_id",
+      "label": "ID名",
+      "info": "HTML要素のIDを入力してください"
+    },
+    {
+      "type": "header",
+      "content": "余白設定"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_pc",
+      "label": "PC上部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_pc",
+      "label": "PC下部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_top_sp",
+      "label": "SP上部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_sp",
+      "label": "SP下部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_only",
+      "name": "画像のみ",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "表示する画像"
+        }
+      ]
+    },
+    {
+      "type": "rich_text",
+      "name": "テキストのみ",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "rich_text",
+          "label": "テキスト",
+          "default": "<p>ここに説明文を入力してください。太字、リスト、リンクなどの装飾が可能です。</p>"
+        }
+      ]
+    },
+    {
+      "type": "image_text_combo",
+      "name": "画像＋テキスト",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "combo_image",
+          "label": "画像"
+        },
+        {
+          "type": "richtext",
+          "id": "combo_text",
+          "label": "テキスト",
+          "default": "<p>この画像について説明してください。</p>"
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "画像とテキストの配置",
+          "options": [
+            {
+              "value": "image_top",
+              "label": "画像を上に表示"
+            },
+            {
+              "value": "text_top",
+              "label": "テキストを上に表示"
+            }
+          ],
+          "default": "image_top",
+          "info": "画像とテキストのどちらを上に配置するかを選択してください"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "ガイドコンテンツ",
+      "blocks": [
+        {
+          "type": "rich_text",
+          "settings": {
+            "rich_text": "<p><strong>● 準備するもの</strong></p><p>エアーホース（本体に収納されています）・RIDE本体</p>"
+          }
+        },
+        {
+          "type": "image_only"
+        },
+        {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_text": "<p>○ 空気注入口（米式バルブ）は下記写真の形状です。</p>",
+            "layout": "text_top"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

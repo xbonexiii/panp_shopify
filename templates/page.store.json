@@ -1,0 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "collapsible_content_QAehLq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_3cqTKT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "ヨドバシカメラ マルチメディアAkiba",
+            "icon": "none",
+            "row_content": "<p><a href=\"https://maps.app.goo.gl/TMGH5BDpFUiuVNHx6\" target=\"_blank\" title=\"https://maps.app.goo.gl/TMGH5BDpFUiuVNHx6\">〒101-0028<br/>東京都千代田区神田花岡町1-103-5209-1010</a></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_kj4tbR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "ヨドバシカメラ マルチメディア梅田",
+            "icon": "none",
+            "row_content": "<p>〒530-0011 大阪府大阪市北区大深町1-1<br/>06-4802-1010</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KyP4wy": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "ヨドバシカメラ マルチメディア新宿東口",
+            "icon": "none",
+            "row_content": "<p><a href=\"https://maps.app.goo.gl/ztZSyMnXLMhks66g7\" target=\"_blank\" title=\"https://maps.app.goo.gl/ztZSyMnXLMhks66g7\">〒160-0022 東京都新宿区新宿3-26-7<br/>03-3356-1010</a></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_3cqTKT",
+        "collapsible_row_kj4tbR",
+        "collapsible_row_KyP4wy"
+      ],
+      "disabled": true,
+      "settings": {
+        "caption": "",
+        "heading": "お取り扱い店舗",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collapsible_content_QAehLq"
+  ]
+}

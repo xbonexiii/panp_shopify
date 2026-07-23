@@ -1,0 +1,3473 @@
+<style>
+/* ============================================================
+   global.css — Apple Design System 完全準拠 共通スタイル
+   参照: apple.com/jp/macbook-neo 実CSSファイルより抽出
+   更新: 2026-03-29（スクレイピング結果を反映）
+   ============================================================ */
+
+/* ─── CSS カスタムプロパティ（デザイントークン） ─────────── */
+:root {
+  /* ── ライトモード テキスト ── */
+  --color-text:          #1d1d1f;
+  --color-text-sub:      #6e6e73;
+  --color-text-tertiary: #86868b;
+  --color-text-quat:     #37373a;
+
+  /* ── ダークモード テキスト（視認性4段階） ── */
+  --color-text-dark:         #f5f5f7;                  /* 見出し・強調 */
+  --color-text-dark-body:    rgba(255, 255, 255, 0.8); /* 本文（Apple公式値） */
+  --color-text-dark-sub:     #a1a1a6;                  /* 補足テキスト */
+  --color-text-dark-caption: #86868b;                  /* 注記・出典のみ */
+
+  /* ── 背景 ── */
+  --color-bg:         #fff;
+  --color-bg-section: #f5f5f7;
+  --color-bg-dark:    #000;
+  --color-bg-dark-el: #1d1d1f;   /* ダーク elevated */
+
+  /* ── アクション ── */
+  --color-cta:        #0071e3;
+  --color-cta-hover:  #0076DF;
+  --color-cta-active: #006EDB;
+  --color-link:       #0066cc;
+  --color-link-dark:  #2997ff;
+
+  /* ── Fill ── */
+  --fill-gray-quat:      rgba(0,0,0,0.08);
+  --fill-gray-quat-dark: rgba(255,255,255,0.08);
+
+  /* ── ボーダー ── */
+  --border-light: rgba(0,0,0,0.1);
+  --border-dark:  rgba(255,255,255,0.1);
+
+  /* ── フォーカスリング ── */
+  --focus-color:  #0071e3;
+  --focus-offset: 1px;
+
+  /* ── タイル・カード ── */
+  --tile-radius: 28px;
+  --pill-radius: 980px;
+
+  /* ── セクションパディング ── */
+  --section-pad:         144px;
+  --section-pad-reduced: 120px;
+  --section-header-gap:  48px;
+
+  /* ── ブランドカラー（PANP） ── */
+  --color-air-green:  #416923;
+  --color-ride-gold:  #A37729;
+
+  /* ── グラデーション（Apple Intelligence） ── */
+  --gt-rainbow: #0090f7, #ba62fc, #f2416b, #f55600;
+  --gt-green:   #0a861a;
+  --gt-magenta: #cc29bc;
+  --gt-blue:    #2535e0;
+  --gt-purple:  #882ff4;
+
+  /* ── アニメーション ── */
+  --ease-apple:    cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:      cubic-bezier(0, 0, 0.6, 1);
+  --ease-spring:   cubic-bezier(0.28, 0.11, 0.32, 1);
+  --duration-fast: 0.32s;
+  --duration-base: 0.55s;
+  --duration-slow: 0.8s;
+}
+
+@media (max-width: 1068px) {
+  :root {
+    --section-pad: 120px;
+    --section-pad-reduced: 80px;
+    --section-header-gap: 40px;
+  }
+}
+@media (max-width: 734px) {
+  :root {
+    --section-pad: 112px;
+    --section-pad-reduced: 56px;
+    --section-header-gap: 32px;
+  }
+}
+
+/* ─── リセット ───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── HTML / Body ────────────────────────────────────────── */
+.lp-wrapper html{
+  font-size: 106.25%; /* Apple 公式準拠（= 17px） */
+  font-family: SF Pro JP, SF Pro Text, SF Pro Icons,
+               Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3,
+               メイリオ, Meiryo, ＭＳ Ｐゴシック,
+               Helvetica Neue, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+.lp-wrapper body{
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47059;
+  letter-spacing: -0.022em;
+  font-feature-settings: "palt";
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* ─── 見出し ─────────────────────────────────────────────── */
+.lp-wrapper h1,  .lp-wrapper h2,  .lp-wrapper h3,  .lp-wrapper h4,  .lp-wrapper h5,  .lp-wrapper h6{
+  font-weight: 600;
+  letter-spacing: -0.009em;
+  line-height: 1.05;
+  margin: 0;
+  padding: 0;
+}
+
+/* 見出し直後の段落、段落直後の見出しに余白 */
+.lp-wrapper h1 + p,  .lp-wrapper h2 + p,  .lp-wrapper h3 + p,  .lp-wrapper h4 + p,  .lp-wrapper h5 + p,  .lp-wrapper h6 + p{ margin-top: 16px; }
+.lp-wrapper p + h1,  .lp-wrapper p + h2,  .lp-wrapper p + h3,  .lp-wrapper p + h4,  .lp-wrapper p + h5,  .lp-wrapper p + h6{ margin-top: 24px; }
+
+/* ─── テキスト要素 ───────────────────────────────────────── */
+.lp-wrapper p{ margin: 0; padding: 0; }
+
+/* ─── リンク ─────────────────────────────────────────────── */
+.lp-wrapper a{
+  color: inherit;
+  text-decoration: none;
+}
+.lp-wrapper a:hover{
+  text-decoration: none;
+}
+
+/* ─── メディア ───────────────────────────────────────────── */
+.lp-wrapper img,  .lp-wrapper video,  .lp-wrapper picture{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ─── ボタンリセット ─────────────────────────────────────── */
+.lp-wrapper button{
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+/* ─── リストリセット ─────────────────────────────────────── */
+.lp-wrapper ul,  .lp-wrapper ol{ list-style: none; }
+
+/* ─── フォーカスリング（アクセシビリティ） ──────────────── */
+.lp-wrapper :focus-visible{
+  outline: 2px solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+/* ─── セクション共通レイアウト ───────────────────────────── */
+.lp-wrapper .section-content{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 1068px) {
+  .lp-wrapper .section-content{ padding: 0 24px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .section-content{ padding: 0 16px; }
+}
+
+/* ─── Apple 標準ユーティリティ ───────────────────────────── */
+
+/* テキスト非表示（アクセシビリティ用） */
+.lp-wrapper .visually-hidden{
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 改行禁止 */
+.lp-wrapper .nowrap{ white-space: nowrap; }
+
+/* ─── スクロールフェードイン（IntersectionObserver 用） ──── */
+.lp-wrapper.js-active .fade-in{
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity  var(--duration-base) var(--ease-apple),
+    transform var(--duration-base) var(--ease-apple);
+}
+
+.lp-wrapper .fade-in.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* モーション感度への配慮（UI Pro Max: Severity High） */
+@media (prefers-reduced-motion: reduce) {
+  .lp-wrapper .fade-in{
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ─── ダークセクション共通 ───────────────────────────────── */
+.lp-wrapper .section-dark{
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+/* ダークモードのテキスト階層 */
+.lp-wrapper .section-dark .text-body{ color: var(--color-text-dark-body); }
+.lp-wrapper .section-dark .text-sub{ color: var(--color-text-dark-sub); }
+.lp-wrapper .section-dark .text-caption{ color: var(--color-text-dark-caption); }
+.lp-wrapper .section-dark a{ color: var(--color-link-dark); }
+
+/* ─── Apple 標準ボタン ───────────────────────────────────── */
+/* Apple実測: transition background-color 100ms linear
+   hover/active色は --sk-button-background-hover/active から抽出 */
+
+/* プライマリ（青）#0071e3 → hover:#0076DF → active:#006EDB */
+.lp-wrapper .btn-primary{
+  display: inline-block;
+  min-height: 44px;
+  padding: 11px 22px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: -0.022em;
+  color: #fff;
+  background: var(--color-cta);
+  border-radius: var(--pill-radius);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 200ms ease, backdrop-filter 200ms ease;
+}
+.lp-wrapper .btn-primary:hover{
+  background: rgba(0,113,227,0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-decoration: none;
+  color: #fff;
+}
+.lp-wrapper .btn-primary:active{
+  background: var(--color-cta-active);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* セカンダリ（ダーク）#1d1d1f → hover:#272729 → active:#18181A */
+.lp-wrapper .btn-dark{
+  display: inline-block;
+  min-height: 44px;
+  padding: 11px 22px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: -0.022em;
+  color: #fff;
+  background: var(--color-text);
+  border-radius: var(--pill-radius);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 200ms ease, backdrop-filter 200ms ease;
+}
+.lp-wrapper .btn-dark:hover{
+  background: rgba(29,29,31,0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-decoration: none;
+  color: #fff;
+}
+.lp-wrapper .btn-dark:active{
+  background: #18181A;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* アウトライン（セカンダリ）transparent → hover:背景+白文字 → active */
+.lp-wrapper .btn-outline{
+  display: inline-block;
+  min-height: 44px;
+  padding: 11px 22px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: -0.022em;
+  color: var(--color-link);
+  background: transparent;
+  border: 1px solid var(--color-link);
+  border-radius: var(--pill-radius);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 200ms ease, backdrop-filter 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.lp-wrapper .btn-outline:hover{
+  background: rgba(0,113,227,0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  border-color: transparent;
+  text-decoration: none;
+}
+.lp-wrapper .btn-outline:active{
+  background: var(--color-cta-active);
+  border-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* アウトライン ダーク（neutral-secondary）*/
+.lp-wrapper .btn-outline-dark{
+  display: inline-block;
+  min-height: 44px;
+  padding: 11px 22px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: -0.022em;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-text);
+  border-radius: var(--pill-radius);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 200ms ease, backdrop-filter 200ms ease, color 200ms ease;
+}
+.lp-wrapper .btn-outline-dark:hover{
+  background: rgba(29,29,31,0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  text-decoration: none;
+}
+.lp-wrapper .btn-outline-dark:active{
+  background: #18181A;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* ダーク反転（ダーク背景上） */
+.lp-wrapper .btn-dark-inv{
+  display: inline-block;
+  min-height: 44px;
+  padding: 11px 22px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.24;
+  color: var(--color-text);
+  background: var(--color-bg-section);
+  border-radius: var(--pill-radius);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 200ms ease, backdrop-filter 200ms ease;
+}
+.lp-wrapper .btn-dark-inv:hover{
+  background: rgba(245,245,247,0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--color-text);
+}
+
+/* テキストリンク風（青字） */
+.lp-wrapper .btn-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--color-link);
+  text-decoration: none;
+  cursor: pointer;
+}
+.lp-wrapper .btn-link:hover{
+  opacity: 0.72;
+}
+.lp-wrapper .section-dark .btn-link{
+  color: var(--color-link-dark);
+}
+
+/* ─── グラデーションテキスト ─────────────────────────────── */
+.lp-wrapper .gt-rainbow{
+  background: linear-gradient(90deg, var(--gt-rainbow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.lp-wrapper .gt-green{
+  background: linear-gradient(180deg, var(--gt-green), #0a861a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.lp-wrapper .gt-magenta{
+  background: linear-gradient(180deg, var(--gt-magenta), #a01f95);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.lp-wrapper .gt-blue{
+  background: linear-gradient(180deg, var(--gt-blue), #1a28b0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.lp-wrapper .gt-purple{
+  background: linear-gradient(180deg, var(--gt-purple), #6e2bc7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── タイル / カード ────────────────────────────────────── */
+.lp-wrapper .tile{
+  background: var(--color-bg);
+  border-radius: var(--tile-radius);
+  overflow: hidden;
+}
+.lp-wrapper .tile--alt{
+  background: var(--color-bg-section);
+}
+.lp-wrapper .tile--dark{
+  background: var(--fill-gray-quat-dark);
+  border: 1px solid var(--border-dark);
+}
+.lp-wrapper .tile__body{
+  padding: 32px;
+}
+@media (max-width: 1068px) { .tile__body { padding: 28px; } }
+@media (max-width: 734px) { .tile__body { padding: 24px; } }
+
+/* ─── ブレークポイント別ユーティリティ ───────────────────── */
+@media (max-width: 1068px) {
+  .lp-wrapper .hide-medium{ display: none !important; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .hide-small{ display: none !important; }
+}
+@media (min-width: 735px) {
+  .lp-wrapper .show-small{ display: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   共通デザインシステム — タイポグラフィ・レイアウト・コンポーネント
+   全セクションで統一的に使用する共通クラス
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── タイポグラフィ（Apple overview.built.css 実測値 2026-03-30）─── */
+/* 注: 日本語(ja)版の値。英語版とはサイズ・letter-spacingが異なる */
+
+/* t-headline: セクション主見出し
+   56px / 600 / 1.12 / -0.005em → 40px → 28px */
+.lp-wrapper .t-headline{
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+}
+
+/* t-headline-xl: ヒーロー見出し
+   64px / 600 / 1.08 / -0.009em → 48px → 32px */
+.lp-wrapper .t-headline-xl{
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.009em;
+  color: var(--color-text);
+}
+
+/* t-callout: 章タイトル / コピー
+   21px / 600 / 1.29 / 0em → 19px */
+.lp-wrapper .t-callout{
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: 0em;
+  color: var(--color-text);
+}
+
+/* t-body: 本文 / 説明文
+   17px / 400 / 1.47 / -0.022em → 15px */
+.lp-wrapper .t-body{
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.022em;
+  color: var(--color-text);
+}
+
+/* t-eyebrow-sm: セクションeyebrow
+   12px / 600 / 1.33 / -0.01em / uppercase */
+.lp-wrapper .t-eyebrow-sm{
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-text-sub);
+}
+
+/* t-caption: キャプション / 脚注
+   12px / 400 / 1.33 */
+.lp-wrapper .t-caption{
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: var(--color-text-sub);
+}
+
+/* ─── スタット数値（Apple stat-value 実測値）──────────────── */
+
+/* t-stat-super: 大型数値
+   64px / 600 / 1.0 / 0em → 56px → 40px */
+.lp-wrapper .t-stat-super{
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: 0em;
+  color: var(--color-text);
+}
+
+/* t-stat-caption: スタットキャプション
+   Apple: stat-caption 17px / 400 / 1.24 / -0.022em → 14px */
+.lp-wrapper .t-stat-caption{
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: -0.022em;
+  color: var(--color-text);
+}
+
+/* ─── タイポグラフィ レスポンシブ ──────────────────────────── */
+@media (max-width: 1068px) {
+  .lp-wrapper .t-headline-xl{ font-size: 48px; }
+  .lp-wrapper .t-headline{ font-size: 40px; }
+  .lp-wrapper .t-callout{ font-size: 19px; }
+  .lp-wrapper .t-body{ font-size: 15px; }
+  .lp-wrapper .t-stat-super{ font-size: 56px; }
+  .lp-wrapper .t-stat-caption{ font-size: 14px; }
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .t-headline-xl{ font-size: 32px; }
+  .lp-wrapper .t-headline{ font-size: 28px; }
+  .lp-wrapper .t-callout{ font-size: 17px; }
+  .lp-wrapper .t-body{ font-size: 15px; }
+  .lp-wrapper .t-stat-super{ font-size: 40px; }
+  .lp-wrapper .t-stat-caption{ font-size: 12px; }
+}
+
+/* ─── gradient-text: span内にグラデーション適用 ────────────── */
+.lp-wrapper .gradient-text span{
+  background: linear-gradient(90deg, var(--gt-rainbow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* AIR グリーン グラデーション */
+.lp-wrapper .gradient-text--air span{
+  background: linear-gradient(135deg, var(--color-air-green), #5a8f30);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* RIDE ゴールド グラデーション */
+.lp-wrapper .gradient-text--ride span{
+  background: linear-gradient(135deg, var(--color-ride-gold), #c4952e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── セクションヘッダー（中央揃え型）─────────────────────── */
+.lp-wrapper .section-header{
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px;
+  margin-bottom: var(--section-header-gap);
+}
+
+@media (max-width: 1068px) {
+  .lp-wrapper .section-header{ padding: 0 24px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .section-header{ padding: 0 16px; }
+}
+
+/* ─── コンテナ幅 ───────────────────────────────────────────── */
+
+/* 980px: Apple標準コンテンツ幅 */
+.lp-wrapper .container{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* 1200px: ワイドコンテンツ */
+.lp-wrapper .container-wide{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* 740px: ナローコンテンツ */
+.lp-wrapper .container-narrow{
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 1068px) {
+  .container,
+  .lp-wrapper .container-narrow{ padding: 0 24px; }
+}
+@media (max-width: 734px) {
+  .container,
+  .lp-wrapper .container-narrow{ padding: 0 16px; }
+}
+
+/* ─── pill型タブボタン（共通コンポーネント）──────────────── */
+.lp-wrapper .pill-tab{
+  border: none;
+  border-radius: var(--pill-radius);
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-apple);
+  white-space: nowrap;
+}
+
+.lp-wrapper .pill-tab.is-active{
+  background: var(--color-text);
+  color: #fff;
+}
+
+.lp-wrapper .pill-tab:not(.is-active){
+  background: var(--fill-gray-quat);
+  color: var(--color-text);
+}
+
+.lp-wrapper .pill-tab:not(.is-active):hover{
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* ─── 交互配置ブロック（2カラム + 左右入替）──────────────── */
+.lp-wrapper .block-alternate{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.lp-wrapper .block-alternate--reverse{
+  direction: rtl;
+}
+.lp-wrapper .block-alternate--reverse > *{
+  direction: ltr;
+}
+
+.lp-wrapper .block-alternate + .block-alternate{
+  margin-top: 100px;
+}
+
+.lp-wrapper .block-alternate img{
+  width: 100%;
+  display: block;
+  border-radius: var(--tile-radius);
+}
+
+@media (max-width: 1068px) {
+  .lp-wrapper .block-alternate{
+    gap: 40px;
+    padding: 0 24px;
+  }
+  .lp-wrapper .block-alternate + .block-alternate{
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .block-alternate{
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px;
+  }
+  .lp-wrapper .block-alternate--reverse{
+    direction: ltr;
+  }
+  .lp-wrapper .block-alternate + .block-alternate{
+    margin-top: 60px;
+  }
+}
+
+/* ─── 横スクロールギャラリー ────────────────────────────────── */
+.lp-wrapper .scroll-gallery{
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 max(40px, calc((100vw - 1200px) / 2));
+}
+
+.lp-wrapper .scroll-gallery::-webkit-scrollbar{
+  display: none;
+}
+
+.lp-wrapper .scroll-gallery__item{
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .scroll-gallery{
+    gap: 12px;
+    padding: 0 16px;
+  }
+  .lp-wrapper .scroll-gallery__item{
+    flex: 0 0 260px;
+  }
+}
+
+/* ─── 比較カード 2列グリッド ────────────────────────────────── */
+.lp-wrapper .compare-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .compare-grid{
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+}
+
+/* ─── インセンティブ 3列グリッド ────────────────────────────── */
+.lp-wrapper .incentive-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.lp-wrapper .incentive-grid__item{
+  text-align: center;
+}
+
+.lp-wrapper .incentive-grid__icon{
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+}
+
+@media (max-width: 1068px) {
+  .lp-wrapper .incentive-grid{
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .incentive-grid{
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 16px;
+  }
+}
+
+/* ─── ピラー（縦積みブロック + ボーダー）───────────────────── */
+.lp-wrapper .pillar-list{
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.lp-wrapper .pillar{
+  text-align: center;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.lp-wrapper .pillar:last-child{
+  border-bottom: none;
+}
+
+.lp-wrapper .pillar__icon{
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 20px;
+}
+
+.lp-wrapper .pillar__desc{
+  max-width: 480px;
+  margin: 12px auto 0;
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .pillar-list{ padding: 0 16px; }
+  .lp-wrapper .pillar{ padding: 36px 0; }
+}
+
+/* ─── タブパネル（2カラム コンテンツ切替）──────────────────── */
+.lp-wrapper .tab-nav{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.lp-wrapper .tab-panel{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.lp-wrapper .tab-panel:not(.is-active){
+  display: none;
+}
+
+.lp-wrapper .tab-panel img{
+  width: 100%;
+  border-radius: var(--tile-radius);
+}
+
+@media (max-width: 1068px) {
+  .lp-wrapper .tab-panel{ padding: 0 24px; }
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .tab-nav{ gap: 6px; margin-bottom: 32px; }
+  .lp-wrapper .tab-panel{
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px;
+  }
+}
+
+/* ─── プライバシーブロック ──────────────────────────────────── */
+.lp-wrapper .privacy-block{
+  text-align: center;
+  max-width: 740px;
+  margin: 80px auto 0;
+  padding: 60px 40px 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.lp-wrapper .privacy-block__icon{
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .privacy-block{
+    margin-top: 60px;
+    padding: 40px 16px 0;
+  }
+}
+
+/* ─── スペックリスト ────────────────────────────────────────── */
+.lp-wrapper .spec-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  max-width: 280px;
+}
+
+.lp-wrapper .spec-list li{
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.lp-wrapper .spec-list li:last-child{
+  border-bottom: none;
+}
+
+/* ─── 日本語テキスト制御 ───────────────────────────────────── */
+.lp-wrapper .jp-headline-adjust{
+  display: inline-block;
+  width: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   セクション別レイアウト
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── 01: ヒーロー ──────────────────────────────────────────── */
+/* ─── 01: ヒーロー（Apple section-welcome 完全準拠）───── */
+/* 構造: section.hero > .hero__marquee(テキスト中央) + .hero__asset(画像フルワイド) */
+/* 全幅背景, 高さ100vh, 画像は中央寄せfit-content */
+.lp-wrapper .hero{
+  background: var(--color-bg-section);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #000;
+}
+
+/* marquee: テキストブロック（中央揃え） */
+.lp-wrapper .hero__marquee{
+  text-align: center;
+  width: 100%;
+  padding: 66px 40px 27px;
+  position: relative;
+  z-index: 1;
+}
+
+/* eyebrow: Apple typography-marquee-eyebrow-base (ja)
+   28px / 600 / 1.18 → 24px → 21px */
+/* シリーズカラーライン（eyebrow上のアクセント） */
+.lp-wrapper .hero__series-line{
+  width: 40px; height: 3px;
+  background: var(--color-ride-gold);
+  border-radius: 2px;
+  margin: 0 auto 12px;
+}
+
+.lp-wrapper .hero__eyebrow{
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: 0.007em;
+  color: var(--color-text);
+}
+
+/* headline: Apple typography-welcome-headline-elevated (ja)
+   80px / 700 / 1.09 / 0em → 64px → 48px */
+.lp-wrapper .hero__headline{
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1.09;
+  letter-spacing: 0em;
+  color: var(--color-text);
+  margin-top: -2px;
+}
+
+/* detail: ボタン + 価格 */
+.lp-wrapper .hero__detail{
+  margin-top: 13px;
+}
+
+.lp-wrapper .hero__btn{
+  display: inline-block;
+  min-height: 44px;
+  padding: 11px 22px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: -0.022em;
+  color: #fff;
+  background: var(--color-text);
+  border-radius: var(--pill-radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 100ms linear;
+}
+.lp-wrapper .hero__btn:hover{ background: rgba(29,29,31,0.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); text-decoration: none; }
+.lp-wrapper .hero__btn:active{ background: #18181A; }
+
+/* プライマリボタン（ブランドCTAカラー） */
+.lp-wrapper .hero__btn--primary{
+  background: var(--color-cta);
+}
+.lp-wrapper .hero__btn--primary:hover{ background: var(--color-cta-hover); backdrop-filter: none; }
+.lp-wrapper .hero__btn--primary:active{ background: var(--color-cta-active); }
+
+.lp-wrapper .hero__price{
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: -0.016em;
+  color: var(--color-text);
+}
+
+.lp-wrapper .hero__footnote-link{ display: inline-block; vertical-align: super; font-size: 9px; color: var(--color-text); margin-left: 1px; }
+.lp-wrapper .hero__footnote-link:hover{ text-decoration: underline; }
+
+/* asset-wrapper: 画像（fit-content中央寄せ・フルワイド） */
+.lp-wrapper .hero__asset{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.lp-wrapper .hero__img{
+  display: block;
+  width: 860px;
+  height: auto;
+  max-width: 100%;
+}
+
+/* ── Hero 初期表示アニメーション（Apple風） ── */
+.lp-wrapper.js-active .hero__img{
+  opacity: 0;
+  transform: scale(0.92) translateY(20px);
+  animation: heroReveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+}
+
+@keyframes heroReveal {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.lp-wrapper.js-active .hero__marquee{
+  opacity: 0;
+  transform: translateY(12px);
+  animation: heroTextReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards;
+}
+
+@keyframes heroTextReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__img,
+  .lp-wrapper .hero__marquee{
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* ── Hero レスポンシブ ── */
+@media (max-width: 1068px) {
+  .lp-wrapper .hero__marquee{ padding: 49px 24px 26px; }
+  .lp-wrapper .hero__eyebrow{ font-size: 24px; }
+  .lp-wrapper .hero__headline{ font-size: 64px; margin-top: 6px; }
+  .lp-wrapper .hero__detail{ margin-top: 15px; }
+  .lp-wrapper .hero__img{ width: 1034px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .hero__marquee{ padding: 30px 16px 30px; }
+  .lp-wrapper .hero__eyebrow{ font-size: 21px; }
+  .lp-wrapper .hero__headline{ font-size: 48px; margin-top: 0; }
+  .lp-wrapper .hero__detail{ margin-top: 12px; }
+  .lp-wrapper .hero__btn{ font-size: 14px; padding: 9px 16px; min-height: 36px; }
+  .lp-wrapper .hero__img{ width: 690px; }
+  .lp-wrapper .hero__btn{ margin-top: 18px; font-size: 15px; padding: 8px 18px; }
+  .lp-wrapper .hero__price{ font-size: 12px; }
+}
+
+/* ─── 02: ハイライトギャラリー ───────────────────────────────── */
+/* ─── 02: ハイライトギャラリー（Apple section-highlights 完全準拠）── */
+/* Apple実測: カードサイズ 1260x680(xl) → 934x628(m) → 400x480(s) */
+/* padding: max(6.25vw, (100vw-maxW)/2) */
+.lp-wrapper .highlights{ background: var(--color-bg); padding: 80px 0 48px; }
+.lp-wrapper .highlights__heading{ font-size: 56px; font-weight: 700; line-height: 1.07; letter-spacing: -0.009em; color: var(--color-text); padding: 0 0 40px max(40px, calc((100vw - 1200px) / 2 + 40px)); }
+.lp-wrapper .highlights__track-wrap{ overflow: hidden; }
+.lp-wrapper .highlights__track{ display: flex; list-style: none; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 max(40px, calc((100vw - 1200px) / 2 + 40px)); scroll-padding-left: max(40px, calc((100vw - 1200px) / 2 + 40px)); }
+.lp-wrapper .highlights__track::-webkit-scrollbar{ display: none; }
+.lp-wrapper .highlights__slide{ position: relative; flex-shrink: 0; width: min(87.5vw, 1440px); min-height: 680px; border-radius: var(--tile-radius); overflow: hidden; scroll-snap-align: start; background: var(--color-text); scroll-snap-stop: always; }
+.lp-wrapper .highlights__slide-img{ width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
+.lp-wrapper .highlights__slide-caption{ position: absolute; top: 48px; left: 50%; transform: translateX(-50%); width: 80%; max-width: 500px; text-align: center; font-size: 28px; font-weight: 600; line-height: 1.38; letter-spacing: -0.016em; color: #fff; pointer-events: none; z-index: 1; }
+.lp-wrapper .highlights__slide-caption sup{ font-size: 11px; vertical-align: super; }
+/* コントロールバー（Apple autoplay-progress 完全準拠）
+   バブル: 56px高, rgba(232,232,237,0.72), blur 7px, border-radius 32px
+   ドット: 8px → active 48px（プログレスバー）
+   再生/一時停止: 56px, gap 16px */
+.lp-wrapper .highlights__controls{ display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 32px; }
+.lp-wrapper .highlights__progress{ display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 16px; background: rgba(232,232,237,0.72); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); border-radius: 32px; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.11); }
+.lp-wrapper .highlights__dot{ width: 8px; height: 8px; border-radius: 10px; background: rgba(29,29,31,0.28); cursor: pointer; flex-shrink: 0; transition: width 0.4s var(--ease-apple), background-color 250ms linear; }
+.lp-wrapper .highlights__dot.is-active{ width: 48px; background: rgba(29,29,31,0.6); }
+.lp-wrapper .highlights__dot:hover:not(.is-active){ background: rgba(0,0,0,0.54); }
+.lp-wrapper .highlights__pause-btn{ width: 56px; height: 56px; border-radius: 32px; background: rgba(232,232,237,0.72); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgba(29,29,31,1); flex-shrink: 0; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.11); transition: background-color 250ms linear; }
+.lp-wrapper .highlights__pause-btn:hover{ background: rgba(223,223,227,0.698); }
+.lp-wrapper .highlights__pause-btn:active{ background: rgba(193,193,198,0.654); }
+.lp-wrapper .highlights__pause-btn svg{ width: 14px; height: 14px; }
+
+@media (max-width: 1068px) {
+  .lp-wrapper .highlights__heading{ font-size: 40px; padding-left: 24px; }
+  .lp-wrapper .highlights__track{ padding: 0 24px; scroll-padding-left: 24px; gap: 16px; }
+  .lp-wrapper .highlights__slide{ width: min(87.5vw, 980px); min-height: 628px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .highlights{ padding: 60px 0 36px; }
+  .lp-wrapper .highlights__heading{ font-size: 28px; padding: 0 0 28px 20px; }
+  .lp-wrapper .highlights__track{ padding: 0 20px; scroll-padding-left: 20px; gap: 12px; }
+  /* Apple: モバイルカード 400x480（縦長に変化） */
+  .lp-wrapper .highlights__slide{ width: calc(87.5vw); min-height: 480px; border-radius: var(--tile-radius); }
+  .lp-wrapper .highlights__slide-caption{ font-size: 17px; top: 24px; }
+  /* Apple: モバイル progress-bar-active-width: 32px */
+  .lp-wrapper .highlights__dot.is-active{ width: 32px; }
+  .lp-wrapper .highlights__progress{ height: 48px; padding: 0 12px; gap: 6px; }
+  .lp-wrapper .highlights__pause-btn{ width: 48px; height: 48px; }
+  .lp-wrapper .highlights__controls{ gap: 12px; margin-top: 24px; }
+}
+
+/* ─── 03: デザインストーリー ─────────────────────────────────── */
+.lp-wrapper .design{ background: var(--color-bg-section); overflow: hidden; display: flex; flex-direction: column; }
+.lp-wrapper .design__row{ display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+.lp-wrapper .design__col{ display: flex; }
+.lp-wrapper .design__col--left{ justify-content: flex-end; padding-right: 16px; padding-left: 40px; }
+.lp-wrapper .design__col--right{ justify-content: flex-start; padding-left: 16px; padding-right: 40px; }
+.lp-wrapper .design__row--top .design__col--left,  .lp-wrapper .design__row--top .design__col--right{ align-items: flex-start; }
+.lp-wrapper .design__row--bottom .design__col--left,  .lp-wrapper .design__row--bottom .design__col--right{ align-items: flex-end; }
+.lp-wrapper .design__img{ display: block; width: 100%; max-width: 500px; height: auto; }
+.lp-wrapper .design__text{ width: 100%; text-align: center; padding: 56px 40px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.lp-wrapper .design__headline{ font-size: 64px; font-weight: 700; line-height: 1.07; letter-spacing: -0.009em; color: var(--color-text); }
+.lp-wrapper .design__body{ font-size: 17px; font-weight: 400; line-height: 1.6; letter-spacing: -0.022em; color: var(--color-text); max-width: 680px; }
+.lp-wrapper .design__btn-video{ display: inline-block; margin-top: 6px; padding: 10px 24px; font-size: 17px; font-weight: 400; line-height: 1.24; letter-spacing: -0.022em; color: var(--color-text); background: transparent; border: 1.5px solid var(--color-text); border-radius: var(--pill-radius); text-decoration: none; white-space: nowrap; transition: background 0.2s ease, color 0.2s ease; }
+.lp-wrapper .design__btn-video:hover{ background: var(--color-text); color: #fff; text-decoration: none; }
+
+@media (max-width: 1068px) {
+  .lp-wrapper .design__headline{ font-size: 48px; }
+  .lp-wrapper .design__img{ max-width: 400px; }
+  .lp-wrapper .design__col--left{ padding-left: 24px; }
+  .lp-wrapper .design__col--right{ padding-right: 24px; }
+  .lp-wrapper .design__text{ padding: 48px 24px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .design__headline{ font-size: 36px; letter-spacing: -0.005em; }
+  .lp-wrapper .design__body{ font-size: 15px; }
+  .lp-wrapper .design__btn-video{ font-size: 15px; }
+  .lp-wrapper .design__img{ max-width: 100%; }
+  .lp-wrapper .design__col--left{ padding-left: 16px; padding-right: 8px; }
+  .lp-wrapper .design__col--right{ padding-right: 16px; padding-left: 8px; }
+  .lp-wrapper .design__text{ padding: 40px 20px; gap: 14px; }
+}
+@media (max-width: 414px) {
+  .lp-wrapper .design__headline{ font-size: 28px; }
+  .lp-wrapper .design__col--left{ padding-left: 12px; padding-right: 4px; }
+  .lp-wrapper .design__col--right{ padding-right: 12px; padding-left: 4px; }
+}
+
+/* ─── 04: プロダクトビューワー（Apple section-product-viewer 準拠）── */
+
+/* ── 共通ルール（全ブレイクポイント） ── */
+.lp-wrapper .viewer{ background: var(--color-bg); }
+.lp-wrapper .viewer__card{ position: relative; background: var(--color-bg-section); overflow: hidden; }
+.lp-wrapper .viewer__media-item{ position: absolute; inset: 0; opacity: 0; pointer-events: none; will-change: opacity, transform; }
+.lp-wrapper .viewer__media-item img{ width: 100%; height: 100%; }
+/* 入場: 右から浮き出る（translateX + opacity） */
+.lp-wrapper .viewer__media-item.is-active{ opacity: 1; transform: translateX(0); transition: opacity 500ms cubic-bezier(0.28, 0.11, 0.32, 1) 50ms, transform 600ms cubic-bezier(0.28, 0.11, 0.32, 1); }
+/* 退場: 左へフェードアウト */
+.lp-wrapper .viewer__media-item.is-leaving{ opacity: 0; transform: translateX(-8%); transition: opacity 200ms ease-in, transform 200ms ease-in; }
+/* 待機: 右側にスタンバイ */
+.lp-wrapper .viewer__media-item:not(.is-active):not(.is-leaving){ opacity: 0; transform: translateX(8%); transition: none; }
+.lp-wrapper .viewer__control-item{ display: flex; flex-shrink: 0; width: fit-content; border-radius: 28px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background: rgb(232 232 237 / 0.72); box-shadow: inset 0 0 .5px 0 rgba(0,0,0,.11); transition: background-color 250ms linear; }
+.lp-wrapper .viewer__control-item:hover:not(.is-expanded){ background: rgb(232 232 237 / 0.92); }
+.lp-wrapper .viewer__control-trigger{ display: flex; align-items: center; background: none; border: none; cursor: pointer; color: var(--color-text); flex-shrink: 0; }
+.lp-wrapper .viewer__control-label{ display: flex; align-items: center; white-space: nowrap; font-weight: 600; line-height: 1.235; letter-spacing: 0em; }
+.lp-wrapper .viewer__plus-icon{ flex-shrink: 0; color: var(--color-text); }
+.lp-wrapper .viewer__control-title{ font-weight: 600; line-height: 1.47; display: block; margin-bottom: 2px; color: var(--color-text); }
+.lp-wrapper .viewer__control-body{ font-weight: 400; line-height: 1.55; color: var(--color-text); margin: 0; }
+.lp-wrapper .viewer__control-content-mask{ overflow: hidden; }
+.lp-wrapper .viewer__color-picker{ display: flex; padding: 0; }
+.lp-wrapper .viewer__color-swatch{ cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.lp-wrapper .viewer__color-circle{ display: block; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); transition: box-shadow 200ms ease, transform 200ms ease; }
+.lp-wrapper .viewer__color-swatch--active .viewer__color-circle{ box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--color-text, #1d1d1f); }
+.lp-wrapper .viewer__close-btn{ display: none; }
+.lp-wrapper .viewer__item-nav{ display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .viewer__media-item, .viewer__media-item.is-active, .viewer__media-item.is-leaving,
+  .viewer__control-trigger, .viewer__control-content, .viewer__control-content-inner,
+  .lp-wrapper .viewer__control-item,  .lp-wrapper .viewer__heading{ transition-duration: 0ms !important; transition-delay: 0ms !important; }
+}
+
+/* ══════════════════════════════════════════════════
+   PC版 (≥735px)
+   カード内: 画像=absolute全面、コントロール=absolute左側
+   ══════════════════════════════════════════════════ */
+@media (min-width: 735px) {
+  .lp-wrapper .viewer{ padding: var(--section-pad) 40px; }
+  .lp-wrapper .viewer__heading{ font-size: 48px; font-weight: 600; line-height: 1.15; color: var(--color-text); margin-bottom: 40px; }
+  .lp-wrapper .viewer__card{ height: 760px; max-width: 1440px; margin: 0 auto; border-radius: 28px; }
+  .lp-wrapper .viewer__media{ position: absolute; inset: 0; z-index: 0; }
+  .lp-wrapper .viewer__media-item img{ object-fit: cover; }
+  .lp-wrapper .viewer__controls{ position: absolute; top: 0; left: 0; bottom: 0; z-index: 10; display: flex; align-items: center; padding-left: 6.25vw; }
+  .lp-wrapper .viewer__control-list{ list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .lp-wrapper .viewer__control-item{ flex-direction: column; overflow: hidden; }
+
+  /* StaggeredFadeIn（PC専用） */
+  .lp-wrapper .viewer__control-item{ opacity: 0; transform: translateY(30px); }
+  .lp-wrapper .viewer.is-visible .viewer__control-item{ opacity: 1; transform: translateY(0); transition: opacity 0.9s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.7s cubic-bezier(0.455, 0.03, 0.515, 0.955), background-color 250ms linear; }
+  .lp-wrapper .viewer.is-visible .viewer__control-item:nth-child(1){ transition-delay: 0s, 0s, 0s; }
+  .lp-wrapper .viewer.is-visible .viewer__control-item:nth-child(2){ transition-delay: 0.15s, 0.15s, 0s; }
+  .lp-wrapper .viewer.is-visible .viewer__control-item:nth-child(3){ transition-delay: 0.3s, 0.3s, 0s; }
+  .lp-wrapper .viewer.is-visible .viewer__control-item:nth-child(4){ transition-delay: 0.45s, 0.45s, 0s; }
+  .lp-wrapper .viewer.is-visible .viewer__control-item:nth-child(5){ transition-delay: 0.6s, 0.6s, 0s; }
+  .lp-wrapper .viewer.is-visible .viewer__control-item:nth-child(6){ transition-delay: 0.75s, 0.75s, 0s; }
+  .lp-wrapper .viewer.is-visible .viewer__control-item:nth-child(7){ transition-delay: 0.9s, 0.9s, 0s; }
+  .lp-wrapper .viewer.is-visible .viewer__control-item:nth-child(8){ transition-delay: 1.05s, 1.05s, 0s; }
+  .lp-wrapper .viewer__heading{ opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.7s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+  .lp-wrapper .viewer.is-visible .viewer__heading{ opacity: 1; transform: translateY(0); }
+
+  /* PC トリガー・展開 */
+  .lp-wrapper .viewer__control-trigger{ height: 56px; padding: 0 32px 0 14px; transition: opacity 400ms ease-in-out 350ms; }
+  .lp-wrapper .viewer__control-item.is-expanded .viewer__control-trigger{ opacity: 0; pointer-events: none; position: absolute; top: 0; left: 0; right: 0; transition: opacity 50ms ease-in-out 0ms; }
+  .lp-wrapper .viewer__control-label{ font-size: 17px; }
+  .lp-wrapper .viewer__plus-icon{ margin-right: 14px; }
+  .lp-wrapper .viewer__control-content{ max-height: 0; overflow: hidden; transition: max-height 400ms var(--ease-apple); }
+  .lp-wrapper .viewer__control-item.is-expanded .viewer__control-content{ max-height: 250px; }
+  .lp-wrapper .viewer__control-content-inner{ max-width: 423px; padding: 28px; opacity: 0; transform: translateY(20px); transition: opacity 300ms ease-in-out 0ms, transform 400ms ease-in-out 0ms; }
+  .lp-wrapper .viewer__control-item.is-expanded .viewer__control-content-inner{ opacity: 1; transform: translateY(0); transition: opacity 400ms ease-in-out 50ms, transform 400ms ease-in-out 100ms; }
+  .lp-wrapper .viewer__control-title{ font-size: 17px; }
+  .lp-wrapper .viewer__control-body{ font-size: 15px; }
+  .lp-wrapper .viewer__color-picker{ gap: 16px; margin-top: 20px; }
+  .lp-wrapper .viewer__color-circle{ width: 32px; height: 32px; }
+}
+
+/* PC タブレット (735px〜1068px) */
+@media (min-width: 735px) and (max-width: 1068px) {
+  .lp-wrapper .viewer{ padding: var(--section-pad) 24px; }
+  .lp-wrapper .viewer__heading{ font-size: 36px; margin-bottom: 32px; }
+  .lp-wrapper .viewer__card{ height: 720px; }
+  .lp-wrapper .viewer__controls{ padding-left: 4vw; }
+  .lp-wrapper .viewer__control-content-inner{ max-width: 340px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   モバイル版 プロダクトビューワー (≤734px)
+   参照: Apple公式スクリーンショット 2026-04-01
+   仕様: product-viewer-mobile-css.md
+   ═══════════════════════════════════════════════════════════
+
+   ■ レイヤー構造（通常状態）
+     .viewer__card           position: relative  (コンテナ)
+       .viewer__media        position: absolute   z:0  (背景: カード全面)
+       .viewer__controls     position: absolute   z:10 (前面: 下部にpill)
+       .viewer__close-btn    position: absolute   z:20 (非表示)
+       .viewer__item-nav     position: absolute   z:15 (非表示)
+
+   ■ レイヤー構造（展開状態）
+     .viewer__card.has-expanded   position: relative (高さ auto)
+       .viewer__media             position: relative (グレー角丸カード)
+       .viewer__controls          position: relative (テキストカード)
+       .viewer__close-btn         visibility: visible z:20 (右上)
+       .viewer__item-nav          opacity: 1          z:15 (画像左右)
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 734px) {
+
+  /* StaggeredFadeInはPC専用(@media min-width:735px)に隔離済み。モバイルでは不要。 */
+
+  .lp-wrapper .viewer{ padding: var(--section-pad) 0; }
+  .lp-wrapper .viewer__heading{ font-size: 28px; font-weight: 600; line-height: 1.15; margin-bottom: 24px; padding: 0 16px; }
+
+  /* ── カード（展開前後でサイズ固定） ── */
+  .lp-wrapper .viewer__card{
+    position: relative;
+    height: 80vh;
+    max-height: 680px;
+    min-height: 480px;
+    overflow: hidden;       /* テキスト展開もカード内に収める */
+    border-radius: 0;
+    background: #f5f5f7;
+  }
+
+  /* ── 画像: absolute で全面背景 ── */
+  .lp-wrapper .viewer__media{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .lp-wrapper .viewer__media-item{
+    position: absolute;
+    inset: 0;
+  }
+  .lp-wrapper .viewer__media-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* カード全面を埋める */
+    padding: 0;
+  }
+
+  /* ── コントロール: 下部にオーバーレイ ── */
+  .lp-wrapper .viewer__controls{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    z-index: 10;
+    padding: 0;
+    display: block;
+  }
+
+  .lp-wrapper .viewer__control-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;         /* 1行横スクロール（Apple公式スクリーンショット準拠） */
+    gap: 8px;
+    padding: 0 16px 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .lp-wrapper .viewer__control-list::-webkit-scrollbar{ display: none; }
+
+  .lp-wrapper .viewer__control-item{
+    width: auto;
+    flex-shrink: 0;
+    min-height: 44px;
+    border-radius: 28px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgb(232 232 237 / 0.72);
+    box-shadow: inset 0 0 .5px 0 rgba(0,0,0,.11);
+    overflow: hidden;
+  }
+
+  .lp-wrapper .viewer__control-item .viewer__control-content{
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .lp-wrapper .viewer__control-trigger{
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 20px 0 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+    opacity: 1;
+    pointer-events: auto;
+    position: static;
+  }
+  .lp-wrapper .viewer__control-label{ font-size: 14px; font-weight: 600; line-height: 1.235; white-space: nowrap; }
+  .lp-wrapper .viewer__plus-icon{ width: 20px; height: 20px; margin-right: 8px; flex-shrink: 0; }
+
+  /* ── 閉じる: 通常時は非表示、展開時に右上フロストガラス丸ボタン ── */
+  .lp-wrapper .viewer__close-btn{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 20;
+    width: 44px; height: 44px;
+    border-radius: 50%; border: none;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    background: rgb(232 232 237 / 0.72);
+    box-shadow: inset 0 0 .5px 0 rgba(0,0,0,.11);
+    color: var(--color-text);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    transition: visibility 0ms linear 300ms, opacity 300ms ease-out, transform 300ms ease-out;
+  }
+  .lp-wrapper .viewer__close-btn svg{ width: 14px; height: 14px; }
+
+  /* ── ナビ: 通常時は非表示 ── */
+  .lp-wrapper .viewer__item-nav{
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+  .lp-wrapper .viewer__nav-btn{
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: none; border: none;
+    cursor: pointer; color: var(--color-text);
+    -webkit-tap-highlight-color: transparent;
+    pointer-events: auto;
+  }
+  .lp-wrapper .viewer__nav-btn:disabled{ opacity: 0.3; cursor: default; }
+  .lp-wrapper .viewer__nav-btn svg{ width: 20px; height: 20px; }
+
+  /* ══════════════════════════════════════════════════
+     展開状態（Apple公式スクリーンショット 2026-04-01 準拠）
+     ─ 画像: 全幅フルブリード、上部60%を占める
+     ─ テキストカード: 画像の下にフロストガラス
+     ─ < > ナビ: テキストカード左右横に両方表示
+     ─ × 閉じる: 右上フロストガラス丸ボタン
+     ══════════════════════════════════════════════════ */
+
+  /* 展開時もカードサイズは通常と同じ（固定） */
+  .lp-wrapper .viewer__card.has-expanded{
+    /* height, max-height, min-height は通常状態を継承 — 変更しない */
+    overflow: hidden;       /* テキストもカード内に収める */
+    background: #f5f5f7;
+  }
+
+  /* 画像: absolute維持 — カード全面の背景として残す */
+  /* (通常状態と同じ position: absolute; inset: 0 をそのまま継承) */
+  .lp-wrapper .viewer__card.has-expanded .viewer__media-item img{
+    padding: 0;
+    object-fit: cover;
+  }
+
+  /* コントロール: カード下部にオーバーレイ（画像の上に重なる） */
+  .lp-wrapper .viewer__card.has-expanded .viewer__controls{
+    position: absolute;
+    bottom: 0;
+    left: 44px;       /* ナビ矢印幅分の余白 */
+    right: 44px;
+    top: auto;
+    padding: 0;
+    z-index: 10;
+  }
+
+  .lp-wrapper .viewer__card.has-expanded .viewer__control-list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .lp-wrapper .viewer__card.has-expanded .viewer__control-item:not(.is-expanded){
+    display: none;
+  }
+
+  /* テキストカード */
+  .lp-wrapper .viewer__card.has-expanded .viewer__control-item.is-expanded{
+    width: 100%;
+    margin: 5px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background: rgb(232 232 237 / 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: inset 0 0 .5px 0 rgba(0,0,0,.11);
+    overflow: visible;
+  }
+
+  .lp-wrapper .viewer__card.has-expanded .viewer__control-item.is-expanded .viewer__control-trigger{
+    opacity: 0; pointer-events: none; height: 0; position: absolute; overflow: hidden;
+  }
+
+  .lp-wrapper .viewer__card.has-expanded .viewer__control-item.is-expanded .viewer__control-content{
+    position: static;
+    visibility: visible;
+    max-height: none;
+    overflow: visible;
+    pointer-events: auto;
+  }
+  .lp-wrapper .viewer__card.has-expanded .viewer__control-item.is-expanded .viewer__control-content-mask{
+    overflow: visible;
+  }
+  .lp-wrapper .viewer__card.has-expanded .viewer__control-item.is-expanded .viewer__control-content-inner{
+    max-width: 100%;
+    padding: 15px;
+    font-size: 13px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+
+  .lp-wrapper .viewer__card.has-expanded .viewer__control-title{
+    font-size: 13px; font-weight: 600; line-height: 1.47; display: inline;
+  }
+  .lp-wrapper .viewer__card.has-expanded .viewer__control-body{
+    font-size: 13px; line-height: 1.47;
+  }
+
+  /* × 閉じる: 展開時に右上フロストガラス丸ボタン */
+  .lp-wrapper .viewer__card.has-expanded .viewer__close-btn{
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    transition: visibility 0ms linear 0ms, opacity 300ms var(--ease-spring), transform 300ms var(--ease-spring);
+  }
+
+  /* < > ナビ: テキストカードと同じ高さに左右配置 */
+  .lp-wrapper .viewer__card.has-expanded .viewer__item-nav{
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    height: auto;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 15;
+  }
+
+  /* カラーピッカー（モバイル） */
+  .lp-wrapper .viewer__color-picker{ gap: 12px; margin-top: 16px; }
+  .lp-wrapper .viewer__color-circle{ width: 28px; height: 28px; }
+  .lp-wrapper .viewer__color-swatch--active .viewer__color-circle{
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px var(--color-text, #1d1d1f);
+  }
+}
+
+/* ─── 05: パフォーマンス ─────────────────────────────────────── */
+.lp-wrapper .section-product-stories{ background: var(--color-bg); padding: var(--section-pad, 144px) 0; }
+.lp-wrapper .ps-heading{ margin-bottom: 20px; }
+.lp-wrapper .ps-header-desc{ color: var(--color-text-sub); max-width: 680px; margin: 0 auto; }
+.lp-wrapper .ps-chapters-wrapper{ max-width: 980px; margin: 0 auto; padding: 0 40px; }
+.lp-wrapper .ps-chapters{ display: flex; flex-direction: column; }
+.lp-wrapper .ps-chapter + .ps-chapter{ margin-top: 120px; }
+.lp-wrapper .ps-chapter{ display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center; }
+.lp-wrapper .ps-chapter--reversed{ grid-template-columns: 5fr 7fr; }
+.lp-wrapper .ps-chapter__media img{ width: 100%; display: block; border-radius: var(--tile-radius); }
+.lp-wrapper .ps-chapter__text{ max-width: 400px; }
+.lp-wrapper .ps-chapter--reversed .ps-chapter__text{ justify-self: end; }
+/* ps-chapter__title: 交互配置ブロックの章タイトル
+   Apple overview実測: 28〜32px / 600 / 1.14 → 24px → 21px */
+.lp-wrapper .ps-chapter__title{
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.005em;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 1068px) {
+  .lp-wrapper .ps-chapter__title{ font-size: 28px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .ps-chapter__title{ font-size: 24px; }
+}
+.lp-wrapper .ps-chapter__title--ch1{ color: var(--gt-green); }
+.lp-wrapper .ps-chapter__title--ch2{ color: var(--gt-magenta); }
+.lp-wrapper .ps-chapter__title--ch3{ color: var(--gt-blue); }
+.lp-wrapper .ps-chapter__title--ch4{ color: var(--gt-purple); }
+.lp-wrapper .ps-bottom-content{ text-align: center; max-width: 580px; margin: 120px auto 0; padding: 0 40px; }
+.lp-wrapper .ps-bottom-content__title{ margin-bottom: 12px; }
+.lp-wrapper .ps-lifestyle{ margin-top: 120px; }
+.lp-wrapper .ps-lifestyle__image-wrapper{ max-width: 1440px; margin: 0 auto; overflow: hidden; }
+.lp-wrapper .ps-lifestyle__image-wrapper img{ width: 100%; display: block; }
+.lp-wrapper .ps-lifestyle__content{ display: flex; justify-content: center; align-items: flex-start; gap: 80px; max-width: 980px; margin: 48px auto 0; padding: 0 40px; }
+.lp-wrapper .ps-lifestyle__text{ max-width: 380px; }
+.lp-wrapper .ps-lifestyle__title{ margin-bottom: 12px; }
+.lp-wrapper .ps-lifestyle__stat{ text-align: center; flex-shrink: 0; }
+.lp-wrapper .ps-stat__number{ display: flex; flex-direction: column; align-items: center; gap: 4px; }
+
+@media (max-width: 1068px) {
+  .lp-wrapper .ps-chapters-wrapper{ padding: 0 24px; }
+  .lp-wrapper .ps-chapter + .ps-chapter{ margin-top: 80px; }
+  .lp-wrapper .ps-chapter{ gap: 32px; }
+  .lp-wrapper .ps-bottom-content{ margin-top: 80px; padding: 0 24px; }
+  .lp-wrapper .ps-lifestyle{ margin-top: 80px; }
+  .lp-wrapper .ps-lifestyle__content{ gap: 48px; padding: 0 24px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .ps-chapters-wrapper{ padding: 0 16px; }
+  .lp-wrapper .ps-chapter + .ps-chapter{ margin-top: 72px; }
+  .lp-wrapper .ps-chapter,  .lp-wrapper .ps-chapter--reversed{ grid-template-columns: 1fr; gap: 24px; }
+  .lp-wrapper .ps-chapter__media{ order: -1; }
+  .lp-wrapper .ps-chapter__text{ order: 1; max-width: 100%; }
+  .lp-wrapper .ps-chapter--reversed .ps-chapter__text{ justify-self: start; }
+  .lp-wrapper .ps-bottom-content{ margin-top: 72px; padding: 0 16px; }
+  .lp-wrapper .ps-lifestyle{ margin-top: 72px; }
+  .lp-wrapper .ps-lifestyle__content{ flex-direction: column; align-items: center; gap: 40px; padding: 0 16px; text-align: center; }
+  .lp-wrapper .ps-lifestyle__text{ max-width: 100%; }
+}
+
+/* ─── 06: ディスプレイ・カメラ・オーディオ ────────────────────── */
+.lp-wrapper .section-dca{ background: var(--color-bg); padding: var(--section-pad, 144px) 0; }
+.lp-wrapper .dca-header-desc{ color: var(--color-text-sub); max-width: 680px; margin: 0 auto; }
+.lp-wrapper .dca-chapter{ max-width: 980px; margin: 0 auto; padding: 0 40px; }
+.lp-wrapper .dca-chapter + .dca-chapter{ margin-top: 120px; }
+.lp-wrapper .dca-chapter__media{ margin-top: 16px; }
+.lp-wrapper .dca-chapter__media img{ width: 100%; display: block; }
+.lp-wrapper .dca-display-row{ display: grid; grid-template-columns: 1fr auto auto; gap: 48px; align-items: baseline; }
+.lp-wrapper .dca-copy{ color: var(--gt-green); }
+.lp-wrapper .dca-copy strong{ font-weight: 600; color: var(--gt-green); }
+.lp-wrapper .dca-copy sup{ font-size: 0.5em; vertical-align: super; }
+.lp-wrapper .dca-copy--center{ text-align: center; }
+.lp-wrapper .dca-copy--gap{ margin-top: 16px; }
+.lp-wrapper .dca-footnote{ margin-top: 16px; }
+.lp-wrapper .dca-chapter-text{ margin-bottom: 32px; }
+
+@media (max-width: 1068px) {
+  .lp-wrapper .dca-chapter{ padding: 0 24px; }
+  .lp-wrapper .dca-chapter + .dca-chapter{ margin-top: 80px; }
+  .lp-wrapper .dca-display-row{ gap: 32px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .dca-chapter{ padding: 0 16px; }
+  .lp-wrapper .dca-chapter + .dca-chapter{ margin-top: 72px; }
+  .lp-wrapper .dca-display-row{ grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ─── 07: Apple Intelligence ─────────────────────────────────── */
+.lp-wrapper .section-apple-intelligence{ background: var(--color-bg); padding: var(--section-pad, 144px) 0; }
+.lp-wrapper .section-apple-intelligence .ai-body{ margin-top: 12px; }
+.lp-wrapper .privacy-block__icon img{ width: 100%; }
+.lp-wrapper .section-apple-intelligence .ai-privacy-desc{ margin-top: 16px; }
+.lp-wrapper .section-apple-intelligence .ai-privacy-link{ margin-top: 12px; }
+
+/* ─── 08: macOS ──────────────────────────────────────────────── */
+.lp-wrapper .section-macos{ background: var(--color-bg-section); padding: var(--section-pad, 144px) 0; }
+.lp-wrapper .macos-card__img{ width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.lp-wrapper .scroll-gallery__item .tile{ height: 100%; }
+
+@media (max-width: 734px) {
+  .lp-wrapper .section-macos .scroll-gallery__item{ flex: 0 0 85vw; }
+}
+
+/* ─── 09: Mac + iPhone連携 ───────────────────────────────────── */
+.lp-wrapper .section-continuity{ background: var(--color-bg); padding: var(--section-pad, 144px) 0; }
+.lp-wrapper .continuity-tabs{ gap: 4px; }
+.lp-wrapper .continuity-panel{ display: block; text-align: center; }
+.lp-wrapper .continuity-panel:not(.is-active){ display: none; }
+.lp-wrapper .continuity-panel .t-body{ max-width: 600px; margin: 0 auto 32px; }
+.lp-wrapper .continuity-panel img{ max-width: 800px; margin: 0 auto; }
+
+@media (max-width: 734px) {
+  .lp-wrapper .continuity-tabs .pill-tab{ font-size: 12px; padding: 6px 12px; }
+}
+
+/* ─── 10: 購入インセンティブ ─────────────────────────────────── */
+.lp-wrapper .section-incentives{ background: var(--color-bg-section); padding: var(--section-pad, 144px) 0; }
+
+/* ─── 11: 競合比較（Apple product-tile-contrast 準拠） ────────── */
+.lp-wrapper .section-compare{
+  background: var(--color-bg-section);
+  padding: var(--section-pad, 144px) 0;
+}
+
+/* ── カードコンテナ ── */
+.lp-wrapper .compare-container{
+  padding: 0 max(80px, calc((100vw - 1200px) / 2));
+}
+.lp-wrapper .compare-card{
+  background: #fff;
+  border-radius: var(--tile-radius, 28px);
+  overflow: hidden;
+}
+
+/* ── 製品タイルセット（2列） ── */
+.lp-wrapper .compare-tile-set{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lp-wrapper .compare-tile{
+  padding: 48px 32px 0;
+  text-align: center;
+}
+
+/* ── 製品ID（Badge + 名前 + チップ） ── */
+.lp-wrapper .compare-badge{
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #bf4800;
+  margin-bottom: 8px;
+}
+.lp-wrapper .compare-headline{
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+.lp-wrapper .compare-subheading{
+  font-size: 14px;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+/* ── 製品画像 ── */
+.lp-wrapper .compare-tile__image{
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto 24px;
+  display: block;
+}
+
+/* ── カラーインジケーター ── */
+.lp-wrapper .compare-colors{
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.lp-wrapper .compare-colors__dot{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+.lp-wrapper .compare-colors__more{
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+/* ── キャッチコピー・価格 ── */
+.lp-wrapper .compare-positioning{
+  font-size: 14px;
+  color: var(--color-text-sub);
+  line-height: 1.47;
+  margin-bottom: 12px;
+}
+.lp-wrapper .compare-price{
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.47;
+  margin-bottom: 24px;
+}
+
+/* ── CTA ── */
+.lp-wrapper .compare-ctas{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.lp-wrapper .compare-current{
+  font-size: 12px;
+  color: var(--color-text-sub);
+  padding: 8px 0;
+}
+
+/* ── スペック（tout-group） ── */
+.lp-wrapper .compare-tout-group{
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.lp-wrapper .compare-tout{
+  padding: 24px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  text-align: center;
+}
+.lp-wrapper .compare-tout:last-child{
+  border-bottom: none;
+}
+.lp-wrapper .compare-tout__icon{
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lp-wrapper .compare-tout__icon img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.lp-wrapper .compare-tout__copy{
+  font-size: 14px;
+  color: var(--color-text);
+}
+.lp-wrapper .compare-tout__subheading{
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+/* ── スタット（バッテリー等） ── */
+.lp-wrapper .compare-stat__caption{
+  font-size: 14px;
+  color: var(--color-text-sub);
+  line-height: 1.24;
+}
+.lp-wrapper .compare-stat__value{
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.1;
+}
+
+/* ── フッター（全モデル比較） ── */
+.lp-wrapper .compare-footer{
+  text-align: center;
+  margin-top: 48px;
+}
+.lp-wrapper .compare-footer__pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: var(--pill-radius, 980px);
+  border: 1px solid rgba(0,0,0,0.15);
+  transition: background 0.3s ease;
+}
+.lp-wrapper .compare-footer__pill:hover{
+  background: rgba(0,0,0,0.04);
+}
+.lp-wrapper .compare-footer__pill .pill-arrow{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-link);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lp-wrapper .compare-footer__pill .pill-arrow svg{
+  width: 14px;
+  height: 14px;
+  stroke: #fff;
+}
+
+/* ── タブレット ── */
+@media (max-width: 1068px) {
+  .lp-wrapper .compare-container{ padding: 0 24px; }
+  .lp-wrapper .compare-headline{ font-size: 24px; }
+  .lp-wrapper .compare-tile{ padding: 40px 24px 0; }
+}
+
+/* ── モバイル ── */
+@media (max-width: 734px) {
+  .lp-wrapper .section-compare{ padding: 80px 0; }
+  .lp-wrapper .compare-container{ padding: 0 16px; }
+  .lp-wrapper .compare-card{ border-radius: 20px; }
+  .lp-wrapper .compare-tile-set{ grid-template-columns: 1fr; }
+  .lp-wrapper .compare-tile{ padding: 32px 20px 0; }
+  .lp-wrapper .compare-tile + .compare-tile{
+    border-top: 1px solid rgba(0,0,0,0.08);
+    margin-top: 8px;
+  }
+  .lp-wrapper .compare-headline{ font-size: 22px; }
+  .lp-wrapper .compare-stat__value{ font-size: 24px; }
+}
+
+/* ─── 12: 環境責任（Apple icon-card scroll-gallery 準拠） ────── */
+.lp-wrapper .section-environment{
+  background: var(--color-bg-section);
+  padding: var(--section-pad, 144px) 0;
+}
+
+/* ── アイコンカード共通 ── */
+.lp-wrapper .icon-card-set{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 0 max(40px, calc((100vw - 1200px) / 2));
+  margin: 0;
+}
+.lp-wrapper .icon-card{
+  background: #fff;
+  border-radius: var(--tile-radius, 28px);
+  padding: 32px 32px 64px;
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.lp-wrapper .icon-card:hover{
+  background: #f0f0f2;
+}
+.lp-wrapper .icon-card__icon{
+  width: 48px;
+  height: 48px;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+.lp-wrapper .icon-card__icon img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.lp-wrapper .icon-card__headline{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.29;
+  color: var(--color-text);
+}
+.lp-wrapper .icon-card__headline strong{
+  font-weight: 700;
+}
+.lp-wrapper .icon-card__headline .highlight-recycling{ color: #0a861a; }
+.lp-wrapper .icon-card__headline .highlight-electricity{ color: #e35205; }
+.lp-wrapper .icon-card__headline .highlight-packaging{ color: #07a0c3; }
+
+/* ── ＋ボタン ── */
+.lp-wrapper .icon-card__btn{
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.2);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  padding: 0;
+}
+.lp-wrapper .icon-card__btn:hover{
+  background: rgba(0,0,0,0.06);
+}
+.lp-wrapper .icon-card__btn svg{
+  width: 16px;
+  height: 16px;
+  fill: var(--color-text);
+}
+
+/* ── モーダル（Apple utility-modal 準拠） ── */
+.lp-wrapper .env-modal-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.48);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.lp-wrapper .env-modal-overlay.is-open{
+  display: flex;
+}
+.lp-wrapper .env-modal{
+  background: #fff;
+  border-radius: 20px;
+  max-width: 620px;
+  width: calc(100% - 48px);
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding: 48px 48px 56px;
+  position: relative;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.15);
+}
+.lp-wrapper .env-modal__close{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.06);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+.lp-wrapper .env-modal__close:hover{
+  background: rgba(0,0,0,0.12);
+}
+.lp-wrapper .env-modal__close svg{
+  width: 18px;
+  height: 18px;
+  fill: var(--color-text);
+}
+.lp-wrapper .env-modal__title{
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+.lp-wrapper .env-modal__section + .env-modal__section{
+  margin-top: 32px;
+}
+.lp-wrapper .env-modal__sub{
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+.lp-wrapper .env-modal__body{
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+.lp-wrapper .env-modal__link{
+  font-size: 17px;
+  color: var(--color-link);
+  text-decoration: none;
+}
+.lp-wrapper .env-modal__link:hover{
+  text-decoration: underline;
+}
+
+/* ── icon-card リンク型（values用：説明文+リンク付き） ── */
+.lp-wrapper .icon-card--link{
+  padding: 32px 32px 40px;
+  min-height: auto;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.lp-wrapper .icon-card--link:hover{
+  background: #f0f0f2;
+}
+.lp-wrapper .icon-card__body{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.47;
+  color: var(--color-text-sub);
+  margin-top: 12px;
+}
+.lp-wrapper .icon-card__link{
+  font-size: 14px;
+  color: var(--color-link);
+  text-decoration: none;
+  margin-top: 12px;
+}
+.lp-wrapper .icon-card__link:hover{
+  text-decoration: underline;
+}
+
+/* ── セクションヘッダー左寄せ型 ── */
+.lp-wrapper .section-header--left{
+  text-align: left;
+  max-width: none;
+  padding: 0 max(80px, calc((100vw - 1200px) / 2));
+  margin-bottom: var(--section-header-gap);
+}
+@media (max-width: 1068px) {
+  .lp-wrapper .section-header--left{ padding: 0 24px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .section-header--left{ padding: 0 20px; }
+}
+
+/* ─── 13: Appleの価値観 ────────────────────────────────────────── */
+.lp-wrapper .section-values{
+  background: var(--color-bg-section);
+  padding: var(--section-pad, 144px) 0 var(--section-pad, 144px) max(80px, calc((100vw - 1200px) / 2));
+}
+@media (max-width: 1068px) {
+  .lp-wrapper .section-values{ padding-left: 24px; }
+}
+
+/* ── 横スクロールギャラリー（モバイル共通） ── */
+.lp-wrapper .icon-card-set--scroll{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  padding-right: max(80px, calc((100vw - 1200px) / 2));
+  margin: 0;
+}
+
+/* パドルナビ */
+.lp-wrapper .icon-card-paddlenav{
+  display: none;
+}
+.lp-wrapper .icon-card-paddlenav__list{
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0 20px;
+  margin: 16px 0 0;
+}
+.lp-wrapper .icon-card-paddlenav__btn{
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.06);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+.lp-wrapper .icon-card-paddlenav__btn:hover{
+  background: rgba(0,0,0,0.12);
+}
+.lp-wrapper .icon-card-paddlenav__btn svg{
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── タブレット ── */
+@media (max-width: 1068px) {
+  .lp-wrapper .icon-card-set{ padding: 0 24px; gap: 16px; }
+  .lp-wrapper .icon-card-set--scroll{ padding: 0; padding-right: 24px; gap: 16px; }
+  .lp-wrapper .icon-card{ padding: 28px 24px 60px; min-height: 200px; }
+  .lp-wrapper .icon-card--link{ padding: 28px 24px 32px; min-height: auto; }
+  .lp-wrapper .icon-card__headline{ font-size: 21px; }
+}
+
+/* ── モバイル ── */
+@media (max-width: 734px) {
+  .lp-wrapper .section-environment{ padding: 80px 0; }
+  .lp-wrapper .section-values{ padding: 56px 0 56px 20px; }
+  .lp-wrapper .section-values .t-headline{ padding-right: 20px; }
+
+  /* 環境セクション: 縦積み */
+  .lp-wrapper .icon-card-set{
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  /* 価値観セクション: 横スクロール */
+  .lp-wrapper .icon-card-set--scroll{
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+  }
+  .lp-wrapper .icon-card-set--scroll::-webkit-scrollbar{ display: none; }
+  .lp-wrapper .icon-card-set--scroll > .icon-card{
+    flex: 0 0 calc(100vw - 64px);
+    scroll-snap-align: start;
+  }
+
+  .lp-wrapper .icon-card{ padding: 24px 20px 56px; min-height: auto; border-radius: 20px; }
+  .lp-wrapper .icon-card--link{ padding: 28px 24px 32px; }
+  .lp-wrapper .icon-card__headline{ font-size: 19px; }
+
+  /* パドルナビ表示 */
+  .lp-wrapper .icon-card-paddlenav{ display: block; }
+
+  .lp-wrapper .env-modal{ padding: 36px 24px 40px; }
+  .lp-wrapper .env-modal__title{ font-size: 28px; }
+}
+
+/* ─── Section: 中間CTA（apple-pricing-001 準拠）──────────── */
+.lp-wrapper .cta-mid{
+  background: var(--color-bg-section);
+  padding: var(--section-pad) 0;
+}
+.lp-wrapper .cta-mid__inner{
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+}
+.lp-wrapper .cta-mid__eyebrow{
+  font-size: 21px; font-weight: 600; color: var(--color-text-sub);
+  letter-spacing: 0.011em;
+}
+.lp-wrapper .cta-mid__price{
+  font-size: 64px; font-weight: 700; line-height: 1.08;
+  color: var(--color-text); margin-top: 8px;
+}
+.lp-wrapper .cta-mid__price-note{
+  font-size: 17px; font-weight: 400; color: var(--color-text-sub);
+  margin-left: 4px;
+}
+.lp-wrapper .cta-mid__sub{
+  font-size: 17px; color: var(--color-text-sub);
+  margin-top: 12px; line-height: 1.47;
+}
+.lp-wrapper .cta-mid__actions{
+  margin-top: 28px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.lp-wrapper .cta-mid__btn-primary{
+  display: inline-block;
+  padding: 12px 28px; min-height: 44px;
+  font-size: 17px; font-weight: 400; color: #fff;
+  background: var(--color-cta); border-radius: var(--pill-radius);
+  text-decoration: none;
+  transition: background-color 100ms linear;
+}
+.lp-wrapper .cta-mid__btn-primary:hover{ background: var(--color-cta-hover); }
+.lp-wrapper .cta-mid__btn-link{
+  font-size: 17px; color: var(--color-link);
+  text-decoration: none;
+}
+.lp-wrapper .cta-mid__btn-link:hover{ text-decoration: underline; }
+.lp-wrapper .cta-mid__badges{
+  margin-top: 24px;
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+}
+.lp-wrapper .cta-mid__badge{
+  font-size: 12px; font-weight: 600; color: var(--color-text-sub);
+  padding: 6px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--pill-radius);
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .cta-mid__inner{ padding: 0 16px; }
+  .lp-wrapper .cta-mid__price{ font-size: 48px; }
+  .lp-wrapper .cta-mid__price-note{ font-size: 14px; }
+  .lp-wrapper .cta-mid__btn-primary{ font-size: 15px; padding: 10px 24px; }
+}
+
+/* ─── Section: 使い方カード（card-popup）──────────────────── */
+.lp-wrapper .section-howto{ background: #f5f5f7; padding: var(--section-pad) 0 80px; }
+
+.lp-wrapper .howto-header{
+  max-width: 100%;
+  padding: 0 max(40px, calc((100vw - 1200px) / 2));
+  margin-bottom: 48px;
+}
+.lp-wrapper .howto-headline{
+  font-size: 64px; font-weight: 600; line-height: 1.08;
+  letter-spacing: -0.009em; color: var(--color-text); margin: 0;
+}
+
+.lp-wrapper .howto-gallery-wrap{
+  padding-left: max(40px, calc((100vw - 1200px) / 2));
+  padding-right: 0; overflow: hidden;
+}
+.lp-wrapper .howto-gallery{
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.lp-wrapper .howto-gallery::-webkit-scrollbar{ display: none; }
+
+.lp-wrapper .howto-card{
+  flex: 0 0 28%; scroll-snap-align: start;
+  background: #fff; border-radius: 28px;
+  display: flex; flex-direction: column;
+  min-height: 440px; position: relative; cursor: pointer;
+  transition: background-color 200ms ease;
+}
+.lp-wrapper .howto-card:hover{ background: #ededf0; }
+.lp-wrapper .howto-card__text-area{ padding: 32px 28px 0; }
+.lp-wrapper .howto-card__eyebrow{
+  font-size: 12px; font-weight: 600; color: var(--color-cta);
+  letter-spacing: -0.01em; line-height: 1.33; margin: 0 0 8px;
+}
+.lp-wrapper .howto-card__title{
+  font-size: 24px; font-weight: 600; color: var(--color-text);
+  line-height: 1.25; letter-spacing: 0.009em; margin: 0 0 12px;
+}
+.lp-wrapper .howto-card__desc{
+  font-size: 17px; font-weight: 400; color: var(--color-text-sub);
+  line-height: 1.24; letter-spacing: -0.022em; margin: 0;
+}
+.lp-wrapper .howto-card__media{
+  margin-top: auto; overflow: hidden; border-radius: 0 0 28px 28px;
+}
+.lp-wrapper .howto-card__media img{
+  width: 100%; height: 220px; display: block; object-fit: cover;
+}
+.lp-wrapper .howto-card__plus{
+  position: absolute; bottom: 16px; right: 16px; z-index: 10;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.7); border: 1.5px solid rgba(0,0,0,0.2);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--color-text); font-size: 18px; font-weight: 400; line-height: 1;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  transition: background-color 200ms ease;
+}
+.lp-wrapper .howto-card__plus:hover{ background: rgba(255,255,255,0.9); }
+
+.lp-wrapper .howto-nav{
+  display: flex; justify-content: flex-end; gap: 12px;
+  padding: 32px max(40px, calc((100vw - 1200px) / 2)) 0;
+}
+.lp-wrapper .howto-nav-btn{
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15); background: none;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--color-text);
+}
+.lp-wrapper .howto-nav-btn:disabled{ opacity: 0.3; cursor: default; }
+.lp-wrapper .howto-nav-btn svg{ width: 18px; height: 18px; }
+
+/* モーダル */
+.lp-wrapper .howto-modal-overlay{
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  align-items: center; justify-content: center;
+}
+.lp-wrapper .howto-modal-overlay.is-open{ display: flex; }
+.lp-wrapper .howto-modal{
+  background: #fff; border-radius: 20px; max-width: 560px; width: 90%;
+  padding: 40px; position: relative;
+}
+.lp-wrapper .howto-modal__close{
+  position: absolute; top: 16px; right: 16px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #1d1d1f; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.lp-wrapper .howto-modal__close svg{ width: 12px; height: 12px; stroke: #fff; stroke-width: 2; }
+.lp-wrapper .howto-modal__eyebrow{
+  font-size: 12px; font-weight: 600; color: var(--color-cta);
+  letter-spacing: -0.01em; line-height: 1.33; margin: 0 0 12px;
+}
+.lp-wrapper .howto-modal__title{
+  font-size: 48px; font-weight: 600; color: var(--color-text);
+  line-height: 1.08; margin: 0 0 20px;
+}
+.lp-wrapper .howto-modal__desc{
+  font-size: 17px; font-weight: 400; color: var(--color-text);
+  line-height: 1.47; letter-spacing: -0.022em; margin: 0;
+}
+
+@media (max-width: 1068px) {
+  .lp-wrapper .howto-header{ padding: 0 24px; }
+  .lp-wrapper .howto-headline{ font-size: 48px; }
+  .lp-wrapper .howto-card{ flex: 0 0 36%; }
+  .lp-wrapper .howto-card__title{ font-size: 21px; }
+  .lp-wrapper .howto-card__desc{ font-size: 14px; }
+  .lp-wrapper .howto-gallery-wrap{ padding-left: 24px; }
+  .lp-wrapper .howto-nav{ padding: 24px 24px 0; }
+  .lp-wrapper .howto-modal__title{ font-size: 40px; }
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .section-howto{ padding: 80px 0 48px; }
+  .lp-wrapper .howto-header{ padding: 0 16px; margin-bottom: 32px; }
+  .lp-wrapper .howto-headline{ font-size: 36px; }
+  .lp-wrapper .howto-gallery-wrap{ padding-left: 16px; }
+  .lp-wrapper .howto-gallery{ gap: 12px; }
+  .lp-wrapper .howto-card{ flex: 0 0 72%; min-height: 360px; border-radius: 20px; }
+  .lp-wrapper .howto-card__text-area{ padding: 24px 20px 0; }
+  .lp-wrapper .howto-card__title{ font-size: 19px; }
+  .lp-wrapper .howto-card__desc{ font-size: 14px; }
+  .lp-wrapper .howto-card__media{ border-radius: 0 0 20px 20px; }
+  .lp-wrapper .howto-card__media img{ height: 180px; }
+  .lp-wrapper .howto-nav{ padding: 16px 16px 0; }
+  .lp-wrapper .howto-nav-btn{ width: 40px; height: 40px; }
+  .lp-wrapper .howto-modal{ padding: 28px; }
+  .lp-wrapper .howto-modal__title{ font-size: 28px; }
+  .lp-wrapper .howto-modal__desc{ font-size: 14px; }
+}
+
+/* ─── Section: 安心の保証＆サポート（trust-cards） ──────── */
+.lp-wrapper .trust-section{
+  background: #fff;
+  padding: var(--section-pad) 0;
+}
+
+.lp-wrapper .trust-grid{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.lp-wrapper .trust-card{
+  background: var(--color-bg-section);
+  border-radius: var(--tile-radius);
+  padding: 48px 32px 40px;
+  text-align: center;
+}
+
+.lp-wrapper .trust-card__icon{
+  margin-bottom: 20px;
+}
+
+.lp-wrapper .trust-card__icon svg{
+  width: 48px;
+  height: 48px;
+}
+
+.lp-wrapper .trust-card__title{
+  margin-bottom: 12px;
+}
+
+.lp-wrapper .trust-card__desc{
+  color: var(--color-text-sub);
+  line-height: 1.6;
+}
+
+@media (max-width: 1068px) {
+  .lp-wrapper .trust-grid{
+    padding: 0 24px;
+    gap: 16px;
+  }
+  .lp-wrapper .trust-card{
+    padding: 36px 24px 32px;
+  }
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .trust-grid{
+    padding: 0 16px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .lp-wrapper .trust-card{
+    border-radius: 16px;
+    padding: 32px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .lp-wrapper .trust-card__icon svg{
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ─── Section: 最終CTA（cta-dark-hero）───────────────────── */
+.lp-wrapper .cta-final{
+  position: relative;
+  padding: var(--section-pad) 0;
+  overflow: hidden;
+}
+.lp-wrapper .cta-final__bg{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; z-index: 0;
+}
+.lp-wrapper .cta-final__overlay{
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.65); z-index: 1;
+}
+.lp-wrapper .cta-final__content{
+  position: relative; z-index: 2;
+  max-width: 680px; margin: 0 auto; padding: 0 40px;
+  text-align: center; color: var(--color-text-dark);
+}
+.lp-wrapper .cta-final__eyebrow{
+  font-size: 21px; font-weight: 600;
+  color: var(--color-text-dark-sub);
+}
+.lp-wrapper .cta-final__price{
+  font-size: 64px; font-weight: 700; line-height: 1.08;
+  color: var(--color-text-dark); margin-top: 8px;
+}
+.lp-wrapper .cta-final__price-note{
+  font-size: 17px; font-weight: 400;
+  color: var(--color-text-dark-sub); margin-left: 4px;
+}
+.lp-wrapper .cta-final__body{
+  font-size: 17px; line-height: 1.47;
+  color: var(--color-text-dark-body); margin-top: 16px;
+}
+.lp-wrapper .cta-final__actions{
+  margin-top: 32px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.lp-wrapper .cta-final__btn-primary{
+  display: inline-block;
+  padding: 12px 28px; min-height: 44px;
+  font-size: 17px; color: #fff;
+  background: var(--color-cta); border-radius: var(--pill-radius);
+  text-decoration: none;
+  transition: background-color 100ms linear;
+}
+.lp-wrapper .cta-final__btn-primary:hover{ background: var(--color-cta-hover); }
+.lp-wrapper .cta-final__btn-link{
+  font-size: 17px; color: var(--color-text-dark-sub);
+  text-decoration: none;
+}
+.lp-wrapper .cta-final__btn-link:hover{ text-decoration: underline; }
+.lp-wrapper .cta-final__badges{
+  margin-top: 32px;
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.lp-wrapper .cta-final__badge{
+  font-size: 12px; padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--pill-radius);
+  color: var(--color-text-dark-sub);
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .cta-final__content{ padding: 0 16px; }
+  .lp-wrapper .cta-final__price{ font-size: 48px; }
+  .lp-wrapper .cta-final__price-note{ font-size: 14px; display: block; margin-left: 0; margin-top: 4px; }
+  .lp-wrapper .cta-final__btn-primary{ font-size: 15px; }
+  .lp-wrapper .cta-final__badges{ gap: 8px; }
+  .lp-wrapper .cta-final__badge{ font-size: 11px; padding: 6px 12px; }
+}
+
+/* ─── Section: ブランド紹介（brand-lineup）──────────────── */
+.lp-wrapper .brand-section{
+  background: var(--color-bg-section);
+  padding: var(--section-pad) 0;
+}
+.lp-wrapper .brand-section__inner{
+  max-width: 780px; margin: 0 auto; padding: 0 40px;
+  text-align: center;
+}
+.lp-wrapper .brand-section__eyebrow{
+  font-size: 12px; font-weight: 600;
+  color: var(--color-text-sub);
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.lp-wrapper .brand-section__logo{
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+.lp-wrapper .brand-section__logo img{
+  height: 56px; width: auto;
+  display: block;
+}
+.lp-wrapper .brand-section__desc{
+  font-size: 17px; line-height: 1.47;
+  color: var(--color-text-sub); margin-top: 16px;
+}
+.lp-wrapper .brand-lineup{
+  margin-top: 40px;
+}
+.lp-wrapper .brand-lineup__series{
+  margin-top: 32px;
+}
+.lp-wrapper .brand-lineup__series:first-child{ margin-top: 0; }
+.lp-wrapper .brand-lineup__title{
+  font-size: 19px; font-weight: 600; color: var(--color-text);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.lp-wrapper .brand-lineup__line{
+  width: 24px; height: 3px; border-radius: 2px;
+  display: inline-block;
+}
+.lp-wrapper .brand-lineup__sub{
+  font-size: 14px; color: var(--color-text-sub);
+  margin-top: 4px;
+}
+.lp-wrapper .brand-lineup__pills{
+  margin-top: 16px;
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+}
+.lp-wrapper .brand-lineup__pill{
+  font-size: 14px; padding: 10px 20px;
+  background: #fff; border-radius: var(--pill-radius);
+  color: var(--color-text-sub);
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+/* AIRシリーズ: ホバーでグリーン + 太字（テキストシャドウで幅固定） */
+.lp-wrapper .brand-lineup__series:first-child .brand-lineup__pill:hover{
+  color: var(--color-air-green);
+  border-color: var(--color-air-green);
+  text-shadow: 0.3px 0 0 currentColor, -0.3px 0 0 currentColor;
+}
+/* RIDEシリーズ: ホバーでゴールド + 太字（テキストシャドウで幅固定） */
+.lp-wrapper .brand-lineup__series:nth-child(2) .brand-lineup__pill:hover{
+  color: var(--color-ride-gold);
+  border-color: var(--color-ride-gold);
+  text-shadow: 0.3px 0 0 currentColor, -0.3px 0 0 currentColor;
+}
+.lp-wrapper .brand-lineup__pill--active{
+  text-shadow: 0.3px 0 0 currentColor, -0.3px 0 0 currentColor;
+  border: 1px solid currentColor;
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .brand-section__inner{ padding: 0 16px; }
+  .lp-wrapper .brand-section__logo img{ height: 44px; }
+  .lp-wrapper .brand-section__desc{ font-size: 15px; }
+  .lp-wrapper .brand-lineup__pill{ font-size: 12px; padding: 8px 16px; }
+}
+
+/* ─── LP フッター ───────────────────────────────────────── */
+.lp-wrapper .lp-footer{
+  background: #fff;
+  padding: 60px 0;
+}
+.lp-wrapper .lp-footer__inner{
+  max-width: 780px; margin: 0 auto; padding: 0 40px;
+}
+.lp-wrapper .lp-footer__notes{
+  font-size: 12px; line-height: 1.6;
+  color: var(--color-text-sub);
+}
+.lp-wrapper .lp-footer__copy{
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  margin-top: 24px; text-align: center;
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .lp-footer{ padding: 40px 0; }
+  .lp-wrapper .lp-footer__inner{ padding: 0 16px; }
+  .lp-wrapper .lp-footer__notes{ font-size: 11px; }
+}
+
+/* ─── Section: スペック表 ───────────────────────────────── */
+.lp-wrapper .spec-section{
+  background: #fff;
+  padding: var(--section-pad) 0;
+}
+.lp-wrapper .spec-table-wrap{
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.lp-wrapper .spec-table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.spec-table th,
+.lp-wrapper .spec-table td{
+  font-size: 17px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
+  line-height: 1.47;
+}
+.lp-wrapper .spec-table th{
+  text-align: left;
+  font-weight: 400;
+  color: var(--color-text-sub);
+  width: 40%;
+  vertical-align: top;
+}
+.lp-wrapper .spec-table td{
+  font-weight: 600;
+  color: var(--color-text);
+}
+.spec-table tr:last-child th,
+.lp-wrapper .spec-table tr:last-child td{
+  border-bottom: none;
+}
+
+@media (max-width: 734px) {
+  .lp-wrapper .spec-table-wrap{ padding: 0 16px; }
+  .spec-table th,
+  .lp-wrapper .spec-table td{
+    font-size: 14px;
+    padding: 12px 0;
+    display: block;
+    width: 100%;
+  }
+  .lp-wrapper .spec-table th{
+    padding-bottom: 2px;
+    border-bottom: none;
+  }
+  .lp-wrapper .spec-table td{
+    padding-top: 2px;
+  }
+}
+
+/* ─── Section: FAQ アコーディオン ────────────────────────── */
+.lp-wrapper .faq-section{
+  background: var(--color-bg-section);
+  padding: var(--section-pad) 0;
+}
+.lp-wrapper .faq-list{
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.lp-wrapper .faq-item{
+  border-bottom: 1px solid var(--border-light);
+}
+.lp-wrapper .faq-item__q{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 0;
+  font-size: 19px; font-weight: 600; color: var(--color-text);
+  cursor: pointer; list-style: none;
+  line-height: 1.35;
+}
+.lp-wrapper .faq-item__q::-webkit-details-marker{ display: none; }
+.lp-wrapper .faq-item__q::after{
+  content: '+';
+  font-size: 24px; font-weight: 300; color: var(--color-text-sub);
+  flex-shrink: 0; margin-left: 16px;
+  transition: transform 0.3s var(--ease-apple);
+}
+.lp-wrapper .faq-item[open] .faq-item__q::after{
+  content: '−';
+}
+.lp-wrapper .faq-item__a{
+  padding: 0 0 24px;
+  font-size: 17px; color: var(--color-text-sub);
+  line-height: 1.47;
+}
+.lp-wrapper .faq-item__link{
+  color: var(--color-link);
+  text-decoration: none;
+}
+.lp-wrapper .faq-item__link:hover{ text-decoration: underline; }
+
+@media (max-width: 734px) {
+  .lp-wrapper .faq-list{ padding: 0 16px; }
+  .lp-wrapper .faq-item__q{ font-size: 16px; padding: 20px 0; }
+  .lp-wrapper .faq-item__a{ font-size: 15px; }
+}
+
+/* ─── Section: アタッチメントグリッド ───────────────────── */
+.lp-wrapper .att-section{
+  background: var(--color-bg-section);
+  padding: var(--section-pad) 0;
+}
+
+.lp-wrapper .att-grid{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.lp-wrapper .att-card{
+  background: #fff;
+  border-radius: var(--tile-radius);
+  overflow: hidden;
+}
+
+.lp-wrapper .att-card__img{
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+  padding: 16px;
+  background: #f5f5f7;
+}
+
+.lp-wrapper .att-card__body{
+  padding: 20px;
+  text-align: center;
+}
+
+.lp-wrapper .att-card__desc{
+  margin-top: 4px;
+  color: var(--color-text-sub);
+}
+
+/* タブレット: 2列 */
+@media (max-width: 1068px) {
+  .lp-wrapper .att-grid{
+    padding: 0 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .lp-wrapper .att-card__img{ height: 160px; }
+  .lp-wrapper .att-card__body{ padding: 16px; }
+}
+
+/* モバイル: 2列コンパクト */
+@media (max-width: 734px) {
+  .lp-wrapper .att-grid{
+    padding: 0 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .lp-wrapper .att-card{
+    border-radius: 16px;
+  }
+  .lp-wrapper .att-card__img{
+    height: 120px;
+    padding: 12px;
+  }
+  .lp-wrapper .att-card__body{
+    padding: 12px;
+  }
+  .lp-wrapper .att-card__body .t-callout{
+    font-size: 14px;
+  }
+  .lp-wrapper .att-card__desc{
+    font-size: 11px;
+    line-height: 1.4;
+  }
+}
+
+/* ─── Section: ソーシャルプルーフ（3 stat + reviews）────── */
+.lp-wrapper .social-proof{
+  background: #fff;
+  padding: var(--section-pad) 0;
+}
+.lp-wrapper .sp-stats{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+.lp-wrapper .sp-stat__number{
+  font-size: 64px; font-weight: 700; line-height: 1.0;
+  color: var(--color-text);
+}
+.lp-wrapper .sp-stat__unit{
+  font-size: 21px; font-weight: 600;
+  color: var(--color-text-sub);
+}
+.lp-wrapper .sp-stat__label{
+  font-size: 14px; color: var(--color-text-sub);
+  margin-top: 8px;
+}
+.lp-wrapper .sp-reviews{
+  max-width: 980px; margin: 48px auto 0;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.lp-wrapper .sp-review{
+  background: var(--color-bg-section);
+  border-radius: var(--tile-radius);
+  padding: 32px;
+}
+.lp-wrapper .sp-review__stars{
+  color: #f5a623; font-size: 14px; letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.lp-wrapper .sp-review__text{
+  font-size: 15px; line-height: 1.6;
+  color: var(--color-text); margin-bottom: 16px;
+}
+.lp-wrapper .sp-review__author{
+  font-size: 12px; color: var(--color-text-sub);
+}
+
+@media (max-width: 1068px) {
+  .lp-wrapper .sp-stats{ padding: 0 24px; gap: 24px; }
+  .lp-wrapper .sp-stat__number{ font-size: 48px; }
+  .lp-wrapper .sp-reviews{ padding: 0 24px; gap: 16px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .sp-stats{ grid-template-columns: 1fr; gap: 40px; padding: 0 16px; }
+  .lp-wrapper .sp-stat__number{ font-size: 40px; }
+  .lp-wrapper .sp-reviews{ grid-template-columns: 1fr; padding: 0 16px; gap: 12px; }
+  .lp-wrapper .sp-review{ padding: 24px; }
+}
+
+/* ─── Section: スペックハイライト（ダーク3カラム数値）──── */
+.lp-wrapper .spec-highlights{
+  background: var(--color-bg-dark);
+  padding: var(--section-pad) 0;
+  color: var(--color-text-dark);
+}
+.lp-wrapper .spec-hl-grid{
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.lp-wrapper .spec-hl-card{
+  background: var(--fill-gray-quat-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--tile-radius);
+  overflow: hidden;
+}
+.lp-wrapper .spec-hl-card__img{
+  width: 100%; height: 200px; object-fit: cover; display: block;
+}
+.lp-wrapper .spec-hl-card__body{
+  padding: 32px;
+}
+.lp-wrapper .spec-hl-card__number{
+  font-size: 80px; font-weight: 700; line-height: 1.0;
+  color: var(--color-text-dark);
+}
+.lp-wrapper .spec-hl-card__unit{
+  font-size: 28px; font-weight: 600;
+  color: var(--color-text-dark-sub);
+  margin-left: 4px;
+}
+.lp-wrapper .spec-hl-card__label{
+  font-size: 17px; color: var(--color-text-dark-sub);
+  margin-top: 8px;
+}
+.lp-wrapper .spec-hl-card__desc{
+  font-size: 14px; color: var(--color-text-dark-caption);
+  margin-top: 12px; line-height: 1.47;
+}
+
+@media (max-width: 1068px) {
+  .lp-wrapper .spec-hl-grid{ padding: 0 24px; gap: 16px; }
+  .lp-wrapper .spec-hl-card__number{ font-size: 64px; }
+  .lp-wrapper .spec-hl-card__unit{ font-size: 21px; }
+  .lp-wrapper .spec-hl-card__body{ padding: 24px; }
+  .lp-wrapper .spec-hl-card__img{ height: 160px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .spec-hl-grid{ grid-template-columns: 1fr; padding: 0 16px; gap: 12px; }
+  .lp-wrapper .spec-hl-card__number{ font-size: 56px; }
+  .lp-wrapper .spec-hl-card__unit{ font-size: 19px; }
+  .lp-wrapper .spec-hl-card__body{ padding: 20px; }
+  .lp-wrapper .spec-hl-card__img{ height: 140px; }
+}
+
+
+/* 記事LP固有コンポーネント（global.cssに存在しないもののみ） */
+
+/* セルフチェック */
+.lp-wrapper .selfcheck{ padding: var(--section-pad) 0; }
+.lp-wrapper .selfcheck__list{ max-width: 680px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; }
+.lp-wrapper .selfcheck__item{ display: flex; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border-light); cursor: pointer; }
+.lp-wrapper .selfcheck__item:last-child{ border-bottom: none; }
+.lp-wrapper .selfcheck__item-icon{ flex-shrink: 0; width: 28px; height: 28px; transition: transform 0.25s var(--ease-apple); }
+.lp-wrapper .selfcheck__item.is-checked .selfcheck__item-icon{ transform: scale(1.1); }
+.lp-wrapper .selfcheck__item.is-checked .selfcheck__item-icon circle{ stroke: var(--color-cta); fill: var(--color-cta); }
+.lp-wrapper .selfcheck__item.is-checked .selfcheck__item-icon path{ stroke: #fff; }
+.lp-wrapper .selfcheck__counter{ text-align: center; margin-top: 32px; }
+.lp-wrapper .selfcheck__counter-num{ font-size: clamp(40px, 5vw, 64px); font-weight: 600; line-height: 1.0; color: var(--color-cta); transition: transform 0.3s var(--ease-apple); }
+.lp-wrapper .selfcheck__counter-label{ font-size: 14px; color: var(--color-text-sub); margin-top: 4px; }
+
+/* パララックス */
+.lp-wrapper .parallax{ position: relative; height: 80vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.lp-wrapper .parallax__bg{ position: absolute; inset: -20% 0; width: 100%; height: 140%; object-fit: cover; z-index: 0; will-change: transform; }
+.lp-wrapper .parallax__overlay{ position: absolute; inset: 0; z-index: 1; background: rgba(0,0,0,0.45); }
+.lp-wrapper .parallax__content{ position: relative; z-index: 2; text-align: center; max-width: 980px; padding: 0 40px; }
+
+/* スクロール拡大フェード */
+.lp-wrapper .scroll-scale{ min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: var(--section-pad) 0; }
+.lp-wrapper .scroll-scale__text{ text-align: center; max-width: 980px; padding: 0 40px; margin-bottom: 64px; opacity: 0; transform: translateY(60px); transition: opacity 0.8s var(--ease-apple), transform 0.8s var(--ease-apple); }
+.lp-wrapper .scroll-scale__text.is-visible{ opacity: 1; transform: translateY(0); }
+.lp-wrapper .scroll-scale__media{ max-width: 1200px; width: 100%; padding: 0 40px; opacity: 0; transform: scale(0.85); transition: opacity 1s var(--ease-apple), transform 1s var(--ease-apple); }
+.lp-wrapper .scroll-scale__media.is-visible{ opacity: 1; transform: scale(1); }
+.lp-wrapper .scroll-scale__media img{ width: 100%; display: block; border-radius: var(--tile-radius); }
+
+/* 背景+テキスト中央（最終CTA・転換ポイント） */
+.lp-wrapper .bg-text-center{ position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.lp-wrapper .bg-text-center__img{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.lp-wrapper .bg-text-center__overlay{ position: absolute; inset: 0; background: rgba(0,0,0,0.55); z-index: 1; }
+.lp-wrapper .bg-text-center__content{ position: relative; z-index: 2; text-align: center; max-width: 980px; padding: 0 40px; }
+
+@media (max-width: 1068px) {
+  .lp-wrapper .selfcheck__list{ padding: 0 24px; }
+  .lp-wrapper .parallax__content,  .lp-wrapper .scroll-scale__text,  .lp-wrapper .scroll-scale__media,  .lp-wrapper .bg-text-center__content{ padding: 0 24px; }
+}
+@media (max-width: 734px) {
+  .lp-wrapper .selfcheck__list{ padding: 0 16px; }
+  .lp-wrapper .parallax{ height: 60vh; }
+  .lp-wrapper .parallax__content,  .lp-wrapper .scroll-scale__text,  .lp-wrapper .scroll-scale__media,  .lp-wrapper .bg-text-center__content{ padding: 0 16px; }
+  .lp-wrapper .scroll-scale{ min-height: auto; padding: 80px 0; }
+  .lp-wrapper .bg-text-center{ min-height: 60vh; }
+}
+
+
+/* ---- eyebrow（見出し上の小ラベル）を一時非表示（2026-07-14 市山さん指示） ----
+   削除はせず表示だけ止める。復活させるときはこのブロックを消す */
+.lp-wrapper [class*="eyebrow"] { display: none !important; }
+</style>
+
+<div id="lp-{{ section.id }}" class="lp-wrapper">
+<!-- ═══ S1: Hero — 家族との夏 ═══ -->
+<section class="hero" aria-label="ヒーロー"
+  data-section-id="apple-hero-001" data-section-type="hero" data-section-order="1">
+  <div class="hero__marquee">
+    <div class="hero__series-line">&nbsp;</div>
+    <p class="hero__eyebrow" data-field="eyebrow">PANP AIR</p>
+    <h1 class="hero__headline" data-field="headline">家族との夏、<br>準備で疲れていませんか。</h1>
+    <div class="hero__detail">
+      <a class="hero__btn hero__btn--primary" href="https://panp.jp/products/panp-air" data-field="cta_url" data-field-text="cta_text">PANP AIRを見る</a>
+      <p class="hero__price" data-field="price">¥3,880（税込）・送料無料</p>
+    </div>
+  </div>
+  <div class="hero__asset">
+    <img class="hero__img" src="{{ 'air_pool_scene.png' | asset_url }}" alt="家族でプール遊びを楽しむシーン" data-field="hero_image" loading="eager" fetchpriority="high">
+  </div>
+</section>
+
+<!-- ═══ S2: 去年の夏を思い出す — パララックス ═══ -->
+<section class="parallax" aria-label="去年の夏"
+  data-section-id="custom-memory-001" data-section-type="parallax" data-section-order="2" data-parallax>
+  <img class="parallax__bg" data-parallax-bg src="{{ 'air_pool_problem.png' | asset_url }}" alt="プールが膨らまず困る家族" loading="lazy">
+  <div class="parallax__overlay">&nbsp;</div>
+  <div class="parallax__content fade-in">
+    <h2 class="t-headline-xl" style="color:#f5f5f7;" data-field="heading">去年の夏を、<br>思い出してほしい。</h2>
+    <p class="t-body" style="margin-top:24px; color:rgba(255,255,255,0.8);" data-field="body">お子さんが「プールやりたい！」と目を輝かせた朝。<br>あなたは準備を始めた。そして——</p>
+  </div>
+</section>
+
+<!-- ═══ S3: 3つの「台無し」体験 — 交互チャプター ═══ -->
+<section class="section-product-stories" aria-label="台無し体験"
+  data-section-id="custom-pain-001" data-section-type="product-stories" data-section-order="3">
+  <header class="section-header fade-in">
+    <h2 class="t-headline ps-heading" data-field="heading">せっかくの休日が、<br>台無しになったこと、ありませんか。</h2>
+  </header>
+  <div class="ps-chapters-wrapper">
+    <div class="ps-chapters">
+      <div class="ps-chapter fade-in">
+        <div class="ps-chapter__media"><img src="{{ 'air_pool_problem.png' | asset_url }}" alt="プールが膨らまない" data-field="ch1_image" loading="lazy"></div>
+        <div class="ps-chapter__text">
+          <h3 class="ps-chapter__title ps-chapter__title--ch1" data-field="ch1_title">プールが膨らまない。</h3>
+          <p class="t-body" data-field="ch1_desc">去年買ったエアーポンプが動かない。お子さんは水着に着替えて待っている。充電してみても、うんともすんとも言わない。</p>
+        </div>
+      </div>
+      <div class="ps-chapter ps-chapter--reversed fade-in">
+        <div class="ps-chapter__text">
+          <h3 class="ps-chapter__title ps-chapter__title--ch2" data-field="ch2_title">口で膨らませる羽目に。</h3>
+          <p class="t-body" data-field="ch2_desc">仕方なく口で浮き輪を吹き込む。息が切れる。腕がパンパンになる。大人がヘトヘトになってから、ようやく遊べる。それって、楽しい夏ですか？</p>
+        </div>
+        <div class="ps-chapter__media"><img src="{{ 'air_float_ring.png' | asset_url }}" alt="口で浮き輪を膨らませる" data-field="ch2_image" loading="lazy"></div>
+      </div>
+      <div class="ps-chapter fade-in">
+        <div class="ps-chapter__media"><img src="{{ 'air_airmat.png' | asset_url }}" alt="キャンプでエアマットが膨らまない" data-field="ch3_image" loading="lazy"></div>
+        <div class="ps-chapter__text">
+          <h3 class="ps-chapter__title ps-chapter__title--ch3" data-field="ch3_title">キャンプの夜、眠れない。</h3>
+          <p class="t-body" data-field="ch3_desc">家族で初めてのキャンプ。エアマットが膨らまず、地面の冷たさと硬さで一睡もできなかった。子供たちは楽しかったけど、親はボロボロ。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S4: 原因 — 背景画像+テキスト中央 ═══ -->
+<section class="bg-text-center" aria-label="原因"
+  data-section-id="custom-cause-001" data-section-type="bg-text-center" data-section-order="4">
+  <img class="bg-text-center__img" src="{{ 'air_quality.png' | asset_url }}" alt="" loading="lazy">
+  <div class="bg-text-center__overlay">&nbsp;</div>
+  <div class="bg-text-center__content fade-in">
+    <p class="t-eyebrow-sm" style="color:rgba(255,255,255,0.6);" data-field="eyebrow">なぜ壊れるのか</p>
+    <h2 class="t-headline-xl" style="margin-top:12px; color:#f5f5f7;" data-field="heading">原因は、部品の品質です。</h2>
+    <p class="t-body" style="margin-top:16px; color:rgba(255,255,255,0.8);" data-field="body">安いエアーポンプはバッテリーとモーターにコストをかけていません。<br>数回使っただけで動かなくなる。それは製品の問題であって、<br>あなたの使い方の問題ではありません。</p>
+  </div>
+</section>
+
+<!-- ═══ S5: セルフチェック ═══ -->
+<section class="selfcheck" style="background:#fff;" aria-label="セルフチェック"
+  data-section-id="custom-selfcheck-001" data-section-type="selfcheck" data-section-order="5">
+  <div class="section-header fade-in">
+    <h2 class="t-headline" data-field="heading">こんな経験、ありませんか？</h2>
+    <p class="t-body" style="margin-top:12px; color:var(--color-text-sub);">タップしてチェックしてみてください</p>
+  </div>
+  <div class="selfcheck__list fade-in" id="checkList1">
+    <div class="selfcheck__item" data-check="0">
+      <svg class="selfcheck__item-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="#86868b" stroke-width="1.5" fill="none"/><path d="M9 14.5L12.5 18L19 11" stroke="#86868b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p class="t-body" data-field="check1">エアーポンプが壊れていて、プールが膨らまなかった</p>
+    </div>
+    <div class="selfcheck__item" data-check="1">
+      <svg class="selfcheck__item-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="#86868b" stroke-width="1.5" fill="none"/><path d="M9 14.5L12.5 18L19 11" stroke="#86868b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p class="t-body" data-field="check2">浮き輪を口で一生懸命膨らませたことがある</p>
+    </div>
+    <div class="selfcheck__item" data-check="2">
+      <svg class="selfcheck__item-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="#86868b" stroke-width="1.5" fill="none"/><path d="M9 14.5L12.5 18L19 11" stroke="#86868b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p class="t-body" data-field="check3">手動ポンプで腕がパンパンになった</p>
+    </div>
+    <div class="selfcheck__item" data-check="3">
+      <svg class="selfcheck__item-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="#86868b" stroke-width="1.5" fill="none"/><path d="M9 14.5L12.5 18L19 11" stroke="#86868b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p class="t-body" data-field="check4">準備に時間がかかりすぎて、遊ぶ時間が減った</p>
+    </div>
+    <div class="selfcheck__item" data-check="4">
+      <svg class="selfcheck__item-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="#86868b" stroke-width="1.5" fill="none"/><path d="M9 14.5L12.5 18L19 11" stroke="#86868b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p class="t-body" data-field="check5">「来年こそちゃんとしたの買おう」と思って、まだ買っていない</p>
+    </div>
+  </div>
+  <div class="selfcheck__counter fade-in">
+    <p class="selfcheck__counter-num" id="counterNum1">0</p>
+    <p class="selfcheck__counter-label">個 当てはまる</p>
+  </div>
+  <div class="container-narrow fade-in" style="text-align:center; margin-top:32px;">
+    <p class="t-body" style="color:var(--color-text-sub);">1つでも当てはまった方へ。<br><strong style="color:var(--color-text);">家族との大切な時間を、もう台無しにしない方法があります。</strong></p>
+  </div>
+</section>
+
+<!-- ═══ S6: PANP AIR登場 — スクロール拡大フェード ═══ -->
+<section class="scroll-scale" style="background:var(--color-bg-section);" aria-label="PANP AIR登場"
+  data-section-id="custom-reveal-001" data-section-type="scroll-scale" data-section-order="6">
+  <div class="scroll-scale__text" data-scroll-reveal>
+    <p class="t-eyebrow-sm" style="color:var(--color-air-green);" data-field="eyebrow">PANP AIR</p>
+    <h2 class="t-headline-xl" style="margin-top:12px;" data-field="headline">壊れにくいから、<br>家族の味方になれる。</h2>
+    <p class="t-body" style="margin-top:16px; color:var(--color-text-sub);" data-field="body">高品質部品と日本基準の品質管理。<br>壊れにくいから、1年保証が付けられる。<br>この夏こそ、安心して使えるエアーポンプを。</p>
+  </div>
+  <div class="scroll-scale__media" data-scroll-reveal>
+    <video src="{{ 'air-inflate.mp4' | asset_url }}" autoplay muted loop playsinline preload="metadata" aria-label="PANP AIRで膨らむ様子" data-field="reveal_image" style="width:100%; display:block; border-radius:var(--tile-radius);"></video>
+  </div>
+</section>
+
+<!-- ═══ S7: 3つのこだわり — 交互チャプター ═══ -->
+<section class="section-product-stories" style="background:#fff;" aria-label="品質のこだわり"
+  data-section-id="custom-quality-001" data-section-type="product-stories" data-section-order="7">
+  <header class="section-header fade-in">
+    <p class="t-eyebrow-sm" style="color:var(--color-air-green);" data-field="eyebrow">PANPの答え</p>
+    <h2 class="t-headline ps-heading" data-field="heading">なぜ、壊れにくいのか。</h2>
+  </header>
+  <div class="ps-chapters-wrapper">
+    <div class="ps-chapters">
+      <div class="ps-chapter fade-in">
+        <div class="ps-chapter__media"><img src="{{ 'air_quality.png' | asset_url }}" alt="高品質部品" data-field="q1_image" loading="lazy"></div>
+        <div class="ps-chapter__text">
+          <h3 class="ps-chapter__title ps-chapter__title--ch1" style="color:var(--color-air-green);" data-field="q1_title">高品質な部品を採用。</h3>
+          <p class="t-body" data-field="q1_desc">バッテリーとモーターは耐久試験をクリアしたものだけを使用。バッテリーは全数量に老化試験を実施しています。モーター耐久性150〜200回。</p>
+        </div>
+      </div>
+      <div class="ps-chapter ps-chapter--reversed fade-in">
+        <div class="ps-chapter__text">
+          <h3 class="ps-chapter__title ps-chapter__title--ch2" style="color:var(--color-air-green);" data-field="q2_title">日本基準で品質管理。</h3>
+          <p class="t-body" data-field="q2_desc">日本メーカーであるPANPは、製造工場に日本人スタッフを派遣。組み立てから検品まで、日本基準で品質を管理しています。</p>
+        </div>
+        <div class="ps-chapter__media"><img src="{{ 'air_product_vertical.png' | asset_url }}" alt="精密な品質管理" data-field="q2_image" loading="lazy"></div>
+      </div>
+      <div class="ps-chapter fade-in">
+        <div class="ps-chapter__media"><img src="{{ 'air_button_only.png' | asset_url }}" alt="シンプル設計" data-field="q3_image" loading="lazy"></div>
+        <div class="ps-chapter__text">
+          <h3 class="ps-chapter__title ps-chapter__title--ch3" style="color:var(--color-air-green);" data-field="q3_title">落としても壊れにくい。</h3>
+          <p class="t-body" data-field="q3_desc">本体はABS樹脂にシリコンコーティング。落下への耐衝撃性を高めつつ、手触りも滑らか。排熱システムで本体の過熱も抑制。お子さんにも安心して使っていただけます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S8: 保証 — カウントアップ ═══ -->
+<section class="social-proof" style="background:var(--color-bg-section);" aria-label="保証の証明"
+  data-section-id="custom-proof-001" data-section-type="social-proof" data-section-order="8">
+  <div class="section-header fade-in">
+    <p class="t-eyebrow-sm" style="color:var(--color-air-green);">品質の証明</p>
+    <h2 class="t-headline" data-field="heading">だから、1年保証。</h2>
+  </div>
+  <div class="sp-stats fade-in">
+    <div class="sp-stat">
+      <p class="sp-stat__number" style="white-space:nowrap;"><span class="count-up" data-target="1">0</span><span class="sp-stat__unit">年保証</span></p>
+      <p class="sp-stat__label">最大保証期間<br><span style="font-size:11px;">レビュー投稿で半年→1年に延長</span></p>
+    </div>
+    <div class="sp-stat">
+      <p class="sp-stat__number" style="white-space:nowrap;"><span class="count-up" data-target="30">0</span><span class="sp-stat__unit">日返品</span></p>
+      <p class="sp-stat__label">理由不問・開封済みOK<br><span style="font-size:11px;">アタッチメント不適合でも返品可</span></p>
+    </div>
+    <div class="sp-stat">
+      <p class="sp-stat__number" style="white-space:nowrap;"><span class="count-up" data-target="4">0</span><span class="sp-stat__unit">窓口</span></p>
+      <p class="sp-stat__label">サポート体制<br><span style="font-size:11px;">電話・LINE・メール・HP</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S9: 保証カード ═══ -->
+<section class="trust-section" aria-label="安心サポート"
+  data-section-id="apple-trust-001" data-section-type="trust" data-section-order="9">
+  <div class="section-header fade-in">
+    <h2 class="t-headline" data-field="heading">安心して、お使いください。</h2>
+  </div>
+  <div class="trust-grid fade-in">
+    <div class="trust-card">
+      <div class="trust-card__icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="var(--color-air-green)" stroke-width="1.5"/><path d="M16 24.5L21.5 30L33 18" stroke="var(--color-air-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3 class="t-callout trust-card__title" data-field="t1_title">最大1年保証</h3>
+      <p class="t-body trust-card__desc" data-field="t1_desc">通常半年間。レビュー投稿で最大1年間に延長。Amazonではレビュー不要で最大保証。保証期間内は無料で新品交換。</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card__icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="12" width="32" height="24" rx="3" stroke="var(--color-air-green)" stroke-width="1.5"/><path d="M8 20h32" stroke="var(--color-air-green)" stroke-width="1.5"/><path d="M20 30h8" stroke="var(--color-air-green)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <h3 class="t-callout trust-card__title" data-field="t2_title">30日間返品保証</h3>
+      <p class="t-body trust-card__desc" data-field="t2_desc">どんな理由でも返品OK。開封済みでも大丈夫。アタッチメントが合わなくても返品を承ります。返送料のみご負担。</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card__icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M14 36V14a2 2 0 012-2h16a2 2 0 012 2v22" stroke="var(--color-air-green)" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="22" r="5" stroke="var(--color-air-green)" stroke-width="1.5"/><path d="M20 34h8" stroke="var(--color-air-green)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <h3 class="t-callout trust-card__title" data-field="t3_title">手厚いサポート</h3>
+      <p class="t-body trust-card__desc" data-field="t3_desc">電話・LINE・メール・HP対応。動画マニュアルも完備。付属品の追加購入も可能。即日〜2日以内に発送。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S10: 中間CTA ═══ -->
+<section class="cta-mid" aria-label="中間CTA"
+  data-section-id="apple-cta-001" data-section-type="cta" data-section-order="10">
+  <div class="cta-mid__inner fade-in">
+    <p class="cta-mid__eyebrow">PANP AIR</p>
+    <p class="cta-mid__price">¥3,880<span class="cta-mid__price-note">（税込）</span></p>
+    <p class="cta-mid__sub">送料無料・30日間返品保証・最大1年保証</p>
+    <div class="cta-mid__actions">
+      <a href="https://panp.jp/products/panp-air" class="cta-mid__btn-primary">この夏を快適にする</a>
+      <a href="https://panp.jp/products/panp-air" class="cta-mid__btn-link">30日間、リスクゼロで試す &gt;</a>
+    </div>
+    <div class="cta-mid__badges">
+      <span class="cta-mid__badge">1年保証</span>
+      <span class="cta-mid__badge">30日返品OK</span>
+      <span class="cta-mid__badge">送料無料</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S11: 使い方 — Howtoカード ═══ -->
+<section class="section-howto" aria-label="使い方"
+  data-section-id="apple-howto-001" data-section-type="howto" data-section-order="11">
+  <div class="howto-header fade-in">
+    <h2 class="howto-headline" data-field="heading">準備は、ボタンを押すだけ。</h2>
+  </div>
+  <div class="howto-gallery-wrap">
+    <div class="howto-gallery" id="howtoGallery">
+      <div class="howto-card" data-howto="1">
+        <div class="howto-card__text-area"><p class="howto-card__eyebrow">Step 1</p><h3 class="howto-card__title">アタッチメントを付ける</h3><p class="howto-card__desc">6種類から合うものを選んで装着。</p></div>
+        <div class="howto-card__media"><img src="{{ 'air_attachment_set.png' | asset_url }}" alt="アタッチメント装着" loading="lazy"></div>
+        <button class="howto-card__plus" aria-label="詳しく見る">+</button>
+      </div>
+      <div class="howto-card" data-howto="2">
+        <div class="howto-card__text-area"><p class="howto-card__eyebrow">Step 2</p><h3 class="howto-card__title">接続する</h3><p class="howto-card__desc">空気口にノズルを差し込む。</p></div>
+        <div class="howto-card__media"><img src="{{ 'air_connect.png' | asset_url }}" alt="接続" loading="lazy"></div>
+        <button class="howto-card__plus" aria-label="詳しく見る">+</button>
+      </div>
+      <div class="howto-card" data-howto="3">
+        <div class="howto-card__text-area"><p class="howto-card__eyebrow">Step 3</p><h3 class="howto-card__title">ボタンを押す</h3><p class="howto-card__desc">2回押すと開始。1回で停止。</p></div>
+        <div class="howto-card__media"><img src="{{ 'air_button_press.png' | asset_url }}" alt="ボタン操作" loading="lazy"></div>
+        <button class="howto-card__plus" aria-label="詳しく見る">+</button>
+      </div>
+      <div class="howto-card" data-howto="4">
+        <div class="howto-card__text-area"><p class="howto-card__eyebrow">片付け</p><h3 class="howto-card__title">空気抜きもワンタッチ</h3><p class="howto-card__desc">遊び終わったらボタンひとつ。</p></div>
+        <div class="howto-card__media"><img src="{{ 'air_button_closeup.png' | asset_url }}" alt="空気抜き" loading="lazy"></div>
+        <button class="howto-card__plus" aria-label="詳しく見る">+</button>
+      </div>
+    </div>
+    <div class="howto-nav">
+      <button class="howto-nav-btn" id="howtoPrev" disabled><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9,1 3,7 9,13"/></svg></button>
+      <button class="howto-nav-btn" id="howtoNext"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="5,1 11,7 5,13"/></svg></button>
+    </div>
+  </div>
+</section>
+<div class="howto-modal-overlay" id="howtoModalOverlay">
+  <div class="howto-modal">
+    <button class="howto-modal__close" id="howtoModalClose"><svg viewBox="0 0 12 12" fill="none" stroke-linecap="round"><line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/></svg></button>
+    <p class="howto-modal__eyebrow" id="howtoModalEyebrow">&nbsp;</p>
+    <h3 class="howto-modal__title" id="howtoModalTitle">&nbsp;</h3>
+    <p class="howto-modal__desc" id="howtoModalDesc">&nbsp;</p>
+  </div>
+</div>
+
+<!-- ═══ S12: コンパクト×パワー — デザインストーリー ═══ -->
+<section class="design" aria-label="コンパクト×パワー"
+  data-section-id="apple-design-story-001" data-section-type="design-story" data-section-order="12">
+  <div class="design__row design__row--top">
+    <div class="design__col design__col--left"><img class="design__img" src="{{ 'air_size.png' | asset_url }}" alt="定規比較" loading="lazy"></div>
+    <div class="design__col design__col--right"><img class="design__img" src="{{ 'air_pocket.png' | asset_url }}" alt="ポケットサイズ" loading="lazy"></div>
+  </div>
+  <div class="design__text">
+    <h2 class="design__headline fade-in" data-field="headline">104g。<br>ポケットに入るパワー。</h2>
+    <p class="design__body fade-in" data-field="body">カバンに入れて海へ。ポケットに入れてプールサイドへ。<br>小さいのに、大きなプールも1分50秒で膨らませる。<br>家族のお出かけに、もう重い荷物は不要です。</p>
+  </div>
+  <div class="design__row design__row--bottom">
+    <div class="design__col design__col--left"><img class="design__img" src="{{ 'air_on_hand.png' | asset_url }}" alt="手のひらサイズ" loading="lazy"></div>
+    <div class="design__col design__col--right"><img class="design__img" src="{{ 'air_float_ring.png' | asset_url }}" alt="パワフル充填" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ═══ S13: パワー＆スピード — カウントアップ ═══ -->
+<section class="social-proof" style="background:var(--color-bg-section);" aria-label="パワー＆スピード"
+  data-section-id="custom-speed-001" data-section-type="social-proof" data-section-order="13">
+  <div class="section-header fade-in">
+    <p class="t-eyebrow-sm" style="color:var(--color-air-green);">パワー＆スピード</p>
+    <h2 class="t-headline" data-field="heading">お子さんが待つ前に、終わる。</h2>
+  </div>
+  <div class="sp-stats fade-in">
+    <div class="sp-stat">
+      <p class="sp-stat__number" style="white-space:nowrap;"><span class="count-up" data-target="110">0</span><span class="sp-stat__unit">秒</span></p>
+      <p class="sp-stat__label">大きなプール完了<br><span style="font-size:11px;">155 × 28cm — わずか1分50秒</span></p>
+    </div>
+    <div class="sp-stat">
+      <p class="sp-stat__number" style="white-space:nowrap;"><span class="count-up" data-target="50">0</span><span class="sp-stat__unit">秒</span></p>
+      <p class="sp-stat__label">浮き輪完了<br><span style="font-size:11px;">90cm — わずか50秒</span></p>
+    </div>
+    <div class="sp-stat">
+      <p class="sp-stat__number" style="white-space:nowrap;"><span class="count-up" data-target="10">0</span><span class="sp-stat__unit">個分</span></p>
+      <p class="sp-stat__label">1回の充電で<br><span style="font-size:11px;">大人用浮き輪10個分 / 連続20分</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S14: アタッチメント ═══ -->
+<section class="att-section" aria-label="対応用途"
+  data-section-id="apple-attachment-001" data-section-type="attachment" data-section-order="14">
+  <div class="section-header fade-in">
+    <p class="t-eyebrow-sm" style="color:var(--color-air-green);">対応用途</p>
+    <h2 class="t-headline" data-field="heading">これ1台で、家族のレジャーが全部カバーできる。</h2>
+  </div>
+  <div class="att-grid fade-in">
+    <div class="att-card"><img class="att-card__img" src="{{ 'att_nozzle_large.png' | asset_url }}" alt="エアノズル大" loading="lazy"><div class="att-card__body"><p class="t-callout">エアノズル大</p><p class="t-caption att-card__desc">浮き輪・プール<br>ビニール遊具</p></div></div>
+    <div class="att-card"><img class="att-card__img" src="{{ 'att_nozzle_small.png' | asset_url }}" alt="エアノズル小" loading="lazy"><div class="att-card__body"><p class="t-callout">エアノズル小</p><p class="t-caption att-card__desc">浮き輪・プール</p></div></div>
+    <div class="att-card"><img class="att-card__img" src="{{ 'att_airmat_large.png' | asset_url }}" alt="エアマット大" loading="lazy"><div class="att-card__body"><p class="t-callout">エアマット大</p><p class="t-caption att-card__desc">エアマット<br>フローティングマットレス</p></div></div>
+    <div class="att-card"><img class="att-card__img" src="{{ 'att_airmat_small.png' | asset_url }}" alt="エアマット小" loading="lazy"><div class="att-card__body"><p class="t-callout">エアマット小</p><p class="t-caption att-card__desc">マットレス<br>インフレーター枕</p></div></div>
+    <div class="att-card"><img class="att-card__img" src="{{ 'att_car_nozzle.png' | asset_url }}" alt="車中泊ノズル" loading="lazy"><div class="att-card__body"><p class="t-callout">車中泊ノズル</p><p class="t-caption att-card__desc">インフレーターマット</p></div></div>
+    <div class="att-card"><img class="att-card__img" src="{{ 'att_compress.png' | asset_url }}" alt="圧縮ノズル" loading="lazy"><div class="att-card__body"><p class="t-callout">圧縮ノズル</p><p class="t-caption att-card__desc">圧縮袋</p></div></div>
+  </div>
+  <div class="container-narrow fade-in" style="margin-top:24px;text-align:center;">
+    <p class="t-caption" style="color:var(--color-text-sub);">※タイヤには対応していません。タイヤ用は <a href="https://panp.jp/products/panp-ridepro01" style="color:var(--color-link);">PANP RIDEシリーズ</a> をお選びください。</p>
+  </div>
+</section>
+
+<!-- ═══ S15: 利用シーン — パララックス + 交互チャプター ═══ -->
+<section class="parallax" aria-label="利用シーン導入"
+  data-section-id="custom-scene-intro-001" data-section-type="parallax" data-section-order="15" data-parallax>
+  <img class="parallax__bg" data-parallax-bg src="{{ 'air_bbq.png' | asset_url }}" alt="家族のレジャーシーン" loading="lazy">
+  <div class="parallax__overlay">&nbsp;</div>
+  <div class="parallax__content fade-in">
+    <h2 class="t-headline-xl" style="color:#f5f5f7;" data-field="heading">家族の夏が、<br>もっと楽しくなる。</h2>
+    <p class="t-body" style="margin-top:24px; color:rgba(255,255,255,0.8);">お家プール、海水浴、キャンプ、車中泊。<br>PANP AIRがあれば、準備も片付けもボタンひとつ。<br>家族と過ごす時間が、もっと増えます。</p>
+  </div>
+</section>
+
+<section class="section-product-stories" aria-label="利用シーン詳細"
+  data-section-id="custom-scene-001" data-section-type="product-stories" data-section-order="16">
+  <div class="ps-chapters-wrapper">
+    <div class="ps-chapters">
+      <div class="ps-chapter fade-in">
+        <div class="ps-chapter__media"><img src="{{ 'air_pool_scene.png' | asset_url }}" alt="お家プール" loading="lazy"></div>
+        <div class="ps-chapter__text">
+          <h3 class="ps-chapter__title ps-chapter__title--ch1" style="color:var(--color-air-green);">お家プール。</h3>
+          <p class="t-body">大きなプールも1分50秒で完了。空気抜きもボタンひとつだから、片付けも楽々。お子さんを待たせずに、すぐ遊べます。</p>
+        </div>
+      </div>
+      <div class="ps-chapter ps-chapter--reversed fade-in">
+        <div class="ps-chapter__text">
+          <h3 class="ps-chapter__title ps-chapter__title--ch2" style="color:var(--color-air-green);">海・プール。</h3>
+          <p class="t-body">浮き輪50秒で完了。104gだからカバンに入れて持ち運べます。ビーチで口で膨らませる必要は、もうありません。</p>
+        </div>
+        <div class="ps-chapter__media"><img src="{{ 'air_float_ring.png' | asset_url }}" alt="海で浮き輪" loading="lazy"></div>
+      </div>
+      <div class="ps-chapter fade-in">
+        <div class="ps-chapter__media"><img src="{{ 'air_airmat.png' | asset_url }}" alt="キャンプ" loading="lazy"></div>
+        <div class="ps-chapter__text">
+          <h3 class="ps-chapter__title ps-chapter__title--ch3" style="color:var(--color-air-green);">キャンプ・車中泊。</h3>
+          <p class="t-body">エアマット約3分で完了。車中泊ノズル付き。LEDライトはランタン代わりにもなります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S17: FAQ ═══ -->
+<section class="faq-section" aria-label="よくある質問"
+  data-section-id="apple-faq-001" data-section-type="faq" data-section-order="17">
+  <div class="section-header fade-in">
+    <h2 class="t-headline">よくある質問</h2>
+  </div>
+  <div class="faq-list fade-in">
+    <details class="faq-item"><summary class="faq-item__q">タイヤに空気を入れられますか？</summary><p class="faq-item__a">いいえ。PANP AIRはレジャー用途に特化した製品です。タイヤ用は <a href="https://panp.jp/products/panp-ridepro01" class="faq-item__link">PANP RIDEシリーズ</a> をお選びください。</p></details>
+    <details class="faq-item"><summary class="faq-item__q">音はうるさいですか？</summary><p class="faq-item__a">動作音は61dBで掃除機より小さいくらいです。充填は長くても3分程度で終わります。</p></details>
+    <details class="faq-item"><summary class="faq-item__q">アタッチメントが合わなかったら？</summary><p class="faq-item__a">30日以内であればご返品いただけます。アタッチメントの単品購入も可能です。</p></details>
+    <details class="faq-item"><summary class="faq-item__q">類似品より価格が高い理由は？</summary><p class="faq-item__a">耐久試験をクリアした部品のみ使用し、最大1年保証と30日返品保証を付けています。壊れて買い直すコストを考えると、結果的にお得です。</p></details>
+    <details class="faq-item"><summary class="faq-item__q">バッテリーはどのくらい持ちますか？</summary><p class="faq-item__a">1回の充電で約20分間の連続使用が可能です。浮き輪なら約10個分。レジャー1日分は十分です。USB Type-C充電。</p></details>
+    <details class="faq-item"><summary class="faq-item__q">実際の耐久性は？</summary><p class="faq-item__a">バッテリーは充電120回、モーターは150〜200回使用可能。月4回使用で約2.5年。故障時は保証期間内なら無償交換。</p></details>
+    <details class="faq-item"><summary class="faq-item__q">子供でも使えますか？</summary><p class="faq-item__a">はい。ボタンは1つだけのシンプル設計。誤作動防止ボタンで、持ち運び時に勝手にスイッチが入ることもありません。</p></details>
+  </div>
+</section>
+
+<!-- ═══ S18: スペック + ブランド ═══ -->
+<section class="spec-section" aria-label="製品仕様"
+  data-section-id="apple-spec-001" data-section-type="spec" data-section-order="18">
+  <div class="section-header fade-in"><h2 class="t-headline">製品仕様</h2></div>
+  <div class="spec-table-wrap fade-in">
+    <table class="spec-table">
+      <tbody>
+        <tr><th>製品名</th><td>PANP AIR</td></tr>
+        <tr><th>価格</th><td>¥3,880（税込・送料無料）</td></tr>
+        <tr><th>サイズ</th><td>4.3 × 4.3 × 6 cm</td></tr>
+        <tr><th>重量</th><td>104g</td></tr>
+        <tr><th>バッテリー</th><td>1,600mAh（リチウムイオン）</td></tr>
+        <tr><th>パワー</th><td>3.5kPa / 88L/min</td></tr>
+        <tr><th>連続使用</th><td>20分</td></tr>
+        <tr><th>充電</th><td>USB Type-C</td></tr>
+        <tr><th>動作音</th><td>61dB</td></tr>
+        <tr><th>素材</th><td>ABS + シリコンコーティング</td></tr>
+        <tr><th>LEDライト</th><td>電球色 4段階調光（27.5〜110LM）</td></tr>
+        <tr><th>アタッチメント</th><td>6種類付属（単品購入可）</td></tr>
+        <tr><th>保証</th><td>半年間（レビュー投稿で最大1年間）/ 30日返品保証</td></tr>
+        <tr><th>メーカー</th><td>PANP（株式会社TradeFKJapan・電動空気入れ専業）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ S19: 最終CTA ═══ -->
+<section class="cta-final section-dark" aria-label="最終CTA"
+  data-section-id="apple-cta-002" data-section-type="cta" data-section-order="19">
+  <img class="cta-final__bg" src="{{ 'air_pool_scene.png' | asset_url }}" alt="" loading="lazy">
+  <div class="cta-final__overlay">&nbsp;</div>
+  <div class="cta-final__content fade-in">
+    <p class="cta-final__eyebrow">PANP AIR</p>
+    <p class="cta-final__price" style="color:#fff;">¥3,880<span class="cta-final__price-note" style="color:#fff;">（税込・送料無料）</span></p>
+    <p class="cta-final__body">この夏こそ、準備で疲れない夏にしませんか。<br>家族との大切な時間を、もっと楽しむために。</p>
+    <div class="cta-final__actions">
+      <a href="https://panp.jp/products/panp-air" class="cta-final__btn-primary" style="color:#fff;">PANP AIRで夏を楽しむ</a>
+      <a href="#faq" class="cta-final__btn-link" style="color:#fff;">よくある質問を見る &gt;</a>
+    </div>
+    <div class="cta-final__badges">
+      <span class="cta-final__badge" style="color:#fff;border-color:rgba(255,255,255,0.3);">1年保証</span>
+      <span class="cta-final__badge" style="color:#fff;border-color:rgba(255,255,255,0.3);">30日返品OK</span>
+      <span class="cta-final__badge" style="color:#fff;border-color:rgba(255,255,255,0.3);">送料無料</span>
+      <span class="cta-final__badge" style="color:#fff;border-color:rgba(255,255,255,0.3);">日本メーカー品質</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S20: ブランド紹介 ═══ -->
+<section class="brand-section" aria-label="ブランド紹介"
+  data-section-id="apple-brand-001" data-section-type="brand" data-section-order="20">
+  <div class="brand-section__inner fade-in">
+    <p class="brand-section__eyebrow">空気入れ専門メーカー</p>
+    <div class="brand-section__logo"><img src="{{ 'PANP_logo.png' | asset_url }}" alt="PANP" loading="lazy"></div>
+    <p class="brand-section__desc">空気入れを楽に手軽にするPANP。<br>「空気入れ＝PANP」と呼ばれる存在を目指して。</p>
+    <div class="brand-lineup">
+      <div class="brand-lineup__series">
+        <p class="brand-lineup__title"><span class="brand-lineup__line" style="background:var(--color-air-green);"></span> AIR シリーズ <span class="brand-lineup__line" style="background:var(--color-air-green);"></span></p>
+        <p class="brand-lineup__sub">レジャーでの空気入れをめっちゃ楽にする</p>
+        <div class="brand-lineup__pills">
+          <a href="https://panp.jp/products/kukiire02" class="brand-lineup__pill brand-lineup__pill--active" style="color:var(--color-air-green);border-color:var(--color-air-green);">AIR（当製品）¥3,880</a>
+          <a href="https://panp.jp/products/panp-airpro01" class="brand-lineup__pill">AIR PRO ¥19,800</a>
+        </div>
+      </div>
+      <div class="brand-lineup__series">
+        <p class="brand-lineup__title"><span class="brand-lineup__line" style="background:var(--color-ride-gold);"></span> RIDE シリーズ <span class="brand-lineup__line" style="background:var(--color-ride-gold);"></span></p>
+        <p class="brand-lineup__sub">乗り物の空気入れを楽に手軽にする</p>
+        <div class="brand-lineup__pills">
+          <a href="https://panp.jp/products/smart-kukiire" class="brand-lineup__pill">RIDE ¥7,980</a>
+          <a href="https://panp.jp/products/panp-ridepro01" class="brand-lineup__pill">RIDE PRO ¥12,880</a>
+          <a href="https://panp.jp/products/panp-ridecycle01" class="brand-lineup__pill">RIDE CYCLE ¥11,980</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="lp-footer" aria-label="フッター"
+  data-section-id="custom-footer-001" data-section-type="footer" data-section-order="21">
+  <div class="lp-footer__inner">
+    <p class="lp-footer__notes">
+      * タイヤへの空気入れには対応していません。タイヤ用はPANP RIDEシリーズをご利用ください。<br>
+      * 「日本メーカー」は株式会社TradeFKJapan（福岡県福岡市博多区）を指します。製造は提携工場にて実施。<br>
+      * 充填時間は当社試験環境での計測値です。温度・使用環境により異なる場合があります。
+    </p>
+    <p class="lp-footer__copy">&copy; PANP / TradeFKJapan Inc.</p>
+  </div>
+</footer>
+</div>
+
+{% schema %}
+{"name": "LP Shell — panpair-column", "settings": [], "presets": [{"name": "LP Shell — panpair-column"}]}
+{% endschema %}

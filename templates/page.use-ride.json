@@ -1,0 +1,1020 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_DxwwQ7": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_TMFXa7": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANP RIDE",
+            "heading_size": "h1"
+          }
+        },
+        "text_zyQJQw": {
+          "type": "text",
+          "settings": {
+            "text": "使い方ガイド",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TMFXa7",
+        "text_zyQJQw"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/itemimage_ride_60ca0a6e-be49-45df-a9eb-9e8b238f2eb5.jpg",
+        "image_overlay_opacity": 10,
+        "image_height": "large",
+        "desktop_content_position": "middle-right",
+        "show_text_box": false,
+        "desktop_content_alignment": "right",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_NYyagY": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_NqcTaa": {
+          "type": "heading",
+          "settings": {
+            "heading": "手押し空気入れよりとっても楽ちん",
+            "heading_size": "h0"
+          }
+        },
+        "text_hiQ3bT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>使うのは指だけ、やることはボタンを押すだけ。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NqcTaa",
+        "text_hiQ3bT"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 1080px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 32px; } .rich-text__blocks > * + * {margin-top: 0.5em; } p {text-align: left; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_M3Hpte": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3XBMkm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/car_e284ac2c-a5d6-425f-a5c7-2918d45d7c2d.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_xK4qrL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/bike_86c7dc15-028c-4caa-99b1-f870ac314d70.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QJqd3F": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/cycle_9555eb52-52bc-42e3-be98-bb7f2b13998a.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_aTdTwj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/wheelchair_187e59fa-929b-485e-9991-a7e74e4c5893.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Yfn4DU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ball_4a5efa2a-b747-487b-9670-cb2ec82b59b3.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_CJeat7": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/float-ring.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ET4V99": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/pool.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_phaERb": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/matt.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_3XBMkm",
+        "column_xK4qrL",
+        "column_QJqd3F",
+        "column_aTdTwj",
+        "column_Yfn4DU",
+        "column_CJeat7",
+        "column_ET4V99",
+        "column_phaERb"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 541px) {.grid {display: flex; justify-content: center; margin: 0 5em; } .multicolumn .title {margin: auto; }}",
+        "@media screen and (max-width: 540px) {h2 {margin: 0 auto; } .grid {display: flex; justify-content: center; margin: initial; } .grid__item {max-width: calc(30% - var(--grid-mobile-horizontal-spacing) / 2); }}"
+      ],
+      "settings": {
+        "title": "RIDEシリーズ対応",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 5,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 60
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "h1 {font-size: 4rem; text-align: center;}",
+        "h3 {font-size: 3rem;}",
+        "a {color: #a07828; font-size: 1.8rem; text-decoration: none;}",
+        ".rte {background-color: #fff; padding: 3rem 2rem; border-radius: 8px;}"
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "video_7H9n3e": {
+      "type": "video",
+      "custom_css": [
+        "h2 {text-align: center; color: #fff; background-color: #a07828; padding: 1rem;}"
+      ],
+      "settings": {
+        "heading": "タッチパネルの操作方法",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/RIDE_画面操作_v2.mp4",
+        "video_url": "",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_U9jf6K": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_RXdCYU": {
+          "type": "heading",
+          "settings": {
+            "heading": "タッチパネル操作について",
+            "heading_size": "h2"
+          }
+        },
+        "text_k49EKh": {
+          "type": "text",
+          "settings": {
+            "text": "<ol><li><strong>エアホース抜く</strong>と「電源オン」</li><li><strong>Mボタン</strong> 「モードの切替」</li><li><strong>スタート/ストップボタン</strong>「空気注入＆停止」</li><li><strong>＋/ーボタン</strong>「タイヤに入れたい空気圧の数値を調整」</li><li><strong>Uボタン</strong>「空気圧の単位を変更」</li><li>現在のタイヤの空気圧を表示</li><li>タイヤに入れたい空気圧を表示</li></ol><h6>※Uボタン長押しで「LEDライトのオン・オフ」</h6>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RXdCYU",
+        "text_k49EKh"
+      ],
+      "custom_css": [
+        "li {list-style: auto;}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/display-ridepanp.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 60
+      }
+    },
+    "video_jwzjMX": {
+      "type": "video",
+      "custom_css": [
+        "h2 {text-align: center; color: #fff; background-color: #a07828; padding: 1rem;}"
+      ],
+      "settings": {
+        "heading": "自転車/ママチャリ 編",
+        "heading_size": "h1",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/header_movie_black.mp4",
+        "video_url": "https://youtu.be/Sb2dD9dJ96Y?si=7KpXuOwgtwejkjgd",
+        "cover_image": "shopify://shop_images/cycle_5aa8af95-8c48-49f8-ba90-b5523260c221.png",
+        "description": "【PANP RIDE】の空気の入れ方「自転車」編！",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_9jTRqd": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_LkyAch": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ride-1.png",
+            "title": "1. 電源を入れる",
+            "text": "<p>エアホースを抜くと、電源がONになります。</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bTfaqr": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ride-3.png",
+            "title": "2.取り付ける",
+            "text": "<p>ママチャリのアタッチメントを取り付けます（英式）。</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_8c3fQh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ride-2.png",
+            "title": "3.モード設定",
+            "text": "<p>空気圧目安表を見て、モードを自転車に合わせます。</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_nM3XgJ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ride4.png",
+            "title": "4.空気入れ開始",
+            "text": "<p>Θボタンを押して、空気入れスタート。</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_LkyAch",
+        "column_bTfaqr",
+        "column_8c3fQh",
+        "column_nM3XgJ"
+      ],
+      "settings": {
+        "title": "手順",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "video_4zRCG4": {
+      "type": "video",
+      "custom_css": [
+        "h2 {text-align: center; color: #fff; background-color: #a07828; padding: 1rem;}"
+      ],
+      "settings": {
+        "heading": "クロスバイク/ロードバイク 編",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/YXAOkzrhu7Q?si=ESXeE8d5rso6vVlB",
+        "cover_image": "shopify://shop_images/cross.png",
+        "description": "【PANP RIDE】の空気の入れ方「クロスバイク」編！",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "video_nwpdC7": {
+      "type": "video",
+      "custom_css": [
+        "h2 {text-align: center; color: #fff; background-color: #a07828; padding: 1rem;}"
+      ],
+      "settings": {
+        "heading": "自動二輪車（バイク）編",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/IIOHpJ9hDyM?si=C4bMJv8KkN-P6FTH",
+        "cover_image": "shopify://shop_images/bike_e3b8c3e6-f2f8-4cd1-8a75-01f4384aff00.png",
+        "description": "【PANP RIDE】の空気の入れ方「バイク」編！",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "video_wGVCj4": {
+      "type": "video",
+      "custom_css": [
+        "h2 {text-align: center; color: #fff; background-color: #a07828; padding: 1rem;}"
+      ],
+      "settings": {
+        "heading": "自動車 編",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/Ry44tkTJtcw?si=SJGub5vAPApkXdJt",
+        "cover_image": "shopify://shop_images/car_530e460c-4a62-45e1-98eb-563b19c33ad6.png",
+        "description": "【PANP RIDE】の空気の入れ方「自動車」編！",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "video_HHMfem": {
+      "type": "video",
+      "custom_css": [
+        "h2 {text-align: center; color: #fff; background-color: #a07828; padding: 1rem;}"
+      ],
+      "settings": {
+        "heading": "ボール 編",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/x3_NanZpw_4?si=gc50gKdoZVe1uoQ3",
+        "cover_image": "shopify://shop_images/ball_d77efe0a-8481-4407-8def-960b2e4c70af.png",
+        "description": "【PANP RIDE】の空気の入れ方「ボール」編！",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "multirow_yYTd8c": {
+      "type": "multirow",
+      "blocks": {
+        "row_wkPQLK": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/ride-1.png",
+            "caption": "",
+            "heading": "1. 電源を入れる",
+            "text": "<h3><strong>エアホースを抜くと、電源がONになります。</strong></h3>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_MLnixm": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/ride-2.png",
+            "caption": "",
+            "heading": "2. 取り付ける",
+            "text": "<h3><strong>ママチャリのアタッチメントを取り付けます（英式）。</strong></h3>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_epCyAD": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/ride-3.png",
+            "caption": "",
+            "heading": "3. モード設定",
+            "text": "<h3><strong>空気圧目安表を見て、モードを自転車に合わせます。</strong></h3>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_agELtM": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/ride4.png",
+            "caption": "",
+            "heading": "4. 取り付ける",
+            "text": "<h3><strong>Θボタンを押して、空気入れスタート。</strong></h3>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_wkPQLK",
+        "row_MLnixm",
+        "row_epCyAD",
+        "row_agELtM"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.image-with-text .grid {margin: 0rem rem; }}",
+        ".caption-with-letter-spacing--medium {font-size: 2rem; color: #9e7126;}"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "primary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "align-right",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-26c48073-c7e1-4daf-8269-57438c64b35c",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_ULzKYL": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_gfALc7": {
+          "type": "heading",
+          "settings": {
+            "heading": "空気を入れ終わると「自動で止まる」",
+            "heading_size": "h1"
+          }
+        },
+        "text_4XVkbX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>高性能のセンサーが空気圧を検知し、設定値で自動的に停止します。</p><p>空気の入れ過ぎでパンクするのを心配をして、<strong>空気入れを見つめ続ける必要はございません。</strong></p><h6>※一般的な電動空気入れには、空気注入を自動的に止める機能はついていません。自動停止は本商品の特別な機能です。</h6>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_gfALc7",
+        "text_4XVkbX"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/autostop.gif",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_kHfY8p": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pRqVpz": {
+          "type": "heading",
+          "settings": {
+            "heading": "たった一台で家中のものに使える",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pRqVpz"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 1080px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 32px; } .rich-text__blocks > * + * {margin-top: 0.5em; } p {text-align: center; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_m8phkn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RfLtLJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "いろんなものに使える",
+            "heading_size": "h0"
+          }
+        },
+        "text_RbbheD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>自転車をはじめ、車やバイクにもおすすめ。あらゆるシーンで空気入れが簡単に。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RfLtLJ",
+        "text_RbbheD"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 1080px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 32px; } .rich-text__blocks > * + * {margin-top: 0.5em; } p {text-align: left; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_EQnXAT": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_AcNiU9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/c317baf1df547dc18c8125425f439f9a.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_THDzCT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/db56f56bc4e77632e26f9a0de31b0e19.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_h4VwAF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/a69493f3ef0242de8ed626dc520742d0.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cJnxY8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/e75b608fb399ebf29dae1421f16fe883.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_AcNiU9",
+        "column_THDzCT",
+        "column_h4VwAF",
+        "column_cJnxY8"
+      ],
+      "custom_css": [
+        ".grid {display: flex; justify-content: left;}",
+        "h2 {text-align: center; margin: auto;}",
+        "@media screen and (max-width: 540px) {.grid {display: flex; justify-content: left; }}"
+      ],
+      "settings": {
+        "title": "付属アタッチメント(RIDEタイプ)",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_pdymhA": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_C4QHdh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/bicycle.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://products/ride-english_attachment"
+          }
+        },
+        "column_LzenRq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/bike.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_77ENLK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/car.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pKzKzb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/bowl.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_eikWrG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/kurumaisu.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_DyTU8M": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/ukiwa.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_C4QHdh",
+        "column_LzenRq",
+        "column_77ENLK",
+        "column_pKzKzb",
+        "column_eikWrG",
+        "column_DyTU8M"
+      ],
+      "custom_css": [
+        ".grid {display: flex; justify-content: left;}",
+        ".multicolumn .title {margin: auto;}"
+      ],
+      "settings": {
+        "title": "対応製品の一例",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "slideshow_MJkV7M": {
+      "type": "slideshow",
+      "settings": {
+        "layout": "grid",
+        "slide_height": "small",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "rich_text_BiTq7Q": {
+      "type": "rich-text",
+      "blocks": {
+        "text_GTTcBn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>注意：PANP®︎ Rideは空気容量の大きい”ビニールプール”や”バランスボール””SUP”などにも、空気を入れることはできますが、時間がかかるため向いていません。</p><p>浮き輪やビニールプール、エアマットの空気入れをお探しの方は<a href=\"/products/ボール用アタッチメント\" target=\"_blank\" title=\"ボール用アタッチメント\">PANP®︎ Air</a>をお買い求めください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_GTTcBn"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_d4BjLm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_66F64Y": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-PRIDE.png",
+            "title": "RIDE",
+            "text": "<h4>スマホサイズの<br/>万能モデル</h4><p><strong>サイズ</strong>：153*60*39mm　433ｇ</p><p><strong>空気流入量</strong>：毎分29L</p>",
+            "link_label": "RIDEはこちら",
+            "link": "shopify://products/smart-kukiire"
+          }
+        },
+        "column_XgL6Ub": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-RIDE-PRO.png",
+            "title": "PRO",
+            "text": "<h4>空気を入れるスピードが<br/>一番速いモデル</h4><p><strong>サイズ</strong>：130*112*56mm　650g</p><p><strong>空気流入量：</strong>毎分35L</p>",
+            "link_label": "LINEで最新情報をGET！",
+            "link": "https://page.line.me/116ektac?oat_content=url&openQrModal=true"
+          }
+        },
+        "column_fXRb7f": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/product-RIDE-MINI.png",
+            "title": "MINI",
+            "text": "<h4>一番小さくて<br/>持ち運びにも便利</h4><p><strong>サイズ</strong>：190*40*40mm　405g</p><p><strong>空気流入量：</strong>毎分25L</p>",
+            "link_label": "LINEで最新情報をGET！",
+            "link": "https://page.line.me/116ektac?oat_content=url&openQrModal=true"
+          }
+        }
+      },
+      "block_order": [
+        "column_66F64Y",
+        "column_XgL6Ub",
+        "column_fXRb7f"
+      ],
+      "custom_css": [
+        ".grid {display: flex; justify-content: left;}",
+        ".multicolumn .title {margin: auto;}",
+        "@media screen and (min-width: 750px) {.background-none .multicolumn-card__image-wrapper {margin: 0; justify-content: center; } .multicolumn {margin: 3em; }}",
+        "a {background-color: #0071e3; border-radius: 50px; color: #fff; display: inline-flex; justify-content: center; align-items: center; padding: 1rem 3rem; font: inherit; font-size: 1.5rem; text-decoration: none; letter-spacing: 0.1rem; line-height: calc(1 + 0.2 / var(--font-body-scale));}"
+      ],
+      "settings": {
+        "title": "RIDE SERIES",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_KtQyNK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xfdhwY": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANP RIDEがあると</br>家族みんながラクになる",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xfdhwY"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 1080px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}",
+        "@media screen and (max-width: 540px) {h2 {font-size: 26px; } .rich-text__blocks > * + * {margin-top: 0.5em; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_banner_jhCh8n": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/ride-series-b.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "image_banner_MkCegf": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_7EGG3F": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANP®︎シリーズの</br>ラインナップはこちら",
+            "heading_size": "h2"
+          }
+        },
+        "text_WPceFQ": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "buttons_Q4wgWi": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "商品一覧",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7EGG3F",
+        "text_WPceFQ",
+        "buttons_Q4wgWi"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/DSC09847_128.jpg",
+        "image_2": "shopify://shop_images/DSC09843_129.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "featured_collection_ranking_yx6ctF": {
+      "type": "featured-collection-ranking",
+      "disabled": true,
+      "settings": {
+        "title": "Ranking",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "ranking",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_DxwwQ7",
+    "rich_text_NYyagY",
+    "multicolumn_M3Hpte",
+    "main",
+    "video_7H9n3e",
+    "image_with_text_U9jf6K",
+    "video_jwzjMX",
+    "multicolumn_9jTRqd",
+    "video_4zRCG4",
+    "video_nwpdC7",
+    "video_wGVCj4",
+    "video_HHMfem",
+    "multirow_yYTd8c",
+    "image_with_text_ULzKYL",
+    "rich_text_kHfY8p",
+    "rich_text_m8phkn",
+    "multicolumn_EQnXAT",
+    "multicolumn_pdymhA",
+    "slideshow_MJkV7M",
+    "rich_text_BiTq7Q",
+    "multicolumn_d4BjLm",
+    "rich_text_KtQyNK",
+    "image_banner_jhCh8n",
+    "image_banner_MkCegf",
+    "featured_collection_ranking_yx6ctF"
+  ]
+}

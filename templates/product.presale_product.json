@@ -1,0 +1,286 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_meTmY3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ndjHGr": {
+          "type": "heading",
+          "settings": {
+            "heading": "お得な先行販売情報はこちらから",
+            "heading_size": "h1"
+          }
+        },
+        "text_D3BChp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>登録会員限定の<strong>先行割引特典</strong>や<strong>新商品の情報</strong>をお知らせします。<br/>ぜひご登録ください。</p>"
+          }
+        },
+        "button_BhAM9V": {
+          "type": "button",
+          "settings": {
+            "button_label": "LINE登録する",
+            "button_link": "https://page.line.me/116ektac?oat_content=url&openQrModal=true",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ndjHGr",
+        "text_D3BChp",
+        "button_BhAM9V"
+      ],
+      "custom_css": [
+        "p strong {color: brown;}",
+        ".button {font-size: 1.2em;}",
+        "@media screen and (max-width: 750px) {.rich-text__blocks {background: white; padding: 2rem 1rem; border-radius: 8px; } .rich-text__wrapper {width: calc(100% - 1rem / var(--font-body-scale)); }}",
+        "@media screen and (min-width: 749px) {.rich-text__blocks {background: #fff; padding: 5rem 5rem; border-radius: 8px; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5837008b-ab06-4516-8237-5909ca63347f",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 52
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "text_JBLQUi": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>近日発売</strong>",
+            "text_style": "body"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "dropdown",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "disabled": true,
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "complementary_Nr7gdh": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "make_collapsible_row": true,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 3,
+            "pagination_style": "counter",
+            "image_ratio": "portrait",
+            "enable_quick_add": true
+          }
+        },
+        "sku_WKEWUU": {
+          "type": "sku",
+          "disabled": true,
+          "settings": {
+            "text_style": "body"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "description2_YPy8Km": {
+          "type": "description2",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor",
+        "text_JBLQUi",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "complementary_Nr7gdh",
+        "sku_WKEWUU",
+        "description",
+        "description2_YPy8Km"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "171457734679c5067a": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_dynamic_section_BkJMDL": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "aggregated": false,
+            "limit": 20,
+            "hide_thumbnails": false,
+            "maxwidth": 1080,
+            "is_sample": false
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_dynamic_section_BkJMDL"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "関連商品",
+        "heading_size": "h1",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_aFdNPN": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_ywGMxr": {
+          "type": "heading",
+          "settings": {
+            "heading": "PANP®︎シリーズのラインナップはこちら",
+            "heading_size": "h2"
+          }
+        },
+        "buttons_JByyVL": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "商品一覧",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ywGMxr",
+        "buttons_JByyVL"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ride_image.jpg",
+        "image_2": "shopify://shop_images/DSC09843_129.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "featured_collection_ranking_NzwgnX": {
+      "type": "featured-collection-ranking",
+      "settings": {
+        "title": "Ranking",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "ranking",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "rich_text_meTmY3",
+    "main",
+    "171457734679c5067a",
+    "related-products",
+    "image_banner_aFdNPN",
+    "featured_collection_ranking_NzwgnX"
+  ]
+}

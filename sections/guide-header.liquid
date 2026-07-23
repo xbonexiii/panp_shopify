@@ -1,0 +1,224 @@
+{% comment %}
+  /**
+   * ガイドヘッダーセクション（動的）
+   *
+   * 概要: ガイドページのヘッダー部分とナビゲーションメニューを表示するセクション
+   * 主な仕様:
+   * - 編集可能なメインタイトルの表示
+   * - 編集可能なアイコンメニューの表示（画像、テキスト、リンク）
+   * - レスポンシブデザイン対応（PC: 6列、SP: 3列2行）
+   *
+   * 制限事項:
+   * - アイコンメニューは最大10個まで
+   */
+{% endcomment %}
+
+{% if section.settings.main_title != blank
+  or section.settings.guide_title != blank
+  or section.settings.guide_description != blank
+%}
+  <div
+    class="guide-header-{{ section.id }} page-width"
+    {% if section.settings.html_id != blank %}
+      id="{{ section.settings.html_id }}"
+    {% endif %}
+  >
+    <!-- メインタイトルセクション -->
+    {% if section.settings.main_title != blank %}
+      <div class="guide-page-title-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="main-title">{{ section.settings.main_title }}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if section.settings.guide_title != blank %}
+      <!-- ガイドメニューセクション -->
+      <div class="guide-content-title-section">
+        <div class="container">
+          <div class="col-12">
+            {% if section.settings.guide_title != blank %}
+              <h3 class="content-title">{{ section.settings.guide_title }}</h3>
+            {% endif %}
+            {% if section.settings.guide_description != blank %}
+              <p class="content-description">{{ section.settings.guide_description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
+
+<style>
+  .guide-header-{{ section.id }} {
+    margin-top: {{ section.settings.margin_top_pc }}px;
+    margin-bottom: {{ section.settings.margin_bottom_pc }}px;
+  }
+
+  .guide-page-title-section {
+    text-align: center;
+  }
+
+  .guide-page-title-section .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .main-title {
+    font-size: 64px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.2;
+    margin: 60px 0;
+  }
+
+  .guide-content-title-section {
+  }
+
+  .guide-content-title-section .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .content-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1d1d1f;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .content-description {
+    font-size: 20px;
+    color: #1d1d1f;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .guide-header-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top_sp }}px;
+      margin-bottom: {{ section.settings.margin_bottom_sp }}px;
+    }
+
+    .main-title {
+      font-size: 48px;
+    }
+
+    .content-title {
+      font-size: 28px;
+    }
+
+    .content-description {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .guide-header-{{ section.id }} {
+    }
+
+    .main-title {
+      font-size: 36px;
+    }
+
+    .content-title {
+      font-size: 24px;
+    }
+
+    .content-description {
+      font-size: 16px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "ガイドヘッダー",
+  "tag": "section",
+  "class": "section-guide-header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "html_id",
+      "label": "ID名",
+      "info": "HTML要素のIDを入力してください"
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "メインタイトル",
+      "default": "RIDE PRO<br>使い方",
+      "info": "改行したい場合は<br>タグを使用してください"
+    },
+    {
+      "type": "text",
+      "id": "guide_title",
+      "label": "ガイドタイトル",
+      "default": "ガイドメニュー"
+    },
+    {
+      "type": "text",
+      "id": "guide_description",
+      "label": "ガイド説明文",
+      "default": "用途をアイコンからお選びください。"
+    },
+    {
+      "type": "header",
+      "content": "余白設定"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_pc",
+      "label": "PC上部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_pc",
+      "label": "PC下部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_top_sp",
+      "label": "SP上部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_sp",
+      "label": "SP下部の余白",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 2
+    }
+  ],
+  "presets": [
+    {
+      "name": "ガイドヘッダー",
+      "settings": {
+        "main_title": "RIDE PRO<br>使い方",
+        "guide_title": "ガイドメニュー",
+        "guide_description": "用途をアイコンからお選びください。"
+      }
+    }
+  ]
+}
+{% endschema %}

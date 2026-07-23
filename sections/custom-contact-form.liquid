@@ -1,0 +1,686 @@
+<div class="custom-contact-form">
+  <div class="contact-form-wrapper">
+    <div class="form-container">
+      {% form 'contact' %}
+        {%- if form.posted_successfully? -%}
+          {%- comment -%} 送信成功後のリダイレクト制御 {%- endcomment -%}
+          {% if section.settings.redirect_url != blank %}
+            {%- comment -%} 送信成功時の見出し {%- endcomment -%}
+            <script>
+              window.location.href = '{{ section.settings.redirect_url }}';
+            </script>
+          {% else %}
+            <h2 class="form-heading">{{ section.settings.success_heading }}</h2>
+          {% endif %}
+          <div class="form-success-message">
+            <p class="success-text">{{ section.settings.success_message }}</p>
+          </div>
+        {%- else -%}
+          {%- comment -%} 通常時の見出し {%- endcomment -%}
+          {% if section.settings.heading != blank %}
+            <h2 class="form-heading">{{ section.settings.heading }}</h2>
+          {% endif %}
+          {%- if form.errors -%}
+            <div class="form-error-message">
+              <p class="error-text">{{ section.settings.error_message }}</p>
+            </div>
+          {%- endif -%}
+
+          <div class="contact-form">
+            {%- comment -%} フォーム識別用の隠しフィールド {%- endcomment -%}
+            {% if section.settings.form_identifier != blank %}
+              <input type="hidden" name="contact[フォーム識別名]" value="{{ section.settings.form_identifier }}">
+            {% endif %}
+
+            {%- for block in section.blocks -%}
+              <div class="form-group" {{ block.shopify_attributes }}>
+                {%- case block.type -%}
+                  {%- when 'text_field' -%}
+                    <label for="field-{{ block.id }}">
+                      {{ block.settings.label }}
+                      {%- if block.settings.required -%}
+                        <span class="required">*</span>
+                      {%- endif -%}
+                    </label>
+                    <input
+                      type="text"
+                      id="field-{{ block.id }}"
+                      name="contact[{{ block.settings.label }}]"
+                      class="form-input"
+                      {% if block.settings.placeholder != blank %}
+                        placeholder="{{ block.settings.placeholder }}"
+                      {% endif %}
+                      {% if block.settings.required %}
+                        required
+                      {% endif %}
+                    >
+
+                  {%- when 'email_field' -%}
+                    <label for="field-{{ block.id }}">
+                      {{ block.settings.label }}
+                      {%- if block.settings.required -%}
+                        <span class="required">*</span>
+                      {%- endif -%}
+                    </label>
+                    <input
+                      type="email"
+                      id="field-{{ block.id }}"
+                      name="contact[email]"
+                      class="form-input"
+                      {% if block.settings.placeholder != blank %}
+                        placeholder="{{ block.settings.placeholder }}"
+                      {% endif %}
+                      {% if block.settings.required %}
+                        required
+                      {% endif %}
+                    >
+
+                  {%- when 'phone_field' -%}
+                    <label for="field-{{ block.id }}">
+                      {{ block.settings.label }}
+                      {%- if block.settings.required -%}
+                        <span class="required">*</span>
+                      {%- endif -%}
+                    </label>
+                    <input
+                      type="tel"
+                      id="field-{{ block.id }}"
+                      name="contact[{{ block.settings.label }}]"
+                      class="form-input"
+                      {% if block.settings.placeholder != blank %}
+                        placeholder="{{ block.settings.placeholder }}"
+                      {% endif %}
+                      {% if block.settings.required %}
+                        required
+                      {% endif %}
+                    >
+
+                  {%- when 'radio_group' -%}
+                    <label class="form-label-block">
+                      {{ block.settings.label }}
+                      {%- if block.settings.required -%}
+                        <span class="required">*</span>
+                      {%- endif -%}
+                    </label>
+                    <div class="radio-group">
+                      {%- assign options = block.settings.options | split: ',' -%}
+                      {%- for option in options -%}
+                        {%- assign option_trimmed = option | strip -%}
+                        <div class="radio-item">
+                          <input
+                            type="radio"
+                            id="field-{{ block.id }}-{{ forloop.index }}"
+                            name="contact[{{ block.settings.label }}]"
+                            value="{{ option_trimmed }}"
+                            {% if block.settings.required %}
+                              required
+                            {% endif %}
+                          >
+                          <label for="field-{{ block.id }}-{{ forloop.index }}">{{ option_trimmed }}</label>
+                        </div>
+                      {%- endfor -%}
+                    </div>
+
+                  {%- when 'date_field' -%}
+                    {%- comment -%} 日付入力フィールド（カレンダーピッカー付き） {%- endcomment -%}
+                    <label for="field-{{ block.id }}">
+                      {{ block.settings.label }}
+                      {%- if block.settings.required -%}
+                        <span class="required">*</span>
+                      {%- endif -%}
+                    </label>
+                    <input
+                      type="date"
+                      id="field-{{ block.id }}"
+                      name="contact[{{ block.settings.label }}]"
+                      class="form-input form-input-date"
+                      {% if block.settings.required %}
+                        required
+                      {% endif %}
+                    >
+
+                  {%- when 'textarea' -%}
+                    <label for="field-{{ block.id }}">
+                      {{ block.settings.label }}
+                      {%- if block.settings.required -%}
+                        <span class="required">*</span>
+                      {%- endif -%}
+                    </label>
+                    <textarea
+                      id="field-{{ block.id }}"
+                      name="contact[{{ block.settings.label }}]"
+                      class="form-textarea"
+                      rows="{{ block.settings.rows }}"
+                      {% if block.settings.placeholder != blank %}
+                        placeholder="{{ block.settings.placeholder }}"
+                      {% endif %}
+                      {% if block.settings.required %}
+                        required
+                      {% endif %}
+                    ></textarea>
+                {%- endcase -%}
+              </div>
+            {%- endfor -%}
+
+            {%- comment -%} 送信ボタン {%- endcomment -%}
+            <div class="form-submit">
+              <button type="submit" class="submit-button">
+                {{ section.settings.submit_button_text }}
+              </button>
+            </div>
+          </div>
+        {%- endif -%}
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .custom-contact-form {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .contact-form-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .form-heading {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .form-label-block {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .required {
+    color: #e53935;
+    margin-left: 2px;
+  }
+
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+
+  .form-input-date {
+    width: auto;
+    max-width: 250px;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: #2196f3;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: #999;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  .radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .radio-item input[type='radio'] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  .radio-item label {
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .form-submit {
+    margin-top: 16px;
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #2196f3;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .submit-button:hover {
+    background-color: #1976d2;
+  }
+
+  .submit-button:active {
+    background-color: #1565c0;
+  }
+
+  .form-success-message {
+    padding: 32px 24px;
+    background-color: #d4edda;
+    border: 2px solid #c3e6cb;
+    border-radius: 8px;
+    color: #155724;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .form-success-message .success-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #155724;
+    white-space: pre-line;
+  }
+
+  .form-error-message {
+    padding: 32px 24px;
+    background-color: #f8d7da;
+    border: 2px solid #f5c6cb;
+    border-radius: 8px;
+    color: #721c24;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .form-error-message .error-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #721c24;
+    white-space: pre-line;
+  }
+
+  /* レスポンシブ対応 */
+  @media (max-width: 768px) {
+    .custom-contact-form {
+      padding: 30px 16px;
+    }
+
+    .form-heading {
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .contact-form {
+      gap: 20px;
+    }
+
+    .form-input,
+    .form-textarea {
+      padding: 10px 14px;
+    }
+
+    .submit-button {
+      padding: 14px 28px;
+      font-size: 15px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "カスタムお問い合わせフォーム",
+  "tag": "section",
+  "class": "custom-contact-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "form_identifier",
+      "label": "フォーム識別名",
+      "info": "メール送信時にフォームを識別するための名前です（例: 法人様専用フォーム、採用フォームなど）",
+      "default": "お問い合わせフォーム"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "フォーム見出し",
+      "default": "こちらをご入力ください。"
+    },
+    {
+      "type": "text",
+      "id": "submit_button_text",
+      "label": "送信ボタンのテキスト",
+      "default": "送信する"
+    },
+    {
+      "type": "header",
+      "content": "送信成功時の表示"
+    },
+    {
+      "type": "text",
+      "id": "success_heading",
+      "label": "成功時の見出し",
+      "default": "お問い合わせありがとうございます"
+    },
+    {
+      "type": "textarea",
+      "id": "success_message",
+      "label": "成功時のメッセージ",
+      "default": "送信完了しました！\n内容を確認のうえ、担当者よりメールでご連絡させていただきます。今しばらくお待ちください。"
+    },
+    {
+      "type": "url",
+      "id": "redirect_url",
+      "label": "送信成功後のリダイレクトURL",
+      "info": "送信成功後にリダイレクトするURLを指定します（例: /pages/contact）。空欄の場合は送信後のメッセージを表示します。"
+    },
+    {
+      "type": "header",
+      "content": "エラー時の表示"
+    },
+    {
+      "type": "textarea",
+      "id": "error_message",
+      "label": "エラー時のメッセージ",
+      "default": "申し訳ありません。送信に失敗しました。\n時間をおいて、もう一度お試しください。"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_field",
+      "name": "テキスト入力",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "ラベル",
+          "default": "項目名"
+        },
+        {
+          "type": "text",
+          "id": "field_name",
+          "label": "フィールド名（半角英数）",
+          "info": "メール送信時のフィールド識別名です",
+          "default": "field"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "プレースホルダー"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "必須項目にする",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "email_field",
+      "name": "メールアドレス入力",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "ラベル",
+          "default": "Email"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "プレースホルダー",
+          "default": "メールアドレスをご入力ください"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "必須項目にする",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "phone_field",
+      "name": "電話番号入力",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "ラベル",
+          "default": "ご連絡先の電話番号"
+        },
+        {
+          "type": "text",
+          "id": "field_name",
+          "label": "フィールド名（半角英数）",
+          "info": "メール送信時のフィールド識別名です",
+          "default": "phone"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "プレースホルダー",
+          "default": "000-0000-0000"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "必須項目にする",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "radio_group",
+      "name": "ラジオボタン",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "ラベル",
+          "default": "選択項目"
+        },
+        {
+          "type": "text",
+          "id": "field_name",
+          "label": "フィールド名（半角英数）",
+          "info": "メール送信時のフィールド識別名です",
+          "default": "radio_option"
+        },
+        {
+          "type": "textarea",
+          "id": "options",
+          "label": "選択肢（カンマ区切り）",
+          "info": "選択肢をカンマ(,)で区切って入力してください",
+          "default": "選択肢1, 選択肢2, 選択肢3"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "必須項目にする",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "date_field",
+      "name": "日付入力",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "ラベル",
+          "default": "ご希望日"
+        },
+        {
+          "type": "text",
+          "id": "field_name",
+          "label": "フィールド名（半角英数）",
+          "info": "メール送信時のフィールド識別名です",
+          "default": "date"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "必須項目にする",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "textarea",
+      "name": "テキストエリア",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "ラベル",
+          "default": "お問い合わせ内容"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "プレースホルダー",
+          "default": "ご質問内容がありましたらご自由にご入力ください"
+        },
+        {
+          "type": "range",
+          "id": "rows",
+          "label": "行数",
+          "min": 3,
+          "max": 15,
+          "step": 1,
+          "default": 6
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "必須項目にする",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "法人お問い合わせフォーム",
+      "category": "フォーム",
+      "blocks": [
+        {
+          "type": "text_field",
+          "settings": {
+            "label": "会社名 / 団体名",
+            "field_name": "company_name",
+            "placeholder": "会社名をご入力ください",
+            "required": true
+          }
+        },
+        {
+          "type": "text_field",
+          "settings": {
+            "label": "部署名 / 役職名",
+            "field_name": "department",
+            "placeholder": "部署名をご入力ください",
+            "required": false
+          }
+        },
+        {
+          "type": "text_field",
+          "settings": {
+            "label": "ご担当者様名",
+            "field_name": "contact_name",
+            "placeholder": "担当者様をフルネームでご入力ください",
+            "required": true
+          }
+        },
+        {
+          "type": "email_field",
+          "settings": {
+            "label": "Email",
+            "placeholder": "メールアドレスをご入力ください",
+            "required": true
+          }
+        },
+        {
+          "type": "phone_field",
+          "settings": {
+            "label": "ご連絡先の電話番号",
+            "field_name": "phone",
+            "placeholder": "000-0000-0000",
+            "required": true
+          }
+        },
+        {
+          "type": "radio_group",
+          "settings": {
+            "label": "ご連絡方法",
+            "field_name": "contact_method",
+            "options": "メール, 電話, どちらでも可",
+            "required": true
+          }
+        },
+        {
+          "type": "textarea",
+          "settings": {
+            "label": "お問い合わせ内容",
+            "placeholder": "ご質問内容がありましたらご自由にご入力ください",
+            "rows": 6,
+            "required": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

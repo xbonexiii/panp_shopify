@@ -1,0 +1,671 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "guide-header",
+      "name": "ガイドヘッダー",
+      "settings": {
+        "html_id": "",
+        "main_title": "PANP AIR使い方",
+        "guide_title": "ガイドメニュー",
+        "guide_description": "用途をアイコンからお選びください。",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_icon_menu_YE4fb6": {
+      "type": "guide-icon-menu",
+      "blocks": {
+        "guide_icon_h8kMJ3": {
+          "type": "guide_icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/cycle_905e6c72-85fd-46a0-ac3d-f6d6b6f68d6d.png",
+            "link_url": "#HowToOperate"
+          }
+        },
+        "guide_icon_UakYhX": {
+          "type": "guide_icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/airmattress-jp.png",
+            "link_url": "#air mattress"
+          }
+        },
+        "guide_icon_J4NHi3": {
+          "type": "guide_icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/pool-jp.png",
+            "link_url": "#pool"
+          }
+        },
+        "guide_icon_7Vpxwq": {
+          "type": "guide_icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/swimring-jp.png",
+            "link_url": "#swim ring"
+          }
+        }
+      },
+      "block_order": [
+        "guide_icon_h8kMJ3",
+        "guide_icon_UakYhX",
+        "guide_icon_J4NHi3",
+        "guide_icon_7Vpxwq"
+      ],
+      "name": "ガイドアイコンメニュー",
+      "settings": {
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_header_WFnqDm": {
+      "type": "guide-header",
+      "disabled": true,
+      "name": "ガイドヘッダー",
+      "settings": {
+        "html_id": "HowToOperate",
+        "main_title": "",
+        "guide_title": "タッチパネルの操作方法",
+        "guide_description": "",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_header_jBGpHd": {
+      "type": "guide-header",
+      "name": "エアーマット 編ガイドヘッダー",
+      "settings": {
+        "html_id": "HowToOperate",
+        "main_title": "",
+        "guide_title": "操作方法",
+        "guide_description": "",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "video_w3pRJY": {
+      "type": "video",
+      "disabled": true,
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/Onz47vFv4B0?si=sJa5oyRZCzcCEJbV",
+        "description": "AIRの操作方法",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_content_M4w7BB": {
+      "type": "guide-content",
+      "blocks": {
+        "image_only_pkT8KN": {
+          "type": "image_only",
+          "settings": {
+            "image": "shopify://shop_images/guideuseair.png"
+          }
+        },
+        "rich_text_cyjq8V": {
+          "type": "rich_text",
+          "settings": {
+            "rich_text": "<h3>お子さんでも使えるシンプルな操作</h3><ol><li>電源ボタンを2回押すと「スタート」できます。</li><li>電源ボタンを1回押すと「ストップ」できます。</li><li>電源ボタンを3秒間長押しで「LEDライトのオン」できます。<br/>3秒間長押しすると、LEDがオフになります。<br/></li></ol><p>※長時間動作しないとスタンバイモードになり、低消費電力で動作します。<br/>※バッテリー残量が1~2%になると、自動的に電源がオフになります。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_only_pkT8KN",
+        "rich_text_cyjq8V"
+      ],
+      "name": "ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_header_NM3fqh": {
+      "type": "guide-header",
+      "name": "エアーマット 編ガイドヘッダー",
+      "settings": {
+        "html_id": "air mattress",
+        "main_title": "",
+        "guide_title": "エアーマット 編",
+        "guide_description": "",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_content_r3MhGy": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_7URnKV": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/airmat-use.png",
+            "combo_text": "<p>　　○ 空気注入口は下記画像の形状です。<br/></p><p>※マットの種類により異なる場合がございます。</p>",
+            "layout": "text_top"
+          }
+        },
+        "image_text_combo_XJkdAp": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/air-mat.png",
+            "combo_text": "<p>●<strong>準備するもの</strong></p><p>（注入時）エアマットノズル・（排出時）圧縮ノズル・AIR本体</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_7URnKV",
+        "image_text_combo_XJkdAp"
+      ],
+      "name": "エアーマット 編ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "video_P8TzXq": {
+      "type": "video",
+      "name": "エアーマット 編動画",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/Qm5AdPUF5Qg?si=OcqCpa4PNF5edb7c",
+        "cover_image": "shopify://shop_images/air-matt.jpg",
+        "description": "ボールの空気の入れ方",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_accordion_a3FaAf": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_GdhBYe": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0242.png",
+            "step_description": "【1】本体の空気注入口にアタッチメントを取り付けます"
+          }
+        },
+        "step_item_pmgwgQ": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0243.png",
+            "step_description": "【2】電源ボタンを2回押すと空気注入スタート"
+          }
+        },
+        "step_item_ipFirD": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0244.png",
+            "step_description": "【3】ボタン1回押すとストップ"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_GdhBYe",
+        "step_item_pmgwgQ",
+        "step_item_ipFirD"
+      ],
+      "name": "エアーマット 編ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "空気の入れ方",
+        "open_by_default": false,
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_accordion_dztVyW": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_MY3nXj": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0245.png",
+            "step_description": "【1】エアマットの空気排出口に圧縮ノズルアタッチメントを取り付けます"
+          }
+        },
+        "step_item_7TrqH7": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0246.png",
+            "step_description": "【2】電源ボタンを2回押すと空気排気スタート"
+          }
+        },
+        "step_item_jtjxWz": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0247.png",
+            "step_description": "【3】ボタン1回押すとストップ"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_MY3nXj",
+        "step_item_7TrqH7",
+        "step_item_jtjxWz"
+      ],
+      "name": "エアーマット 編ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "空気の抜き方",
+        "open_by_default": false,
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_header_JKrjDz": {
+      "type": "guide-header",
+      "name": "プール 編ヘッダー",
+      "settings": {
+        "html_id": "pool",
+        "main_title": "",
+        "guide_title": "プール 編",
+        "guide_description": "",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_content_fhFKFC": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_fCYHV7": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/airpool-use.png",
+            "combo_text": "<p>　</p><p>　○ 空気注入口は下記画像の形状です。</p>",
+            "layout": "text_top"
+          }
+        },
+        "image_text_combo_nPHdYf": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/air-ukiwa_bda313f3-5243-4ebb-a257-a49e58f04413.png",
+            "combo_text": "<p>●<strong>準備するもの</strong></p><p>エアノズル・AIR本体</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_fCYHV7",
+        "image_text_combo_nPHdYf"
+      ],
+      "name": "プール 編ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "rich_text_wQwPUG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7RH6w3": {
+          "type": "heading",
+          "settings": {
+            "heading": "TPU(ビニール)チューブをお使いの方へ",
+            "heading_size": "h1"
+          }
+        },
+        "text_cMqMqm": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>チューブ破損を防ぐため、必ずホースをご使用ください。</h3><p>近年の軽量化志向により、<strong>TPU（熱可塑性ポリウレタン）製のチューブやプラスチック素材のバルブ</strong>が増えています。<strong>この素材は非常に熱に弱く、電動空気入れの排気口は非常に高温になります</strong>ので、付属のホースを必ずご使用ください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7RH6w3",
+        "text_cMqMqm"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 8
+      }
+    },
+    "guide_content_eiQxT9": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_zY48hq": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/hourseandfrench_42f40083-7a4e-4d63-9039-eeaf6ccf608e.png",
+            "combo_text": "<h2>ご自身のチューブがTPUか分からない場合は…</h2><p>・チューブが半透明〜透明で、ツルツルした質感<br/>・軽量で、くるくる丸めやすい<br/>・空気を差し込む部分がプラスチック製<br/>・「TPU」や「Ultralight」「Superlight」と記載がある</p>",
+            "layout": "image_top"
+          }
+        },
+        "image_only_RNQcRj": {
+          "type": "image_only",
+          "settings": {
+            "image": "shopify://shop_images/tpu.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_zY48hq",
+        "image_only_RNQcRj"
+      ],
+      "disabled": true,
+      "name": "ガイドコンテンツ",
+      "settings": {
+        "html_id": "",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "video_EiA3WN": {
+      "type": "video",
+      "name": "プール 編動画",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/uyZqBp2aMOE?si=1JOSalcy6F3s2MNN",
+        "cover_image": "shopify://shop_images/air-pool.jpg",
+        "description": "エアプールの空気の入れ方",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_accordion_aaFmzz": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_NiFija": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0235.png",
+            "step_description": "【1】本体の空気注入口にアタッチメントを取り付けます"
+          }
+        },
+        "step_item_iTmfqD": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0236.png",
+            "step_description": "【2】電源ボタンを2回押すと空気注入スタート"
+          }
+        },
+        "step_item_BK6xbV": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0237.png",
+            "step_description": "【3】ボタン1回押すとストップ"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_NiFija",
+        "step_item_iTmfqD",
+        "step_item_BK6xbV"
+      ],
+      "name": "プール 編ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "空気の入れ方",
+        "open_by_default": false,
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_accordion_fFDKQW": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_jBVxUg": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0238.png",
+            "step_description": "【1】本体の空気排出口にアタッチメントを取り付けます"
+          }
+        },
+        "step_item_bcgCWH": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0239.png",
+            "step_description": "【2】電源ボタンを2回押すと空気排気スタート"
+          }
+        },
+        "step_item_AkEkLH": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0240.png",
+            "step_description": "【3】ボタン1回押すとストップ"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_jBVxUg",
+        "step_item_bcgCWH",
+        "step_item_AkEkLH"
+      ],
+      "name": "プール 編ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "空気の抜き方",
+        "open_by_default": false,
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_header_q688qw": {
+      "type": "guide-header",
+      "name": "うきわ 編",
+      "settings": {
+        "html_id": "swim ring",
+        "main_title": "",
+        "guide_title": "うきわ 編",
+        "guide_description": "",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_content_wVrQnM": {
+      "type": "guide-content",
+      "blocks": {
+        "image_text_combo_N3VNq9": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/ukiwa-use.png",
+            "combo_text": "<p>　</p><p>　○ 空気注入口は下記画像の形状です。</p>",
+            "layout": "text_top"
+          }
+        },
+        "image_text_combo_iMPErX": {
+          "type": "image_text_combo",
+          "settings": {
+            "combo_image": "shopify://shop_images/air-ukiwa.png",
+            "combo_text": "<p>●<strong>準備するもの</strong></p><p>エアノズル・AIR本体</p>",
+            "layout": "text_top"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_combo_N3VNq9",
+        "image_text_combo_iMPErX"
+      ],
+      "name": "うきわ 編",
+      "settings": {
+        "html_id": "",
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "video_tzqYar": {
+      "type": "video",
+      "name": "うきわ 編動画",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/TbJv1KqyFUE?si=JrdvJwIRjvJMVR4T",
+        "cover_image": "shopify://shop_images/air-ukiwa.jpg",
+        "description": "シティサイクル、ママチャリの空気の入れ方",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guide_accordion_BQ8M4R": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_t4c68K": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0230.png",
+            "step_description": "【1】本体の空気注入口にアタッチメントを取り付けます"
+          }
+        },
+        "step_item_JCyH44": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0230.png",
+            "step_description": "【2】電源ボタンを2回押すと空気注入スタート"
+          }
+        },
+        "step_item_E7VXQc": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0231.png",
+            "step_description": "【3】ボタン1回押すとストップ"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_t4c68K",
+        "step_item_JCyH44",
+        "step_item_E7VXQc"
+      ],
+      "name": "うきわ 編ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "空気の入れ方",
+        "open_by_default": false,
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    },
+    "guide_accordion_imU8pH": {
+      "type": "guide-accordion",
+      "blocks": {
+        "step_item_tctFYC": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0232.png",
+            "step_description": "【1】本体の空気排気口にアタッチメントを取り付けます"
+          }
+        },
+        "step_item_9XtxCT": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0233.png",
+            "step_description": "【2】電源ボタンを2回押すと空気排気スタート"
+          }
+        },
+        "step_item_Am8P69": {
+          "type": "step_item",
+          "settings": {
+            "step_image": "shopify://shop_images/panp-air-use__0234.png",
+            "step_description": "【3】ボタンを1回押すとストップ"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_tctFYC",
+        "step_item_9XtxCT",
+        "step_item_Am8P69"
+      ],
+      "name": "うきわ編ガイドアコーディオン",
+      "settings": {
+        "html_id": "",
+        "accordion_title": "空気の抜き方",
+        "open_by_default": false,
+        "margin_top_pc": 30,
+        "margin_bottom_pc": 30,
+        "margin_top_sp": 30,
+        "margin_bottom_sp": 30
+      }
+    }
+  },
+  "order": [
+    "main",
+    "guide_icon_menu_YE4fb6",
+    "guide_header_WFnqDm",
+    "guide_header_jBGpHd",
+    "video_w3pRJY",
+    "guide_content_M4w7BB",
+    "guide_header_NM3fqh",
+    "guide_content_r3MhGy",
+    "video_P8TzXq",
+    "guide_accordion_a3FaAf",
+    "guide_accordion_dztVyW",
+    "guide_header_JKrjDz",
+    "guide_content_fhFKFC",
+    "rich_text_wQwPUG",
+    "guide_content_eiQxT9",
+    "video_EiA3WN",
+    "guide_accordion_aaFmzz",
+    "guide_accordion_fFDKQW",
+    "guide_header_q688qw",
+    "guide_content_wVrQnM",
+    "video_tzqYar",
+    "guide_accordion_BQ8M4R",
+    "guide_accordion_imU8pH"
+  ]
+}

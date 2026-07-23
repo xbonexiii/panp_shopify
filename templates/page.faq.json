@@ -1,0 +1,106 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collapsible_content_dUDHhk": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_pjt6cM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "米式エアホース（同梱物②）が入っていません。",
+            "icon": "question_mark",
+            "row_content": "<p>米式エアホースは<strong>本体収納型</strong>になっております。下記写真の黄色丸印の箇所を一度ご確認くださいませ。<br/>こちらにも収納されていない場合はお手数ですが<a href=\"/pages/warranty\" title=\"交換・修理フォーム\">こちら</a>よりお問い合わせくださいませ。</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_EPcD8A": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "仏式に入れるとき空気が抜けます。",
+            "icon": "question_mark",
+            "row_content": "<p>仏式アタッチメントがしっかり装着できていない可能性がございます。<br/> 下記をご確認ください。<br/><br/> スマート空気入れの仏式アタッチメントは、<strong>ねじ込み式</strong>となっています。<br/>仏式バルブに仏式アタッチメントを装着する際、<strong>時計回りに止まるまでしっかり回してしめてください。</strong>  また、動画でも仏式バルブの空気の入れ方をご用意しております。　<a href=\"https://youtu.be/YYhCTWqf8Fw?si=w8D05SkSmjukP_j9\" title=\"自転車の空気入れ方【仏式バルブ】ロードバイク、クロスバイクの空気入れ方　【電動空気入れ】スマート空気入れ 自転車空気入れ\">動画はこちら </a>それでも抜けてしまう場合は恐れ入りますが、下記からお問い合わせください。</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_x94zWg": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "仏式のOリングが外れてしまいます。",
+            "icon": "question_mark",
+            "row_content": "<p>下記2点をご確認ください。</p><p> 【1】スマート空気入れの仏式アタッチメントは、<strong>ねじ込み式</strong>となっています。<br/>仏式バルブに仏式アタッチメントを装着する際、<strong>時計回りに止まるまでしっかり回してしめて</strong>ください。</p><p> 【2】仏式アタッチメントを外す際のポイント<br/> 1）片手で仏式アタッチメントを固定し、もう片方の手で米式エアホースを反時計回りに回して外す。<br/> 2）仏式アタッチメントを反時計回りに回転させながら、バルブから取り外す。</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_TDqLjd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "ホースと本体が熱くなります。",
+            "icon": "question_mark",
+            "row_content": "<p>本体・米式エアホース・エアホース取り付け口に熱を持つ場合がございますが、本製品には、安全装置がついていますのでオーバーヒート前に自動で電源が切れるようになっていますのでご安心ください。<br/>しかし、連続運転直後は<strong>米式エアホース・エアホース取り付け口</strong>が熱くなっておりますので、すぐに触って取外しをせずに、少し時間を空けて外していただくようにお願い致します。</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_FKbUKg": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "英式の空気圧が表示されません。",
+            "icon": "question_mark",
+            "row_content": "<p>英式バルブは、空気漏れを防ぐ構造上、接続しただけでは空気圧は表示されません。<br/>スマート空気入れでは、エアホースから出る空気がタイヤチューブに入る際に、タイヤチューブ内の空気圧によって押し返す力が働きます。<br/>その押し返してきているタイヤ内の空気圧を測定するという仕組みになっております。<br/> そのため、<span style=\"text-decoration:underline\">空気注入中のみ測定</span>できます。</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_7e3CTP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "最適な空気圧が合っているかわかりません。",
+            "icon": "question_mark",
+            "row_content": "<p>最適な空気圧を確認するには、<a href=\"https://panp.jp/blogs/safety-security/perfect-airbag-trivia\" title=\"https://panp.jp/blogs/safety-security/perfect-airbag-trivia\">こちら</a>をご覧ください。</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_pjt6cM",
+        "collapsible_row_EPcD8A",
+        "collapsible_row_x94zWg",
+        "collapsible_row_TDqLjd",
+        "collapsible_row_FKbUKg",
+        "collapsible_row_7e3CTP"
+      ],
+      "settings": {
+        "caption": "FAQ",
+        "heading": "よくあるご質問",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "collapsible_content_dUDHhk",
+    "main"
+  ]
+}

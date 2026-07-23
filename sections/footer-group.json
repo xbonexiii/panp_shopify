@@ -1,0 +1,131 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "text_YYWcqb": {
+          "type": "text",
+          "settings": {
+            "heading": "お届け日",
+            "subtext": "<p>ご注文確定後、<br/>1-2営業日以内に出荷<br/>※ご予約商品は除く</p><p><a href=\"/pages/shipping-policy\" title=\"配送ポリシー\">配送ポリシーはこちら</a></p>"
+          }
+        },
+        "text_UYRRTf": {
+          "type": "text",
+          "settings": {
+            "heading": "返品できる",
+            "subtext": "<p>PANPにご満足頂けなかった場合は、どんな理由でも返品を承ります。<br/><a href=\"/pages/page-2\" title=\"返金ポリシー\">詳しくはこちら</a></p>"
+          }
+        },
+        "text_ErBHXT": {
+          "type": "text",
+          "settings": {
+            "heading": "保証期間",
+            "subtext": "<p>商品到着日から1年間<br/><a href=\"/pages/warranty\" title=\"交換・修理フォーム\">詳しくはこちら</a></p>"
+          }
+        },
+        "text_RMRtDA": {
+          "type": "text",
+          "settings": {
+            "heading": "お問い合わせ",
+            "subtext": "<p><a href=\"https://kukiire.com/a/faq\" title=\"https://kukiire.com/a/faq\">よくある質問<br/></a><a href=\"https://kukiire.com/pages/contact\" title=\"お問い合わせ\">メール：24時間受付</a><br/><a href=\"https://lin.ee/kbF49q5\" title=\"https://lin.ee/kbF49q5\">LINE：24時間受付<br/></a>お電話：10-17時受付／<a href=\"tel:092-260-6573\" title=\"tel:092-260-6573\">0922606573<br/></a>*土日祝お休み</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_YYWcqb",
+        "text_UYRRTf",
+        "text_ErBHXT",
+        "text_RMRtDA"
+      ],
+      "custom_css": [
+        "p {font-size: 13px;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 40,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "footer-us": {
+      "type": "footer-us",
+      "blocks": {
+        "text_YYWcqb": {
+          "type": "text",
+          "settings": {
+            "heading": "お届け日",
+            "subtext": "<p>ご注文確定後、<br/>1-2営業日以内に出荷<br/>※ご予約商品は除く</p><p><a href=\"/pages/shipping-policy\" title=\"配送ポリシー\">配送ポリシーはこちら</a></p>"
+          }
+        },
+        "text_UYRRTf": {
+          "type": "text",
+          "settings": {
+            "heading": "返品できる",
+            "subtext": "<p>PANPにご満足頂けなかった場合は、どんな理由でも返品を承ります。<br/><a href=\"/pages/page-2\" title=\"返金ポリシー\">詳しくはこちら</a></p>"
+          }
+        },
+        "text_ErBHXT": {
+          "type": "text",
+          "settings": {
+            "heading": "保証期間",
+            "subtext": "<p>商品到着日から1年間<br/><a href=\"/pages/warranty\" title=\"交換・修理フォーム\">詳しくはこちら</a></p>"
+          }
+        },
+        "text_RMRtDA": {
+          "type": "text",
+          "settings": {
+            "heading": "お問い合わせ",
+            "subtext": "<p><a href=\"https://kukiire.com/a/faq\" title=\"https://kukiire.com/a/faq\">よくある質問<br/></a><a href=\"https://kukiire.com/pages/contact\" title=\"お問い合わせ\">メール：24時間受付</a><br/><a href=\"https://lin.ee/kbF49q5\" title=\"https://lin.ee/kbF49q5\">LINE：24時間受付<br/></a>お電話：10-17時受付／<a href=\"tel:092-260-6573\" title=\"tel:092-260-6573\">0922606573<br/></a>*土日祝お休み</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_YYWcqb",
+        "text_UYRRTf",
+        "text_ErBHXT",
+        "text_RMRtDA"
+      ],
+      "custom_css": [
+        "p {font-size: 13px;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 40,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "footer",
+    "footer-us"
+  ]
+}

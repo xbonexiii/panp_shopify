@@ -1,0 +1,139 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background_color }};
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .title-text-{{ section.settings.title_text_size }} {
+    font-size: {% case section.settings.title_text_size %}
+                  {% when 'small' %}16px
+                  {% when 'medium' %}24px
+                  {% when 'large' %}32px
+                {% endcase %};
+    color: {{ section.settings.title_text_color }};
+  }
+
+  .countdown-text-color {
+    color: {{ section.settings.countdown_text_color }};
+  }
+{%- endstyle -%}
+
+<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
+  <div id="countdown-timer" class="text-center section-{{ section.id }}-padding countdown-text-color" style="font-size: {{ section.settings.font_size }}px;">
+    <h2 class="title-text-{{ section.settings.title_text_size }}" style="text-align: center;">{{ section.settings.title }}</h2>
+    <div id="countdown" data-end-date="{{ section.settings.end_date }}" style="text-align: center;">
+      あと0日 0時間 0分 0秒
+    </div>
+  </div>
+</div>
+<script src="{{ 'countdown-timer.js' | asset_url }}"></script>
+
+{% schema %}
+{
+  "name": "Custom Countdown Timer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "セールカウントダウン"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "Sale Start Date and Time (YYYY-MM-DDTHH:MM:SS)",
+      "default": "2024-12-31T23:59:59"
+    },
+    {
+      "type": "number",
+      "id": "font_size",
+      "label": "Font Size (px)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (px)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (px)",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_text_color",
+      "label": "タイトルテキストカラー",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "countdown_text_color",
+      "label": "カウントダウンテキストカラー",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "title_text_size",
+      "label": "タイトルテキストの大きさ",
+      "options": [
+        {
+          "value": "small",
+          "label": "小"
+        },
+        {
+          "value": "medium",
+          "label": "中"
+        },
+        {
+          "value": "large",
+          "label": "大"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max Width (px)",
+      "min": 600,
+      "max": 2000,
+      "step": 200,
+      "unit": "px",
+      "default": 1000
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown Timer",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
