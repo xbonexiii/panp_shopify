@@ -184,6 +184,29 @@
           message.appendChild(document.createTextNode('「-」は除いて、数字7桁でご入力ください。'));
         }
       });
+
+      const minDeliveryDate = Array.from(deliveryRoot.querySelectorAll('p, div, span')).find(function (element) {
+        return element.children.length === 0 && element.textContent.trim().startsWith('最短ご指定可能日：');
+      });
+      if (minDeliveryDate) {
+        minDeliveryDate.textContent = minDeliveryDate.textContent.replace(
+          '最短ご指定可能日：',
+          '最短のご指定可能日：'
+        );
+      }
+
+      const deliveryNotice = Array.from(deliveryRoot.querySelectorAll('p, div, span')).find(function (element) {
+        return (
+          element.children.length === 0 &&
+          element.textContent.trim() ===
+            '※日付・時間を指定いただいた場合でも、地域や配送業者の都合によって指定日・指定時間に配達できない場合がございます。'
+        );
+      });
+      if (deliveryNotice) {
+        deliveryNotice.textContent = '※お住まいの場所や配送業者の都合により、';
+        deliveryNotice.appendChild(document.createElement('br'));
+        deliveryNotice.appendChild(document.createTextNode('　ご希望の日時に配達できない場合がございます。'));
+      }
     }
 
     replaceDeliveryAppCopy();
