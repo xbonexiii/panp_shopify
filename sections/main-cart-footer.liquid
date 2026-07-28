@@ -185,14 +185,17 @@
         }
       });
 
-      const minDeliveryDate = Array.from(deliveryRoot.querySelectorAll('p, div, span')).find(function (element) {
-        return element.children.length === 0 && element.textContent.trim().startsWith('最短ご指定可能日：');
-      });
+      const minDeliveryDate = deliveryRoot.querySelector('.delivery-mindate-caution');
       if (minDeliveryDate) {
-        minDeliveryDate.textContent = minDeliveryDate.textContent.replace(
-          '最短ご指定可能日：',
-          '最短のご指定可能日：'
-        );
+        const minDeliveryDateLabel = Array.from(minDeliveryDate.childNodes).find(function (node) {
+          return node.nodeType === Node.TEXT_NODE && node.textContent.trim().startsWith('最短ご指定可能日');
+        });
+        if (minDeliveryDateLabel) {
+          minDeliveryDateLabel.textContent = minDeliveryDateLabel.textContent.replace(
+            '最短ご指定可能日',
+            '最短のご指定可能日'
+          );
+        }
       }
 
       const deliveryNotice = Array.from(deliveryRoot.querySelectorAll('p, div, span')).find(function (element) {
