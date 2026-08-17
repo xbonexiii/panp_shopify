@@ -36,10 +36,6 @@
     margin-top: 0.8rem;
   }
 
-  .cart__blocks .cart-tax-shipping-row .tax-note {
-    margin: 0 !important;
-  }
-
   .shipping-badge {
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -110,22 +106,11 @@
                 </div>
 
                 <div class="totals">
-                  <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
+                  <h2 class="totals__total">合計・税込</h2>
                   <p class="totals__total-value">{{ cart.total_price | money_with_currency | remove: 'JPY' }}</p>
                 </div>
 
                 <div class="cart-tax-shipping-row">
-                  <small class="tax-note caption-large rte">
-                    {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
-                      {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url | replace: '・送料無料', '' }}
-                    {%- elsif cart.taxes_included -%}
-                      {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t | replace: '・送料無料', '' }}
-                    {%- elsif shop.shipping_policy.body != blank -%}
-                      {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url | replace: '・送料無料', '' }}
-                    {%- else -%}
-                      {{ 'sections.cart.taxes_and_shipping_at_checkout' | t | replace: '・送料無料', '' }}
-                    {%- endif -%}
-                  </small>
                   <span class="shipping-badge">今だけ送料無料</span>
                 </div>
               </div>
