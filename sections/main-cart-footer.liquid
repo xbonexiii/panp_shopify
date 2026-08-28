@@ -48,6 +48,14 @@
     letter-spacing: 0.03em;
   }
 
+  .totals__tax-label {
+    margin-left: 0.2rem;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-size: calc(var(--font-heading-scale) * 1.6rem);
+    font-weight: var(--font-heading-weight);
+  }
+
   #delivery-datetime--isRender .delivery-title.title-border {
     display: none;
   }
@@ -106,8 +114,11 @@
                 </div>
 
                 <div class="totals">
-                  <h2 class="totals__total">合計・税込</h2>
-                  <p class="totals__total-value">{{ cart.total_price | money_with_currency | remove: 'JPY' }}</p>
+                  <h2 class="totals__total">合計</h2>
+                  <p class="totals__total-value">
+                    {{ cart.total_price | money_with_currency | remove: 'JPY' -}}
+                    <span class="totals__tax-label">（税込）</span>
+                  </p>
                 </div>
 
                 <div class="cart-tax-shipping-row">
