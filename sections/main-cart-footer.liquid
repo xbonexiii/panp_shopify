@@ -115,7 +115,7 @@
                 <div class="totals">
                   <h2 class="totals__total">合計</h2>
                   <p class="totals__total-value">
-                    {{- cart.total_price | money_with_currency | remove: 'JPY' -}}<span class="totals__tax-label">（税込）</span>
+                    {{- cart.total_price | money_with_currency | remove: 'JPY' | strip -}}<span class="totals__tax-label">（税込）</span>
                   </p>
                 </div>
 
